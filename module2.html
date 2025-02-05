@@ -4,78 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WeCode | Module 2</title>
+  <!-- Main Styles -->
   <link rel="stylesheet" href="styles/style.css">
+  <!-- Animations -->
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-  <div class="bg-wave"></div>
-
-  <header>
-    <div class="nav-container">
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-        <li><a href="progress.html" class="nav-link">Progress</a></li>
-        <li><a href="resources.html" class="nav-link">Resources</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      </ul>
+<header>
+  <div class="nav-container">
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
-  </header>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="progress.html" class="nav-link">Progress</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+    </ul>
+  </div>
+</header>
 
-  <main class="page-content">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>&gt;</span>
-      <a href="exercises.html">Exercises</a> <span>&gt;</span>
-      <span>Module 2</span>
+<main class="page-content">
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> <span>&gt;</span>
+    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+    <span>Module 2</span>
+  </div>
+
+  <!-- Main Module Content -->
+  <section class="glass module-lessons tilt-card">
+    <h1 class="fancy-title">Module 2: Data Structures &amp; Algorithms</h1>
+    <p>Explore arrays, linked lists, sorting, searching, BFS/DFS, and more fundamental algorithms.</p>
+
+    <!-- Collapsible Timeline Button -->
+    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+    <div class="module-timeline" id="moduleTimeline">
+      <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
+      <div class="timeline-step">Step 2: Trees &amp; Graphs</div>
     </div>
+    <hr>
 
-    <section class="glass module-lessons">
-      <h1>Module 2: Data Structures &amp; Algorithms</h1>
-      <p>Explore arrays, linked lists, sorting, searching, BFS/DFS, and more fundamental algorithms.</p>
+    <!-- Lessons -->
+    <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
+    <p>Implement basic operations (insert, delete, traverse) and analyze time complexities.</p>
+    <button class="btn" onclick="openExternalIDE('M2L1')">Open IDE for Lesson 1</button>
+    <hr>
 
-      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-      <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
-        <div class="timeline-step">Step 2: Trees &amp; Graphs</div>
-      </div>
-      <hr>
+    <h2>Lesson 2: Trees &amp; Graphs</h2>
+    <p>Explore tree traversals (in-order, pre-order, post-order) and BFS/DFS on graphs.</p>
+    <button class="btn" onclick="openExternalIDE('M2L2')">Open IDE for Lesson 2</button>
+  </section>
+</main>
 
-      <div style="text-align:center; margin:20px 0;">
-        <img src="assets/images/module2_diagram.png" alt="Data Structures Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#ccc;"><em>Figure: Data Structures Overview</em></p>
-      </div>
+<footer></footer>
+<p>© 2025 WeCode. All rights reserved.</p>
 
-      <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
-      <p>Implement basic operations (insert, delete, traverse) and analyze time complexities.</p>
-      <button class="btn" onclick="openExternalIDE('M2L1')">Open IDE for Lesson 1</button>
+<!-- Scroll-to-Top Button -->
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
-      <hr>
-      <h2>Lesson 2: Trees &amp; Graphs</h2>
-      <p>Explore tree traversals (in-order, pre-order, post-order) and BFS/DFS on graphs.</p>
-      <button class="btn" onclick="openExternalIDE('M2L2')">Open IDE for Lesson 2</button>
-    </section>
-  </main>
+<!-- Scripts -->
+<script src="scripts/main.js"></script>
+<script>
+function toggleTimeline(){
+  const timeline = document.getElementById("moduleTimeline");
+  if(timeline) timeline.classList.toggle("show");
+}
 
-  <footer>
-    <p>© 2025 WeCode. All rights reserved.</p>
-  </footer>
-
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
-  <script src="scripts/main.js"></script>
-  <script>
-    function toggleTimeline(){
-      const timeline = document.getElementById("moduleTimeline");
-      if(timeline) timeline.classList.toggle("show");
-    }
-    function openExternalIDE(lessonID) {
-      const url = getWandboxLink(lessonID);
-      window.open(url, "_blank");
-    }
-  </script>
+function openExternalIDE(lessonID) {
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
+}
+</script>
 </body>
 </html>

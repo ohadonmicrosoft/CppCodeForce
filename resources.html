@@ -4,84 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WeCode | Resources</title>
-
-  <!-- קבצי ה-CSS -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
-  <!-- ספריית AOS, אם רוצים אנימציות Scroll -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" /> -->
 </head>
 <body class="page-resources fade-in">
-  <div class="bg-wave"></div>
-
-  <header>
-    <div class="nav-container">
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-        <li><a href="progress.html" class="nav-link">Progress</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      </ul>
-      <button id="theme-toggle" class="theme-btn">Switch Theme</button>
+<header>
+  <div class="nav-container">
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
-  </header>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="progress.html" class="nav-link">Progress</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+    </ul>
+  </div>
+</header>
 
-  <main class="page-content">
-    <h1>Learning Resources</h1>
-    <p>
-      Explore curated references, tutorials, and external links to deepen your
-      understanding of modern C++ and related fields.
-    </p>
+<main class="page-content">
+  <h1 class="fancy-title">Learning Resources</h1>
+  <p style="max-width:800px; margin:0 auto 30px; text-align:center;">
+    Explore curated references, tutorials, and external links to deepen
+    your understanding of modern C++ and related fields.
+  </p>
 
-    <div class="resource-list">
-      <div class="resource-item glass card-hover floating-card zoom-in">
-        <h2>cppreference.com</h2>
-        <p>Comprehensive documentation on C++ language features and the standard library.</p>
-        <a href="https://en.cppreference.com/" target="_blank" class="btn">Visit Site</a>
-      </div>
-      <div class="resource-item glass card-hover floating-card flip-card" data-aos="flip-left">
-        <h2>isocpp.org</h2>
-        <p>Official C++ standardization updates, guidelines, and community news.</p>
-        <a href="https://isocpp.org" target="_blank" class="btn">View Site</a>
-      </div>
-      <div class="resource-item glass card-hover floating-card" data-aos="zoom-in" data-aos-delay="300">
-        <h2>Learn C++</h2>
-        <p>Advanced tutorials, best practices, and in-depth C++ articles.</p>
-        <a href="https://www.learncpp.com/" target="_blank" class="btn">Visit Site</a>
-      </div>
+  <div class="resource-list" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
+    <div class="resource-item glass card-hover tilt-card" style="width:280px;">
+      <h2>cppreference.com</h2>
+      <p>Comprehensive documentation on C++ language features and the standard library.</p>
+      <a href="https://en.cppreference.com/" target="_blank" class="btn">Visit Site</a>
     </div>
 
-    <section class="resource-list" style="margin-top:40px;">
-      <div class="resource-item glass card-hover floating-card" data-aos="fade-up">
-        <h2>Boost Libraries</h2>
-        <p>Peer-reviewed portable C++ source libraries, widely used in the industry.</p>
-        <a href="https://www.boost.org/" target="_blank" class="btn">Explore Boost</a>
-      </div>
-      <div class="resource-item glass card-hover floating-card" data-aos="fade-up" data-aos-delay="200">
-        <h2>Embedded Artistry</h2>
-        <p>Articles, tips, and best practices for embedded C++ development.</p>
-        <a href="https://embeddedartistry.com/" target="_blank" class="btn">Visit Site</a>
-      </div>
-    </section>
-  </main>
+    <div class="resource-item glass card-hover tilt-card" style="width:280px;">
+      <h2>isocpp.org</h2>
+      <p>Official C++ standardization updates, guidelines, and community news.</p>
+      <a href="https://isocpp.org" target="_blank" class="btn">View Site</a>
+    </div>
 
-  <footer>
-    <p>© 2025 WeCode. All rights reserved.</p>
-  </footer>
+    <div class="resource-item glass card-hover tilt-card" style="width:280px;">
+      <h2>Learn C++</h2>
+      <p>Advanced tutorials, best practices, and in-depth C++ articles.</p>
+      <a href="https://www.learncpp.com/" target="_blank" class="btn">Visit Site</a>
+    </div>
 
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-  
-  <script src="scripts/main.js"></script>
-  <!-- AOS script if used -->
-  <!-- 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration:800, once:false });
-  </script>
-  -->
+    <div class="resource-item glass card-hover tilt-card" style="width:280px;">
+      <h2>Boost Libraries</h2>
+      <p>Peer-reviewed portable C++ source libraries, widely used in the industry.</p>
+      <a href="https://www.boost.org/" target="_blank" class="btn">Explore Boost</a>
+    </div>
+
+    <div class="resource-item glass card-hover tilt-card" style="width:280px;">
+      <h2>Embedded Artistry</h2>
+      <p>Articles, tips, and best practices for embedded C++ development.</p>
+      <a href="https://embeddedartistry.com/" target="_blank" class="btn">Visit Site</a>
+    </div>
+  </div>
+</main>
+
+<footer></footer>
+<p>© 2025 WeCode. All rights reserved.</p>
+
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<script src="scripts/main.js"></script>
 </body>
 </html>

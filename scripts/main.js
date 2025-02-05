@@ -1,37 +1,32 @@
 /*************************************************************
- * main.js - Final (semi-dark single-theme)
- * -----------------------------------------------------------
- * - Manages hamburger menu
- * - Scroll-to-top button
- * - getWandboxLink for external IDE 
- * - No theme toggling code (we have a single "semi-dark" approach)
+ * main.js - Manages hamburger menu, scroll-to-top, and IDE links
  *************************************************************/
 
-// DOMContentLoaded: set up scroll-to-top & hamburger
 document.addEventListener("DOMContentLoaded", () => {
-  // SCROLL TO TOP
+  // Scroll to top button logic
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   if (scrollToTopBtn) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) scrollToTopBtn.style.display = "flex";
-      else scrollToTopBtn.style.display = "none";
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = "flex";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
     });
-
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 });
 
-// HAMBURGER MENU
+// Hamburger menu
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 if (menuToggle && navMenu) {
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
   });
-
-  // (Optional) Close menu if clicking outside
+  // Close menu if clicking outside
   document.addEventListener("click", (e) => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
       navMenu.classList.remove("active");
@@ -40,7 +35,7 @@ if (menuToggle && navMenu) {
 }
 
 /*************************************************************
- * External IDE Link Mapping (Wandbox, etc.)
+ * getWandboxLink(lessonID)
  *************************************************************/
 function getWandboxLink(lessonID) {
   const map = {
@@ -62,6 +57,3 @@ function getWandboxLink(lessonID) {
   };
   return map[lessonID] || "https://wandbox.org/";
 }
-
-// ניתן לייצא פונקציה זו אם משתמשים במודולים, או להשאיר כגלובל
-// export { getWandboxLink };

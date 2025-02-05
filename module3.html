@@ -8,73 +8,68 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-  <div class="bg-wave"></div>
-
-  <header>
-    <div class="nav-container">
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-        <li><a href="progress.html" class="nav-link">Progress</a></li>
-        <li><a href="resources.html" class="nav-link">Resources</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      </ul>
+<header>
+  <div class="nav-container">
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
-  </header>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="progress.html" class="nav-link">Progress</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+    </ul>
+  </div>
+</header>
 
-  <main class="page-content">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>&gt;</span>
-      <a href="exercises.html">Exercises</a> <span>&gt;</span>
-      <span>Module 3</span>
+<main class="page-content">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> <span>&gt;</span>
+    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+    <span>Module 3</span>
+  </div>
+
+  <!-- Glass Morphism / Tilt -->
+  <section class="glass module-lessons tilt-card">
+    <h1 class="fancy-title">Module 3: Real-Time &amp; Embedded Systems</h1>
+    <p>Focus on RTOS fundamentals, concurrency in embedded, interrupts, and hardware debugging.</p>
+
+    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+    <div class="module-timeline" id="moduleTimeline">
+      <div class="timeline-step">Step 1: Intro to RTOS</div>
+      <div class="timeline-step">Step 2: Interrupts &amp; Concurrency</div>
     </div>
+    <hr>
 
-    <section class="glass module-lessons">
-      <h1>Module 3: Real‑Time &amp; Embedded Systems</h1>
-      <p>Focus on RTOS fundamentals, concurrency in embedded, interrupts, and hardware debugging.</p>
+    <h2>Lesson 1: RTOS Basics</h2>
+    <p>Understand how tasks are scheduled in real-time operating systems, managing priorities deterministically.</p>
+    <button class="btn" onclick="openExternalIDE('M3L1')">Open IDE for Lesson 1</button>
+    <hr>
 
-      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-      <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Intro to RTOS</div>
-        <div class="timeline-step">Step 2: Interrupts &amp; Concurrency</div>
-      </div>
-      <hr>
+    <h2>Lesson 2: Interrupts &amp; Embedded Concurrency</h2>
+    <p>Design basic interrupt handlers, handle concurrency on microcontrollers, and avoid pitfalls.</p>
+    <button class="btn" onclick="openExternalIDE('M3L2')">Open IDE for Lesson 2</button>
+  </section>
+</main>
 
-      <div style="text-align:center; margin:20px 0;">
-        <img src="assets/images/module3_diagram.png" alt="RTOS Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#ccc;"><em>Figure: RTOS Overview</em></p>
-      </div>
+<footer></footer>
+<p>© 2025 WeCode. All rights reserved.</p>
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
-      <h2>Lesson 1: RTOS Basics</h2>
-      <p>Understand how tasks are scheduled in real-time operating systems, managing priorities deterministically.</p>
-      <button class="btn" onclick="openExternalIDE('M3L1')">Open IDE for Lesson 1</button>
-
-      <hr>
-      <h2>Lesson 2: Interrupts &amp; Embedded Concurrency</h2>
-      <p>Design basic interrupt handlers, handle concurrency on microcontrollers, and avoid pitfalls.</p>
-      <button class="btn" onclick="openExternalIDE('M3L2')">Open IDE for Lesson 2</button>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 WeCode. All rights reserved.</p>
-  </footer>
-
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
-  <script src="scripts/main.js"></script>
-  <script>
-    function toggleTimeline(){
-      const timeline = document.getElementById("moduleTimeline");
-      if(timeline) timeline.classList.toggle("show");
-    }
-    function openExternalIDE(lessonID) {
-      window.open(getWandboxLink(lessonID), "_blank");
-    }
-  </script>
+<script src="scripts/main.js"></script>
+<script>
+function toggleTimeline(){
+  const timeline = document.getElementById("moduleTimeline");
+  if(timeline) timeline.classList.toggle("show");
+}
+function openExternalIDE(lessonID) {
+  window.open(getWandboxLink(lessonID), "_blank");
+}
+</script>
 </body>
 </html>

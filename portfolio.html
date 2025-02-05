@@ -4,92 +4,85 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeCode | Portfolio</title>
-
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"> -->
 </head>
 <body class="page-portfolio fade-in">
-  <div class="bg-wave"></div>
+<header>
+  <div class="nav-container">
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="progress.html" class="nav-link">Progress</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+    </ul>
+  </div>
+</header>
 
-  <header>
-    <div class="nav-container">
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-        <li><a href="progress.html" class="nav-link">Progress</a></li>
-        <li><a href="resources.html" class="nav-link">Resources</a></li>
-        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+<main class="page-content">
+  <h1 class="fancy-title">Meet the Developer</h1>
+  <p style="max-width:800px; margin:0 auto 30px; text-align:center;">
+    Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux.
+    This platform is my advanced learning and portfolio demonstration—bridging
+    real-time embedded topics with modern C++ for a professional, interview-focused skill set.
+  </p>
+
+  <div class="portfolio-highlights" style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center;">
+    <div class="highlight-card glass card-hover tilt-card" style="width:300px;">
+      <h2>Background</h2>
+      <ul>
+        <li>B.Sc. in Computer Science / Electronics Engineering</li>
+        <li>10+ years in embedded software development</li>
+        <li>Expert in real-time systems &amp; OS internals</li>
       </ul>
-      <button id="theme-toggle" class="theme-btn">Switch Theme</button>
-    </div>
-  </header>
-
-  <main class="page-content">
-    <h1>Meet the Developer</h1>
-    <p>
-      Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux.
-      This platform is my advanced learning and portfolio demonstration—bridging
-      real‑time embedded topics with modern C++ for a professional, interview‑focused skill set.
-    </p>
-
-    <div class="portfolio-highlights">
-      <div class="highlight-card glass card-hover floating-card zoom-in">
-        <h2>Background</h2>
-        <ul>
-          <li>B.Sc. in Computer Science / Electronics Engineering</li>
-          <li>10+ years in embedded software development</li>
-          <li>Expert in real‑time systems &amp; OS internals</li>
-        </ul>
-      </div>
-      <div class="highlight-card glass card-hover floating-card flip-card" data-aos="flip-left" data-aos-delay="200">
-        <h2>Focus Areas</h2>
-        <ul>
-          <li>Low‑level C/C++ programming</li>
-          <li>Multithreading &amp; concurrency</li>
-          <li>Performance tuning &amp; memory optimization</li>
-        </ul>
-      </div>
-      <div class="highlight-card glass card-hover floating-card" data-aos="zoom-in" data-aos-delay="400">
-        <h2>Project Goals</h2>
-        <ul>
-          <li>Advanced modules for challenging C++ interviews</li>
-          <li>In‑browser IDE with real‑time solution checking</li>
-          <li>Showcase a professional portfolio &amp; technical background</li>
-        </ul>
-      </div>
     </div>
 
-    <div style="text-align:center; margin-top:40px;">
-      <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
-      <a href="resume.html" class="icon-btn" title="View Resume">
-        <img src="assets/icons/resume2.svg" alt="Resume Icon">
-      </a>
+    <div class="highlight-card glass card-hover tilt-card" style="width:300px;">
+      <h2>Focus Areas</h2>
+      <ul>
+        <li>Low-level C/C++ programming</li>
+        <li>Multithreading &amp; concurrency</li>
+        <li>Performance tuning &amp; memory optimization</li>
+      </ul>
     </div>
-    <div style="text-align:center; margin-top:30px;">
-      <p style="margin-bottom:10px;">Connect with me on GitHub &amp; LinkedIn:</p>
-      <a href="https://github.com/ohadonmicrosoft" target="_blank" class="icon-btn" title="GitHub">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
-      </a>
-      <a href="https://www.linkedin.com/in/ohad-alon" target="_blank" class="icon-btn" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn">
-      </a>
+
+    <div class="highlight-card glass card-hover tilt-card" style="width:300px;">
+      <h2>Project Goals</h2>
+      <ul>
+        <li>Advanced modules for challenging C++ interviews</li>
+        <li>In-browser IDE with real-time solution checking</li>
+        <li>Showcase a professional portfolio &amp; technical background</li>
+      </ul>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    <p>© 2025 WeCode. All rights reserved.</p>
-  </footer>
+  <div style="text-align:center; margin-top:40px;">
+    <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
+    <a href="resume.html" class="icon-btn" title="View Resume">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.24.0/icons/file.svg" alt="Resume Icon" style="width:24px;height:24px;">
+    </a>
+  </div>
 
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <div style="text-align:center; margin-top:30px;">
+    <p style="margin-bottom:10px;">Connect with me on GitHub &amp; LinkedIn:</p>
+    <a href="https://github.com/ohadonmicrosoft" target="_blank" class="icon-btn" title="GitHub">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.24.0/icons/github.svg" alt="GitHub">
+    </a>
+    <a href="https://www.linkedin.com/in/ohad-alon" target="_blank" class="icon-btn" title="LinkedIn">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.24.0/icons/linkedin.svg" alt="LinkedIn">
+    </a>
+  </div>
+</main>
 
-  <script src="scripts/main.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration:800, once:false });
-  </script> -->
+<footer></footer>
+<p>© 2025 WeCode. All rights reserved.</p>
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<script src="scripts/main.js"></script>
 </body>
 </html>

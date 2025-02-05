@@ -1,9 +1,7 @@
 /*************************************************************
- * quiz.js - Final
- * -----------------------------------------------------------
+ * quiz.js
  * - Renders questions from questionBank
  * - Tracks time, local scoreboard
- * - No theme toggling needed
  *************************************************************/
 
 let quizStarted = false;
@@ -11,7 +9,7 @@ let quizStartTime = 0;
 let quizInterval = null;
 let scoreboard = JSON.parse(localStorage.getItem("wecodeQuizScoreboard")) || [];
 
-// example question bank
+// Example question bank
 const questionBank = [
   {
     text: "Which sorting algorithm has worst-case O(n^2)?",
@@ -20,8 +18,8 @@ const questionBank = [
   },
   {
     text: "Binary Search requires the list to be...",
-    options: ["Non-empty","Sorted","Unique","Doubly Linked"],
-    correctIndex:1
+    options: ["Non-empty", "Sorted", "Unique", "Doubly Linked"],
+    correctIndex: 1
   }
 ];
 
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaderboardEntries = document.getElementById("leaderboard-entries");
 
   if (!quizContainer || !startBtn || !submitBtn || !quizTimer || !quizResult) {
-    // אם אחד האלמנטים לא קיים, נצא
     return;
   }
 
@@ -47,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       questionBlock.style.marginBottom = "20px";
 
       const questionText = document.createElement("h4");
-      questionText.textContent = `Q${index+1}: ${q.text}`;
+      questionText.textContent = `Q${index + 1}: ${q.text}`;
       questionBlock.appendChild(questionText);
 
       q.options.forEach((option, optIndex) => {
@@ -63,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
         label.append(` ${option}`);
         questionBlock.appendChild(label);
       });
-
       quizContainer.appendChild(questionBlock);
     });
   }
@@ -81,9 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTimer() {
     const elapsedMs = Date.now() - quizStartTime;
     const seconds = Math.floor(elapsedMs / 1000) % 60;
-    const minutes = Math.floor(elapsedMs / (1000*60));
+    const minutes = Math.floor(elapsedMs / (1000 * 60));
     quizTimer.textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
   }
+
   function pad(num) {
     return (num < 10) ? `0${num}` : num;
   }
@@ -106,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     quizResult.textContent = `You scored ${score} out of ${questionBank.length}.`;
-    const finalTime = quizTimer.textContent.replace("Time: ","");
-    let userName = prompt("Enter your name for the scoreboard:","Anonymous");
+    const finalTime = quizTimer.textContent.replace("Time: ", "");
+    let userName = prompt("Enter your name for the scoreboard:", "Anonymous");
     if (!userName) userName = "Anonymous";
 
     scoreboard.push({ name: userName, score, time: finalTime });
@@ -118,9 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function showLeaderboard() {
     if (!leaderboardDiv || !leaderboardEntries) return;
     leaderboardDiv.style.display = "block";
-    scoreboard.sort((a,b) => b.score - a.score);
+    scoreboard.sort((a, b) => b.score - a.score);
     leaderboardEntries.innerHTML = "";
-
     scoreboard.forEach((entry, idx) => {
       const row = document.createElement("div");
       row.classList.add("leaderboard-entry");
@@ -128,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       row.style.justifyContent = "space-between";
       row.style.margin = "6px 0";
 
-      row.innerHTML = `<span>${idx+1}. ${entry.name}</span>
+      row.innerHTML = `<span>${idx + 1}. ${entry.name}</span>
                        <span>Score: ${entry.score} | Time: ${entry.time}</span>`;
       leaderboardEntries.appendChild(row);
     });

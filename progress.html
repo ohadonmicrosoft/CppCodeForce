@@ -4,60 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WeCode | Progress</title>
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
-
-  <!-- AOS if we want scrolling effects here too -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"> -->
 </head>
-<body class="page-progress">
-  <div class="bg-wave"></div>
-  <header>
-    <div class="nav-container">
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-        <li><a href="resources.html" class="nav-link">Resources</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      </ul>
-      <button id="theme-toggle" class="theme-btn">Switch Theme</button>
+<body class="page-progress fade-in">
+<header>
+  <div class="nav-container">
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
-  </header>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+    </ul>
+  </div>
+</header>
 
-  <main class="page-content fade-in">
-    <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
-      <h1 data-aos="fade-down" style="margin-bottom:0.8em;">Your Learning Journey</h1>
-      <p style="max-width:500px; margin:0 auto 30px;">
-        Track your completed lessons. The radial ring below fills up as you progress through each module’s lessons.
-      </p>
-      <div class="progress-radial zoom-in" id="radialProgress" style="--percent:0;">
-        <span id="progress-label">0%</span>
-      </div>
-      <p id="progress-text" style="margin-top:10px;">Completed 0 / 21 Lessons</p>
-    </section>
-  </main>
+<main class="page-content">
+  <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
+    <h1 class="fancy-title" style="margin-bottom:0.8em;">Your Learning Journey</h1>
+    <p style="max-width:500px; margin:0 auto 30px;">
+      Track your completed lessons. The radial ring below fills up as you progress
+      through each module’s lessons.
+    </p>
+    <div class="progress-radial" id="radialProgress" style="--percent:0;">
+      <span id="progress-label">0%</span>
+    </div>
+    <p id="progress-text" style="margin-top:10px;">Completed 0 / 21 Lessons</p>
+  </section>
+</main>
 
-  <footer>
-    <p>© 2025 WeCode. All rights reserved.</p>
-  </footer>
-  
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer></footer>
+<p>© 2025 WeCode. All rights reserved.</p>
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
-  <script src="scripts/main.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({duration:800,once:false});
-  </script> -->
-
-  <!-- progress.js, in case you have logic for radial progress -->
-  <script src="scripts/progress.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/progress.js"></script>
 </body>
 </html>
