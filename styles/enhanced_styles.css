@@ -12,7 +12,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Body Styling - Fresh, Bold & Playful UI */
 body {
     font-family: 'Fredoka', sans-serif;
     background: linear-gradient(135deg, #F5F7FA, #E6ECF2);
@@ -32,7 +31,7 @@ body {
     padding: 20px;
 }
 
-/* Header Styling - Interactive & Rounded */
+/* Header Styling */
 header {
     position: fixed;
     width: 100%;
@@ -44,6 +43,54 @@ header {
     z-index: 1000;
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+/* Page Content Wrapper */
+.page-content {
+    margin-top: 120px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 /* Index Page Hero Section */
@@ -98,12 +145,44 @@ header {
     box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.7);
 }
 
-/* Button Styling - Rounded & Fun */
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 60px auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.feature-card {
+    width: 300px;
+    margin: 20px;
+}
+
+/* CTA Section */
+.cta {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    text-align: center;
+    background: #fafafa;
+    box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 14px 36px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
     background: #ff6b6b;
@@ -111,6 +190,7 @@ header {
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 6px 15px rgba(255, 107, 107, 0.5);
     border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -119,33 +199,177 @@ header {
     box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.7);
 }
 
-/* Responsive Design - Optimized for All Screens */
+/* Exercise Page Styles */
+.exercise-list {
+    text-align: center;
+    padding: 40px;
+}
+
+.exercise-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.exercise-card {
+    width: 320px;
+    text-align: left;
+}
+
+.exercise-card h3 {
+    margin-bottom: 10px;
+}
+
+.exercise-card p {
+    margin-bottom: 20px;
+}
+
+/* Progress Page Styles */
+.progress-section {
+    text-align: center;
+}
+
+.progress-bar-container {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.progress-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    height: 16px;
+    margin: 20px 0;
+}
+
+.progress {
+    height: 16px;
+    background: linear-gradient(90deg, #00ffcc, #00b3ff);
+    border-radius: 12px;
+    width: var(--progress);
+    transition: width 0.5s ease-in-out;
+}
+
+/* Resource Page */
+.resource-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.resource-item {
+    width: 300px;
+    text-align: left;
+}
+
+/* Portfolio Page */
+.portfolio-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.portfolio-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.portfolio-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.highlight-card {
+    width: 320px;
+    text-align: left;
+}
+
+.highlight-card ul {
+    margin-top: 10px;
+    list-style: inside;
+}
+
+/* Card Hover & Floating Effects */
+.card-hover {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 12px 30px rgba(0, 255, 204, 0.4);
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-card {
+    animation: floating 3.5s ease-in-out infinite;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .title {
-        font-size: 3rem;
+    .nav-menu li {
+        margin-left: 15px;
     }
 
-    .index-hero h1 {
-        font-size: 3rem;
+    .features {
+        flex-direction: column;
     }
 
-    .btn {
-        padding: 12px 28px;
-        font-size: 1.3rem;
+    .feature-card {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .exercise-card,
+    .resource-item,
+    .highlight-card {
+        width: 90%;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 480px) {
-    .title {
-        font-size: 2.5rem;
+    .logo {
+        font-size: 1.5rem;
     }
-
+    .nav-menu {
+        display: none; /* Additional logic can show/hide on small screens */
+    }
+    header {
+        padding: 10px 0;
+    }
     .index-hero h1 {
         font-size: 2.5rem;
     }
-
+    .index-hero p {
+        font-size: 1rem;
+    }
     .btn {
+        font-size: 1rem;
         padding: 10px 24px;
-        font-size: 1.2rem;
     }
 }

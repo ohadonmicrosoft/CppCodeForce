@@ -1,51 +1,49 @@
-// 🔥 Load & Save User Progress with Local Storage & Analytics
+// progress.js
+// 🏆 Load & Save User Progress using Local Storage
+
 const progressBar = document.querySelector('.progress');
 const progressText = document.querySelector('#progress-text');
-const completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
-const totalExercises = 10; // Change this dynamically if needed
+let completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
 
-// 🏆 Update Progress with Gamification Elements
+// Example total, can be dynamically loaded
+const totalExercises = 10;
+
 function updateProgress() {
     let completed = completedExercises.length;
     let percentage = (completed / totalExercises) * 100;
-
+    // Update CSS width & text
     progressBar.style.width = `${percentage}%`;
     progressText.innerText = `Progress: ${Math.round(percentage)}% (${completed}/${totalExercises} Exercises)`;
-    
-    // Save to local storage
     localStorage.setItem('progress', percentage);
 }
 
-// 🔥 Mark an Exercise as Completed
+// Called when user completes an exercise.
 function markExerciseCompleted(exerciseID) {
     if (!completedExercises.includes(exerciseID)) {
         completedExercises.push(exerciseID);
         localStorage.setItem('completedExercises', JSON.stringify(completedExercises));
         updateProgress();
+        checkAchievements();
     }
 }
 
-// 🔥 Load Progress on Page Load
+function checkAchievements() {
+    // Example achievement notifications
+    if (completedExercises.length === 5) {
+        alert("🎉 Halfway There! Keep up the great work!");
+    } else if (completedExercises.length === totalExercises) {
+        alert("🏆 Master of C++! You've completed all exercises!");
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let savedProgress = localStorage.getItem('progress');
     if (savedProgress) {
         progressBar.style.width = `${savedProgress}%`;
-        progressText.innerText = `Progress: ${Math.round(savedProgress)}% (${completedExercises.length}/${totalExercises} Exercises)`;
+        let completed = completedExercises.length;
+        progressText.innerText = `Progress: ${Math.round(savedProgress)}% (${completed}/${totalExercises} Exercises)`;
     }
 });
 
-// 🏆 Gamification: Achievement System
-function checkAchievements() {
-    if (completedExercises.length === 5) {
-        alert("🎉 Achievement Unlocked: Halfway There! Keep Going!");
-    }
-    if (completedExercises.length === totalExercises) {
-        alert("🏆 Achievement Unlocked: Master of C++! You've completed all exercises!");
-    }
-}
-
-// 🔥 Call this function when user completes an exercise
-function completeExercise(exerciseID) {
-    markExerciseCompleted(exerciseID);
-    checkAchievements();
-}
+// If needed, you can expose markExerciseCompleted or call it from exercise pages.
+// e.g. markExerciseCompleted('exercise-1');
