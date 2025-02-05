@@ -3,38 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeForge++ | Module 6</title>
-  <link rel="stylesheet" href="styles/enhanced_styles.css">
+  <title>WeCode | Module 6</title>
+  <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="warm-theme">
+<body class="page-module fade-in">
   <div class="bg-wave"></div>
 
   <header>
     <div class="nav-container">
-      <div class="logo-group">
-        <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
-      </div>
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="resources.html" class="nav-link">Resources</a></li>
-          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-        </ul>
-      </nav>
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
     </div>
   </header>
 
-  <main class="page-content fade-in">
+  <main class="page-content">
     <div class="breadcrumb">
       <a href="index.html">Home</a> <span>&gt;</span>
       <a href="exercises.html">Exercises</a> <span>&gt;</span>
@@ -43,9 +35,8 @@
 
     <section class="glass module-lessons">
       <h1>Module 6: Templates &amp; Metaprogramming</h1>
-      <p style="text-align:justify;">
-        Explore advanced template programming, SFINAE, type traits, and compile-time computations in modern C++.
-      </p>
+      <p>Advanced template programming, SFINAE, type traits, and compile-time computations in C++.</p>
+
       <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Template Fundamentals</div>
@@ -55,38 +46,34 @@
 
       <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module6_diagram.png" alt="Templates Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#555;"><em>Figure: Template Metaprogramming</em></p>
+        <p style="font-size:0.9rem; color:#ccc;"><em>Figure: Template Metaprogramming</em></p>
       </div>
 
       <h2>Lesson 1: Template Fundamentals</h2>
-      <p style="text-align:justify;">
-        Learn how function and class templates work, including instantiation rules and partial specialization.
-      </p>
+      <p>Function/class templates, instantiation rules, partial specialization. Master the basics of generics in C++.</p>
       <button class="btn" onclick="openExternalIDE('M6L1')">Open IDE for Lesson 1</button>
 
       <hr>
-
       <h2>Lesson 2: SFINAE &amp; Type Traits</h2>
-      <p style="text-align:justify;">
-        Understand "Substitution Failure Is Not An Error" and leverage C++ type traits to make compile-time decisions.
-      </p>
+      <p>Use “Substitution Failure Is Not An Error” and <code>std::enable_if</code> to create compile-time branches, explore type traits.</p>
       <button class="btn" onclick="openExternalIDE('M6L2')">Open IDE for Lesson 2</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
   <script src="scripts/main.js"></script>
   <script>
-    function toggleTimeline() {
-      document.getElementById('moduleTimeline').classList.toggle('show');
+    function toggleTimeline(){
+      const timeline = document.getElementById("moduleTimeline");
+      if(timeline) timeline.classList.toggle("show");
     }
     function openExternalIDE(lessonID) {
-      window.open(getWandboxLink(lessonID), '_blank');
+      window.open(getWandboxLink(lessonID), "_blank");
     }
   </script>
 </body>
