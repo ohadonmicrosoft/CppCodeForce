@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CodeForge++ | Module 5</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content fade-in">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>></span>
+      <a href="exercises.html">Exercises</a> <span>></span>
+      <span>Module 5</span>
+    </div>
+
+    <section class="glass module-lessons">
+      <h2 style="color:#fff; margin-bottom:10px;">Module 5: Memory Management & Debugging</h2>
+      <p style="margin-bottom:20px;">
+        Dive deep into manual vs. automatic memory management, custom allocators, and essential debugging tools like Valgrind & GDB.
+      </p>
+
+      <hr style="margin:20px 0; border-color:rgba(255,255,255,0.2);"/>
+
+      <h3>Lesson 1: Manual vs. Smart Allocation</h3>
+      <p>
+        Compare raw <code>new/delete</code> usage to modern C++ smart pointers. Understand memory leaks, double-free errors, etc.
+      </p>
+      <ul style="margin-left:20px;">
+        <li>Write a snippet using raw pointers that accidentally leaks memory, then fix it via <code>std::unique_ptr</code>.</li>
+        <li>Discuss how to track allocations in a large codebase for debugging.</li>
+      </ul>
+      <button class="btn" onclick="openIDE('M5L1')">Open IDE for Lesson 1</button>
+
+      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+
+      <h3>Lesson 2: Custom Allocators & Pool Allocation</h3>
+      <p>
+        For performance-critical or embedded systems, custom allocators can reduce fragmentation or overhead.
+      </p>
+      <ul style="margin-left:20px;">
+        <li>Implement a simple pool allocator that doles out fixed-size blocks.</li>
+        <li>Integrate it into a container class or test it with <code>std::vector</code>'s custom allocator usage.</li>
+      </ul>
+      <button class="btn" onclick="openIDE('M5L2')">Open IDE for Lesson 2</button>
+
+      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+
+      <h3>Lesson 3: Valgrind & GDB Basics</h3>
+      <p>
+        Understand how <code>valgrind</code> detects leaks or invalid memory accesses. Learn GDB for stepping, breakpoints, and stack tracing.
+      </p>
+      <ul style="margin-left:20px;">
+        <li>Write a short program with an intentional out-of-bounds error. Run Valgrind to identify the issue.</li>
+        <li>Use GDB to set breakpoints and inspect variables at runtime.</li>
+      </ul>
+      <button class="btn" onclick="openIDE('M5L3')">Open IDE for Lesson 3</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    function openIDE(lessonID) {
+      window.location.href = `ide.html?lessonID=${lessonID}`;
+    }
+  </script>
+</body>
+</html>

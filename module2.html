@@ -32,68 +32,78 @@
   </header>
 
   <main class="page-content fade-in">
-    <section class="glass">
-      <h2>Module 2: Data Structures & Algorithms</h2>
-      <p>
-        Covers complexities, standard data structures, searching/sorting, and puzzle-like challenges found in interviews.
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>></span>
+      <a href="exercises.html">Exercises</a> <span>></span>
+      <span>Module 2</span>
+    </div>
+
+    <section class="glass module-lessons">
+      <h2 style="color:#fff; margin-bottom:10px;">Module 2: Data Structures & Algorithms</h2>
+      <p style="margin-bottom:20px;">
+        This module dives into fundamental data structures and classic algorithms vital for C++ interviews.
+        Focus is on complexity analysis, practical implementation, and puzzle-like challenges.
       </p>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
       <h3>Lesson 1: Linked Lists & Iterators</h3>
       <p>
-        Implement singly/doubly linked lists. Understand iterator design, especially in custom containers.
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Create a <code>LinkedList</code> class with <code>push_back</code>, <code>pop_front</code>, etc.</li>
-          <li>Implement a forward iterator for your list.</li>
-        </ul>
+        <strong>Objective:</strong> Implement singly or doubly linked lists from scratch, 
+        then create custom iterators to traverse them. 
       </p>
+      <ul style="margin-left:20px;">
+        <li>Create a <code>LinkedList</code> class supporting <code>push_front</code>, <code>push_back</code>, etc.</li>
+        <li>Implement a forward iterator to iterate over your nodes.</li>
+        <li>Explain complexity for insertion/removal in different positions.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M2L1')">Open IDE for Lesson 1</button>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
       <h3>Lesson 2: Sorting & Searching</h3>
       <p>
-        Dive into <code>QuickSort</code>, <code>MergeSort</code>, and searching algorithms (binary search).
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Code a quicksort with random pivot selection.</li>
-          <li>Implement a binary search on a sorted array.</li>
-        </ul>
+        Explore <code>QuickSort</code>, <code>MergeSort</code>, <code>HeapSort</code>, and binary search. 
+        Understand average/worst-case complexities and when each approach is favored.
       </p>
+      <ul style="margin-left:20px;">
+        <li>Implement <code>quickSort</code> using a random pivot for better average complexity.</li>
+        <li>Write a <code>mergeSort</code> and compare it to <code>std::sort</code> results for large arrays.</li>
+        <li>Use binary search (either custom or <code>std::binary_search</code>) on a sorted array of integers.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M2L2')">Open IDE for Lesson 2</button>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
       <h3>Lesson 3: Graphs & BFS/DFS</h3>
       <p>
-        Represent graphs with adjacency lists, perform breadth-first and depth-first search.
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Implement BFS that returns shortest distance from a start node.</li>
-          <li>Use DFS to detect cycles in a directed graph.</li>
-        </ul>
+        Implement graph representations (adjacency list) and traversal algorithms like BFS & DFS. 
+        Understand how to detect cycles or find shortest paths.
       </p>
+      <ul style="margin-left:20px;">
+        <li>Create a <code>Graph</code> class with <code>addEdge(int u, int v)</code> for undirected or directed edges.</li>
+        <li>Implement BFS to find shortest distance from a start node to others.</li>
+        <li>Use DFS to detect cycles in a directed graph.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M2L3')">Open IDE for Lesson 3</button>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
       <h3>Lesson 4: Common Algorithmic Puzzles</h3>
       <p>
-        Typical problems like two-sum, sliding window maxima, etc.
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Given an array and a target, return indices of two numbers that sum to target.</li>
-          <li>Sliding window maximum for each window of size k in an array.</li>
-        </ul>
+        Typical problems like two-sum, sliding window maximum, and more appear frequently in interviews.
       </p>
+      <ul style="margin-left:20px;">
+        <li><strong>Two-Sum:</strong> Return indices of two numbers that add to a target.</li>
+        <li><strong>Sliding Window Max:</strong> For each window of size K in an array, output the maximum.</li>
+        <li>Analyze time complexities of naive vs. optimized approaches.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M2L4')">Open IDE for Lesson 4</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>

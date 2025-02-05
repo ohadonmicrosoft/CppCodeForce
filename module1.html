@@ -43,65 +43,62 @@
       <h2 style="color:#fff; margin-bottom:10px;">Module 1: Foundations & Modern C++</h2>
       <p style="margin-bottom:20px;">
         This module covers essential modern C++ techniques:
-        <strong>RAII, smart pointers, lambdas, and more.</strong> Mastering these 
-        paves the way for advanced concurrency, memory management, and embedded topics.
+        <strong>RAII, smart pointers, lambdas, and more.</strong> Master these
+        features to write safer, more expressive code. 
       </p>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
       <h3>Lesson 1: RAII & Constructors</h3>
       <p>
-        <strong>Concept:</strong> Resource Acquisition Is Initialization (RAII) ensures resources 
-        (files, network sockets, dynamic memory) are owned by objects, automatically released in 
-        destructors. This greatly reduces leaks and makes code more exception-safe.
+        <strong>Concept:</strong> Resource Acquisition Is Initialization (RAII) ensures resource ownership
+        is bound to object lifetimes. If an object goes out of scope, its destructor frees the resource.
+        This pattern greatly reduces memory leaks and fosters exception safety.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement a class <code>FileWrapper</code> that opens a file in the constructor and closes in the destructor.</li>
-        <li>Handle potential exceptions in the constructor properly (e.g., if the file fails to open).</li>
+        <li>Create a <code>FileWrapper</code> class that opens a file in the constructor and closes it in the destructor.</li>
+        <li>Consider exception-handling in the constructor—what if the file can’t be opened?</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L1')">Open IDE for Lesson 1</button>
 
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
       <h3>Lesson 2: Smart Pointers & Move Semantics</h3>
       <p>
-        Modern C++ offers <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code> 
-        to manage dynamic allocations. <em>Move semantics</em> lets you transfer ownership cheaply, 
-        avoiding deep copies.
+        Modern C++ introduces <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code>
+        for managing dynamic allocations. <em>Move semantics</em> eliminates expensive copies, letting you “move” data
+        efficiently.
       </p>
       <ul style="margin-left:20px;">
-        <li>Convert raw pointer usage to <code>std::unique_ptr</code> in a sample code snippet.</li>
-        <li>Show how to pass ownership with <code>std::move</code>, and discuss safe usage patterns.</li>
-        <li>Experiment with <code>std::shared_ptr</code> for reference counting. 
-          Consider how <code>std::weak_ptr</code> prevents reference cycles.</li>
+        <li>Rewrite a raw pointer approach to use <code>std::unique_ptr</code> (ownership pattern).</li>
+        <li>Demonstrate using <code>std::move</code> to transfer ownership of an object to another scope.</li>
+        <li>Explore a scenario where <code>std::shared_ptr</code> is useful (reference counting) vs. <code>std::unique_ptr</code> (exclusive ownership).</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
 
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
       <h3>Lesson 3: Lambdas & STL Algorithms</h3>
       <p>
-        Lambda expressions let you define inline function objects. Combine them with powerful 
-        STL algorithms (<code>std::for_each</code>, <code>std::transform</code>, <code>std::remove_if</code>, etc.)
-        to write concise, high-level code.
+        Lambdas enable concise inline function objects. Pair them with powerful STL algorithms 
+        (<code>std::transform</code>, <code>std::remove_if</code>, etc.) to write higher-level, cleaner code.
       </p>
       <ul style="margin-left:20px;">
-        <li>Use <code>std::remove_if</code> with a lambda to remove all even numbers from a vector.</li>
-        <li>Explore captures by value vs. by reference in lambdas. How does each affect the code?</li>
-        <li>Use <code>std::transform</code> to apply a function to all elements in a container.</li>
+        <li>Use <code>std::remove_if</code> with a lambda to remove all negative numbers from a <code>std::vector<int></code>.</li>
+        <li>Demonstrate capturing external variables by value vs. by reference in a lambda.</li>
+        <li>Use <code>std::transform</code> to apply a function to each element in a list, doubling the values.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
     function openIDE(lessonID) {
-      // Navigate to the IDE with the lessonID
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }
   </script>

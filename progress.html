@@ -25,32 +25,29 @@
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <!-- Resume removed -->
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="page-content fade-in">
-    <section class="progress-section">
-      <h2 class="section-title">Your Learning Journey</h2>
-      <p>Monitor your progress across modules and quizzes.</p>
+    <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
+      <h2 style="color:#fff;">Your Learning Journey</h2>
+      <p>Track your completed lessons and watch the radial progress ring fill up!</p>
 
-      <div class="progress-bar-container">
-        <span id="progress-text" class="progress-label">
-          Progress: 0% (0/20 Lessons)
-        </span>
-        <div class="progress-bar glass">
-          <div class="progress" style="--progress: 0%"></div>
-        </div>
+      <!-- The radial progress display -->
+      <div class="progress-radial" id="radialProgress" style="--percent:0;">
+        <span id="progress-label">0%</span>
       </div>
 
-      <div id="achievements" style="margin-top:30px;"></div>
+      <p id="progress-text" style="margin-top:10px; color:#ccc;">
+        Completed 0 / 21 Lessons
+      </p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>

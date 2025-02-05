@@ -15,13 +15,12 @@ html {
 /* Dark Theme Background */
 body {
   font-family: 'Fredoka', sans-serif;
-  /* Subtle dark gradient: bluish to deep gray */
   background: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
   color: #ddd;
   text-align: center;
   overflow-x: hidden;
   transition: background 0.3s ease-in-out;
-  font-size: 1.1rem; /* slightly bigger base font */
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
@@ -362,9 +361,11 @@ footer {
 
 /* IDE Page */
 #code-editor {
-  height: 400px;
+  height: 500px; /* bigger height */
+  margin-bottom: 10px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
+  background: #1e1e1e; /* ensure dark background for Monaco area */
 }
 
 /* Quiz Container */
