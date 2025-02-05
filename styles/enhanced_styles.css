@@ -1,0 +1,151 @@
+/* Import High-End Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body Styling - Fresh, Bold & Playful UI */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #F5F7FA, #E6ECF2);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Glassmorphism Style */
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Header Styling - Interactive & Rounded */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Index Page Hero Section */
+.index-hero {
+    margin-top: 180px;
+    padding: 100px 30px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.index-hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Fredoka', sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.index-hero h1:hover {
+    color: #ff6b6b;
+    letter-spacing: 1.5px;
+}
+
+.index-hero p {
+    font-size: 1.4rem;
+    opacity: 0.85;
+    max-width: 800px;
+    margin: 20px auto;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.index-hero .btn {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    padding: 14px 40px;
+    border-radius: 50px;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(255, 107, 107, 0.5);
+}
+
+.index-hero .btn:hover {
+    background: #ff4040;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.7);
+}
+
+/* Button Styling - Rounded & Fun */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 36px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    background: #ff6b6b;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(255, 107, 107, 0.5);
+    border: none;
+}
+
+.btn:hover {
+    background: #ff4040;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.7);
+}
+
+/* Responsive Design - Optimized for All Screens */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .index-hero h1 {
+        font-size: 3rem;
+    }
+
+    .btn {
+        padding: 12px 28px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .index-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        padding: 10px 24px;
+        font-size: 1.2rem;
+    }
+}
