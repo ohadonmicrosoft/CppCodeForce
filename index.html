@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Home</title>
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="styles/style.css">
-  <!-- Animations -->
-  <link rel="stylesheet" href="styles/animations.css">
+
+  <!-- The single advanced stylesheet -->
+  <link rel="stylesheet" href="styles/style.css"/>
+  <!-- You can keep animations in the same file or separate -->
+  <link rel="stylesheet" href="styles/animations.css"/> 
+  <!-- If you used that approach, or just put everything in style.css -->
 </head>
 <body class="page-home fade-in">
-
 <header>
   <div class="nav-container">
-    <!-- Brand and Name -->
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
-    </div>
-
-    <!-- Hamburger Menu -->
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
+    <!-- Brand -->
+    <div class="brand-area">Ohad’s WeCode</div>
 
     <!-- Nav Menu -->
-    <ul class="nav-menu" id="navMenu">
+    <ul class="nav-menu">
       <li><a href="exercises.html" class="nav-link">Exercises</a></li>
       <li><a href="progress.html" class="nav-link">Progress</a></li>
       <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -38,33 +30,33 @@
 
 <main class="page-content">
   <!-- HERO SECTION -->
-  <section class="hero-section glass hero-slide-in">
-    <h1 class="hero-title fancy-title">Welcome to WeCode</h1>
+  <section class="hero-section card slide-up">
+    <h1 class="hero-title">Welcome to WeCode</h1>
     <p class="hero-subtitle">
       Elevate Your C++ Skills with advanced modules, real-time progress, 
       integrated quizzes, and a top-tier UI experience.
     </p>
-    <a href="exercises.html" class="btn btn-glow">Get Started</a>
+    <a href="exercises.html" class="btn">Get Started</a>
   </section>
 
   <!-- FEATURES SECTION -->
   <section class="features fade-in">
-    <div class="feature-card glass card-hover">
+    <div class="feature-card card">
       <h2>Robust Syllabus</h2>
       <p>Master concurrency, embedded, memory, and more—targeted for real interviews.</p>
     </div>
-    <div class="feature-card glass card-hover">
+    <div class="feature-card card">
       <h2>Hands-On IDE</h2>
       <p>Practice code in your browser. No setup overhead—just pure learning.</p>
     </div>
-    <div class="feature-card glass card-hover">
+    <div class="feature-card card">
       <h2>Progress &amp; Quizzes</h2>
       <p>Track achievements, run timed quizzes, and see your local leaderboard!</p>
     </div>
   </section>
 
   <!-- CTA SECTION -->
-  <section class="cta glass fade-in">
+  <section class="cta card fade-in">
     <h2>Prepare for Your Next Interview</h2>
     <p class="cta-desc">
       Join Ohad’s WeCode and gain the competitive edge you need for modern C++ interviews.
@@ -73,13 +65,14 @@
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
-<!-- Scroll-To-Top Button -->
+<!-- Scroll to top button -->
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
-<!-- Main Scripts -->
+<!-- Scripts -->
 <script src="scripts/main.js"></script>
 </body>
 </html>
