@@ -16,7 +16,7 @@ if (menuToggle) {
   });
 }
 
-// Theme toggle (exists only on the index page)
+// Theme toggle (only on index page; ensure button exists)
 const themeToggleBtn = document.getElementById('theme-toggle');
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener('click', () => {
@@ -35,7 +35,7 @@ if (themeToggleBtn) {
   });
 }
 
-// Auto‑hide header on scroll for desktops
+// Auto-hide header on scroll for desktop
 let header = document.querySelector("header");
 let scrollTimeout = null;
 let lastScrollTop = window.scrollY;

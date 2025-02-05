@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,57 +23,48 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 7</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 7: System Design &amp; Advanced Topics</h1>
-      <p style="margin-bottom:20px;">
-        Delve into high‑level system architecture, design patterns, and scalable interview scenarios.
-      </p>
-
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <p>Delve into high‑level system architecture, design patterns, and scalable interview scenarios.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Design Patterns Overview</div>
         <div class="timeline-step">Step 2: High‑Level Architecture</div>
-        <div class="timeline-step">Step 3: Interview Scenarios &amp; System Design</div>
+        <div class="timeline-step">Step 3: Interview Scenarios</div>
       </div>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module7_diagram.png" alt="System Design Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: System Design Concepts (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: System Design (placeholder image)</em></p>
       </div>
-
       <h2>Lesson 1: Design Patterns</h2>
-      <p>
-        Explore common design patterns used in modern C++ applications.
-      </p>
-      <ul style="margin-left:20px;">
+      <p>Explore common design patterns used in modern C++ applications.</p>
+      <ul>
         <li>Discuss patterns such as Singleton, Factory, Observer, etc.</li>
         <li>Implement sample code for each pattern.</li>
       </ul>
       <button class="btn" onclick="openIDE('M7L1')">Open IDE for Lesson 1</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
       <h2>Lesson 2: System Architecture</h2>
-      <p>
-        Learn about high‑level architecture design and best practices for scalable systems.
-      </p>
-      <ul style="margin-left:20px;">
+      <p>Learn about high‑level architecture design and best practices for scalable systems.</p>
+      <ul>
         <li>Outline common architectural approaches.</li>
-        <li>Discuss trade‑offs in design decisions.</li>
+        <li>Discuss design trade‑offs.</li>
       </ul>
       <button class="btn" onclick="openIDE('M7L2')">Open IDE for Lesson 2</button>
     </section>
@@ -87,12 +73,11 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-
+  
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;

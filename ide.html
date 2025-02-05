@@ -9,16 +9,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -29,18 +24,22 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
-    <!-- Breadcrumb: deducing module number from lessonID -->
+    <!-- Breadcrumb: deducing module from lessonID -->
     <div class="breadcrumb" id="breadcrumb-nav">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
-      <a href="#" id="moduleLink">Module X</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
+      <a href="#" id="moduleLink">Module X</a> <span>&gt;</span>
       <span>IDE</span>
     </div>
-
     <section class="glass" style="padding:30px;">
       <h1 id="ide-lesson-title" style="margin-bottom:15px;">IDE for Lesson: ...</h1>
       <div id="code-editor"></div>
@@ -55,7 +54,7 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-
+  
   <script src="scripts/main.js"></script>
   <script src="scripts/ide.js"></script>
   <script src="scripts/progress.js"></script>

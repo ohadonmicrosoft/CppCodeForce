@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme portfolio-page">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -27,57 +22,60 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
-  <main class="page-content fade-in portfolio-section glass" style="margin-top:40px; padding:40px;">
+  <main class="page-content fade-in portfolio-section">
     <h1 style="text-align:center;">Meet the Developer</h1>
     <p style="max-width:800px; margin:0 auto 30px; text-align:center;">
       Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform
       is my advanced learning and portfolio demonstration—bridging real‑time embedded topics with modern C++ for a professional, interview‑focused skill set.
     </p>
-
-    <div class="portfolio-highlights" style="margin-top:10px;">
+    <div class="portfolio-highlights">
       <div class="highlight-card glass card-hover floating-card">
         <h2>Background</h2>
         <ul>
           <li>B.Sc. in Computer Science</li>
           <li>10+ years in embedded software development</li>
-          <li>Expertise in real‑time systems and OS internals</li>
+          <li>Expert in real‑time systems &amp; OS internals</li>
         </ul>
       </div>
       <div class="highlight-card glass card-hover floating-card">
         <h2>Focus Areas</h2>
         <ul>
           <li>Low‑level C/C++ programming</li>
-          <li>Multithreading and concurrency</li>
+          <li>Multithreading &amp; concurrency</li>
           <li>Performance tuning &amp; memory optimization</li>
         </ul>
       </div>
       <div class="highlight-card glass card-hover floating-card">
         <h2>Project Goals</h2>
         <ul>
-          <li>Offer advanced modules for challenging C++ interviews</li>
+          <li>Advanced modules for challenging C++ interviews</li>
           <li>In‑browser IDE with real‑time solution checking</li>
-          <li>Showcase a professional portfolio and technical background</li>
+          <li>Showcase a professional portfolio &amp; technical background</li>
         </ul>
       </div>
     </div>
-
     <div style="margin-top:40px; text-align:center;">
       <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
       <a href="resume.html" class="icon-btn" title="View Resume">
-        <img src="https://img.icons8.com/material-outlined/24/ffffff/resume.png" alt="Resume Icon">
+        <!-- Updated, more modern resume icon -->
+        <img src="https://img.icons8.com/external-soft-juicy-fish/60/ffffff/external-resume-resume-soft-juicy-fish.png" alt="Resume Icon">
       </a>
     </div>
-
     <div style="margin-top:30px; text-align:center;">
       <p style="margin-bottom:10px;">Connect with me on GitHub &amp; LinkedIn:</p>
       <a href="https://github.com/ohadonmicrosoft" target="_blank" class="icon-btn" title="GitHub">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub" style="filter: invert(100%); width:28px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
       </a>
       <a href="https://www.linkedin.com/in/ohad-alon" target="_blank" class="icon-btn" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(100%); width:28px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn">
       </a>
     </div>
   </main>
@@ -85,7 +83,7 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-
+  
   <script src="scripts/main.js"></script>
 </body>
 </html>

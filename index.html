@@ -7,19 +7,13 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<!-- Default theme is set via JavaScript (fallback: dark-theme) -->
+<!-- Default theme is set via JavaScript -->
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <!-- Mobile hamburger -->
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -29,12 +23,17 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
-      <!-- Theme toggle appears only on index page -->
+      <!-- Theme Toggle appears only on index -->
       <button id="theme-toggle" class="btn">Switch Theme</button>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
-  <section class="index-hero glass fade-in">
+  <section class="index-hero fade-in">
     <h1 class="hero-title">Elevate Your C++ Skills</h1>
     <p class="slide-up">
       A comprehensive, interview‑focused platform with advanced modules, an embedded IDE, real‑time progress tracking, and more.
@@ -45,19 +44,19 @@
   <section class="features slide-up">
     <div class="feature-card glass card-hover floating-card">
       <h2>Robust Syllabus</h2>
-      <p>Learn advanced C++: concurrency, embedded systems, memory management, and more.</p>
+      <p>Learn advanced C++—concurrency, embedded systems, memory management, and more.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
       <h2>In‑Browser IDE</h2>
-      <p>Write, compile, and test code right here—no external tools needed.</p>
+      <p>Write, compile, and test code right in your browser—no external tools needed.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
       <h2>Progress &amp; Quizzes</h2>
-      <p>Track achievements, timed quizzes, a local leaderboard, and get instant feedback.</p>
+      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback.</p>
     </div>
   </section>
 
-  <section class="cta glass fade-in">
+  <section class="cta fade-in">
     <h2>Prepare for Your Next Interview</h2>
     <a href="exercises.html" class="btn">Explore Modules</a>
   </section>

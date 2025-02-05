@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,56 +23,47 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 6</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 6: Templates &amp; Metaprogramming</h1>
-      <p style="margin-bottom:20px;">
-        Explore advanced template programming, SFINAE, and compile‑time metaprogramming techniques.
-      </p>
-
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <p>Explore advanced template programming, SFINAE, and compile‑time metaprogramming techniques.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Template Fundamentals</div>
-        <div class="timeline-step">Step 2: SFINAE and Type Traits</div>
+        <div class="timeline-step">Step 2: SFINAE &amp; Type Traits</div>
         <div class="timeline-step">Step 3: Compile‑Time Computations</div>
       </div>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module6_diagram.png" alt="Templates Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: Template Metaprogramming (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: Template Metaprogramming (placeholder image)</em></p>
       </div>
-
       <h2>Lesson 1: Template Fundamentals</h2>
-      <p>
-        Learn the basics of function and class templates and how to use them.
-      </p>
-      <ul style="margin-left:20px;">
+      <p>Learn the basics of function and class templates.</p>
+      <ul>
         <li>Create simple function and class templates.</li>
         <li>Discuss template instantiation and specialization.</li>
       </ul>
       <button class="btn" onclick="openIDE('M6L1')">Open IDE for Lesson 1</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
       <h2>Lesson 2: SFINAE and Type Traits</h2>
-      <p>
-        Understand Substitution Failure Is Not An Error (SFINAE) and utilize type traits for compile‑time decisions.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement simple SFINAE examples.</li>
+      <p>Understand Substitution Failure Is Not An Error (SFINAE) and utilize type traits for compile‑time decisions.</p>
+      <ul>
+        <li>Implement SFINAE examples.</li>
         <li>Use STL type traits to make compile‑time choices.</li>
       </ul>
       <button class="btn" onclick="openIDE('M6L2')">Open IDE for Lesson 2</button>
@@ -87,12 +73,11 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-
+  
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;

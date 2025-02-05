@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,58 +23,49 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 3</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 3: Real‑Time &amp; Embedded Systems</h1>
-      <p style="margin-bottom:20px;">
-        Explore RTOS fundamentals, embedded concurrency, interrupts, and hardware debugging.
-      </p>
-
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <p>Explore RTOS fundamentals, embedded concurrency, interrupts, and hardware debugging.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Introduction to RTOS</div>
-        <div class="timeline-step">Step 2: Concurrency in Embedded Systems</div>
-        <div class="timeline-step">Step 3: Interrupts &amp; Handlers</div>
-        <div class="timeline-step">Step 4: Hardware Debugging Techniques</div>
+        <div class="timeline-step">Step 2: Embedded Concurrency</div>
+        <div class="timeline-step">Step 3: Interrupt Handling</div>
+        <div class="timeline-step">Step 4: Debugging Techniques</div>
       </div>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module3_diagram.png" alt="RTOS Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: RTOS Overview (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: RTOS Overview (placeholder image)</em></p>
       </div>
-
       <h2>Lesson 1: RTOS Basics</h2>
-      <p>
-        Understand the fundamentals of real‑time operating systems and task scheduling.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Discuss key characteristics of an RTOS.</li>
+      <p>Learn the core principles of real‑time operating systems and task scheduling.</p>
+      <ul>
+        <li>Discuss key RTOS characteristics.</li>
         <li>Implement a basic task scheduler simulation.</li>
       </ul>
       <button class="btn" onclick="openIDE('M3L1')">Open IDE for Lesson 1</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
       <h2>Lesson 2: Interrupts &amp; Handlers</h2>
-      <p>
-        Learn how interrupts work and how to design simple interrupt handlers.
-      </p>
-      <ul style="margin-left:20px;">
+      <p>Understand how interrupts work and how to design simple interrupt handlers.</p>
+      <ul>
         <li>Simulate an interrupt handler.</li>
-        <li>Discuss priority‑based interrupt handling.</li>
+        <li>Discuss priority‑based handling.</li>
       </ul>
       <button class="btn" onclick="openIDE('M3L2')">Open IDE for Lesson 2</button>
     </section>
@@ -92,8 +78,7 @@
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;

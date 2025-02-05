@@ -7,17 +7,13 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
+<!-- Theme applied from localStorage -->
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,73 +24,67 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 1</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 1: Foundations &amp; Modern C++</h1>
-      <p style="margin-bottom:20px;">
-        This module covers essential modern C++ techniques—such as <strong>RAII, smart pointers, and lambdas</strong>—to build a solid foundation.
-      </p>
+      <p>This module covers essential modern C++ techniques—including <strong>RAII, smart pointers, and lambdas</strong>—to build a solid foundation.</p>
 
       <!-- Collapsible timeline -->
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Basic RAII overview</div>
-        <div class="timeline-step">Step 2: Smart pointers in practice</div>
-        <div class="timeline-step">Step 3: Move semantics &amp; ownership transfer</div>
-        <div class="timeline-step">Step 4: Lambdas &amp; capture modes</div>
-        <div class="timeline-step">Step 5: Lambdas with STL algorithms</div>
+        <div class="timeline-step">Step 1: RAII Overview</div>
+        <div class="timeline-step">Step 2: Smart Pointers</div>
+        <div class="timeline-step">Step 3: Move Semantics</div>
+        <div class="timeline-step">Step 4: Lambdas &amp; Captures</div>
+        <div class="timeline-step">Step 5: Lambdas with STL Algorithms</div>
       </div>
 
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <!-- Example diagram placeholder -->
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      
+      <div style="text-align:center; margin: 20px 0;">
         <img src="assets/images/module1_diagram.png" alt="RAII Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: RAII Diagram (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: RAII Diagram (placeholder image)</em></p>
       </div>
 
       <h2>Lesson 1: RAII &amp; Constructors</h2>
-      <p>
-        <strong>Concept:</strong> Resource Acquisition Is Initialization ensures that resources are acquired and released safely.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Create a <code>FileWrapper</code> class that opens a file in its constructor and closes it in the destructor.</li>
-        <li>Implement proper error handling when opening files.</li>
+      <p>Learn how resource acquisition is tied to initialization in C++.</p>
+      <ul>
+        <li>Create a <code>FileWrapper</code> class that opens a file in the constructor and closes it in the destructor.</li>
+        <li>Handle errors gracefully.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L1')">Open IDE for Lesson 1</button>
 
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
+      
       <h2>Lesson 2: Smart Pointers &amp; Move Semantics</h2>
-      <p>
-        Learn how to use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and move semantics for effective memory management.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Refactor raw pointer usage with <code>unique_ptr</code>.</li>
-        <li>Demonstrate the use of <code>std::move</code> to transfer ownership.</li>
+      <p>Discover how to use <code>std::unique_ptr</code> and <code>std::shared_ptr</code> along with move semantics for efficient memory management.</p>
+      <ul>
+        <li>Refactor raw pointer code to use smart pointers.</li>
+        <li>Demonstrate transferring ownership with <code>std::move</code>.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
 
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
+      
       <h2>Lesson 3: Lambdas &amp; STL Algorithms</h2>
-      <p>
-        Use lambdas with STL algorithms (like <code>std::remove_if</code> and <code>std::transform</code>) for concise code.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement a lambda function with <code>std::remove_if</code>.</li>
-        <li>Compare capture-by-value versus capture-by-reference.</li>
+      <p>Use lambdas in combination with STL algorithms (e.g., <code>std::remove_if</code>) for concise code.</p>
+      <ul>
+        <li>Implement a lambda with <code>std::remove_if</code>.</li>
+        <li>Compare capture methods.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
@@ -107,8 +97,7 @@
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;

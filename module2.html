@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,59 +23,50 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 2</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 2: Data Structures &amp; Algorithms</h1>
-      <p style="margin-bottom:20px;">
-        Dive into arrays, linked lists, trees, and various sorting/searching techniques.
-      </p>
-
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <p>Explore arrays, linked lists, trees, and various sorting and searching techniques.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Array and Linked List Fundamentals</div>
-        <div class="timeline-step">Step 2: Stacks, Queues, and Trees</div>
-        <div class="timeline-step">Step 3: Overview of Sorting Algorithms</div>
-        <div class="timeline-step">Step 4: Searching Algorithms</div>
-        <div class="timeline-step">Step 5: Graph Algorithms (BFS &amp; DFS)</div>
+        <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
+        <div class="timeline-step">Step 2: Stacks &amp; Queues</div>
+        <div class="timeline-step">Step 3: Trees &amp; Graphs</div>
+        <div class="timeline-step">Step 4: Sorting Algorithms</div>
+        <div class="timeline-step">Step 5: Searching Techniques</div>
       </div>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module2_diagram.png" alt="Data Structures Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: Data Structures Overview (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: Data Structures (placeholder image)</em></p>
       </div>
-
       <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
-      <p>
-        Understand implementation details and trade-offs between arrays and linked lists.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement basic operations on both data structures.</li>
-        <li>Discuss advantages and disadvantages of each.</li>
+      <p>Understand the implementation and trade‑offs of arrays versus linked lists.</p>
+      <ul>
+        <li>Implement basic operations on both structures.</li>
+        <li>Discuss advantages and disadvantages.</li>
       </ul>
       <button class="btn" onclick="openIDE('M2L1')">Open IDE for Lesson 1</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
-      <h2>Lesson 2: Trees &amp; Binary Search Trees</h2>
-      <p>
-        Learn tree traversal methods and the fundamentals of binary search trees.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement in‑order, pre‑order, and post‑order traversals.</li>
-        <li>Discuss properties and use cases of BSTs.</li>
+      <hr>
+      <h2>Lesson 2: Trees &amp; Graphs</h2>
+      <p>Learn about tree traversals and basic graph algorithms (BFS &amp; DFS).</p>
+      <ul>
+        <li>Implement simple tree traversals.</li>
+        <li>Demonstrate BFS/DFS on a graph.</li>
       </ul>
       <button class="btn" onclick="openIDE('M2L2')">Open IDE for Lesson 2</button>
     </section>
@@ -93,8 +79,7 @@
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;

@@ -8,16 +8,11 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="dark-theme">
-  <header class="glass header-slide-in compact-header">
+  <header>
     <div class="nav-container">
-      <h1 class="logo">
+      <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span>
-      </h1>
-      <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="logo-icon">{&lt;/&gt;}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -28,58 +23,49 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>></span>
-      <a href="exercises.html">Exercises</a> <span>></span>
+      <a href="index.html">Home</a> <span>&gt;</span>
+      <a href="exercises.html">Exercises</a> <span>&gt;</span>
       <span>Module 4</span>
     </div>
 
     <section class="glass module-lessons">
       <h1>Module 4: Concurrency &amp; Multithreading</h1>
-      <p style="margin-bottom:20px;">
-        Dive into threads, mutexes, lock‑free programming, and advanced concurrency patterns.
-      </p>
-
-      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <p>Delve into threads, mutexes, lock‑free programming, and advanced concurrency patterns.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Introduction to Threads</div>
-        <div class="timeline-step">Step 2: Mutexes and Locks</div>
-        <div class="timeline-step">Step 3: Lock‑Free Programming</div>
-        <div class="timeline-step">Step 4: Advanced Concurrency Patterns</div>
+        <div class="timeline-step">Step 1: Thread Basics</div>
+        <div class="timeline-step">Step 2: Mutexes &amp; Locks</div>
+        <div class="timeline-step">Step 3: Lock‑Free Techniques</div>
+        <div class="timeline-step">Step 4: Advanced Patterns</div>
       </div>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
-
-      <div style="text-align:center; margin:10px 0;">
+      <hr>
+      <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module4_diagram.png" alt="Concurrency Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: Concurrency Concepts (placeholder image).</em>
-        </p>
+        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: Concurrency Concepts (placeholder image)</em></p>
       </div>
-
       <h2>Lesson 1: Threads Basics</h2>
-      <p>
-        Learn how to create, manage, and synchronize threads in C++.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Create and manage threads using C++ standard libraries.</li>
-        <li>Understand thread lifecycle, join, and detach operations.</li>
+      <p>Learn how to create and manage threads using C++ libraries.</p>
+      <ul>
+        <li>Implement thread creation and joining.</li>
+        <li>Discuss thread lifecycle.</li>
       </ul>
       <button class="btn" onclick="openIDE('M4L1')">Open IDE for Lesson 1</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
+      <hr>
       <h2>Lesson 2: Mutexes and Synchronization</h2>
-      <p>
-        Protect shared resources using mutexes, locks, and condition variables.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement safe data access using mutexes.</li>
-        <li>Discuss deadlocks and strategies to avoid them.</li>
+      <p>Use mutexes and locks to protect shared resources and avoid race conditions.</p>
+      <ul>
+        <li>Implement mutex‑protected sections.</li>
+        <li>Discuss deadlock prevention.</li>
       </ul>
       <button class="btn" onclick="openIDE('M4L2')">Open IDE for Lesson 2</button>
     </section>
@@ -88,12 +74,11 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-
+  
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
-      const timeline = document.getElementById('moduleTimeline');
-      timeline.classList.toggle('show');
+      document.getElementById('moduleTimeline').classList.toggle('show');
     }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
