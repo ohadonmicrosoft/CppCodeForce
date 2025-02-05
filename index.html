@@ -4,76 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeCode | Home</title>
-  <link rel="stylesheet" href="styles/enhanced_styles.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
+
+  <!-- קובצי העיצוב הסופיים -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <!-- אם רוצים AOS (אנימציות בגלילה), אפשר להוסיף: 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"> 
+  -->
 </head>
-<body class="warm-theme">
+<body class="page-home fade-in">
+  <!-- רקע svg עדין (wave) -->
   <div class="bg-wave"></div>
 
+  <!-- HEADER - תפריט המבורגר -->
   <header>
     <div class="nav-container">
-      <div class="logo-group">
-        <span class="logo-text">WeCode</span>
-        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
-      </div>
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="resources.html" class="nav-link">Resources</a></li>
-          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-        </ul>
-      </nav>
-
-      <!-- אייקון החלפת תמה (Sun/Moon) -->
-      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
-        <!-- אייקון Sun ברירת מחדל; נחליף לקונטרסט גבוה -->
-        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
-      </button>
-
+      <!-- hamburger menu -->
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
+      <!-- כפתור ערכת נושא (טקסט) -->
+      <button id="theme-toggle" class="theme-btn">Switch Theme</button>
     </div>
   </header>
 
-  <section class="index-hero fade-in">
-    <h1 class="hero-title fancy-title">Elevate Your C++ Skills</h1>
-    <p class="slide-up hero-subtitle">
-      A comprehensive, interview‑focused platform with advanced modules, real‑time progress tracking, quizzes,
-      and external IDE links for hands-on practice.
-    </p>
-    <a href="exercises.html" class="btn btn-glow">Get Started</a>
-  </section>
+  <!-- תוכן העמוד -->
+  <main class="page-content">
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section glass hero-slide-in">
+      <!-- כותרת "WeCode" עם אנימציית fancy-title (אופציונלית) -->
+      <h1 class="hero-title fancy-title">WeCode</h1>
+      <p class="hero-subtitle slide-up hero-sub-p">
+        Elevate Your C++ Skills with advanced modules, real‑time progress,
+        integrated quizzes, and a top-tier UI experience.
+      </p>
+      <a href="exercises.html" class="btn btn-glow slide-up">Get Started</a>
+    </section>
 
-  <section class="features slide-up">
-    <div class="feature-card glass card-hover floating-card">
-      <h2>Robust Syllabus</h2>
-      <p>Learn advanced C++—concurrency, embedded systems, memory management, and more.</p>
-    </div>
-    <div class="feature-card glass card-hover floating-card">
-      <h2>External IDE</h2>
-      <p>Write &amp; run code in an online environment—no local setup or servers required.</p>
-    </div>
-    <div class="feature-card glass card-hover floating-card">
-      <h2>Progress &amp; Quizzes</h2>
-      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback.</p>
-    </div>
-  </section>
+    <!-- FEATURES SECTION (כרטיסיות) -->
+    <section class="features fade-in">
+      <div class="feature-card glass card-hover floating-card zoom-in">
+        <h2>Robust Syllabus</h2>
+        <p>Master concurrency, embedded, memory, and more—targeted for real interviews.</p>
+      </div>
+      <div class="feature-card glass card-hover floating-card flip-card" data-aos="flip-left" data-aos-delay="200">
+        <h2>Hands-On IDE</h2>
+        <p>Practice code in your browser. No setup overhead—just pure learning.</p>
+      </div>
+      <div class="feature-card glass card-hover floating-card" data-aos="zoom-in" data-aos-delay="400">
+        <h2>Progress &amp; Quizzes</h2>
+        <p>Track achievements, run timed quizzes, see local leaderboards, and more!</p>
+      </div>
+    </section>
 
-  <section class="cta fade-in">
-    <h2>Prepare for Your Next Interview</h2>
-    <a href="exercises.html" class="btn">Explore Modules</a>
-  </section>
+    <!-- CTA SECTION (קריאה לפעולה נוספת) -->
+    <section class="cta glass fade-in">
+      <h2>Prepare for Your Next Interview</h2>
+      <p class="cta-desc">
+        Join WeCode and gain the competitive edge you need for modern C++ interviews.
+      </p>
+      <a href="exercises.html" class="btn">Explore Modules</a>
+    </section>
+
+  </main>
 
   <footer>
     <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
+  <!-- כפתור גלילה למעלה -->
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
+  <!-- סקריפטים -->
   <script src="scripts/main.js"></script>
+  <!-- ספריית AOS אם תרצה אפקט גלילה
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:800, once:false});
+  </script>
+  -->
 </body>
 </html>

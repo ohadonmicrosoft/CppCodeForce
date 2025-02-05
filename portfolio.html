@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeCode | Portfolio</title>
-  <link rel="stylesheet" href="styles/enhanced_styles.css">
+
+  <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"> -->
 </head>
-<body class="warm-theme portfolio-page">
+<body class="page-portfolio fade-in">
   <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group">
-        <span class="logo-text">WeCode</span>
-        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
-      </div>
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="resources.html" class="nav-link">Resources</a></li>
-          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-        </ul>
-      </nav>
-      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
-        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
-      </button>
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-btn">Switch Theme</button>
     </div>
   </header>
 
-  <main class="page-content fade-in portfolio-section">
-    <h1 style="text-align:center;">Meet the Developer</h1>
-    <p style="max-width:800px; margin:0 auto 30px;">
-      Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform
-      is my advanced learning and portfolio demonstration—bridging real‑time embedded topics with modern C++ for a 
-      professional, interview‑focused skill set.
+  <main class="page-content">
+    <h1>Meet the Developer</h1>
+    <p>
+      Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux.
+      This platform is my advanced learning and portfolio demonstration—bridging
+      real‑time embedded topics with modern C++ for a professional, interview‑focused skill set.
     </p>
+
     <div class="portfolio-highlights">
-      <div class="highlight-card glass card-hover floating-card">
+      <div class="highlight-card glass card-hover floating-card zoom-in">
         <h2>Background</h2>
         <ul>
           <li>B.Sc. in Computer Science / Electronics Engineering</li>
@@ -49,7 +45,7 @@
           <li>Expert in real‑time systems &amp; OS internals</li>
         </ul>
       </div>
-      <div class="highlight-card glass card-hover floating-card">
+      <div class="highlight-card glass card-hover floating-card flip-card" data-aos="flip-left" data-aos-delay="200">
         <h2>Focus Areas</h2>
         <ul>
           <li>Low‑level C/C++ programming</li>
@@ -57,7 +53,7 @@
           <li>Performance tuning &amp; memory optimization</li>
         </ul>
       </div>
-      <div class="highlight-card glass card-hover floating-card">
+      <div class="highlight-card glass card-hover floating-card" data-aos="zoom-in" data-aos-delay="400">
         <h2>Project Goals</h2>
         <ul>
           <li>Advanced modules for challenging C++ interviews</li>
@@ -66,20 +62,20 @@
         </ul>
       </div>
     </div>
-    <div style="margin-top:40px; text-align:center;">
+
+    <div style="text-align:center; margin-top:40px;">
       <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
       <a href="resume.html" class="icon-btn" title="View Resume">
-        <!-- אייקון רזומה יותר מגניב -->
-        <img src="assets/icons/resume2.svg" alt="Resume Icon" style="filter:none;">
+        <img src="assets/icons/resume2.svg" alt="Resume Icon">
       </a>
     </div>
-    <div style="margin-top:30px; text-align:center;">
+    <div style="text-align:center; margin-top:30px;">
       <p style="margin-bottom:10px;">Connect with me on GitHub &amp; LinkedIn:</p>
       <a href="https://github.com/ohadonmicrosoft" target="_blank" class="icon-btn" title="GitHub">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub" style="filter: invert(100%);">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
       </a>
       <a href="https://www.linkedin.com/in/ohad-alon" target="_blank" class="icon-btn" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(100%);">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn">
       </a>
     </div>
   </main>
@@ -87,8 +83,13 @@
   <footer>
     <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
-  
+
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
   <script src="scripts/main.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:800, once:false });
+  </script> -->
 </body>
 </html>

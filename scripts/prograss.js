@@ -1,4 +1,9 @@
-// progress.js
+/*************************************************************
+ * progress.js - Final
+ * -----------------------------------------------------------
+ * - Tracks completed lessons in localStorage: "wecodeCompletedLessons"
+ * - Updates radial progress in #radialProgress
+ *************************************************************/
 
 const TOTAL_LESSONS = 21;
 const allLessonIDs = [
@@ -9,31 +14,34 @@ const allLessonIDs = [
   "M5L1","M5L2",
   "M6L1","M6L2",
   "M7L1","M7L2"
-  // add more if needed to match 21 exactly
 ];
+let completedLessons = JSON.parse(localStorage.getItem("wecodeCompletedLessons")) || [];
 
-let completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
-
-function updateProgressDisplay(){
-  const radialProgress = document.getElementById('radialProgress');
-  const progressLabel = document.getElementById('progress-label');
-  const progressText = document.getElementById('progress-text');
-  if(!radialProgress) return;
+function updateProgressDisplay() {
+  const radialProgress = document.getElementById("radialProgress");
+  const progressLabel = document.getElementById("progress-label");
+  const progressText = document.getElementById("progress-text");
+  if (!radialProgress) return;
 
   let completedCount = completedLessons.length;
-  if(completedCount > TOTAL_LESSONS) completedCount = TOTAL_LESSONS;
-  let pct = (completedCount / TOTAL_LESSONS)*100;
-  
-  radialProgress.style.setProperty('--percent', pct.toFixed(2));
-  if(progressLabel) progressLabel.innerText = `${Math.round(pct)}%`;
-  if(progressText) progressText.innerText = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
+  if (completedCount > TOTAL_LESSONS) completedCount = TOTAL_LESSONS;
+
+  const pct = (completedCount / TOTAL_LESSONS) * 100;
+  radialProgress.style.setProperty("--percent", pct.toFixed(2));
+
+  if (progressLabel) {
+    progressLabel.textContent = `${Math.round(pct)}%`;
+  }
+  if (progressText) {
+    progressText.textContent = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
+  }
 }
 
-function markLessonCompleted(lessonID){
-  if(!allLessonIDs.includes(lessonID)) return;
-  if(!completedLessons.includes(lessonID)){
+function markLessonCompleted(lessonID) {
+  if (!allLessonIDs.includes(lessonID)) return;
+  if (!completedLessons.includes(lessonID)) {
     completedLessons.push(lessonID);
-    localStorage.setItem('completedLessons', JSON.stringify(completedLessons));
+    localStorage.setItem("wecodeCompletedLessons", JSON.stringify(completedLessons));
     updateProgressDisplay();
   }
 }

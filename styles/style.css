@@ -1,0 +1,467 @@
+/*************************************************************
+ * style.css - Final, Comprehensive Version
+ * -----------------------------------------------------------
+ * 1) Reset & Base Theme
+ * 2) Global Components (Header, Nav, Buttons, Footer, Glass, etc.)
+ * 3) Page-specific Sections (home, exercises, progress, resources, 
+ *    portfolio, resume, quiz, modules, etc.)
+ * 
+ * All designed in a semi-dark color palette with "high-end" 
+ * touches: rounded fonts, advanced hover states, consistent 
+ * spacing, and no inline styles required in HTML.
+ *************************************************************/
+
+/* =============== 1) RESET & BASE THEME =============== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* COLOR & THEME VARIABLES (semi-dark aesthetic) */
+:root {
+  /* Background gradient (semi-dark) */
+  --bg-gradient: linear-gradient(135deg, #2F3644 0%, #444B5D 100%);
+
+  /* Fonts */
+  --font-heading: 'M PLUS Rounded 1c', sans-serif; /* roundish for headings */
+  --font-body: 'Nunito', sans-serif;              /* neat, readable body font */
+
+  /* Text & heading colors */
+  --text-color: #EBEBEB;
+  --heading-color: #FFFFFF;
+  --heading-shadow: 0 0 4px rgba(255,255,255,0.15);
+
+  /* Cards / Glass effect */
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.15);
+  --card-boxshadow: 0 2px 14px rgba(0,0,0,0.45);
+
+  /* Accent & nav */
+  --accent-color: #7FA6FF;
+  --accent-hover: #5F8BFF;
+  --nav-bg: rgba(0,0,0,0.45);
+  --footer-bg: rgba(0,0,0,0.2);
+  --btn-boxshadow: 0 4px 12px rgba(127,166,255,0.3);
+
+  /* Progress, transitions, etc. */
+  --progress-bg: rgba(255,255,255,0.15);
+  --transition-speed: 0.35s;
+  --border-radius: 16px;
+  --spacing: 20px;
+  --base-font-size: 1rem;
+  --line-height: 1.6;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background: var(--bg-gradient);
+  overflow-x: hidden;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+p, ul, ol, li {
+  margin-bottom: 1em;
+}
+
+/* BG-WAVE (optional background wave) */
+.bg-wave {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('../assets/images/wave.svg') no-repeat center / cover;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =============== 2) GLOBAL COMPONENTS =============== */
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  padding: 8px;
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+  position: absolute;
+  top: 10px; left: 10px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1100;
+}
+.bar {
+  width: 25px; height: 3px;
+  margin: 3px;
+  background: var(--text-color);
+  transition: background var(--transition-speed);
+}
+
+/* NAV MENU (hidden by default) */
+.nav-container {
+  position: relative;
+  min-height: 40px;
+}
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 50px; left: 10px;
+  background: var(--nav-bg);
+  border-radius: 12px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.nav-menu.active {
+  display: block;
+}
+.nav-menu li {
+  margin: 6px 0;
+}
+.nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color var(--transition-speed);
+}
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-color);
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: var(--btn-boxshadow);
+  margin-top: 10px;
+  transition: all var(--transition-speed) ease;
+}
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+.btn-glow {
+  box-shadow: 0 0 14px rgba(127,166,255,0.4);
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+  background: var(--footer-bg);
+}
+
+/* GLASS/CARD */
+.glass {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-boxshadow);
+  padding: var(--spacing);
+  backdrop-filter: blur(8px);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.card-hover:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 12px rgba(127,166,255,0.15);
+  transform: scale(1.035);
+}
+.floating-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+/* SCROLL-TO-TOP BUTTON */
+.scroll-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 25px; right: 25px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  box-shadow: var(--btn-boxshadow);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+}
+.scroll-to-top-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* THEME BUTTON (text) */
+.theme-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 0.85rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 16px;
+  cursor: pointer;
+  box-shadow: var(--btn-boxshadow);
+  transition: all var(--transition-speed);
+}
+.theme-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* PROGRESS RADIAL */
+.progress-radial {
+  position: relative;
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent-color) calc(var(--percent) * 1%), 
+    var(--progress-bg) 0
+  );
+  margin: 20px auto;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  transition: background 0.5s;
+}
+.progress-radial::before {
+  content: "";
+  position: absolute;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: var(--bg-gradient);
+}
+.progress-radial span {
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/*************************************************************
+ * 3) PAGE-SPECIFIC SECTIONS
+ *************************************************************/
+
+/* HOME (page-home) */
+.page-home .hero-section {
+  margin-top: 100px;
+  text-align: center;
+  border-radius: 26px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+.page-home .hero-title {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.page-home .hero-subtitle {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  line-height: var(--line-height);
+}
+.page-home .features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin: 40px auto;
+}
+.page-home .feature-card {
+  width: 280px; 
+  text-align: left; 
+  padding:16px;
+}
+
+/* EXERCISES (page-exercises) */
+.page-exercises h1 {
+  margin-bottom: 0.8em;
+}
+.page-exercises .course-module {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* PROGRESS (page-progress) */
+.page-progress .glass {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.page-progress h1 {
+  margin-bottom: 0.8em;
+}
+
+/* RESOURCES (page-resources) */
+.page-resources h1 {
+  margin-bottom: 0.8em;
+}
+.page-resources p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+.page-resources .resource-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.page-resources .resource-item {
+  width: 280px;
+  text-align: left;
+}
+
+/* PORTFOLIO (page-portfolio) */
+.page-portfolio h1 {
+  margin-bottom: 0.6em;
+}
+.page-portfolio p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
+  line-height: var(--line-height);
+}
+.page-portfolio .portfolio-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.page-portfolio .highlight-card {
+  width: 300px;
+  text-align: left;
+}
+/* Icon-btn for GitHub/LinkedIn/Resume */
+.page-portfolio .icon-btn {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  margin: 0 6px;
+  text-align: center;
+  line-height: 52px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+.page-portfolio .icon-btn:hover {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.page-portfolio .icon-btn img {
+  width: 24px; 
+  height: 24px; 
+  vertical-align: middle;
+}
+
+/* RESUME (page-resume) */
+.page-resume .resume-section {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 20px;
+}
+.page-resume .resume-section h2.section-title {
+  margin-bottom: 0.6em;
+  text-align: center;
+}
+.page-resume .contact-info {
+  margin-bottom: 20px;
+}
+.page-resume .job,
+.page-resume .education,
+.page-resume .project {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  background: var(--card-bg);
+  padding: 16px;
+  box-shadow: var(--card-boxshadow);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--card-border);
+}
+
+/* QUIZ (page-quiz), MODULE (page-module), etc. - as needed */
+.page-quiz h1 {
+  margin-bottom: 0.6em;
+}
+.page-module .module-timeline {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
+}
+
+/*************************************************************
+ * MEDIA QUERIES
+ *************************************************************/
+@media (max-width: 768px) {
+  header {
+    padding: 6px;
+  }
+  .menu-toggle {
+    top: 6px; left: 6px;
+  }
+  .nav-menu {
+    top: 50px; left: 6px; width: 140px;
+  }
+  .theme-btn {
+    top: 6px; right: 6px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+  .page-content {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+  .scroll-to-top-btn {
+    bottom: 15px; right: 15px;
+  }
+}

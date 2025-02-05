@@ -4,44 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeCode | Quiz</title>
-  <link rel="stylesheet" href="styles/enhanced_styles.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
+
+  <!-- סגנון כולל, גרסת “סוף הדרך” -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <!-- (אופציונלי) ספריית AOS אם משתמשים באפקטי גלילה:
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  -->
 </head>
-<body class="warm-theme">
+<body class="page-quiz fade-in">
+  <!-- רקע גלי (wave) -->
   <div class="bg-wave"></div>
 
   <header>
     <div class="nav-container">
-      <div class="logo-group">
-        <span class="logo-text">WeCode</span>
-        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
-      </div>
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="resources.html" class="nav-link">Resources</a></li>
-          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        </ul>
-      </nav>
-      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
-        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
-      </button>
+      <!-- Hamburger menu -->
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
+      <!-- Nav menu (מוסתר ברירת מחדל) -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      </ul>
+      <!-- אין מעבר תמה – סמי-דארק קבוע -->
+      <!-- אם תרצה כפתור theme-toggle, אפשר להוסיף -->
     </div>
   </header>
 
-  <main class="page-content fade-in">
+  <main class="page-content">
     <section class="glass" style="max-width:800px; margin:0 auto;">
       <h1>Interview Quiz</h1>
       <p id="quiz-intro">
-        Test your knowledge with a lesson-based quiz, featuring a timer and a local leaderboard.
-        Answer carefully and track your final score.
+        Test your C++ knowledge with a lesson-based quiz, featuring a timer and local leaderboard!
       </p>
       <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
+
+      <!-- מכולה לשאלות -->
       <div id="quiz-container" class="quiz-container"></div>
+
+      <!-- כפתורי הפעלה -->
       <button id="start-quiz" class="btn">Start Quiz</button>
-      <button id="submit-quiz" class="btn" sty
+      <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
+
+      <!-- תוצאת חידון וסיכום -->
+      <div id="quiz-result" style="margin-top:20px; font-weight:600;"></div>
+
+      <!-- Leaderboard מקומי -->
+      <div class="leaderboard" id="leaderboard" style="display:none;">
+        <h3>Local Leaderboard</h3>
+        <div id="leaderboard-entries"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 WeCode. All rights reserved.</p>
+  </footer>
+
+  <!-- כפתור גלילה מעלה -->
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
+  <!-- סקריפטים -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/quiz.js"></script>
+  <!-- ספריית AOS אם תרצה אפקטי גלילה
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:800, once:false });
+  </script>
+  -->
+</body>
+</html>
