@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>CodeForge++ | Portfolio</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
@@ -14,8 +14,13 @@
         <span class="logo-text">CodeForge++</span>
         <span class="logo-icon">{<></>}</span>
       </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <nav>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
@@ -26,13 +31,12 @@
     </div>
   </header>
 
-  <main class="page-content">
-    <section class="portfolio-section fade-in">
+  <main class="page-content fade-in">
+    <section class="portfolio-section">
       <h2 class="section-title">Meet the Developer</h2>
       <p>
-        Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform showcases my dedication
-        to delivering top-quality solutions. When I’m not optimizing systems, I’m exploring advanced AI tools
-        for coding assistance.
+        Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform is my advanced learning 
+        and portfolio demonstration, bridging real-time embedded topics with modern C++.
       </p>
 
       <div class="portfolio-highlights">
@@ -49,15 +53,15 @@
           <ul>
             <li>Low-level C/C++ programming</li>
             <li>Multi-threading and concurrency</li>
-            <li>Performance tuning and memory optimization</li>
+            <li>Performance tuning & memory optimization</li>
           </ul>
         </div>
         <div class="highlight-card glass card-hover floating-card">
           <h3>Project Goals</h3>
           <ul>
-            <li>Create advanced learning modules</li>
-            <li>Integrate AI-based code analytics</li>
-            <li>Develop an interactive portfolio tool</li>
+            <li>Provide advanced learning modules for interviews</li>
+            <li>Include in-browser IDE & solution checking</li>
+            <li>Serve as a portfolio of high-end solutions</li>
           </ul>
         </div>
       </div>

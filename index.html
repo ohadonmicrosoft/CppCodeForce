@@ -2,22 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>CodeForge++ | Home</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
 <body>
-  <!-- Header with Modern Navigation -->
+  <!-- Header -->
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
-      <!-- Updated logo with a more “rounded techy” style -->
       <h1 class="logo">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{<></>}</span> <!-- Just a playful bracket icon -->
+        <span class="logo-icon">{<></>}</span>
       </h1>
+      <!-- Hamburger icon -->
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <nav>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -32,7 +37,8 @@
   <section class="index-hero glass fade-in">
     <h1 class="hero-title">Elevate Your C++ Skills</h1>
     <p class="scale-up">
-      Dive into advanced modules, real-world tasks, and measure your progress every step of the way.
+      A comprehensive, interview-focused platform with advanced modules, an embedded IDE,
+      and real-time progress tracking.
     </p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
   </section>
@@ -40,23 +46,23 @@
   <!-- Featured Highlights -->
   <section class="features">
     <div class="feature-card glass card-hover floating-card">
-      <h3>Advanced Course</h3>
-      <p>Follow expert-level modules covering Embedded, RTOS, and concurrency topics.</p>
+      <h3>Robust Syllabus</h3>
+      <p>Learn advanced C++: concurrency, embedded, memory management, design patterns, and more.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
-      <h3>Smart Progress Tracking</h3>
-      <p>Analyze your journey with interactive charts and skill assessments.</p>
+      <h3>In-Browser IDE</h3>
+      <p>Write, compile, and test C++ solutions without leaving your browser.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
-      <h3>AI Code Review</h3>
-      <p>Receive suggestions to optimize and improve your code as you learn.</p>
+      <h3>Progress & Quizzes</h3>
+      <p>Track achievements, tackle quizzes, and receive instant feedback.</p>
     </div>
   </section>
 
   <!-- Call-to-Action -->
   <section class="cta glass fade-in">
-    <h2>Ready for the Next Challenge?</h2>
-    <a href="exercises.html" class="btn btn-glow">Jump In</a>
+    <h2>Prepare for Your Next Interview</h2>
+    <a href="exercises.html" class="btn btn-glow">Explore Modules</a>
   </section>
 
   <!-- Footer -->
@@ -64,6 +70,7 @@
     <p>© 2025 CodeForge++. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="scripts/main.js"></script>
 </body>
 </html>

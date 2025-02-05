@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>CodeForge++ | Exercises</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
@@ -14,8 +14,13 @@
         <span class="logo-text">CodeForge++</span>
         <span class="logo-icon">{<></>}</span>
       </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <nav>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -26,81 +31,154 @@
     </div>
   </header>
 
-  <main class="page-content">
-    <!-- Course Modules Overview -->
-    <section class="exercise-list fade-in">
-      <h2 class="section-title">C++ Advanced Modules</h2>
-      <p>Enhance your mastery through real-world embedded systems scenarios, concurrency, and performance tuning.</p>
+  <main class="page-content fade-in exercise-list">
+    <h2 class="section-title">Advanced C++ Interview Syllabus</h2>
+    <p>Explore specialized modules, each with lessons, code challenges, and logic puzzles.</p>
 
-      <!-- Module 1 -->
-      <div class="course-module glass">
-        <h3>Module 1: C++ Fundamentals (Refresher)</h3>
-        <p>Quickly revisit basic syntax, data types, and standard IO before diving deeper.</p>
-        <ul>
-          <li>
-            <strong>Lesson 1:</strong> Basic I/O & RAII
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l1')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l1')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 2:</strong> Pointers, References, and Smart Pointers
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l2')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l2')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 3:</strong> STL Essentials (Vectors, Maps)
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l3')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l3')">Take Quiz</button>
-          </li>
-        </ul>
-      </div>
+    <!-- Module 1 -->
+    <div class="course-module glass">
+      <h3>Module 1: Foundations & Modern Features</h3>
+      <p>Refresh essential C++ syntax, RAII, and modern C++ (C++11/14/17) best practices.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> RAII & Constructors
+          <a href="lesson.html?lessonID=M1L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> Smart Pointers & Move Semantics
+          <a href="lesson.html?lessonID=M1L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Lambda Expressions & STL Algorithms
+          <a href="lesson.html?lessonID=M1L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
 
-      <!-- Module 2 -->
-      <div class="course-module glass">
-        <h3>Module 2: Real-Time & Embedded Development</h3>
-        <p>Explore concurrency, threading, and embedded constraints in depth.</p>
-        <ul>
-          <li>
-            <strong>Lesson 1:</strong> RTOS Fundamentals & Scheduling
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l1')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l1')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 2:</strong> Interfacing with Hardware (GPIO, SPI, I2C)
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l2')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l2')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 3:</strong> Concurrency & Thread-Safety
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l3')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l3')">Take Quiz</button>
-          </li>
-        </ul>
-      </div>
+    <!-- Module 2 -->
+    <div class="course-module glass">
+      <h3>Module 2: Data Structures & Algorithms</h3>
+      <p>Implement and optimize lists, trees, graphs; learn standard complexities and typical interview puzzles.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> Linked Lists & Iterators
+          <a href="lesson.html?lessonID=M2L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> Sorting & Searching (QuickSort, MergeSort, Binary Search)
+          <a href="lesson.html?lessonID=M2L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Graphs & BFS/DFS
+          <a href="lesson.html?lessonID=M2L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 4:</strong> Common Algorithmic Puzzles (Two-Sum, Sliding Window)
+          <a href="lesson.html?lessonID=M2L4" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
 
-      <!-- Module 3 -->
-      <div class="course-module glass">
-        <h3>Module 3: Performance & Memory Optimization</h3>
-        <p>Advanced profiling, memory management, and low-level optimizations.</p>
-        <ul>
-          <li>
-            <strong>Lesson 1:</strong> Profiling & Benchmarking Tools
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l1')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l1')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 2:</strong> Low-Level Debugging (GDB, Logic Analyzers)
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l2')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l2')">Take Quiz</button>
-          </li>
-          <li>
-            <strong>Lesson 3:</strong> Memory Leaks & Advanced Allocators
-            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l3')">Open in VS Code</button>
-            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l3')">Take Quiz</button>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <!-- Module 3 -->
+    <div class="course-module glass">
+      <h3>Module 3: Real-Time & Embedded</h3>
+      <p>RTOS fundamentals, concurrency, interrupts, memory-mapped IO, and debugging tools for embedded systems.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> RTOS & Task Scheduling
+          <a href="lesson.html?lessonID=M3L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> ISRs & Concurrency in Embedded
+          <a href="lesson.html?lessonID=M3L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Hardware Interaction (GPIO, SPI, I2C)
+          <a href="lesson.html?lessonID=M3L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module 4 -->
+    <div class="course-module glass">
+      <h3>Module 4: Concurrency & Multithreading</h3>
+      <p>Threads, mutexes, lock-free programming, advanced concurrency patterns.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> std::thread & std::mutex
+          <a href="lesson.html?lessonID=M4L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> Condition Variables & Futures
+          <a href="lesson.html?lessonID=M4L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Lock-Free Data Structures
+          <a href="lesson.html?lessonID=M4L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module 5 -->
+    <div class="course-module glass">
+      <h3>Module 5: Memory Management & Debugging</h3>
+      <p>Advanced memory allocation, custom allocators, valgrind, performance analysis, GDB usage.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> Manual vs. Smart Allocation
+          <a href="lesson.html?lessonID=M5L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> Custom Allocators & Pool Allocation
+          <a href="lesson.html?lessonID=M5L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Valgrind & GDB Basics
+          <a href="lesson.html?lessonID=M5L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module 6 -->
+    <div class="course-module glass">
+      <h3>Module 6: Templates & Metaprogramming</h3>
+      <p>Generic programming, SFINAE, type traits, advanced compile-time tricks.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> Function Templates & Class Templates
+          <a href="lesson.html?lessonID=M6L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> Template Specialization & Partial Specialization
+          <a href="lesson.html?lessonID=M6L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> SFINAE & Type Traits
+          <a href="lesson.html?lessonID=M6L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module 7 -->
+    <div class="course-module glass">
+      <h3>Module 7: System Design & Advanced Topics</h3>
+      <p>Large-scale architecture, design patterns, interview-style system scenarios, and more.</p>
+      <ul>
+        <li>
+          <strong>Lesson 1:</strong> Design Patterns (Factory, Singleton, Observer)
+          <a href="lesson.html?lessonID=M7L1" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 2:</strong> High-Level System Design in C++
+          <a href="lesson.html?lessonID=M7L2" class="btn lesson-btn">Open Lesson</a>
+        </li>
+        <li>
+          <strong>Lesson 3:</strong> Common Interview Scenarios (Producer/Consumer, Thread Pools)
+          <a href="lesson.html?lessonID=M7L3" class="btn lesson-btn">Open Lesson</a>
+        </li>
+      </ul>
+    </div>
+
   </main>
 
   <footer>
@@ -108,18 +186,5 @@
   </footer>
 
   <script src="scripts/main.js"></script>
-  <script>
-    // Placeholder function for opening exercises in external editor
-    function openInExternalEditor(lessonID) {
-      alert(`Attempting to open ${lessonID} in external editor (VS Code).
-If your system supports the vscode:// protocol, it may open automatically.
-Otherwise, consider linking a repo or copying code manually.`);
-    }
-
-    // Navigate to quiz page with a query param
-    function gotoQuiz(lessonID) {
-      window.location.href = `quiz.html?lesson=${lessonID}`;
-    }
-  </script>
 </body>
 </html>

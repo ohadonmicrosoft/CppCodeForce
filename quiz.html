@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>CodeForge++ | Quiz</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
@@ -14,8 +14,13 @@
         <span class="logo-text">CodeForge++</span>
         <span class="logo-icon">{<></>}</span>
       </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <nav>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
@@ -28,7 +33,7 @@
 
   <main class="page-content">
     <section class="fade-in">
-      <h2 class="section-title">Quick Quiz</h2>
+      <h2 class="section-title">Interview Quiz</h2>
       <p id="quiz-intro">Lesson-based quiz questions will appear here.</p>
 
       <div id="quiz-container" class="glass quiz-container"></div>

@@ -4,12 +4,10 @@
 function improveCodeAI(code) {
     // Example placeholder function
     console.log("Analyzing code...", code);
-    // You can integrate a real AI API here
     return {
-        suggestions: "Try using modern C++ features like auto, range-based for loops, and smart pointers.",
-        performanceTips: "Prefer pass-by-reference instead of pass-by-value for complex objects.",
+      suggestions: "Try using modern C++ features like auto, range-based for loops, and smart pointers.",
+      performanceTips: "Consider passing objects by reference rather than by value to reduce copies."
     };
-}
-
-// Export if using modules
-// export { improveCodeAI };
+  }
+  // export { improveCodeAI };
+  

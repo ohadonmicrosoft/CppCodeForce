@@ -1,32 +1,30 @@
 // main.js
 
-// 🔥 Smooth Scrolling (for internal anchors) with offset handling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const offset = target.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-      }
-    });
+// Hamburger toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
   });
-  
-  // 🔥 Accessibility & Keyboard Navigation
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Tab") {
-      document.body.classList.add("keyboard-nav");
-    }
-  });
-  
-  document.addEventListener("mousedown", () => {
-    document.body.classList.remove("keyboard-nav");
-  });
-  
-  // 🔥 Auto-hide Header on Scroll
-  let lastScrollTop = 0;
-  const header = document.querySelector("header");
-  
+}
+
+// Accessibility & Keyboard Navigation
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Tab") {
+    document.body.classList.add("keyboard-nav");
+  }
+});
+
+document.addEventListener("mousedown", () => {
+  document.body.classList.remove("keyboard-nav");
+});
+
+// Auto-hide Header on Scroll
+let lastScrollTop = 0;
+const header = document.querySelector("header");
+
+if (header) {
   window.addEventListener("scroll", () => {
     let scrollTop = window.scrollY;
     if (scrollTop > lastScrollTop) {
@@ -36,17 +34,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
     lastScrollTop = scrollTop;
   });
-  
-  // 🔥 Placeholder for Theme Toggle (Optional)
-  const themeToggle = document.querySelector('#theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    });
-  
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-    }
-  }
-  
+}

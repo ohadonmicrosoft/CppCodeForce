@@ -14,7 +14,6 @@ html {
 
 body {
   font-family: 'Fredoka', sans-serif;
-  /* Soft sunset gradient: pinkish/orange tones */
   background: linear-gradient(135deg, #FDE2D4 0%, #FAD1C8 100%);
   color: #333;
   text-align: center;
@@ -32,7 +31,7 @@ body {
   padding: 20px;
 }
 
-/* Header Styling */
+/* Header & Nav */
 header {
   position: fixed;
   width: 100%;
@@ -55,7 +54,6 @@ header {
   padding: 0 20px;
 }
 
-/* Logo with distinct text & icon */
 .logo {
   display: flex;
   align-items: center;
@@ -98,7 +96,45 @@ header {
   color: #ff6b6b;
 }
 
-/* Page Content Wrapper */
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 4px;
+  background: #333;
+  transition: 0.3s;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Page Content */
 .page-content {
   margin-top: 120px;
   padding: 40px 20px;
@@ -108,7 +144,7 @@ header {
   text-align: left;
 }
 
-/* Index Page Hero Section */
+/* Index Hero */
 .index-hero {
   margin-top: 180px;
   padding: 100px 30px;
@@ -213,7 +249,7 @@ footer {
   box-shadow: 0px 8px 20px rgba(255, 107, 107, 0.7);
 }
 
-/* Exercises & Course Modules */
+/* Exercise List & Modules */
 .exercise-list {
   text-align: center;
   padding: 40px;
@@ -238,13 +274,29 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Quiz Page */
+/* Lesson Page */
+.lesson-details h2 {
+  margin-bottom: 10px;
+}
+
+#lesson-challenges {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+/* IDE Page */
+#code-editor {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Quiz Container */
 .quiz-container {
   padding: 20px;
   margin-top: 20px;
 }
 
-/* Progress Page Styles */
+/* Progress Page */
 .progress-section {
   text-align: center;
 }
@@ -277,33 +329,8 @@ footer {
   transition: width 0.5s ease-in-out;
 }
 
-/* Resource Page */
-.resource-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.resource-item {
-  width: 300px;
-  text-align: left;
-}
-
-/* Portfolio Page */
-.portfolio-section {
-  max-width: 1000px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.portfolio-section p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 20px auto;
-}
-
+/* Resource/Portfolio/Resume */
+.resource-list,
 .portfolio-highlights {
   display: flex;
   flex-wrap: wrap;
@@ -311,60 +338,38 @@ footer {
   justify-content: center;
   margin-top: 40px;
 }
-
+.resource-item,
 .highlight-card {
   width: 320px;
   text-align: left;
 }
 
-.highlight-card ul {
-  margin-top: 10px;
-  list-style: inside;
-}
-
-/* Resume Page */
 .resume-section {
-  margin-bottom: 40px;
   text-align: left;
   line-height: 1.6;
 }
 
-.resume-section .contact-info p {
-  margin: 4px 0;
-}
-
 .job,
-.education,
-.project {
+.education {
   margin-top: 20px;
   padding: 15px;
 }
 
 .job h4,
-.education h4,
-.project h4 {
+.education h4 {
   font-size: 1.1rem;
   color: #ff6b6b;
   margin-bottom: 8px;
-}
-
-.job ul,
-.education ul,
-.project ul {
-  list-style: disc;
-  margin-left: 20px;
 }
 
 /* Card Hover & Floating Effects */
 .card-hover {
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
-
 .card-hover:hover {
   transform: scale(1.08);
   box-shadow: 0px 12px 30px rgba(0, 255, 204, 0.4);
 }
-
 @keyframes floating {
   0% {
     transform: translateY(0px);
@@ -376,16 +381,12 @@ footer {
     transform: translateY(0px);
   }
 }
-
 .floating-card {
   animation: floating 3.5s ease-in-out infinite;
 }
 
-/* Responsive Design */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .nav-menu li {
-    margin-left: 15px;
-  }
   .features {
     flex-direction: column;
   }
@@ -402,6 +403,9 @@ footer {
   .course-module ul {
     margin-left: 0;
   }
+  .page-content {
+    margin-top: 80px; /* reduce for mobile */
+  }
 }
 
 @media (max-width: 480px) {
@@ -410,12 +414,6 @@ footer {
   }
   .logo-icon {
     font-size: 1rem;
-  }
-  .nav-menu {
-    display: none; /* Additional logic to toggle on small screens */
-  }
-  header {
-    padding: 10px 0;
   }
   .index-hero h1 {
     font-size: 2.2rem;

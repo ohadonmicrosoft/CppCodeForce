@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>CodeForge++ | Resources</title>
+  <title>CodeForge++ | IDE</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
+  <!-- Monaco Editor requires AMD loader if we do it directly. We can also do a script tag. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </head>
 <body>
   <header class="glass header-slide-in compact-header">
@@ -24,6 +26,7 @@
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
           <li><a href="resume.html" class="nav-link">Resume</a></li>
         </ul>
@@ -32,31 +35,14 @@
   </header>
 
   <main class="page-content fade-in">
-    <section class="resource-section">
-      <h2 class="section-title">C++ Learning Resources</h2>
-      <p>
-        Curated references and tutorials for advanced C++ topics and embedded systems.
-      </p>
-
-      <div class="resource-list">
-        <div class="resource-item glass card-hover floating-card">
-          <h3>cppreference.com</h3>
-          <p>Comprehensive doc on C++ language features, STL, and more.</p>
-          <a href="https://en.cppreference.com/" target="_blank" class="btn">Visit Site</a>
-        </div>
-
-        <div class="resource-item glass card-hover floating-card">
-          <h3>isocpp.org</h3>
-          <p>Official C++ standardization info, plus modern guidelines and articles.</p>
-          <a href="https://isocpp.org" target="_blank" class="btn">View Site</a>
-        </div>
-
-        <div class="resource-item glass card-hover floating-card">
-          <h3>Learn C++</h3>
-          <p>A helpful site with beginner-to-advanced tutorials on modern C++ concepts.</p>
-          <a href="https://www.learncpp.com/" target="_blank" class="btn">Visit Site</a>
-        </div>
+    <section class="glass">
+      <h2 id="ide-lesson-title">IDE for Lesson: ...</h2>
+      <div id="code-editor" style="height:400px;"></div>
+      <div style="margin-top:20px;">
+        <button class="btn" id="run-code-btn">Run Code</button>
+        <button class="btn" id="check-solution-btn">Check Solution</button>
       </div>
+      <div id="output-area" class="glass" style="margin-top:20px; padding:10px; min-height:100px; white-space:pre-wrap;"></div>
     </section>
   </main>
 
@@ -64,6 +50,8 @@
     <p>© 2025 CodeForge++. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="scripts/main.js"></script>
+  <script src="scripts/ide.js"></script>
 </body>
 </html>
