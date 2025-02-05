@@ -338,26 +338,48 @@ footer {
   text-align: left;
 }
 
-/* Icons for GitHub & LinkedIn */
-.icon-btn {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
+/* ---------- ICON ENHANCEMENTS ---------- */
+/* For the resume icon specifically */
+.resume-icon {
+  width: 48px;
+  height: 48px;
   margin: 0 6px;
   border-radius: 50%;
   background: rgba(255,255,255,0.1);
-  text-align: center;
-  line-height: 36px;
-  transition: background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
 }
-.icon-btn:hover {
+.resume-icon img {
+  width: 24px; /* bigger than before */
+  height: 24px;
+}
+.resume-icon:hover {
   background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(249,123,123,0.6);
 }
 
-.icon-btn img {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
+/* For GitHub/LinkedIn icons in the portfolio page */
+.portfolio-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.portfolio-icon:hover {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+.portfolio-icon img {
+  width: 28px; /* bigger than before */
+  height: 28px;
+  filter: invert(100%);
 }
 
 /* IDE Page - Improved Window */
