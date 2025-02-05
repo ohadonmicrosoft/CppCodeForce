@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CodeForge++ | Module 1</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content fade-in">
+    <section class="glass">
+      <h2>Module 1: Foundations & Modern C++ Features</h2>
+      <p>
+        A refresher on essential C++ syntax, RAII principles, and modern features introduced in C++11/14/17.
+        Mastering these sets the stage for more advanced topics later.
+      </p>
+
+      <hr/>
+
+      <h3>Lesson 1: RAII & Constructors</h3>
+      <p>
+        RAII ensures resources are acquired in constructors and released in destructors, preventing leaks. 
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Create a class that opens and closes a file within constructor/destructor.</li>
+          <li>Handle exception safety: ensure no leak occurs if an exception is thrown.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M1L1')">Open IDE for Lesson 1</button>
+
+      <hr/>
+
+      <h3>Lesson 2: Smart Pointers & Move Semantics</h3>
+      <p>
+        Learn <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>, 
+        and how move semantics can eliminate unnecessary copies.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Port a raw pointer approach to <code>unique_ptr</code>.</li>
+          <li>Show an example transferring ownership with <code>std::move</code>.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
+
+      <hr/>
+
+      <h3>Lesson 3: Lambda Expressions & STL Algorithms</h3>
+      <p>
+        C++ lambdas let you write inline functions. The STL offers <code>std::sort</code>, <code>std::for_each</code>, 
+        <code>std::transform</code>, etc. 
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Use a lambda to filter out even numbers in a vector.</li>
+          <li>Demonstrate capturing variables by reference vs. by value.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    function openIDE(lessonID) {
+      window.location.href = `ide.html?lessonID=${lessonID}`;
+    }
+  </script>
+</body>
+</html>

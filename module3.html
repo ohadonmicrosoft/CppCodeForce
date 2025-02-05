@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CodeForge++ | Module 3</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content fade-in">
+    <section class="glass">
+      <h2>Module 3: Real-Time & Embedded</h2>
+      <p>
+        Explores RTOS concepts, concurrency in embedded contexts, interrupts, hardware-level debugging, etc.
+      </p>
+
+      <hr/>
+
+      <h3>Lesson 1: RTOS & Task Scheduling</h3>
+      <p>
+        Understand how real-time schedulers prioritize tasks, manage deadlines, and handle context switching.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Write pseudocode for a priority-based scheduler.</li>
+          <li>Explain rate-monotonic scheduling vs. earliest-deadline-first.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M3L1')">Open IDE for Lesson 1</button>
+
+      <hr/>
+
+      <h3>Lesson 2: ISRs & Concurrency in Embedded</h3>
+      <p>
+        Handling interrupts safely, shared data with volatile, and concurrency pitfalls in microcontrollers.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Write an ISR that toggles an LED and increments a counter.</li>
+          <li>Demonstrate lock-free data exchange between main loop and ISR.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M3L2')">Open IDE for Lesson 2</button>
+
+      <hr/>
+
+      <h3>Lesson 3: Hardware Interaction & Debugging</h3>
+      <p>
+        Using GPIO, SPI, or I2C in embedded code. Approaches to low-level debugging with JTAG or logic analyzers.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Simulate reading/writing a hardware register with a <code>volatile</code> pointer.</li>
+          <li>Describe how you’d debug a bus fault with a logic analyzer trace.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M3L3')">Open IDE for Lesson 3</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    function openIDE(lessonID) {
+      window.location.href = `ide.html?lessonID=${lessonID}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CodeForge++ | Module 2</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content fade-in">
+    <section class="glass">
+      <h2>Module 2: Data Structures & Algorithms</h2>
+      <p>
+        Covers complexities, standard data structures, searching/sorting, and puzzle-like challenges found in interviews.
+      </p>
+
+      <hr/>
+
+      <h3>Lesson 1: Linked Lists & Iterators</h3>
+      <p>
+        Implement singly/doubly linked lists. Understand iterator design, especially in custom containers.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Create a <code>LinkedList</code> class with <code>push_back</code>, <code>pop_front</code>, etc.</li>
+          <li>Implement a forward iterator for your list.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M2L1')">Open IDE for Lesson 1</button>
+
+      <hr/>
+
+      <h3>Lesson 2: Sorting & Searching</h3>
+      <p>
+        Dive into <code>QuickSort</code>, <code>MergeSort</code>, and searching algorithms (binary search).
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Code a quicksort with random pivot selection.</li>
+          <li>Implement a binary search on a sorted array.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M2L2')">Open IDE for Lesson 2</button>
+
+      <hr/>
+
+      <h3>Lesson 3: Graphs & BFS/DFS</h3>
+      <p>
+        Represent graphs with adjacency lists, perform breadth-first and depth-first search.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Implement BFS that returns shortest distance from a start node.</li>
+          <li>Use DFS to detect cycles in a directed graph.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M2L3')">Open IDE for Lesson 3</button>
+
+      <hr/>
+
+      <h3>Lesson 4: Common Algorithmic Puzzles</h3>
+      <p>
+        Typical problems like two-sum, sliding window maxima, etc.
+        <strong>Tasks:</strong>
+        <ul>
+          <li>Given an array and a target, return indices of two numbers that sum to target.</li>
+          <li>Sliding window maximum for each window of size k in an array.</li>
+        </ul>
+      </p>
+      <button class="btn" onclick="openIDE('M2L4')">Open IDE for Lesson 4</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    function openIDE(lessonID) {
+      window.location.href = `ide.html?lessonID=${lessonID}`;
+    }
+  </script>
+</body>
+</html>
