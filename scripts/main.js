@@ -1,5 +1,6 @@
 // main.js
 
+// 1) Hamburger menu
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 if (menuToggle) {
@@ -8,23 +9,31 @@ if (menuToggle) {
   });
 }
 
-// Accessibility & Keyboard Navigation
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Tab") {
-    document.body.classList.add("keyboard-nav");
-  }
-});
-document.addEventListener("mousedown", () => {
-  document.body.classList.remove("keyboard-nav");
-});
+// 2) Theme toggle
+const themeToggleBtn = document.getElementById('theme-toggle');
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const body = document.body;
+    if (body.classList.contains('dark-theme')) {
+      body.classList.remove('dark-theme');
+      body.classList.add('light-theme');
+    } else {
+      body.classList.remove('light-theme');
+      body.classList.add('dark-theme');
+    }
+  });
+}
 
-// Delayed Auto-hide Header on Scroll
+// 3) Optional Delayed auto-hide on desktop
 let header = document.querySelector("header");
 let scrollTimeout = null;
 let lastScrollTop = window.scrollY;
 
 if (header) {
   window.addEventListener("scroll", () => {
+    // If screen width < 768px, skip auto-hide
+    if (window.innerWidth < 768) return;
+
     if (scrollTimeout) clearTimeout(scrollTimeout);
 
     let currentScrollTop = window.scrollY;

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -27,19 +27,20 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
   <main class="page-content fade-in">
     <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
-      <h2 style="color:#fff;">Your Learning Journey</h2>
+      <h1>Your Learning Journey</h1>
       <p>Track your completed lessons. The radial ring fills up as you progress.</p>
 
       <div class="progress-radial" id="radialProgress" style="--percent:0;">
         <span id="progress-label">0%</span>
       </div>
 
-      <p id="progress-text" style="margin-top:10px; color:#ccc;">
+      <p id="progress-text" style="margin-top:10px;">
         Completed 0 / 21 Lessons
       </p>
     </section>

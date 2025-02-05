@@ -3,8 +3,6 @@
 let quizStarted = false;
 let quizStartTime = 0;
 let quizInterval = null;
-
-// Local scoreboard
 let scoreboard = JSON.parse(localStorage.getItem('quizScoreboard')) || [];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,16 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaderboardDiv = document.getElementById('leaderboard');
   const leaderboardEntries = document.getElementById('leaderboard-entries');
 
-  // Simple question bank
   const questionBank = [
     {
-      text: "Which sorting algorithm has the worst-case O(n^2)?",
+      text: "Which sorting algorithm has worst-case O(n^2)?",
       options: ["QuickSort", "MergeSort", "HeapSort", "BubbleSort"],
       correctIndex: 3
     },
     {
       text: "Binary Search requires the list to be...",
-      options: ["Non-empty", "In ascending order", "Random", "Unique elements only"],
+      options: ["Non-empty", "Sorted", "Unique", "Doubly Linked"],
       correctIndex: 1
     }
   ];
@@ -67,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startBtn.style.display = "none";
     submitBtn.style.display = "inline-block";
 
-    // Start timer
+    // start timer
     quizStartTime = Date.now();
     quizInterval = setInterval(updateTimer, 1000);
   }
@@ -80,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function pad(num) {
-    return num < 10 ? "0"+num : num;
+    return num < 10 ? `0${num}` : num;
   }
 
   function submitQuiz() {
@@ -97,28 +94,25 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
         }
       }
-      if (selected === q.correctIndex) {
-        score++;
-      }
+      if (selected === q.correctIndex) score++;
     });
     quizResult.innerText = `You scored ${score} out of ${questionBank.length}.`;
 
-    // Stop timer
+    // final time
     let finalTime = quizTimer.innerText.replace("Time: ","");
-    quizTimer.innerText += " (Finished)";
 
-    // Ask user name for scoreboard
+    // store to scoreboard
     let userName = prompt("Enter your name for the scoreboard:", "Anonymous");
     if (!userName) userName = "Anonymous";
-
-    scoreboard.push({name: userName, score: score, time: finalTime});
+    scoreboard.push({ name: userName, score, time: finalTime });
     localStorage.setItem('quizScoreboard', JSON.stringify(scoreboard));
+
     showLeaderboard();
   }
 
   function showLeaderboard() {
     leaderboardDiv.style.display = "block";
-    scoreboard.sort((a,b) => b.score - a.score); // sort by higher score
+    scoreboard.sort((a,b) => b.score - a.score);
     leaderboardEntries.innerHTML = "";
     scoreboard.forEach((entry, idx) => {
       const row = document.createElement("div");
@@ -128,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  startBtn.addEventListener('click', startQuiz);
-  submitBtn.addEventListener('click', submitQuiz);
+  startBtn?.addEventListener('click', startQuiz);
+  submitBtn?.addEventListener('click', submitQuiz);
 });
-

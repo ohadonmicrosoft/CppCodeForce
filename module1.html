@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -28,10 +28,11 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
-  <main class="page-content fade-in module-page">
+  <main class="page-content fade-in">
     <div class="breadcrumb">
       <a href="index.html">Home</a> <span>></span>
       <a href="exercises.html">Exercises</a> <span>></span>
@@ -39,10 +40,9 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 1: Foundations & Modern C++</h2>
+      <h1>Module 1: Foundations & Modern C++</h1>
       <p style="margin-bottom:20px;">
-        This module covers essential modern C++ techniques: <strong>RAII, smart pointers, lambdas,</strong> and more.
-        Master these features to write safer, more expressive code.
+        This module covers essential modern C++ techniques: <strong>RAII, smart pointers, lambdas</strong>, and more.
       </p>
 
       <!-- Collapsible timeline container -->
@@ -50,55 +50,53 @@
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Basic RAII overview</div>
         <div class="timeline-step">Step 2: Smart pointers in practice</div>
-        <div class="timeline-step">Step 3: Moving & transferring ownership</div>
+        <div class="timeline-step">Step 3: Move semantics & transferring ownership</div>
         <div class="timeline-step">Step 4: Lambdas & captures</div>
-        <div class="timeline-step">Step 5: Combining lambdas with STL</div>
+        <div class="timeline-step">Step 5: Combining lambdas with STL algorithms</div>
       </div>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
-      <!-- Insert an example diagram or image -->
+      <!-- Example diagram placeholder -->
       <div style="text-align:center; margin:10px 0;">
-        <img src="assets/images/raii_diagram.png" alt="RAII Diagram" style="max-width:400px; border-radius:8px;"/>
+        <img src="assets/images/module1_diagram.png" alt="RAII Diagram" style="max-width:400px; border-radius:8px;"/>
         <p style="font-size:0.9rem; color:#aaa;">
-          <em>Figure: RAII Diagram (placeholder). Replace with your real image.</em>
+          <em>Figure: Example RAII Diagram. Replace with real image if you have one.</em>
         </p>
       </div>
 
-      <h3>Lesson 1: RAII & Constructors</h3>
+      <h2>Lesson 1: RAII & Constructors</h2>
       <p>
-        <strong>Concept:</strong> Resource Acquisition Is Initialization (RAII) ensures resource ownership
-        is bound to object lifetimes.
+        <strong>Concept:</strong> Resource Acquisition Is Initialization ensures resources are owned by objects.
       </p>
       <ul style="margin-left:20px;">
-        <li>Create a <code>FileWrapper</code> class that opens a file in the constructor and closes it in the destructor.</li>
-        <li>Consider exception-handling in the constructor—what if the file can’t be opened?</li>
+        <li>Create a <code>FileWrapper</code> class that opens a file in constructor & closes in destructor.</li>
+        <li>Handle exceptions if file fails to open.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L1')">Open IDE for Lesson 1</button>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: Smart Pointers & Move Semantics</h3>
+      <h2>Lesson 2: Smart Pointers & Move Semantics</h2>
       <p>
-        Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code> 
-        for dynamic allocations. <em>Move semantics</em> eliminates expensive copies.
+        Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>, 
+        & move semantics for efficient memory management.
       </p>
       <ul style="margin-left:20px;">
-        <li>Rewrite a raw pointer approach to use <code>std::unique_ptr</code>.</li>
-        <li>Demonstrate using <code>std::move</code> to transfer ownership cheaply.</li>
+        <li>Rewrite raw pointer approach with <code>unique_ptr</code>.</li>
+        <li>Show <code>std::move</code> transferring ownership cheaply.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 3: Lambdas & STL Algorithms</h3>
+      <h2>Lesson 3: Lambdas & STL Algorithms</h2>
       <p>
-        Lambdas combined with <code>std::transform</code>, <code>std::remove_if</code>, etc. can make code 
-        more concise and expressive.
+        Combine lambdas with <code>std::remove_if</code>, <code>std::transform</code>, etc. to write concise code.
       </p>
       <ul style="margin-left:20px;">
-        <li>Use <code>std::remove_if</code> with a lambda to remove all negative numbers from a vector.</li>
-        <li>Explore captures by value vs. by reference in a lambda.</li>
+        <li>Use <code>std::remove_if</code> with a lambda to remove negative numbers.</li>
+        <li>Explore captures by value vs. by reference.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
@@ -110,7 +108,6 @@
 
   <script src="scripts/main.js"></script>
   <script>
-    // Toggle the module timeline
     function toggleTimeline() {
       const timeline = document.getElementById('moduleTimeline');
       timeline.classList.toggle('show');

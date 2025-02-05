@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -25,43 +25,41 @@
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <!-- Resume removed -->
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
-  <main class="page-content fade-in">
-    <section class="resource-section">
-      <h2 class="section-title">C++ Learning Resources</h2>
-      <p>
-        Curated references and tutorials for advanced C++ topics and embedded systems.
-      </p>
+  <main class="page-content fade-in resource-section">
+    <h1>C++ Learning Resources</h1>
+    <p>
+      Explore curated references, tutorials, and external links to deepen your understanding of modern C++.
+    </p>
 
-      <div class="resource-list">
-        <div class="resource-item glass card-hover floating-card">
-          <h3>cppreference.com</h3>
-          <p>Comprehensive doc on C++ language features, STL, and more.</p>
-          <a href="https://en.cppreference.com/" target="_blank" class="btn">Visit Site</a>
-        </div>
-
-        <div class="resource-item glass card-hover floating-card">
-          <h3>isocpp.org</h3>
-          <p>Official C++ standardization info, plus modern guidelines and articles.</p>
-          <a href="https://isocpp.org" target="_blank" class="btn">View Site</a>
-        </div>
-
-        <div class="resource-item glass card-hover floating-card">
-          <h3>Learn C++</h3>
-          <p>A helpful site with advanced tutorials on modern C++ concepts.</p>
-          <a href="https://www.learncpp.com/" target="_blank" class="btn">Visit Site</a>
-        </div>
+    <div class="resource-list" style="margin-top:30px;">
+      <div class="resource-item glass card-hover floating-card">
+        <h2>cppreference.com</h2>
+        <p>Comprehensive doc on C++ language features, STL, and more.</p>
+        <a href="https://en.cppreference.com/" target="_blank" class="btn">Visit Site</a>
       </div>
-    </section>
+
+      <div class="resource-item glass card-hover floating-card">
+        <h2>isocpp.org</h2>
+        <p>Official C++ standardization info, plus modern guidelines and articles.</p>
+        <a href="https://isocpp.org" target="_blank" class="btn">View Site</a>
+      </div>
+
+      <div class="resource-item glass card-hover floating-card">
+        <h2>Learn C++</h2>
+        <p>A helpful site with advanced tutorials on modern C++ concepts.</p>
+        <a href="https://www.learncpp.com/" target="_blank" class="btn">Visit Site</a>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>

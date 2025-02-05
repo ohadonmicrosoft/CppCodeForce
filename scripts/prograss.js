@@ -17,18 +17,15 @@ function updateProgressDisplay() {
   const radialProgress = document.getElementById('radialProgress');
   const progressLabel = document.getElementById('progress-label');
   const progressText = document.getElementById('progress-text');
+  if (!radialProgress) return;
 
-  if (!radialProgress) return; // if we're not on progress.html
-
-  let completed = completedLessons.length;
-  if (completed > TOTAL_LESSONS) completed = TOTAL_LESSONS;
-  let pct = (completed / TOTAL_LESSONS) * 100;
+  let completedCount = completedLessons.length;
+  if (completedCount > TOTAL_LESSONS) completedCount = TOTAL_LESSONS;
+  let pct = (completedCount / TOTAL_LESSONS) * 100;
 
   radialProgress.style.setProperty('--percent', pct.toFixed(2));
   if (progressLabel) progressLabel.innerText = `${Math.round(pct)}%`;
-  if (progressText) {
-    progressText.innerText = `Completed ${completed} / ${TOTAL_LESSONS} Lessons`;
-  }
+  if (progressText) progressText.innerText = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
 }
 
 function markLessonCompleted(lessonID) {

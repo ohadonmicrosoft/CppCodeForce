@@ -7,19 +7,24 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<body>
-  <!-- Header -->
+<!-- Default to dark-theme. Toggle will switch to light-theme if user clicks -->
+<body class="dark-theme">
+
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
         <span class="logo-text">CodeForge++</span>
         <span class="logo-icon">{<></>}</span>
       </h1>
+
+      <!-- Hamburger for mobile -->
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+
+      <!-- Navigation -->
       <nav>
         <ul class="nav-menu" id="navMenu">
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -28,47 +33,45 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="index-hero glass fade-in">
     <h1 class="hero-title">Elevate Your C++ Skills</h1>
     <p class="slide-up">
       A comprehensive, interview-focused platform with advanced modules,
-      an embedded IDE, real-time progress tracking, plus brand-new animations!
+      an embedded IDE, real-time progress tracking, and more.
     </p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
   </section>
 
-  <!-- Featured Highlights -->
   <section class="features slide-up">
     <div class="feature-card glass card-hover floating-card">
-      <h3>Robust Syllabus</h3>
+      <h2>Robust Syllabus</h2>
       <p>Learn advanced C++: concurrency, embedded, memory management, and more.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
-      <h3>In-Browser IDE</h3>
+      <h2>In-Browser IDE</h2>
       <p>Write, compile, and test code right here—no external tools needed.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
-      <h3>Progress & Quizzes</h3>
+      <h2>Progress & Quizzes</h2>
       <p>Track achievements, timed quizzes, local leaderboard, and instant feedback.</p>
     </div>
   </section>
 
-  <!-- Call-to-Action -->
   <section class="cta glass fade-in">
     <h2>Prepare for Your Next Interview</h2>
     <a href="exercises.html" class="btn">Explore Modules</a>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="scripts/main.js"></script>
 </body>
 </html>

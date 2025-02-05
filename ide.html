@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles/animations.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -29,11 +29,12 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
   <main class="page-content fade-in">
-    <!-- Breadcrumb for navigation -->
+    <!-- Sub-Nav / Breadcrumb (deduce module from MxLy) -->
     <div class="breadcrumb" id="breadcrumb-nav">
       <a href="index.html">Home</a> <span>></span>
       <a href="exercises.html">Exercises</a> <span>></span>
@@ -42,7 +43,7 @@
     </div>
 
     <section class="glass" style="padding:30px;">
-      <h2 id="ide-lesson-title" style="margin-bottom:15px;">IDE for Lesson: ...</h2>
+      <h1 id="ide-lesson-title" style="margin-bottom:15px;">IDE for Lesson: ...</h1>
       <div id="code-editor"></div>
       <div style="margin-top:20px;">
         <button class="btn" id="run-code-btn">Run Code</button>
@@ -65,21 +66,17 @@
   <script src="scripts/main.js"></script>
   <script src="scripts/ide.js"></script>
   <script src="scripts/progress.js"></script> 
-  <!-- ensure progress.js is loaded so we can call markLessonCompleted() -->
   <script>
-    // Parse lessonID
+    // Deduce the lesson -> figure out module # for the link
     const params = new URLSearchParams(window.location.search);
     const lesson = params.get('lessonID') || 'M1L1';
-
-    // For breadcrumb
-    const moduleNum = lesson.slice(1,2); // e.g. M3 => '3'
+    const modNum = lesson.slice(1,2); 
     const moduleLink = document.getElementById('moduleLink');
-    if (moduleLink) {
-      moduleLink.href = `module${moduleNum}.html`;
-      moduleLink.innerText = `Module ${moduleNum}`;
-    }
-    // Also update title
     const ideTitle = document.getElementById('ide-lesson-title');
+    if (moduleLink) {
+      moduleLink.href = `module${modNum}.html`;
+      moduleLink.innerText = `Module ${modNum}`;
+    }
     ideTitle.innerText = `IDE for Lesson: ${lesson}`;
   </script>
 </body>

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       theme: 'vs-dark',
       automaticLayout: true,
       fontSize: 15,
-      minimap: { enabled: window.innerWidth > 768 }  // disable minimap on mobile
+      minimap: { enabled: window.innerWidth > 768 }
     });
   });
 
@@ -36,21 +36,20 @@ int main() {
 }
 
 function runCode() {
-  const output = document.getElementById('output-area');
-  output.innerText = "Compiling and running code...\n";
+  const outputArea = document.getElementById('output-area');
+  outputArea.innerText = "Compiling and running code...\n";
   setTimeout(() => {
-    output.innerText += "Output:\n" + "Your code ran (mock compilation)!\n";
+    outputArea.innerText += "Output:\n(Mocked) Code ran successfully!\n";
   }, 1000);
 }
 
 function checkSolution() {
-  const output = document.getElementById('output-area');
-  output.innerText += "\nChecking solution...\n";
+  const outputArea = document.getElementById('output-area');
+  outputArea.innerText += "\nChecking solution...\n";
   
   const code = editor.getValue();
   let pass = false;
 
-  // Basic check: if user typed "RAII" for M1L1, etc...
   switch (lessonID) {
     case 'M1L1':
       if (code.includes("FileWrapper") || code.includes("RAII")) pass = true;
@@ -65,12 +64,12 @@ function checkSolution() {
 
   setTimeout(() => {
     if (pass) {
-      output.innerText += "Tests passed! Marking lesson completed.\n";
+      outputArea.innerText += "Tests passed! Marking lesson completed.\n";
       if (typeof markLessonCompleted === 'function') {
         markLessonCompleted(lessonID);
       }
     } else {
-      output.innerText += "Test failed: missing expected keywords or logic.\n";
+      outputArea.innerText += "Test failed: missing expected keywords or logic.\n";
     }
   }, 800);
 }
