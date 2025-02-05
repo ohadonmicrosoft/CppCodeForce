@@ -32,52 +32,64 @@
   </header>
 
   <main class="page-content fade-in">
-    <section class="glass">
-      <h2>Module 1: Foundations & Modern C++ Features</h2>
-      <p>
-        A refresher on essential C++ syntax, RAII principles, and modern features introduced in C++11/14/17.
-        Mastering these sets the stage for more advanced topics later.
+    <!-- Breadcrumb / Sub-nav -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>></span>
+      <a href="exercises.html">Exercises</a> <span>></span>
+      <span>Module 1</span>
+    </div>
+
+    <section class="glass module-lessons">
+      <h2 style="color:#fff; margin-bottom:10px;">Module 1: Foundations & Modern C++</h2>
+      <p style="margin-bottom:20px;">
+        This module covers essential modern C++ techniques:
+        <strong>RAII, smart pointers, lambdas, and more.</strong> Mastering these 
+        paves the way for advanced concurrency, memory management, and embedded topics.
       </p>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
       <h3>Lesson 1: RAII & Constructors</h3>
       <p>
-        RAII ensures resources are acquired in constructors and released in destructors, preventing leaks. 
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Create a class that opens and closes a file within constructor/destructor.</li>
-          <li>Handle exception safety: ensure no leak occurs if an exception is thrown.</li>
-        </ul>
+        <strong>Concept:</strong> Resource Acquisition Is Initialization (RAII) ensures resources 
+        (files, network sockets, dynamic memory) are owned by objects, automatically released in 
+        destructors. This greatly reduces leaks and makes code more exception-safe.
       </p>
+      <ul style="margin-left:20px;">
+        <li>Implement a class <code>FileWrapper</code> that opens a file in the constructor and closes in the destructor.</li>
+        <li>Handle potential exceptions in the constructor properly (e.g., if the file fails to open).</li>
+      </ul>
       <button class="btn" onclick="openIDE('M1L1')">Open IDE for Lesson 1</button>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
       <h3>Lesson 2: Smart Pointers & Move Semantics</h3>
       <p>
-        Learn <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>, 
-        and how move semantics can eliminate unnecessary copies.
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Port a raw pointer approach to <code>unique_ptr</code>.</li>
-          <li>Show an example transferring ownership with <code>std::move</code>.</li>
-        </ul>
+        Modern C++ offers <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code> 
+        to manage dynamic allocations. <em>Move semantics</em> lets you transfer ownership cheaply, 
+        avoiding deep copies.
       </p>
+      <ul style="margin-left:20px;">
+        <li>Convert raw pointer usage to <code>std::unique_ptr</code> in a sample code snippet.</li>
+        <li>Show how to pass ownership with <code>std::move</code>, and discuss safe usage patterns.</li>
+        <li>Experiment with <code>std::shared_ptr</code> for reference counting. 
+          Consider how <code>std::weak_ptr</code> prevents reference cycles.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
 
-      <hr/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
-      <h3>Lesson 3: Lambda Expressions & STL Algorithms</h3>
+      <h3>Lesson 3: Lambdas & STL Algorithms</h3>
       <p>
-        C++ lambdas let you write inline functions. The STL offers <code>std::sort</code>, <code>std::for_each</code>, 
-        <code>std::transform</code>, etc. 
-        <strong>Tasks:</strong>
-        <ul>
-          <li>Use a lambda to filter out even numbers in a vector.</li>
-          <li>Demonstrate capturing variables by reference vs. by value.</li>
-        </ul>
+        Lambda expressions let you define inline function objects. Combine them with powerful 
+        STL algorithms (<code>std::for_each</code>, <code>std::transform</code>, <code>std::remove_if</code>, etc.)
+        to write concise, high-level code.
       </p>
+      <ul style="margin-left:20px;">
+        <li>Use <code>std::remove_if</code> with a lambda to remove all even numbers from a vector.</li>
+        <li>Explore captures by value vs. by reference in lambdas. How does each affect the code?</li>
+        <li>Use <code>std::transform</code> to apply a function to all elements in a container.</li>
+      </ul>
       <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
@@ -89,6 +101,7 @@
   <script src="scripts/main.js"></script>
   <script>
     function openIDE(lessonID) {
+      // Navigate to the IDE with the lessonID
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }
   </script>

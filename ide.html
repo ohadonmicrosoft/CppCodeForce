@@ -33,9 +33,18 @@
   </header>
 
   <main class="page-content fade-in">
+    <!-- Sub-Nav / Breadcrumb (Lesson ID might not map perfectly to module page, but we show a generic approach) -->
+    <div class="breadcrumb" id="breadcrumb-nav">
+      <a href="index.html">Home</a> <span>></span>
+      <a href="exercises.html">Exercises</a> <span>></span>
+      <!-- We'll auto-fill module link based on code in JS if you like. For now, let's just do a placeholder. -->
+      <a href="module1.html" id="moduleLink">Module 1</a> <span>></span>
+      <span>IDE</span>
+    </div>
+
     <section class="glass">
-      <h2 id="ide-lesson-title">IDE for Lesson: ...</h2>
-      <div id="code-editor" style="height:400px;"></div>
+      <h2 id="ide-lesson-title" style="margin-bottom:10px;">IDE for Lesson: ...</h2>
+      <div id="code-editor"></div>
       <div style="margin-top:20px;">
         <button class="btn" id="run-code-btn">Run Code</button>
         <button class="btn" id="check-solution-btn">Check Solution</button>
@@ -50,5 +59,17 @@
 
   <script src="scripts/main.js"></script>
   <script src="scripts/ide.js"></script>
+  <script>
+    // Optionally, you could parse the lessonID => figure out which module it belongs to
+    // e.g., if it starts with M1 -> link module1.html, if M2 -> link module2.html, etc.
+    const queryParams = new URLSearchParams(window.location.search);
+    const lesson = queryParams.get('lessonID') || 'M1L1';
+    let modNum = lesson.slice(1,2); // e.g. M1 -> '1'
+    const moduleLink = document.getElementById('moduleLink');
+    if (moduleLink) {
+      moduleLink.href = `module${modNum}.html`;
+      moduleLink.innerText = `Module ${modNum}`;
+    }
+  </script>
 </body>
 </html>
