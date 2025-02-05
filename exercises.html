@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<!-- Theme is applied via localStorage -->
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -21,6 +22,7 @@
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" id="menuToggle">
@@ -34,48 +36,49 @@
   <main class="page-content fade-in exercise-list">
     <h1 style="text-align:center;">Advanced C++ Interview Syllabus</h1>
     <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
-      Choose a module below to explore thorough lessons, interactive timelines, advanced tasks, and integrated media.
+      Explore the modules below for hands-on lessons, interactive timelines, real-world tasks,
+      and direct links to an online IDE environment for code practice.
     </p>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 1: Foundations &amp; Modern Features</h2>
-      <p>RAII, smart pointers, lambdas, and advanced C++ features.</p>
+      <p>RAII, smart pointers, lambdas, and modern C++ best practices.</p>
       <a href="module1.html" class="btn">Go to Module 1</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 2: Data Structures &amp; Algorithms</h2>
-      <p>Arrays, linked lists, trees, sorting, and searching techniques.</p>
+      <p>Arrays, linked lists, sorting, searching, trees, graphs and more.</p>
       <a href="module2.html" class="btn">Go to Module 2</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 3: Real‑Time &amp; Embedded Systems</h2>
-      <p>RTOS fundamentals, embedded concurrency, interrupts, and debugging.</p>
+      <p>RTOS fundamentals, embedded concurrency, interrupts, debugging and more.</p>
       <a href="module3.html" class="btn">Go to Module 3</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 4: Concurrency &amp; Multithreading</h2>
-      <p>Threads, mutexes, lock‑free programming, and concurrency patterns.</p>
+      <p>Threads, mutexes, lock‑free programming, concurrency patterns.</p>
       <a href="module4.html" class="btn">Go to Module 4</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 5: Memory Management &amp; Debugging</h2>
-      <p>Manual vs. smart pointers, custom allocators, and effective debugging.</p>
+      <p>Manual vs. smart pointers, custom allocators, effective debugging.</p>
       <a href="module5.html" class="btn">Go to Module 5</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 6: Templates &amp; Metaprogramming</h2>
-      <p>SFINAE, type traits, and compile‑time programming techniques.</p>
+      <p>SFINAE, type traits, compile‑time programming techniques.</p>
       <a href="module6.html" class="btn">Go to Module 6</a>
     </div>
 
-    <div class="course-module glass">
+    <div class="course-module glass card-hover floating-card">
       <h2>Module 7: System Design &amp; Advanced Topics</h2>
-      <p>Design patterns, high‑level architecture, and scalable interview scenarios.</p>
+      <p>Design patterns, high‑level architecture, scalable interview scenarios.</p>
       <a href="module7.html" class="btn">Go to Module 7</a>
     </div>
   </main>
@@ -84,6 +87,7 @@
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -21,6 +23,7 @@
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" id="menuToggle">
@@ -40,48 +43,51 @@
 
     <section class="glass module-lessons">
       <h1>Module 4: Concurrency &amp; Multithreading</h1>
-      <p>Delve into threads, mutexes, lock‑free programming, and advanced concurrency patterns.</p>
+      <p style="text-align:justify;">
+        Explore threads, mutexes, lock-free data structures, and concurrency patterns in modern C++.
+      </p>
       <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Thread Basics</div>
-        <div class="timeline-step">Step 2: Mutexes &amp; Locks</div>
-        <div class="timeline-step">Step 3: Lock‑Free Techniques</div>
-        <div class="timeline-step">Step 4: Advanced Patterns</div>
+        <div class="timeline-step">Step 2: Mutexes &amp; Synchronization</div>
       </div>
       <hr>
+
       <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module4_diagram.png" alt="Concurrency Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: Concurrency Concepts (placeholder image)</em></p>
+        <p style="font-size:0.9rem; color:#555;"><em>Figure: Concurrency Overview</em></p>
       </div>
-      <h2>Lesson 1: Threads Basics</h2>
-      <p>Learn how to create and manage threads using C++ libraries.</p>
-      <ul>
-        <li>Implement thread creation and joining.</li>
-        <li>Discuss thread lifecycle.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M4L1')">Open IDE for Lesson 1</button>
+
+      <h2>Lesson 1: Thread Basics</h2>
+      <p style="text-align:justify;">
+        Learn how to create and manage threads, consider thread lifecycle, and handle basic parallel tasks in C++.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M4L1')">Open IDE for Lesson 1</button>
+
       <hr>
-      <h2>Lesson 2: Mutexes and Synchronization</h2>
-      <p>Use mutexes and locks to protect shared resources and avoid race conditions.</p>
-      <ul>
-        <li>Implement mutex‑protected sections.</li>
-        <li>Discuss deadlock prevention.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M4L2')">Open IDE for Lesson 2</button>
+
+      <h2>Lesson 2: Mutexes &amp; Synchronization</h2>
+      <p style="text-align:justify;">
+        Use mutexes, locks, and atomic operations to protect shared resources from race conditions.
+        Discuss common pitfalls like deadlocks.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M4L2')">Open IDE for Lesson 2</button>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-  
+
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
       document.getElementById('moduleTimeline').classList.toggle('show');
     }
-    function openIDE(lessonID) {
-      window.location.href = `ide.html?lessonID=${lessonID}`;
+    function openExternalIDE(lessonID) {
+      window.open(getWandboxLink(lessonID), '_blank');
     }
   </script>
 </body>

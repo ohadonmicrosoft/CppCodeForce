@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -34,7 +36,10 @@
   <main class="page-content fade-in">
     <section class="glass" style="max-width:800px; margin:0 auto;">
       <h1>Interview Quiz</h1>
-      <p id="quiz-intro">Lesson‑based quiz with a timer and local leaderboard!</p>
+      <p id="quiz-intro" style="text-align:justify;">
+        Test your knowledge with a lesson-based quiz, featuring a timer and a local leaderboard.
+        Answer carefully and track your final score. Good luck!
+      </p>
       <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
       <div id="quiz-container" class="quiz-container"></div>
       <button id="start-quiz" class="btn">Start Quiz</button>
@@ -50,7 +55,8 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-  
+
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
   <script src="scripts/quiz.js"></script>
 </body>

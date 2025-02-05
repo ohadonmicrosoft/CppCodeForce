@@ -1,35 +1,38 @@
 /* animations.css */
 
-/* Fade‑in Animation */
+/* Fade-in Animation */
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s forwards;
 }
-
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* Slide‑up Animation */
+/* Slide-up Animation */
 .slide-up {
   transform: translateY(20px);
   opacity: 0;
   animation: slideUp 0.6s forwards;
 }
-
 @keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* Pulse Effect for Buttons on Active State */
+/* Pulse Effect for Buttons (Active) */
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
   100% { transform: scale(1); }
 }
-
 .btn:active {
   animation: pulse 0.3s ease;
 }
@@ -45,7 +48,6 @@
     opacity: 0;
   }
 }
-
 .btn:active::after {
   content: "";
   position: absolute;
@@ -59,19 +61,29 @@
   pointer-events: none;
 }
 
-/* Subtle Hover Glow for Cards */
+/* Card Hover Glow */
 .card-hover:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Delicate Floating Animation for Cards */
+/* Floating Card Animation */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-5px); }
   100% { transform: translateY(0px); }
 }
-.floating-card {
-  animation: float 4s ease-in-out infinite;
-}
 
-/* END OF animations.css */
+/* הרחבת אנימציית כניסה לכותרות */
+.fancy-title {
+  animation: fancyFade 1.2s ease forwards;
+}
+@keyframes fancyFade {
+  0% {
+    letter-spacing: -0.5rem;
+    opacity: 0;
+  }
+  100% {
+    letter-spacing: 1px;
+    opacity: 1;
+  }
+}

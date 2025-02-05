@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -21,6 +23,7 @@
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" id="menuToggle">
@@ -40,47 +43,50 @@
 
     <section class="glass module-lessons">
       <h1>Module 6: Templates &amp; Metaprogramming</h1>
-      <p>Explore advanced template programming, SFINAE, and compile‑time metaprogramming techniques.</p>
+      <p style="text-align:justify;">
+        Explore advanced template programming, SFINAE, type traits, and compile-time computations in modern C++.
+      </p>
       <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
         <div class="timeline-step">Step 1: Template Fundamentals</div>
         <div class="timeline-step">Step 2: SFINAE &amp; Type Traits</div>
-        <div class="timeline-step">Step 3: Compile‑Time Computations</div>
       </div>
       <hr>
+
       <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module6_diagram.png" alt="Templates Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: Template Metaprogramming (placeholder image)</em></p>
+        <p style="font-size:0.9rem; color:#555;"><em>Figure: Template Metaprogramming</em></p>
       </div>
+
       <h2>Lesson 1: Template Fundamentals</h2>
-      <p>Learn the basics of function and class templates.</p>
-      <ul>
-        <li>Create simple function and class templates.</li>
-        <li>Discuss template instantiation and specialization.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M6L1')">Open IDE for Lesson 1</button>
+      <p style="text-align:justify;">
+        Learn how function and class templates work, including instantiation rules and partial specialization.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M6L1')">Open IDE for Lesson 1</button>
+
       <hr>
-      <h2>Lesson 2: SFINAE and Type Traits</h2>
-      <p>Understand Substitution Failure Is Not An Error (SFINAE) and utilize type traits for compile‑time decisions.</p>
-      <ul>
-        <li>Implement SFINAE examples.</li>
-        <li>Use STL type traits to make compile‑time choices.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M6L2')">Open IDE for Lesson 2</button>
+
+      <h2>Lesson 2: SFINAE &amp; Type Traits</h2>
+      <p style="text-align:justify;">
+        Understand "Substitution Failure Is Not An Error" and leverage C++ type traits to make compile-time decisions.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M6L2')">Open IDE for Lesson 2</button>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-  
+
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
       document.getElementById('moduleTimeline').classList.toggle('show');
     }
-    function openIDE(lessonID) {
-      window.location.href = `ide.html?lessonID=${lessonID}`;
+    function openExternalIDE(lessonID) {
+      window.open(getWandboxLink(lessonID), '_blank');
     }
   </script>
 </body>

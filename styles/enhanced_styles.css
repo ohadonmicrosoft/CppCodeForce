@@ -1,11 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Quicksand:wght@400;500;700&display=swap');
-
-/* 
-   Two-Theme System:
-   1) .dark-theme (default)
-   2) .light-theme 
-*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 /* RESET & GLOBALS */
 * {
@@ -17,39 +11,41 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =============== THEME VARIABLES =============== */
-:root {
-  /* Light theme defaults */
-  --bg-gradient: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-  --text-color: #333;
-  --card-bg: rgba(255,255,255,0.7);
-  --glass-border: rgba(0,0,0,0.1);
-  --heading-color: #ffce67;      /* warm sunset color */
-  --heading-shadow: 0 0 3px rgba(255,206,103,0.3);
+/* 
+   שתי ערכות נושא:
+   1) .warm-theme (ברירת מחדל)
+   2) .dark-theme 
+*/
 
-  --accent-color: #f97b7b;
-  --accent-hover: #f45e5e;
+:root {
+  --bg-gradient: linear-gradient(135deg, #fdf4e5 0%, #fde7ca 100%);
+  --text-color: #444;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --heading-color: #f59f56;
+  --heading-shadow: 0 0 3px rgba(245,159,86,0.15);
+
+  --accent-color: #f18e8e;
+  --accent-hover: #e87474;
   --nav-bg: rgba(255,255,255,0.8);
-  --footer-bg: rgba(255,255,255,0.8);
+  --footer-bg: rgba(255,255,255,0.7);
 
   --card-boxshadow: 0px 3px 10px rgba(0,0,0,0.1);
-  --btn-boxshadow: 0px 4px 10px rgba(249,123,123,0.2);
+  --btn-boxshadow: 0px 4px 10px rgba(241,142,142,0.2);
 
-  --code-bg: #f0f0f0;
+  --code-bg: #fafaf8;
   --progress-bg: rgba(0,0,0,0.1);
 
-  /* Global Spacing & Transitions */
   --transition-speed: 0.3s;
-  --border-radius: 12px;
+  --border-radius: 14px;
   --spacing: 20px;
 
-  /* Fonts */
-  --font-base: 'Poppins', sans-serif;
-  --font-heading: 'Quicksand', sans-serif;
+  --font-base: 'Nunito', sans-serif;
+  --font-heading: 'Nunito', sans-serif;
+  --base-font-size: 1.15rem;
 }
 
 .dark-theme {
-  /* Dark theme overrides */
   --bg-gradient: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
   --text-color: #ddd;
   --card-bg: rgba(255,255,255,0.07);
@@ -69,81 +65,99 @@ html {
   --progress-bg: rgba(255,255,255,0.1);
 }
 
-/* =============== BODY & BASE =============== */
 body {
   font-family: var(--font-base);
+  font-size: var(--base-font-size);
   background: var(--bg-gradient);
   color: var(--text-color);
-  text-align: center;
   overflow-x: hidden;
+  line-height: 1.65;
   transition: background var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
-  font-size: 1.1rem;
-  line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
+/* רקע בצורת גל (Wave) */
+.bg-wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/images/wave.svg') no-repeat center / cover;
+  opacity: 0.04;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* טקסט וכותרות */
+h1, h2, h3, h4, h5 {
   color: var(--heading-color);
   text-shadow: var(--heading-shadow);
-  margin-bottom: 10px;
+  margin-bottom: 0.6em;
 }
-h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: #fbe5c8;
+.fancy-title {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
 }
-p, ul, li {
-  color: var(--text-color);
+p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+ul, ol {
+  margin-bottom: 1em;
+  margin-left: 1.2em;
+}
+hr {
+  margin: 1.5em 0;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Glass / Card / Box shadows */
-.glass {
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--card-boxshadow);
-  padding: var(--spacing);
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+/* קונטיינר ראשי של התוכן */
+.page-content {
+  margin-top: 80px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* NAV HEADER */
+/* כותרת עליונה (Header) */
 header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  padding: 15px 0;
+  padding: 10px 0;
   background: var(--nav-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: all var(--transition-speed) ease-in-out;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  transition: top var(--transition-speed) ease-in-out;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the navigation */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Logo */
+/* לוגו */
 .logo-text {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--heading-color);
   letter-spacing: 1px;
 }
 .logo-icon {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--accent-color);
   margin-left: 6px;
 }
 
-/* NAV MENU */
+/* תפריט ראשי */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -165,135 +179,93 @@ header {
   color: var(--heading-color);
 }
 
-/* HAMBURGER MENU */
+/* איקון המבורגר */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
 }
 .bar {
-  width: 25px;
-  height: 3px;
+  width: 22px;
+  height: 2.5px;
   margin: 3px;
   background: var(--text-color);
   transition: background var(--transition-speed) ease;
 }
 
-/* CONTENT WRAPPER */
-.page-content {
-  margin-top: 100px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-
-/* HERO SECTION */
+/* HERO */
 .index-hero {
   margin-top: 120px;
   padding: 60px 30px;
   background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--card-boxshadow);
-  transition: transform 0.3s ease;
   text-align: center;
 }
-.index-hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-.index-hero p {
-  font-size: 1.2rem;
+.hero-subtitle {
   max-width: 800px;
   margin: 0 auto 20px;
+  font-size: 1.15rem;
   line-height: 1.5;
 }
-.index-hero .btn {
-  font-size: 1.2rem;
-  padding: 14px 36px;
-  border-radius: 30px;
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  font-weight: 600;
-  transition: all var(--transition-speed) ease;
-  box-shadow: var(--btn-boxshadow);
-}
-.index-hero .btn:hover {
-  background: var(--accent-hover);
-  transform: translateY(-3px);
+.btn-glow {
+  box-shadow: 0 0 12px rgba(241,142,142,0.4);
 }
 
-/* FEATURES SECTION */
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 40px auto;
-}
-.feature-card {
-  width: 280px;
-  margin: 10px;
-  text-align: center;
+/* תיבות זכוכית/קלפים */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-boxshadow);
+  padding: var(--spacing);
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-/* CALL-TO-ACTION SECTION */
-.cta {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: var(--card-boxshadow);
-}
-
-/* FOOTER */
-footer {
-  margin-top: 40px;
-  padding: 20px 0;
-  text-align: center;
-  background: var(--footer-bg);
-}
-
-/* BUTTONS */
+/* כפתורים */
 .btn {
   display: inline-block;
-  margin-top: 15px;
   padding: 10px 26px;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
   background: var(--accent-color);
-  border-radius: 30px;
+  border-radius: 25px;
   transition: all var(--transition-speed) ease;
   box-shadow: var(--btn-boxshadow);
   border: none;
   cursor: pointer;
-  position: relative; /* for ripple effect */
+  position: relative;
+  margin-top: 10px;
 }
 .btn:hover {
   background: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0px 6px 14px rgba(249,123,123,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(241,142,142,0.3);
 }
 
-/* EXERCISE LIST & MODULES */
-.exercise-list { text-align: center; padding: 20px; }
-.course-module { margin-bottom: 30px; color: var(--text-color); }
-.course-module a.btn {
-  margin-left: 10px;
-  margin-top: 5px;
-}
-.module-lessons p,
-.module-lessons ul {
-  color: var(--text-color);
+/* כפתור החלפת תמה קטן יותר */
+#theme-toggle {
+  font-size: 0.9rem;
+  padding: 6px 18px;
+  border-radius: 18px;
+  margin-left: 16px;
 }
 
-/* COLLAPSIBLE TIMELINE */
+/* קלפים (Cards) */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 18px rgba(241,142,142,0.2);
+}
+.floating-card {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ציר זמן (Timeline) */
 .module-timeline {
   margin: 20px 0;
   background: var(--card-bg);
@@ -312,11 +284,11 @@ footer {
   color: var(--text-color);
 }
 
-/* BREADCRUMB */
+/* Breadcrumb */
 .breadcrumb {
   margin-bottom: 20px;
-  font-size: 0.9rem;
-  color: #bbb;
+  font-size: 0.95rem;
+  color: #777;
 }
 .breadcrumb a {
   color: var(--accent-color);
@@ -326,38 +298,75 @@ footer {
 }
 .breadcrumb a:hover {
   color: var(--heading-color);
-  text-shadow: 0 0 3px rgba(255,206,103,0.6);
+  text-shadow: 0 0 3px rgba(245,159,86,0.4);
 }
 .breadcrumb span {
   margin: 0 5px;
 }
 
-/* CARD HOVER & FLOAT */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-hover:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 8px 20px rgba(249,123,123,0.3);
-}
-@keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
-}
-.floating-card {
-  animation: floating 3s ease-in-out infinite;
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+  background: var(--footer-bg);
 }
 
-/* RESOURCE/PORTFOLIO/RESUME */
+/* מקטעי תכונות */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px auto;
+}
+.feature-card {
+  width: 300px;
+  text-align: left;
+  margin: 10px;
+  position: relative;
+}
+
+/* CTA */
+.cta {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--card-boxshadow);
+}
+
+/* כפתור Scroll to Top */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--btn-boxshadow);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.scroll-to-top-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+/* Portfolio + Resume וכו' */
 .portfolio-section,
 .resource-section {
   margin: 0 auto;
   color: var(--text-color);
-}
-.portfolio-page {
-  text-align: center;
-  padding-top: 120px; /* Ensure header does not cover headline */
 }
 .portfolio-highlights {
   display: flex;
@@ -366,47 +375,41 @@ footer {
   justify-content: center;
   margin-top: 20px;
 }
-.highlight-card { width: 300px; text-align: left; }
+.highlight-card {
+  width: 300px;
+  text-align: left;
+  margin-bottom: 10px;
+}
 
-/* ICONS */
+/* אייקונים */
 .icon-btn {
   display: inline-block;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   margin: 0 6px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.2);
   text-align: center;
-  line-height: 56px;
+  line-height: 52px;
   transition: all 0.3s;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 .icon-btn:hover {
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 15px rgba(255,255,255,0.4), 0 0 10px rgba(249,123,123,0.4);
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 0 15px rgba(255,255,255,0.3), 0 0 10px rgba(241,142,142,0.3);
 }
 .icon-btn img {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   vertical-align: middle;
   filter: invert(100%);
 }
 
-/* IDE PAGE */
-#code-editor {
-  height: 500px;
-  margin-bottom: 10px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  background: var(--code-bg);
-  transition: height 0.3s ease;
-}
-
-/* RADIAL PROGRESS */
+/* Progress עיגול רדיאלי */
 .progress-radial {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   background: conic-gradient(
     var(--accent-color) calc(var(--percent) * 1%), 
@@ -433,41 +436,39 @@ footer {
   font-weight: 600;
 }
 
-/* RESUME ETC. */
+/* Resume */
 .resume-section {
   text-align: left;
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.job,
-.education {
+.job, .education, .project {
   margin-top: 20px;
   background: var(--card-bg);
   padding: 15px;
   box-shadow: var(--card-boxshadow);
+  border-radius: var(--border-radius);
 }
-.job h4,
-.education h4 {
+.job h4, .education h4 {
   font-size: 1.1rem;
-  color: var(--heading-color);
   margin-bottom: 8px;
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
 }
 
-/* QUIZ PAGE TIMING & LEADERBOARD */
-.quiz-timer {
-  font-size: 1.2rem;
-  color: var(--accent-color);
-  margin-bottom: 10px;
-}
+/* Quiz */
 .quiz-container {
   margin-top: 20px;
   text-align: left;
   color: var(--text-color);
+  line-height: 1.5;
 }
 .leaderboard {
   margin-top: 20px;
   background: var(--card-bg);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   padding: 10px;
   box-shadow: var(--card-boxshadow);
 }
@@ -479,13 +480,18 @@ footer {
   display: flex;
   justify-content: space-between;
   margin: 6px 0;
-  color: #ccc;
+  color: #333;
+}
+.quiz-timer {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
 }
 
-/* RESPONSIVE for MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .nav-menu {
-    display: none; /* hide by default */
+    display: none;
     flex-direction: column;
     background: var(--nav-bg);
     position: absolute;
@@ -493,7 +499,7 @@ footer {
     right: 0;
     width: 160px;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
   .nav-menu.active {
     display: flex;
@@ -501,37 +507,27 @@ footer {
   .nav-menu li {
     margin: 8px 0;
   }
-  .nav-link {
-    font-size: 0.9rem;
-    text-shadow: none;
-  }
   header {
-    padding: 10px 0;
+    padding: 6px 0;
   }
   .features {
     flex-direction: column;
+    gap: 10px;
   }
   .feature-card {
-    width: 80%;
+    width: 90%;
     margin: 10px auto;
   }
-  .exercise-list,
-  .resource-list,
-  .portfolio-section,
-  .resume-section {
-    padding: 20px;
-  }
-  .course-module ul {
-    margin-left: 0;
-  }
-  .page-content {
-    margin-top: 70px;
-  }
-  h1, h2, h3 {
+  .index-hero h1 {
+    font-size: 1.7rem;
     text-shadow: none;
   }
-  #code-editor {
-    height: 300px;
+  .index-hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 18px;
   }
 }
 @media (max-width: 480px) {
@@ -541,20 +537,7 @@ footer {
   .logo-icon {
     font-size: 1rem;
   }
-  .index-hero h1 {
-    font-size: 2.0rem;
-    text-shadow: none;
-  }
-  .index-hero p {
-    font-size: 0.95rem;
-  }
-  .btn {
-    font-size: 0.85rem;
-    padding: 8px 20px;
-  }
   .floating-card {
     animation: none;
   }
 }
-
-/* END OF enhanced_styles.css */

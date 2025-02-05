@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="dark-theme portfolio-page">
+<body class="warm-theme portfolio-page">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
       <div class="logo-group" style="display:flex; align-items:center;">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -20,6 +22,7 @@
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" id="menuToggle">
@@ -32,15 +35,16 @@
 
   <main class="page-content fade-in portfolio-section">
     <h1 style="text-align:center;">Meet the Developer</h1>
-    <p style="max-width:800px; margin:0 auto 30px; text-align:center;">
+    <p style="max-width:800px; margin:0 auto 30px; text-align:justify;">
       Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform
-      is my advanced learning and portfolio demonstration—bridging real‑time embedded topics with modern C++ for a professional, interview‑focused skill set.
+      is my advanced learning and portfolio demonstration—bridging real‑time embedded topics with modern C++ for a 
+      professional, interview‑focused skill set.
     </p>
     <div class="portfolio-highlights">
       <div class="highlight-card glass card-hover floating-card">
         <h2>Background</h2>
         <ul>
-          <li>B.Sc. in Computer Science</li>
+          <li>B.Sc. in Computer Science / Electronics Engineering</li>
           <li>10+ years in embedded software development</li>
           <li>Expert in real‑time systems &amp; OS internals</li>
         </ul>
@@ -65,7 +69,6 @@
     <div style="margin-top:40px; text-align:center;">
       <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
       <a href="resume.html" class="icon-btn" title="View Resume">
-        <!-- Updated, more modern resume icon -->
         <img src="https://img.icons8.com/external-soft-juicy-fish/60/ffffff/external-resume-resume-soft-juicy-fish.png" alt="Resume Icon">
       </a>
     </div>
@@ -83,7 +86,8 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
-  
+
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
 </body>
 </html>

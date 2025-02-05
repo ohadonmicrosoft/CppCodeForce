@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<!-- Default theme is set via JavaScript -->
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -21,9 +22,10 @@
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
-      <!-- Theme Toggle appears only on index -->
+      <!-- Theme Toggle רק בעמוד הבית -->
       <button id="theme-toggle" class="btn">Switch Theme</button>
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span>
@@ -34,9 +36,10 @@
   </header>
 
   <section class="index-hero fade-in">
-    <h1 class="hero-title">Elevate Your C++ Skills</h1>
-    <p class="slide-up">
-      A comprehensive, interview‑focused platform with advanced modules, an embedded IDE, real‑time progress tracking, and more.
+    <h1 class="hero-title fancy-title">Elevate Your C++ Skills</h1>
+    <p class="slide-up hero-subtitle">
+      A comprehensive, interview‑focused platform with advanced modules, real‑time progress tracking, embedded quizzes,
+      and external IDE links for hands-on practice.
     </p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
   </section>
@@ -44,15 +47,15 @@
   <section class="features slide-up">
     <div class="feature-card glass card-hover floating-card">
       <h2>Robust Syllabus</h2>
-      <p>Learn advanced C++—concurrency, embedded systems, memory management, and more.</p>
+      <p>Learn advanced C++ topics—concurrency, embedded systems, memory management, and more.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
-      <h2>In‑Browser IDE</h2>
-      <p>Write, compile, and test code right in your browser—no external tools needed.</p>
+      <h2>External IDE</h2>
+      <p>Write and run code in your browser via Wandbox—no setup required on your side!</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
       <h2>Progress &amp; Quizzes</h2>
-      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback.</p>
+      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback on solutions.</p>
     </div>
   </section>
 
@@ -64,6 +67,8 @@
   <footer>
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
+
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
   <script src="scripts/main.js"></script>
 </body>

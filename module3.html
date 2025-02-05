@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="dark-theme">
+<body class="warm-theme">
+  <div class="bg-wave"></div>
+
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
+      <div class="logo-group">
         <span class="logo-text">CodeForge++</span>
-        <span class="logo-icon">{&lt;/&gt;}</span>
+        <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
         <ul class="nav-menu" id="navMenu">
@@ -21,6 +23,7 @@
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" id="menuToggle">
@@ -39,35 +42,38 @@
     </div>
 
     <section class="glass module-lessons">
-      <h1>Module 3: Real‑Time &amp; Embedded Systems</h1>
-      <p>Explore RTOS fundamentals, embedded concurrency, interrupts, and hardware debugging.</p>
+      <h1>Module 3: Real-Time &amp; Embedded Systems</h1>
+      <p style="text-align:justify;">
+        Dive into RTOS fundamentals, task scheduling, concurrency in embedded environments,
+        interrupt handling, and hardware debugging techniques.
+      </p>
       <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
       <div class="module-timeline" id="moduleTimeline">
-        <div class="timeline-step">Step 1: Introduction to RTOS</div>
-        <div class="timeline-step">Step 2: Embedded Concurrency</div>
-        <div class="timeline-step">Step 3: Interrupt Handling</div>
-        <div class="timeline-step">Step 4: Debugging Techniques</div>
+        <div class="timeline-step">Step 1: Intro to RTOS</div>
+        <div class="timeline-step">Step 2: Interrupts &amp; Basic Embedded Concurrency</div>
       </div>
       <hr>
+
       <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module3_diagram.png" alt="RTOS Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#aaa;"><em>Figure: RTOS Overview (placeholder image)</em></p>
+        <p style="font-size:0.9rem; color:#555;"><em>Figure: RTOS Overview</em></p>
       </div>
+
       <h2>Lesson 1: RTOS Basics</h2>
-      <p>Learn the core principles of real‑time operating systems and task scheduling.</p>
-      <ul>
-        <li>Discuss key RTOS characteristics.</li>
-        <li>Implement a basic task scheduler simulation.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M3L1')">Open IDE for Lesson 1</button>
+      <p style="text-align:justify;">
+        Understand how real-time operating systems schedule tasks, manage priorities, and ensure deterministic behavior.
+        Simulate a small RTOS scheduler in code.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M3L1')">Open IDE for Lesson 1</button>
+
       <hr>
-      <h2>Lesson 2: Interrupts &amp; Handlers</h2>
-      <p>Understand how interrupts work and how to design simple interrupt handlers.</p>
-      <ul>
-        <li>Simulate an interrupt handler.</li>
-        <li>Discuss priority‑based handling.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M3L2')">Open IDE for Lesson 2</button>
+
+      <h2>Lesson 2: Interrupts &amp; Embedded Concurrency</h2>
+      <p style="text-align:justify;">
+        Learn how interrupts work at the hardware level. Implement a basic interrupt handler in C++ and
+        examine concurrency concerns in microcontroller-like environments.
+      </p>
+      <button class="btn" onclick="openExternalIDE('M3L2')">Open IDE for Lesson 2</button>
     </section>
   </main>
 
@@ -75,13 +81,15 @@
     <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {
       document.getElementById('moduleTimeline').classList.toggle('show');
     }
-    function openIDE(lessonID) {
-      window.location.href = `ide.html?lessonID=${lessonID}`;
+    function openExternalIDE(lessonID) {
+      window.open(getWandboxLink(lessonID), '_blank');
     }
   </script>
 </body>
