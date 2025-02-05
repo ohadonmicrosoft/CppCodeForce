@@ -1,5 +1,8 @@
-/* Import Fresh Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap');
+/* 
+   Two-Theme System:
+   1) .dark-theme (default)
+   2) .light-theme 
+*/
 
 /* RESET & GLOBALS */
 * {
@@ -7,61 +10,105 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
 
-/* Dark Theme + Base Font */
+/* =============== THEME VARIABLES =============== */
+:root {
+  /* Light theme defaults */
+  --bg-gradient: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+  --text-color: #333;
+  --card-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(0,0,0,0.1);
+  --heading-color: #ffce67;      /* warm sunset color */
+  --heading-shadow: 0 0 3px rgba(255,206,103,0.3);
+
+  --accent-color: #f97b7b;
+  --accent-hover: #f45e5e;
+  --nav-bg: rgba(255,255,255,0.8);
+  --footer-bg: rgba(255,255,255,0.8);
+
+  --card-boxshadow: 0px 3px 10px rgba(0,0,0,0.1);
+  --btn-boxshadow: 0px 4px 10px rgba(249,123,123,0.2);
+
+  --code-bg: #f0f0f0;
+  --progress-bg: rgba(0,0,0,0.1);
+}
+
+.dark-theme {
+  /* Dark theme overrides */
+  --bg-gradient: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
+  --text-color: #ddd;
+  --card-bg: rgba(255,255,255,0.07);
+  --glass-border: rgba(255,255,255,0.2);
+  --heading-color: #ffce67;
+  --heading-shadow: 0 0 4px rgba(255,206,103,0.3);
+
+  --accent-color: #f97b7b;
+  --accent-hover: #f45e5e;
+  --nav-bg: rgba(0,0,0,0.4);
+  --footer-bg: rgba(255,255,255,0.05);
+
+  --card-boxshadow: 0px 0px 15px rgba(255,255,255,0.05), 0px 3px 10px rgba(0,0,0,0.5);
+  --btn-boxshadow: 0px 4px 10px rgba(249,123,123,0.4);
+
+  --code-bg: #1e1e1e;
+  --progress-bg: rgba(255,255,255,0.1);
+}
+
+/* 
+   We'll assume we start with dark theme, so the body will have class="dark-theme" by default. 
+   Toggling will remove 'dark-theme' and add 'light-theme' or vice versa in JS.
+*/
+
+/* =============== BODY & BASE =============== */
 body {
   font-family: 'Fredoka', sans-serif;
-  background: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
-  color: #ddd;
+  background: var(--bg-gradient);
+  color: var(--text-color);
   text-align: center;
   overflow-x: hidden;
-  transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, color 0.3s;
   font-size: 1.1rem;  
   line-height: 1.6;
 }
 
-/* 1) HEADINGS ALWAYS WARM-YELLOW (SUNSET) */
+/* Headings: warm sunset, minimal shadow */
 h1, h2, h3 {
-  color: #ffce67; /* Warm sunset yellow */
-  text-shadow: 0 0 4px rgba(255,206,103,0.3);
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
   margin-bottom: 10px;
 }
 h4, h5, h6 {
-  color: #fbe5c8; 
+  color: #fbe5c8;
 }
-
-/* Paragraphs keep standard color */
 p, ul, li {
-  color: #ddd;
-  line-height: 1.6;
+  color: var(--text-color);
 }
 
-/* Glassmorphism Container */
+/* Glass / Card / Box shadows */
 .glass {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.05), 0px 3px 10px rgba(0,0,0,0.5);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-boxshadow);
   padding: 20px;
 }
 
-/* HEADER & NAV */
+/* NAV HEADER */
 header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   padding: 15px 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
 }
 
 .nav-container {
@@ -73,47 +120,36 @@ header {
   padding: 0 20px;
 }
 
-/* Logo with minimal shadow for big text on mobile */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
+/* Logo text & icon color from heading color / accent color? */
 .logo-text {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
-  color: #ffce67;
-  text-shadow: 0 0 4px rgba(255,206,103,0.3);
+  color: var(--heading-color);
   letter-spacing: 1px;
 }
 .logo-icon {
-  font-family: 'Fredoka', sans-serif;
   font-size: 1.3rem;
-  color: #f97b7b;
-  text-shadow: 0 0 4px rgba(249,123,123,0.3);
+  color: var(--accent-color);
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
 }
-
 .nav-menu li {
   margin-left: 20px;
 }
-
 .nav-link {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: #ddd;
+  color: var(--text-color);
   text-decoration: none;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 .nav-link:hover {
-  color: #ffce67;
-  text-shadow: 0 0 3px rgba(255,206,103,0.6);
+  color: var(--heading-color);
 }
 
 /* HAMBURGER MENU */
@@ -126,13 +162,13 @@ header {
   width: 25px;
   height: 3px;
   margin: 3px;
-  background: #ddd;
+  background: var(--text-color);
   transition: 0.3s;
 }
 
-/* PAGE CONTENT WRAPPER */
+/* CONTENT WRAPPER */
 .page-content {
-  margin-top: 90px; /* offset for header */
+  margin-top: 90px; 
   padding: 40px 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -140,47 +176,39 @@ header {
   text-align: left;
 }
 
-/* HEADERS (H1 ETC) ON DESKTOP HAVE SLIGHT TEXT SHADOW, 
-   BUT WE WILL TONE IT DOWN ON MOBILE VIA media queries.*/
-
-/* HERO SECTION */
+/* HERO & HEADINGS */
 .index-hero {
   margin-top: 120px;
   padding: 60px 30px;
-  background: rgba(255,255,255,0.05);
+  background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-boxshadow);
 }
 .index-hero h1 {
   font-size: 2.6rem;
   margin-bottom: 15px;
   transition: all 0.3s ease-in-out;
 }
-.index-hero h1:hover {
-  letter-spacing: 1px;
-}
 .index-hero p {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto 20px;
   line-height: 1.5;
-  color: #ddd;
 }
 .index-hero .btn {
   font-size: 1.2rem;
   padding: 14px 36px;
   border-radius: 30px;
-  background: #f97b7b;
+  background: var(--accent-color);
   color: #fff;
   border: none;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 10px rgba(249, 123, 123, 0.4);
+  box-shadow: var(--btn-boxshadow);
 }
 .index-hero .btn:hover {
-  background: #f45e5e;
+  background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.6);
 }
 
 /* FEATURES SECTION */
@@ -204,9 +232,10 @@ header {
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
-  background: rgba(255,255,255,0.05);
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 30px;
+  box-shadow: var(--card-boxshadow);
 }
 
 /* FOOTER */
@@ -214,10 +243,10 @@ footer {
   margin-top: 40px;
   padding: 20px 0;
   text-align: center;
-  background: rgba(255,255,255,0.05);
+  background: var(--footer-bg);
 }
 
-/* GENERIC BUTTONS */
+/* BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 15px;
@@ -225,49 +254,50 @@ footer {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: #f97b7b;
+  background: var(--accent-color);
   border-radius: 30px;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 10px rgba(249, 123, 123, 0.4);
+  box-shadow: var(--btn-boxshadow);
   border: none;
   cursor: pointer;
 }
 .btn:hover {
-  background: #f45e5e;
+  background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.6);
+  box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.4);
 }
 
 /* EXERCISE LIST & MODULES */
-.exercise-list {
-  text-align: center;
-  padding: 20px;
-}
-.course-module {
-  margin-bottom: 30px;
-  color: #eee;
-}
+.exercise-list { text-align: center; padding: 20px; }
+.course-module { margin-bottom: 30px; color: var(--text-color); }
 .course-module a.btn {
   margin-left: 10px;
   margin-top: 5px;
+}
+.module-lessons p {
+  color: var(--text-color);
+}
+.module-lessons ul {
+  color: var(--text-color);
 }
 
 /* COLLAPSIBLE TIMELINE */
 .module-timeline {
   margin: 20px 0;
-  background: rgba(255,255,255,0.05);
+  background: var(--card-bg);
   border-radius: 10px;
   padding: 10px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.6s ease;
+  box-shadow: var(--card-boxshadow);
 }
 .module-timeline.show {
-  max-height: 1000px; 
+  max-height: 1000px;
 }
 .timeline-step {
   margin: 8px 0;
-  color: #ccc;
+  color: var(--text-color);
 }
 
 /* BREADCRUMB */
@@ -277,47 +307,40 @@ footer {
   color: #bbb;
 }
 .breadcrumb a {
-  color: #f45e5e;
+  color: var(--accent-color);
   text-decoration: none;
   margin-right: 5px;
   transition: text-shadow 0.3s;
 }
 .breadcrumb a:hover {
-  color: #ffce67;
+  color: var(--heading-color);
   text-shadow: 0 0 3px rgba(255,206,103,0.6);
 }
 .breadcrumb span {
   margin: 0 5px;
 }
 
-/* CARD HOVER & FLOATING EFFECTS */
+/* CARD HOVER & FLOAT */
 .card-hover {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .card-hover:hover {
   transform: scale(1.05);
-  box-shadow: 0px 8px 20px rgba(249, 123, 123, 0.3);
+  box-shadow: 0px 8px 20px rgba(249,123,123,0.3);
 }
 @keyframes floating {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(-8px);}
+  100% {transform: translateY(0px);}
 }
 .floating-card {
   animation: floating 3s ease-in-out infinite;
 }
 
 /* RESOURCE/PORTFOLIO/RESUME */
-.portfolio-section,
-.resource-section {
+.portfolio-section, .resource-section {
   margin: 0 auto;
-  color: #ddd;
+  color: var(--text-color);
 }
 .portfolio-page {
   text-align: center;
@@ -329,12 +352,9 @@ footer {
   justify-content: center;
   margin-top: 20px;
 }
-.highlight-card {
-  width: 300px;
-  text-align: left;
-}
+.highlight-card { width: 300px; text-align: left; }
 
-/* ICONS (GitHub/LinkedIn, etc.) */
+/* ICONS */
 .icon-btn {
   display: inline-block;
   width: 48px;
@@ -345,7 +365,7 @@ footer {
   text-align: center;
   line-height: 48px;
   transition: all 0.3s;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 .icon-btn:hover {
   background: rgba(255,255,255,0.3);
@@ -358,13 +378,13 @@ footer {
   filter: invert(100%);
 }
 
-/* IDE PAGE - bigger + mobile style */
+/* IDE PAGE */
 #code-editor {
   height: 500px;
   margin-bottom: 10px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
-  background: #1e1e1e;
+  background: var(--code-bg);
 }
 
 /* RADIAL PROGRESS */
@@ -374,8 +394,8 @@ footer {
   height: 120px;
   border-radius: 50%;
   background: conic-gradient(
-    #f97b7b calc(var(--percent) * 1%), 
-    rgba(255,255,255,0.1) 0
+    var(--accent-color) calc(var(--percent) * 1%), 
+    var(--progress-bg) 0
   );
   display: flex;
   align-items: center;
@@ -388,7 +408,7 @@ footer {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #1e2128;
+  background: var(--bg-gradient);
 }
 .progress-radial span {
   position: relative;
@@ -397,43 +417,45 @@ footer {
   font-weight: 600;
 }
 
-/* RESUME */
+/* RESUME ETC. */
 .resume-section {
   text-align: left;
-  color: #ddd;
+  color: var(--text-color);
   line-height: 1.6;
 }
 .job, .education {
   margin-top: 20px;
-  background: rgba(255,255,255,0.05);
+  background: var(--card-bg);
   padding: 15px;
+  box-shadow: var(--card-boxshadow);
 }
 .job h4, .education h4 {
   font-size: 1.1rem;
-  color: #ffce67;
+  color: var(--heading-color);
   margin-bottom: 8px;
 }
 
 /* QUIZ PAGE TIMING & LEADERBOARD */
 .quiz-timer {
   font-size: 1.2rem;
-  color: #f97b7b;
+  color: var(--accent-color);
   margin-bottom: 10px;
 }
 .quiz-container {
   margin-top: 20px;
   text-align: left;
-  color: #ddd;
+  color: var(--text-color);
 }
 .leaderboard {
   margin-top: 20px;
-  background: rgba(255,255,255,0.05);
+  background: var(--card-bg);
   border-radius: 10px;
   padding: 10px;
+  box-shadow: var(--card-boxshadow);
 }
 .leaderboard h3 {
-  color: #ffce67;
-  text-shadow: 0 0 3px rgba(255,206,103,0.6);
+  color: var(--heading-color);
+  text-shadow: var(--heading-shadow);
 }
 .leaderboard-entry {
   display: flex;
@@ -442,19 +464,12 @@ footer {
   color: #ccc;
 }
 
-/* MEDIA QUERIES FOR MOBILE */
+/* RESPONSIVE for MOBILE */
 @media (max-width: 768px) {
-
-  /* NO auto-hide for mobile to avoid quick vanish */
-  body {
-    overflow-x: hidden;
-  }
-  /* Overwrite any auto-hide logic if you have in JS, or you can remove it entirely there. */
-
   .nav-menu {
-    display: none;
+    display: none; /* hide by default */
     flex-direction: column;
-    background: rgba(0,0,0,0.9);
+    background: var(--nav-bg);
     position: absolute;
     top: 60px;
     right: 0;
@@ -470,7 +485,7 @@ footer {
   }
   .nav-link {
     font-size: 0.9rem;
-    text-shadow: none; /* reduce text shadow on mobile for clarity */
+    text-shadow: none;
   }
   header {
     padding: 10px 0;
@@ -493,12 +508,12 @@ footer {
     margin-left: 0;
   }
   .page-content {
-    margin-top: 70px; 
+    margin-top: 70px;
   }
 
-  /* HEADINGS smaller or less shadow for better readability */
+  /* Make headings smaller, no harsh shadows on mobile */
   h1, h2, h3 {
-    text-shadow: none; 
+    text-shadow: none;
   }
 
   /* IDE smaller on mobile */
@@ -506,7 +521,6 @@ footer {
     height: 300px;
   }
 }
-
 @media (max-width: 480px) {
   .logo-text {
     font-size: 1.2rem;
@@ -514,7 +528,6 @@ footer {
   .logo-icon {
     font-size: 1rem;
   }
-
   .index-hero h1 {
     font-size: 2.0rem;
     text-shadow: none;
@@ -526,7 +539,6 @@ footer {
     font-size: 0.85rem;
     padding: 8px 20px;
   }
-  /* Possibly remove floating effect on mobile to avoid jumpiness */
   .floating-card {
     animation: none;
   }
