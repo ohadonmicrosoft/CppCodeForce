@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeForge++ | Quiz</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+</head>
+<body>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="fade-in">
+      <h2 class="section-title">Quick Quiz</h2>
+      <p id="quiz-intro">Lesson-based quiz questions will appear here.</p>
+
+      <div id="quiz-container" class="glass quiz-container"></div>
+
+      <button id="submit-quiz" class="btn" style="margin-top:20px;">Submit Quiz</button>
+      <div id="quiz-result" style="margin-top:20px; font-weight:bold;"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/quiz.js"></script>
+</body>
+</html>

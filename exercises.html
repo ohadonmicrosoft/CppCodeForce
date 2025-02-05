@@ -1,70 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeForge++ | Exercises</title>
-    <link rel="stylesheet" href="styles/enhanced_styles.css" />
-    <link rel="stylesheet" href="styles/animations.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeForge++ | Exercises</title>
+  <link rel="stylesheet" href="styles/enhanced_styles.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
 </head>
 <body>
-    <header class="glass header-slide-in compact-header">
-        <div class="nav-container">
-            <h1 class="logo">CodeForge++</h1>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="resources.html" class="nav-link">Resources</a></li>
-                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="glass header-slide-in compact-header">
+    <div class="nav-container">
+      <h1 class="logo">
+        <span class="logo-text">CodeForge++</span>
+        <span class="logo-icon">{<></>}</span>
+      </h1>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main class="page-content">
-        <section class="exercise-list fade-in">
-            <h2 class="section-title">C++ Exercises</h2>
-            <p>Push your C++ skills with targeted challenges. Click an exercise to view details and open in your preferred editor.</p>
+  <main class="page-content">
+    <!-- Course Modules Overview -->
+    <section class="exercise-list fade-in">
+      <h2 class="section-title">C++ Advanced Modules</h2>
+      <p>Enhance your mastery through real-world embedded systems scenarios, concurrency, and performance tuning.</p>
 
-            <div class="exercise-cards">
-                <!-- Example Card #1 -->
-                <div class="exercise-card glass card-hover floating-card">
-                    <h3>Exercise 1: Basic I/O</h3>
-                    <p>Read input from user, process, and print the result using standard I/O operations in C++.</p>
-                    <button class="btn exercise-button" onclick="openInExternalEditor('exercise-1')">Open in VS Code</button>
-                </div>
+      <!-- Module 1 -->
+      <div class="course-module glass">
+        <h3>Module 1: C++ Fundamentals (Refresher)</h3>
+        <p>Quickly revisit basic syntax, data types, and standard IO before diving deeper.</p>
+        <ul>
+          <li>
+            <strong>Lesson 1:</strong> Basic I/O & RAII
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l1')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l1')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 2:</strong> Pointers, References, and Smart Pointers
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l2')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l2')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 3:</strong> STL Essentials (Vectors, Maps)
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m1-l3')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m1-l3')">Take Quiz</button>
+          </li>
+        </ul>
+      </div>
 
-                <!-- Example Card #2 -->
-                <div class="exercise-card glass card-hover floating-card">
-                    <h3>Exercise 2: Data Structures</h3>
-                    <p>Implement a simple linked list or vector usage with insertion and removal functions.</p>
-                    <button class="btn exercise-button" onclick="openInExternalEditor('exercise-2')">Open in VS Code</button>
-                </div>
+      <!-- Module 2 -->
+      <div class="course-module glass">
+        <h3>Module 2: Real-Time & Embedded Development</h3>
+        <p>Explore concurrency, threading, and embedded constraints in depth.</p>
+        <ul>
+          <li>
+            <strong>Lesson 1:</strong> RTOS Fundamentals & Scheduling
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l1')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l1')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 2:</strong> Interfacing with Hardware (GPIO, SPI, I2C)
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l2')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l2')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 3:</strong> Concurrency & Thread-Safety
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m2-l3')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m2-l3')">Take Quiz</button>
+          </li>
+        </ul>
+      </div>
 
-                <!-- Example Card #3 -->
-                <div class="exercise-card glass card-hover floating-card">
-                    <h3>Exercise 3: OOP Basics</h3>
-                    <p>Create a class with constructors, destructors, and a few methods to handle data.</p>
-                    <button class="btn exercise-button" onclick="openInExternalEditor('exercise-3')">Open in VS Code</button>
-                </div>
+      <!-- Module 3 -->
+      <div class="course-module glass">
+        <h3>Module 3: Performance & Memory Optimization</h3>
+        <p>Advanced profiling, memory management, and low-level optimizations.</p>
+        <ul>
+          <li>
+            <strong>Lesson 1:</strong> Profiling & Benchmarking Tools
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l1')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l1')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 2:</strong> Low-Level Debugging (GDB, Logic Analyzers)
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l2')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l2')">Take Quiz</button>
+          </li>
+          <li>
+            <strong>Lesson 3:</strong> Memory Leaks & Advanced Allocators
+            <button class="btn lesson-btn" onclick="openInExternalEditor('m3-l3')">Open in VS Code</button>
+            <button class="btn lesson-btn" onclick="gotoQuiz('m3-l3')">Take Quiz</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-                <!-- Add more exercises as needed -->
-            </div>
-        </section>
-    </main>
+  <footer>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
+  </footer>
 
-    <footer>
-        <p>© 2025 CodeForge++. All rights reserved.</p>
-    </footer>
+  <script src="scripts/main.js"></script>
+  <script>
+    // Placeholder function for opening exercises in external editor
+    function openInExternalEditor(lessonID) {
+      alert(`Attempting to open ${lessonID} in external editor (VS Code).
+If your system supports the vscode:// protocol, it may open automatically.
+Otherwise, consider linking a repo or copying code manually.`);
+    }
 
-    <script src="scripts/main.js"></script>
-    <script>
-        // Placeholder function for opening exercises in external editor
-        function openInExternalEditor(exerciseID) {
-            alert(`Open ${exerciseID} in external editor (VS Code).\nFuture expansions can integrate deep links or code export.`);
-            // Implementation for deep link to local VS Code or remote environment
-        }
-    </script>
+    // Navigate to quiz page with a query param
+    function gotoQuiz(lessonID) {
+      window.location.href = `quiz.html?lesson=${lessonID}`;
+    }
+  </script>
 </body>
 </html>
