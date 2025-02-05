@@ -12,15 +12,16 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Dark Theme Background */
+/* Dark Theme Background & Base Font */
 body {
   font-family: 'Fredoka', sans-serif;
+  /* Subtle dark gradient: bluish to deep gray */
   background: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
   color: #ddd;
   text-align: center;
   overflow-x: hidden;
   transition: background 0.3s ease-in-out;
-  font-size: 1.1rem;
+  font-size: 1.1rem;  /* Slightly bigger base font */
   line-height: 1.6;
 }
 
@@ -67,14 +68,14 @@ header {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
-  color: #ffce67;
+  color: #ffce67; /* Light gold */
   letter-spacing: 1px;
 }
 
 .logo-icon {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.3rem;
-  color: #f97b7b;
+  color: #f97b7b; /* Salmon pink */
 }
 
 .nav-menu {
@@ -136,9 +137,9 @@ header {
   }
 }
 
-/* Page Content */
+/* Page Content Wrapper */
 .page-content {
-  margin-top: 90px; /* smaller offset due to smaller header padding */
+  margin-top: 90px; /* offset for header */
   padding: 40px 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -146,7 +147,7 @@ header {
   text-align: left;
 }
 
-/* Index Hero in Dark Style */
+/* Index Page Hero Section - Dark Style */
 .index-hero {
   margin-top: 120px;
   padding: 60px 30px;
@@ -295,7 +296,7 @@ footer {
   margin: 0 5px;
 }
 
-/* Glass Card Hover & Floating Effects */
+/* Card Hover & Floating Effects */
 .card-hover {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -318,7 +319,7 @@ footer {
   animation: floating 3s ease-in-out infinite;
 }
 
-/* Resource/Portfolio/Resume */
+/* Resource/Portfolio/Resume Pages */
 .portfolio-section,
 .resource-section {
   margin: 0 auto;
@@ -359,47 +360,43 @@ footer {
   vertical-align: middle;
 }
 
-/* IDE Page */
+/* IDE Page - Improved Window */
 #code-editor {
-  height: 500px; /* bigger height */
+  height: 500px;  /* bigger height for easier typing */
   margin-bottom: 10px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
-  background: #1e1e1e; /* ensure dark background for Monaco area */
+  background: #1e1e1e; /* ensure a dark background for Monaco area */
 }
 
-/* Quiz Container */
-.quiz-container {
-  margin-top: 20px;
-  text-align: left;
-  color: #ddd;
-}
-
-/* Progress Page */
-.progress-bar-container {
-  max-width: 600px;
+/* Radial Progress for the Progress Page */
+.progress-radial {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #f97b7b calc(var(--percent) * 1%), 
+    rgba(255,255,255,0.1) 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20px auto;
-  text-align: left;
 }
-.progress-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-  color: #ccc;
+.progress-radial::before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #1e2128; /* center fill matches the dark background */
 }
-.progress-bar {
-  width: 100%;
-  background: rgba(255,255,255,0.2);
-  border-radius: 12px;
-  height: 16px;
-  margin: 10px 0;
-}
-.progress {
-  height: 16px;
-  background: linear-gradient(90deg, #f97b7b, #ffce67);
-  border-radius: 12px;
-  width: var(--progress, 0%);
-  transition: width 0.5s ease-in-out;
+.progress-radial span {
+  position: relative;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
 }
 
 /* Resume Page, etc. */
@@ -411,6 +408,7 @@ footer {
 .job, .education {
   margin-top: 20px;
   background: rgba(255,255,255,0.05);
+  padding: 15px;
 }
 .job h4, .education h4 {
   font-size: 1.1rem;
@@ -418,4 +416,44 @@ footer {
   margin-bottom: 8px;
 }
 
-/* Animations: fade-in, scale, etc. (unchanged) */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+  .feature-card {
+    width: 80%;
+    margin: 10px auto;
+  }
+  .exercise-list,
+  .resource-list,
+  .portfolio-section,
+  .resume-section {
+    padding: 20px;
+  }
+  .course-module ul {
+    margin-left: 0;
+  }
+  .page-content {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  .logo-icon {
+    font-size: 1rem;
+  }
+  .index-hero h1 {
+    font-size: 2.2rem;
+  }
+  .index-hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
