@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     editor = monaco.editor.create(document.getElementById('code-editor'), {
       value: getInitialCode(lessonID),
       language: 'cpp',
-      theme: 'vs-dark',
+      theme: document.body.classList.contains('light-theme') ? 'vs-light' : 'vs-dark',
       automaticLayout: true,
       fontSize: 15,
       minimap: { enabled: window.innerWidth > 768 }
@@ -49,7 +49,6 @@ function checkSolution() {
   
   const code = editor.getValue();
   let pass = false;
-
   switch (lessonID) {
     case 'M1L1':
       if (code.includes("FileWrapper") || code.includes("RAII")) pass = true;
@@ -61,7 +60,6 @@ function checkSolution() {
       if (code.includes("Hello")) pass = true;
       break;
   }
-
   setTimeout(() => {
     if (pass) {
       outputArea.innerText += "Tests passed! Marking lesson completed.\n";

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 6</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,56 +39,61 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 6: Templates & Metaprogramming</h2>
+      <h1>Module 6: Templates &amp; Metaprogramming</h1>
       <p style="margin-bottom:20px;">
-        Learn advanced template usage, partial specialization, SFINAE, and compile-time tricks that power many modern libraries.
+        Explore advanced template programming, SFINAE, and compile‑time metaprogramming techniques.
       </p>
 
-      <hr style="margin:20px 0; border-color:rgba(255,255,255,0.2);"/>
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Template Fundamentals</div>
+        <div class="timeline-step">Step 2: SFINAE and Type Traits</div>
+        <div class="timeline-step">Step 3: Compile‑Time Computations</div>
+      </div>
 
-      <h3>Lesson 1: Function Templates & Class Templates</h3>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module6_diagram.png" alt="Templates Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: Template Metaprogramming (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: Template Fundamentals</h2>
       <p>
-        Basic function/class templates let you write generic code with type parameters.
+        Learn the basics of function and class templates and how to use them.
       </p>
       <ul style="margin-left:20px;">
-        <li>Create a <code>max<T></code> function template that returns the bigger of two values.</li>
-        <li>Implement a <code>GenericArray</code> class template with <code>operator[]</code> for indexing.</li>
+        <li>Create simple function and class templates.</li>
+        <li>Discuss template instantiation and specialization.</li>
       </ul>
       <button class="btn" onclick="openIDE('M6L1')">Open IDE for Lesson 1</button>
 
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: Template Specialization & Partial Specialization</h3>
+      <h2>Lesson 2: SFINAE and Type Traits</h2>
       <p>
-        Certain templates need specialized handling for specific types. This is common in trait libraries.
+        Understand Substitution Failure Is Not An Error (SFINAE) and utilize type traits for compile‑time decisions.
       </p>
       <ul style="margin-left:20px;">
-        <li>Create a <code>PrettyPrint<T></code> class template, then specialize for <code>std::string</code> to handle quotes.</li>
-        <li>Show partial specialization for pointer types, e.g., <code>PrettyPrint<T*></code>.</li>
+        <li>Implement simple SFINAE examples.</li>
+        <li>Use STL type traits to make compile‑time choices.</li>
       </ul>
       <button class="btn" onclick="openIDE('M6L2')">Open IDE for Lesson 2</button>
-
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
-
-      <h3>Lesson 3: SFINAE & Type Traits</h3>
-      <p>
-        Substitution Failure Is Not An Error (SFINAE) underpins many advanced template techniques. 
-        <code>std::enable_if</code> and type traits let you conditionally compile code based on type properties.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement a function that only compiles if <code>T</code> is integral using <code>std::enable_if</code>.</li>
-        <li>Use <code>std::is_same</code>, <code>std::is_integral</code>, or <code>std::is_pointer</code> in your code logic.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M6L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

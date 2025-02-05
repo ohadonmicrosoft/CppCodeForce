@@ -4,28 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeForge++ | Home</title>
-  <!-- Link your CSS files -->
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<body class="dark-theme"> <!-- Start in dark theme -->
-
-  <!-- Header with hamburger + toggle button -->
+<!-- Default theme is set via JavaScript (fallback: dark-theme) -->
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
         <span class="logo-text">CodeForge++</span>
         <span class="logo-icon">{<></>}</span>
       </h1>
-
-      <!-- Hamburger for mobile -->
+      <!-- Mobile hamburger -->
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-
-      <!-- Navigation -->
       <nav>
         <ul class="nav-menu" id="navMenu">
           <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -34,25 +29,43 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
-
-      <!-- Theme Toggle Button EXACT placement -->
-      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
+      <!-- Theme toggle appears only on index page -->
+      <button id="theme-toggle" class="btn">Switch Theme</button>
     </div>
   </header>
 
   <section class="index-hero glass fade-in">
     <h1 class="hero-title">Elevate Your C++ Skills</h1>
-    <p>A robust platform with advanced modules, progress tracking, and more.</p>
+    <p class="slide-up">
+      A comprehensive, interview‑focused platform with advanced modules, an embedded IDE, real‑time progress tracking, and more.
+    </p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
   </section>
 
-  <!-- Possibly more sections... -->
+  <section class="features slide-up">
+    <div class="feature-card glass card-hover floating-card">
+      <h2>Robust Syllabus</h2>
+      <p>Learn advanced C++: concurrency, embedded systems, memory management, and more.</p>
+    </div>
+    <div class="feature-card glass card-hover floating-card">
+      <h2>In‑Browser IDE</h2>
+      <p>Write, compile, and test code right here—no external tools needed.</p>
+    </div>
+    <div class="feature-card glass card-hover floating-card">
+      <h2>Progress &amp; Quizzes</h2>
+      <p>Track achievements, timed quizzes, a local leaderboard, and get instant feedback.</p>
+    </div>
+  </section>
+
+  <section class="cta glass fade-in">
+    <h2>Prepare for Your Next Interview</h2>
+    <a href="exercises.html" class="btn">Explore Modules</a>
+  </section>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
-  <!-- Script for hamburger + theme toggle. Make sure it's LAST, so JS can find the elements -->
   <script src="scripts/main.js"></script>
 </body>
 </html>

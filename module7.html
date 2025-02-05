@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 7</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,56 +39,61 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 7: System Design & Advanced Topics</h2>
+      <h1>Module 7: System Design &amp; Advanced Topics</h1>
       <p style="margin-bottom:20px;">
-        Explore large-scale architecture, design patterns, and typical C++ interview “system design” scenarios.
+        Delve into high‑level system architecture, design patterns, and scalable interview scenarios.
       </p>
 
-      <hr style="margin:20px 0; border-color:rgba(255,255,255,0.2);"/>
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Design Patterns Overview</div>
+        <div class="timeline-step">Step 2: High‑Level Architecture</div>
+        <div class="timeline-step">Step 3: Interview Scenarios &amp; System Design</div>
+      </div>
 
-      <h3>Lesson 1: Design Patterns (Factory, Singleton, Observer)</h3>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module7_diagram.png" alt="System Design Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: System Design Concepts (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: Design Patterns</h2>
       <p>
-        Common patterns that solve recurring design challenges. 
+        Explore common design patterns used in modern C++ applications.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement a <code>Factory</code> pattern that creates different <code>Shape</code> objects based on a string input.</li>
-        <li>Write a <code>Singleton</code> pattern for a logger, ensuring only one instance can exist.</li>
-        <li>Demonstrate an <code>Observer</code> pattern, where multiple observers respond to state changes in a subject.</li>
+        <li>Discuss patterns such as Singleton, Factory, Observer, etc.</li>
+        <li>Implement sample code for each pattern.</li>
       </ul>
       <button class="btn" onclick="openIDE('M7L1')">Open IDE for Lesson 1</button>
 
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: High-Level System Design in C++</h3>
+      <h2>Lesson 2: System Architecture</h2>
       <p>
-        Interviews often test system design. Think about concurrency, scaling, data distribution, and robust error handling.
+        Learn about high‑level architecture design and best practices for scalable systems.
       </p>
       <ul style="margin-left:20px;">
-        <li>Sketch a high-level design for a multi-threaded server that handles client requests via sockets.</li>
-        <li>Discuss how you'd scale it horizontally, handle failover, and manage logs across multiple instances.</li>
+        <li>Outline common architectural approaches.</li>
+        <li>Discuss trade‑offs in design decisions.</li>
       </ul>
       <button class="btn" onclick="openIDE('M7L2')">Open IDE for Lesson 2</button>
-
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
-
-      <h3>Lesson 3: Common Interview Scenarios (Producer/Consumer, Thread Pools)</h3>
-      <p>
-        Producer-consumer and thread pool designs frequently appear in interviews—understand patterns, complexities, and real-world usage.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Implement a basic thread pool that queues tasks (function objects) and executes them on idle worker threads.</li>
-        <li>Discuss how to dynamically resize the pool under heavy load or scale it down when idle.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M7L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

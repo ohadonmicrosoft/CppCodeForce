@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 2</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,75 +39,63 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 2: Data Structures & Algorithms</h2>
+      <h1>Module 2: Data Structures &amp; Algorithms</h1>
       <p style="margin-bottom:20px;">
-        This module dives into fundamental data structures and classic algorithms vital for C++ interviews.
-        Focus is on complexity analysis, practical implementation, and puzzle-like challenges.
+        Dive into arrays, linked lists, trees, and various sorting/searching techniques.
       </p>
+
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Array and Linked List Fundamentals</div>
+        <div class="timeline-step">Step 2: Stacks, Queues, and Trees</div>
+        <div class="timeline-step">Step 3: Overview of Sorting Algorithms</div>
+        <div class="timeline-step">Step 4: Searching Algorithms</div>
+        <div class="timeline-step">Step 5: Graph Algorithms (BFS &amp; DFS)</div>
+      </div>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
-      <h3>Lesson 1: Linked Lists & Iterators</h3>
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module2_diagram.png" alt="Data Structures Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: Data Structures Overview (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
       <p>
-        <strong>Objective:</strong> Implement singly or doubly linked lists from scratch, 
-        then create custom iterators to traverse them. 
+        Understand implementation details and trade-offs between arrays and linked lists.
       </p>
       <ul style="margin-left:20px;">
-        <li>Create a <code>LinkedList</code> class supporting <code>push_front</code>, <code>push_back</code>, etc.</li>
-        <li>Implement a forward iterator to iterate over your nodes.</li>
-        <li>Explain complexity for insertion/removal in different positions.</li>
+        <li>Implement basic operations on both data structures.</li>
+        <li>Discuss advantages and disadvantages of each.</li>
       </ul>
       <button class="btn" onclick="openIDE('M2L1')">Open IDE for Lesson 1</button>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: Sorting & Searching</h3>
+      <h2>Lesson 2: Trees &amp; Binary Search Trees</h2>
       <p>
-        Explore <code>QuickSort</code>, <code>MergeSort</code>, <code>HeapSort</code>, and binary search. 
-        Understand average/worst-case complexities and when each approach is favored.
+        Learn tree traversal methods and the fundamentals of binary search trees.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement <code>quickSort</code> using a random pivot for better average complexity.</li>
-        <li>Write a <code>mergeSort</code> and compare it to <code>std::sort</code> results for large arrays.</li>
-        <li>Use binary search (either custom or <code>std::binary_search</code>) on a sorted array of integers.</li>
+        <li>Implement in‑order, pre‑order, and post‑order traversals.</li>
+        <li>Discuss properties and use cases of BSTs.</li>
       </ul>
       <button class="btn" onclick="openIDE('M2L2')">Open IDE for Lesson 2</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
-      <h3>Lesson 3: Graphs & BFS/DFS</h3>
-      <p>
-        Implement graph representations (adjacency list) and traversal algorithms like BFS & DFS. 
-        Understand how to detect cycles or find shortest paths.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Create a <code>Graph</code> class with <code>addEdge(int u, int v)</code> for undirected or directed edges.</li>
-        <li>Implement BFS to find shortest distance from a start node to others.</li>
-        <li>Use DFS to detect cycles in a directed graph.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M2L3')">Open IDE for Lesson 3</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
-      <h3>Lesson 4: Common Algorithmic Puzzles</h3>
-      <p>
-        Typical problems like two-sum, sliding window maximum, and more appear frequently in interviews.
-      </p>
-      <ul style="margin-left:20px;">
-        <li><strong>Two-Sum:</strong> Return indices of two numbers that add to a target.</li>
-        <li><strong>Sliding Window Max:</strong> For each window of size K in an array, output the maximum.</li>
-        <li>Analyze time complexities of naive vs. optimized approaches.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M2L4')">Open IDE for Lesson 4</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

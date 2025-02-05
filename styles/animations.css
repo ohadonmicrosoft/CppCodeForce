@@ -1,73 +1,77 @@
-/* =============================
-   🚀 Global Animations & Keyframes
-   ============================= */
+/* animations.css */
 
-   .fade-in {
+/* Fade‑in Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide‑up Animation */
+.slide-up {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Pulse Effect for Buttons on Active State */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.btn:active {
+  animation: pulse 0.3s ease;
+}
+
+/* Ripple Effect for Button Clicks (delicate, non‐bulky) */
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(2);
     opacity: 0;
-    transform: translateY(15px);
-    animation: fadeIn 1s ease-in-out forwards;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Slide-Up for 'Wow Factor' */
-  .slide-up {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Hover pulses for bigger wow */
-  .btn-glow {
-    position: relative;
-    animation: pulseGlow 1.5s infinite;
-  }
-  
-  @keyframes pulseGlow {
-    0% {
-      box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.3);
-    }
-    50% {
-      box-shadow: 0px 0px 20px rgba(0, 255, 204, 0.5);
-    }
-    100% {
-      box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.3);
-    }
-  }
-  
-  /* Header Slide In (unchanged) */
-  .header-slide-in {
-    animation: headerSlideIn 0.8s ease-in-out;
-  }
-  
-  @keyframes headerSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
+
+.btn:active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+/* Subtle Hover Glow for Cards */
+.card-hover:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Additional Delicate Animation for Floating Elements */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+.floating-card {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* END OF animations.css */

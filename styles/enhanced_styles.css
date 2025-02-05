@@ -34,6 +34,12 @@ html {
 
   --code-bg: #f0f0f0;
   --progress-bg: rgba(0,0,0,0.1);
+
+  /* New global spacing and transition variables */
+  --transition-speed: 0.3s;
+  --border-radius: 12px;
+  --font-base: 'Fredoka', sans-serif;
+  --font-alt: 'Poppins', sans-serif;
 }
 
 .dark-theme {
@@ -58,18 +64,18 @@ html {
 }
 
 /* 
-   We'll assume we start with dark theme, so the body will have class="dark-theme" by default. 
-   Toggling will remove 'dark-theme' and add 'light-theme' or vice versa in JS.
+   We assume the body starts with class="dark-theme" by default.
+   Toggling in JS will swap between dark-theme and light-theme.
 */
 
 /* =============== BODY & BASE =============== */
 body {
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-base);
   background: var(--bg-gradient);
   color: var(--text-color);
   text-align: center;
   overflow-x: hidden;
-  transition: background 0.3s ease-in-out, color 0.3s;
+  transition: background var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
   font-size: 1.1rem;  
   line-height: 1.6;
 }
@@ -91,10 +97,11 @@ p, ul, li {
 .glass {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--glass-border);
   box-shadow: var(--card-boxshadow);
   padding: 20px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 /* NAV HEADER */
@@ -107,7 +114,7 @@ header {
   background: var(--nav-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
   box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -120,9 +127,9 @@ header {
   padding: 0 20px;
 }
 
-/* Logo text & icon color from heading color / accent color? */
+/* Logo text & icon */
 .logo-text {
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-base);
   font-weight: 700;
   font-size: 1.6rem;
   color: var(--heading-color);
@@ -133,6 +140,7 @@ header {
   color: var(--accent-color);
 }
 
+/* NAV MENU */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -141,12 +149,12 @@ header {
   margin-left: 20px;
 }
 .nav-link {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-alt);
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed) ease;
 }
 .nav-link:hover {
   color: var(--heading-color);
@@ -163,7 +171,7 @@ header {
   height: 3px;
   margin: 3px;
   background: var(--text-color);
-  transition: 0.3s;
+  transition: background var(--transition-speed) ease;
 }
 
 /* CONTENT WRAPPER */
@@ -183,11 +191,12 @@ header {
   background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--card-boxshadow);
+  transition: transform 0.3s ease;
 }
 .index-hero h1 {
   font-size: 2.6rem;
   margin-bottom: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
 }
 .index-hero p {
   font-size: 1.2rem;
@@ -203,7 +212,7 @@ header {
   color: #fff;
   border: none;
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
   box-shadow: var(--btn-boxshadow);
 }
 .index-hero .btn:hover {
@@ -225,6 +234,7 @@ header {
   width: 280px;
   margin: 10px;
   text-align: center;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 /* CTA SECTION */
@@ -256,15 +266,16 @@ footer {
   color: #fff;
   background: var(--accent-color);
   border-radius: 30px;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease;
   box-shadow: var(--btn-boxshadow);
   border: none;
   cursor: pointer;
+  position: relative; /* For ripple effect via pseudo-element */
 }
 .btn:hover {
   background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.4);
+  box-shadow: 0px 6px 14px rgba(249,123,123,0.4);
 }
 
 /* EXERCISE LIST & MODULES */
@@ -274,9 +285,7 @@ footer {
   margin-left: 10px;
   margin-top: 5px;
 }
-.module-lessons p {
-  color: var(--text-color);
-}
+.module-lessons p,
 .module-lessons ul {
   color: var(--text-color);
 }
@@ -322,23 +331,24 @@ footer {
 
 /* CARD HOVER & FLOAT */
 .card-hover {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card-hover:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 20px rgba(249,123,123,0.3);
 }
 @keyframes floating {
-  0% {transform: translateY(0px);}
-  50% {transform: translateY(-8px);}
-  100% {transform: translateY(0px);}
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 .floating-card {
   animation: floating 3s ease-in-out infinite;
 }
 
 /* RESOURCE/PORTFOLIO/RESUME */
-.portfolio-section, .resource-section {
+.portfolio-section,
+.resource-section {
   margin: 0 auto;
   color: var(--text-color);
 }
@@ -385,6 +395,7 @@ footer {
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   background: var(--code-bg);
+  transition: height 0.3s ease;
 }
 
 /* RADIAL PROGRESS */
@@ -401,6 +412,7 @@ footer {
   align-items: center;
   justify-content: center;
   margin: 20px auto;
+  transition: background 0.5s ease;
 }
 .progress-radial::before {
   content: "";
@@ -423,13 +435,15 @@ footer {
   color: var(--text-color);
   line-height: 1.6;
 }
-.job, .education {
+.job,
+.education {
   margin-top: 20px;
   background: var(--card-bg);
   padding: 15px;
   box-shadow: var(--card-boxshadow);
 }
-.job h4, .education h4 {
+.job h4,
+.education h4 {
   font-size: 1.1rem;
   color: var(--heading-color);
   margin-bottom: 8px;
@@ -490,7 +504,6 @@ footer {
   header {
     padding: 10px 0;
   }
-
   .features {
     flex-direction: column;
   }
@@ -510,12 +523,10 @@ footer {
   .page-content {
     margin-top: 70px;
   }
-
   /* Make headings smaller, no harsh shadows on mobile */
   h1, h2, h3 {
     text-shadow: none;
   }
-
   /* IDE smaller on mobile */
   #code-editor {
     height: 300px;
@@ -543,3 +554,5 @@ footer {
     animation: none;
   }
 }
+
+/* END OF enhanced_styles.css */

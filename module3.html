@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 3</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,56 +39,62 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 3: Real-Time & Embedded</h2>
+      <h1>Module 3: Real‑Time &amp; Embedded Systems</h1>
       <p style="margin-bottom:20px;">
-        Delve into RTOS basics, embedded concurrency, interrupt handling, and hardware-level debugging strategies.
+        Explore RTOS fundamentals, embedded concurrency, interrupts, and hardware debugging.
       </p>
+
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Introduction to RTOS</div>
+        <div class="timeline-step">Step 2: Concurrency in Embedded Systems</div>
+        <div class="timeline-step">Step 3: Interrupts &amp; Handlers</div>
+        <div class="timeline-step">Step 4: Hardware Debugging Techniques</div>
+      </div>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
 
-      <h3>Lesson 1: RTOS & Task Scheduling</h3>
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module3_diagram.png" alt="RTOS Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: RTOS Overview (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: RTOS Basics</h2>
       <p>
-        Understand priority-based scheduling, rate-monotonic vs. earliest deadline first, and how tasks switch in RTOS.
+        Understand the fundamentals of real‑time operating systems and task scheduling.
       </p>
       <ul style="margin-left:20px;">
-        <li>Write pseudocode for a simple round-robin scheduler vs. a priority-based scheduler.</li>
-        <li>Discuss how interrupts interact with task scheduling in real-time constraints.</li>
+        <li>Discuss key characteristics of an RTOS.</li>
+        <li>Implement a basic task scheduler simulation.</li>
       </ul>
       <button class="btn" onclick="openIDE('M3L1')">Open IDE for Lesson 1</button>
 
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: ISRs & Concurrency</h3>
+      <h2>Lesson 2: Interrupts &amp; Handlers</h2>
       <p>
-        In embedded contexts, concurrency often revolves around interrupts. Learn how to safely share data 
-        between main tasks and ISRs without corrupting state.
+        Learn how interrupts work and how to design simple interrupt handlers.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement an ISR that updates a global counter; use <code>volatile</code> to avoid compiler optimizations.</li>
-        <li>Discuss disabling interrupts briefly vs. using lock-free structures.</li>
+        <li>Simulate an interrupt handler.</li>
+        <li>Discuss priority‑based interrupt handling.</li>
       </ul>
       <button class="btn" onclick="openIDE('M3L2')">Open IDE for Lesson 2</button>
-
-      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
-
-      <h3>Lesson 3: Hardware Interaction & Debugging</h3>
-      <p>
-        Explore memory-mapped I/O, controlling peripherals (GPIO, SPI, I2C), and debugging with tools like JTAG or logic analyzers.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Simulate reading/writing from a memory-mapped peripheral address using a <code>volatile</code> pointer.</li>
-        <li>Describe how you'd trace a communication error with a logic analyzer.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M3L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

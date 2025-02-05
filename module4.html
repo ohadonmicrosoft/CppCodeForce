@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 4</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,55 +39,62 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 4: Concurrency & Multithreading</h2>
+      <h1>Module 4: Concurrency &amp; Multithreading</h1>
       <p style="margin-bottom:20px;">
-        Threads, mutexes, condition variables, lock-free structures—essential knowledge for advanced systems-level C++.
+        Dive into threads, mutexes, lock‑free programming, and advanced concurrency patterns.
       </p>
 
-      <hr style="margin:20px 0; border-color:rgba(255,255,255,0.2);"/>
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Introduction to Threads</div>
+        <div class="timeline-step">Step 2: Mutexes and Locks</div>
+        <div class="timeline-step">Step 3: Lock‑Free Programming</div>
+        <div class="timeline-step">Step 4: Advanced Concurrency Patterns</div>
+      </div>
 
-      <h3>Lesson 1: std::thread & std::mutex</h3>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module4_diagram.png" alt="Concurrency Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: Concurrency Concepts (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: Threads Basics</h2>
       <p>
-        Launch multiple threads in C++. Use <code>std::mutex</code> or <code>std::lock_guard</code> to prevent data races.
+        Learn how to create, manage, and synchronize threads in C++.
       </p>
       <ul style="margin-left:20px;">
-        <li>Write a simple program that spawns threads to increment a shared counter.</li>
-        <li>Show how missing locks cause data corruption (race conditions).</li>
+        <li>Create and manage threads using C++ standard libraries.</li>
+        <li>Understand thread lifecycle, join, and detach operations.</li>
       </ul>
       <button class="btn" onclick="openIDE('M4L1')">Open IDE for Lesson 1</button>
 
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: Condition Variables & Futures</h3>
+      <h2>Lesson 2: Mutexes and Synchronization</h2>
       <p>
-        Explore <code>std::condition_variable</code> for thread synchronization. Understand <code>std::future</code> and <code>std::promise</code> for asynchronous tasks.
+        Protect shared resources using mutexes, locks, and condition variables.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement a producer-consumer queue using a <code>std::condition_variable</code> to block the consumer if empty.</li>
-        <li>Show how <code>std::async</code> can launch tasks that return <code>std::future</code>.</li>
+        <li>Implement safe data access using mutexes.</li>
+        <li>Discuss deadlocks and strategies to avoid them.</li>
       </ul>
       <button class="btn" onclick="openIDE('M4L2')">Open IDE for Lesson 2</button>
-
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
-
-      <h3>Lesson 3: Lock-Free Data Structures</h3>
-      <p>
-        Lock-free programming aims to avoid mutexes for high performance. Typically uses <code>std::atomic</code> operations to ensure correctness.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Discuss <code>compare_exchange_strong</code> usage in implementing a lock-free stack.</li>
-        <li>Explain ABA problems and possible solutions (<code>std::atomic<std::shared_ptr></code>, hazard pointers, etc.).</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M4L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

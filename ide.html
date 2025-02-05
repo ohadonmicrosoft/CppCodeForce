@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | IDE</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
@@ -29,12 +29,11 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
   <main class="page-content fade-in">
-    <!-- Sub-Nav / Breadcrumb (deduce module from MxLy) -->
+    <!-- Breadcrumb: deducing module number from lessonID -->
     <div class="breadcrumb" id="breadcrumb-nav">
       <a href="index.html">Home</a> <span>></span>
       <a href="exercises.html">Exercises</a> <span>></span>
@@ -49,28 +48,21 @@
         <button class="btn" id="run-code-btn">Run Code</button>
         <button class="btn" id="check-solution-btn">Check Solution</button>
       </div>
-      <div id="output-area" class="glass" style="
-        margin-top:20px;
-        padding:10px;
-        min-height:100px;
-        white-space:pre-wrap;
-        background:rgba(255,255,255,0.05);
-      "></div>
+      <div id="output-area" class="glass" style="margin-top:20px; padding:10px; min-height:100px; white-space:pre-wrap; background:rgba(255,255,255,0.05);"></div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script src="scripts/ide.js"></script>
-  <script src="scripts/progress.js"></script> 
+  <script src="scripts/progress.js"></script>
   <script>
-    // Deduce the lesson -> figure out module # for the link
     const params = new URLSearchParams(window.location.search);
     const lesson = params.get('lessonID') || 'M1L1';
-    const modNum = lesson.slice(1,2); 
+    const modNum = lesson.slice(1,2);
     const moduleLink = document.getElementById('moduleLink');
     const ideTitle = document.getElementById('ide-lesson-title');
     if (moduleLink) {

@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const questionBank = [
     {
-      text: "Which sorting algorithm has worst-case O(n^2)?",
+      text: "Which sorting algorithm has worst-case O(n²)?",
       options: ["QuickSort", "MergeSort", "HeapSort", "BubbleSort"],
       correctIndex: 3
     },
     {
       text: "Binary Search requires the list to be...",
-      options: ["Non-empty", "Sorted", "Unique", "Doubly Linked"],
+      options: ["Non‑empty", "Sorted", "Unique", "Doubly Linked"],
       correctIndex: 1
     }
   ];
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       questionBlock.style.marginBottom = "20px";
 
       const questionText = document.createElement("h4");
-      questionText.innerText = `Q${index+1}: ${q.text}`;
+      questionText.innerText = `Q${index + 1}: ${q.text}`;
       questionBlock.appendChild(questionText);
 
       q.options.forEach((option, optIndex) => {
@@ -48,11 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
         radio.name = `question-${index}`;
         radio.value = optIndex;
         label.appendChild(radio);
-
         label.append(` ${option}`);
         questionBlock.appendChild(label);
       });
-
       quizContainer.appendChild(questionBlock);
     });
   }
@@ -63,8 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     displayQuiz();
     startBtn.style.display = "none";
     submitBtn.style.display = "inline-block";
-
-    // start timer
     quizStartTime = Date.now();
     quizInterval = setInterval(updateTimer, 1000);
   }
@@ -83,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function submitQuiz() {
     if (!quizStarted) return;
     clearInterval(quizInterval);
-
     let score = 0;
     questionBank.forEach((q, index) => {
       const radios = document.getElementsByName(`question-${index}`);
@@ -97,31 +92,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selected === q.correctIndex) score++;
     });
     quizResult.innerText = `You scored ${score} out of ${questionBank.length}.`;
-
-    // final time
-    let finalTime = quizTimer.innerText.replace("Time: ","");
-
-    // store to scoreboard
+    let finalTime = quizTimer.innerText.replace("Time: ", "");
     let userName = prompt("Enter your name for the scoreboard:", "Anonymous");
     if (!userName) userName = "Anonymous";
     scoreboard.push({ name: userName, score, time: finalTime });
     localStorage.setItem('quizScoreboard', JSON.stringify(scoreboard));
-
     showLeaderboard();
   }
 
   function showLeaderboard() {
     leaderboardDiv.style.display = "block";
-    scoreboard.sort((a,b) => b.score - a.score);
+    scoreboard.sort((a, b) => b.score - a.score);
     leaderboardEntries.innerHTML = "";
     scoreboard.forEach((entry, idx) => {
       const row = document.createElement("div");
       row.classList.add("leaderboard-entry");
-      row.innerHTML = `<span>${idx+1}. ${entry.name}</span><span>Score: ${entry.score} | Time: ${entry.time}</span>`;
+      row.innerHTML = `<span>${idx + 1}. ${entry.name}</span><span>Score: ${entry.score} | Time: ${entry.time}</span>`;
       leaderboardEntries.appendChild(row);
     });
   }
 
-  startBtn?.addEventListener('click', startQuiz);
-  submitBtn?.addEventListener('click', submitQuiz);
+  startBtn.addEventListener('click', startQuiz);
+  submitBtn.addEventListener('click', submitQuiz);
 });

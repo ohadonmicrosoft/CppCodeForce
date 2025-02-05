@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeForge++ | Module 5</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body>
+<body class="dark-theme">
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -39,55 +39,61 @@
     </div>
 
     <section class="glass module-lessons">
-      <h2 style="color:#fff; margin-bottom:10px;">Module 5: Memory Management & Debugging</h2>
+      <h1>Module 5: Memory Management &amp; Debugging</h1>
       <p style="margin-bottom:20px;">
-        Dive deep into manual vs. automatic memory management, custom allocators, and essential debugging tools like Valgrind & GDB.
+        Learn efficient memory management techniques and effective debugging strategies in C++.
       </p>
 
-      <hr style="margin:20px 0; border-color:rgba(255,255,255,0.2);"/>
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Manual Memory Allocation</div>
+        <div class="timeline-step">Step 2: Smart Pointers in Depth</div>
+        <div class="timeline-step">Step 3: Debugging with Valgrind &amp; GDB</div>
+      </div>
 
-      <h3>Lesson 1: Manual vs. Smart Allocation</h3>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/module5_diagram.png" alt="Memory Diagram" style="max-width:400px; border-radius:8px;">
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: Memory Management (placeholder image).</em>
+        </p>
+      </div>
+
+      <h2>Lesson 1: Manual Memory Allocation</h2>
       <p>
-        Compare raw <code>new/delete</code> usage to modern C++ smart pointers. Understand memory leaks, double-free errors, etc.
+        Understand dynamic memory allocation using <code>new</code> and <code>delete</code> and how to avoid memory leaks.
       </p>
       <ul style="margin-left:20px;">
-        <li>Write a snippet using raw pointers that accidentally leaks memory, then fix it via <code>std::unique_ptr</code>.</li>
-        <li>Discuss how to track allocations in a large codebase for debugging.</li>
+        <li>Demonstrate manual memory management.</li>
+        <li>Discuss pitfalls such as memory leaks and dangling pointers.</li>
       </ul>
       <button class="btn" onclick="openIDE('M5L1')">Open IDE for Lesson 1</button>
 
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
+      <hr style="border-color:rgba(255,255,255,0.2); margin:20px 20px;"/>
 
-      <h3>Lesson 2: Custom Allocators & Pool Allocation</h3>
+      <h2>Lesson 2: Smart Pointers</h2>
       <p>
-        For performance-critical or embedded systems, custom allocators can reduce fragmentation or overhead.
+        Learn how to use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code> for safer memory management.
       </p>
       <ul style="margin-left:20px;">
-        <li>Implement a simple pool allocator that doles out fixed-size blocks.</li>
-        <li>Integrate it into a container class or test it with <code>std::vector</code>'s custom allocator usage.</li>
+        <li>Convert manual memory management to smart pointers.</li>
+        <li>Discuss the differences among the various smart pointers.</li>
       </ul>
       <button class="btn" onclick="openIDE('M5L2')">Open IDE for Lesson 2</button>
-
-      <hr style="margin:20px 20px; border-color:rgba(255,255,255,0.2);"/>
-
-      <h3>Lesson 3: Valgrind & GDB Basics</h3>
-      <p>
-        Understand how <code>valgrind</code> detects leaks or invalid memory accesses. Learn GDB for stepping, breakpoints, and stack tracing.
-      </p>
-      <ul style="margin-left:20px;">
-        <li>Write a short program with an intentional out-of-bounds error. Run Valgrind to identify the issue.</li>
-        <li>Use GDB to set breakpoints and inspect variables at runtime.</li>
-      </ul>
-      <button class="btn" onclick="openIDE('M5L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
   <script>
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }
