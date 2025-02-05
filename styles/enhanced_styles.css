@@ -1,7 +1,7 @@
 /* Import Fresh Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap');
 
-/* Reset & Global Styles */
+/* RESET & GLOBALS */
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +12,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Dark Theme Background & Base Font */
+/* Dark Theme + Base Font */
 body {
   font-family: 'Fredoka', sans-serif;
-  /* Subtle dark gradient: bluish to deep gray */
   background: linear-gradient(135deg, #2b2f3a 0%, #1e2128 100%);
   color: #ddd;
   text-align: center;
@@ -25,7 +24,23 @@ body {
   line-height: 1.6;
 }
 
-/* Dark Glassmorphism with a slight glow behind edges */
+/* 1) HEADINGS ALWAYS WARM-YELLOW (SUNSET) */
+h1, h2, h3 {
+  color: #ffce67; /* Warm sunset yellow */
+  text-shadow: 0 0 4px rgba(255,206,103,0.3);
+  margin-bottom: 10px;
+}
+h4, h5, h6 {
+  color: #fbe5c8; 
+}
+
+/* Paragraphs keep standard color */
+p, ul, li {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Glassmorphism Container */
 .glass {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
@@ -35,7 +50,7 @@ body {
   padding: 20px;
 }
 
-/* Header & Nav - with glow on hover */
+/* HEADER & NAV */
 header {
   position: fixed;
   width: 100%;
@@ -58,21 +73,25 @@ header {
   padding: 0 20px;
 }
 
-/* Neon-like Title Glow for the logo */
+/* Logo with minimal shadow for big text on mobile */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
 .logo-text {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
   color: #ffce67;
-  text-shadow: 0 0 5px rgba(255,206,103,0.7);
+  text-shadow: 0 0 4px rgba(255,206,103,0.3);
   letter-spacing: 1px;
 }
-
 .logo-icon {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.3rem;
   color: #f97b7b;
-  text-shadow: 0 0 5px rgba(249,123,123,0.7);
+  text-shadow: 0 0 4px rgba(249,123,123,0.3);
 }
 
 .nav-menu {
@@ -92,24 +111,17 @@ header {
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .nav-link:hover {
   color: #ffce67;
-  text-shadow: 0 0 5px rgba(255,206,103,0.6);
+  text-shadow: 0 0 3px rgba(255,206,103,0.6);
 }
 
-/* Glowing hover effect for nav links or other buttonlike items */
-.nav-link:active {
-  color: #f97b7b;
-}
-
-/* Hamburger Menu */
+/* HAMBURGER MENU */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
 }
-
 .bar {
   width: 25px;
   height: 3px;
@@ -118,29 +130,9 @@ header {
   transition: 0.3s;
 }
 
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 180px;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-  }
-  .nav-menu.active {
-    display: flex;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-/* Page Content Wrapper */
+/* PAGE CONTENT WRAPPER */
 .page-content {
-  margin-top: 90px;
+  margin-top: 90px; /* offset for header */
   padding: 40px 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -148,7 +140,10 @@ header {
   text-align: left;
 }
 
-/* Index Page Hero - with strong glow text effect */
+/* HEADERS (H1 ETC) ON DESKTOP HAVE SLIGHT TEXT SHADOW, 
+   BUT WE WILL TONE IT DOWN ON MOBILE VIA media queries.*/
+
+/* HERO SECTION */
 .index-hero {
   margin-top: 120px;
   padding: 60px 30px;
@@ -156,30 +151,21 @@ header {
   border-radius: 20px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
 }
-
 .index-hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(255,255,255,0.6);
+  font-size: 2.6rem;
   margin-bottom: 15px;
   transition: all 0.3s ease-in-out;
 }
-
 .index-hero h1:hover {
-  color: #ffce67;
   letter-spacing: 1px;
-  text-shadow: 0 0 8px rgba(255,206,103,0.8);
 }
-
 .index-hero p {
   font-size: 1.2rem;
-  color: #ddd;
   max-width: 800px;
   margin: 0 auto 20px;
   line-height: 1.5;
+  color: #ddd;
 }
-
 .index-hero .btn {
   font-size: 1.2rem;
   padding: 14px 36px;
@@ -197,7 +183,7 @@ header {
   box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.6);
 }
 
-/* Features Section */
+/* FEATURES SECTION */
 .features {
   display: flex;
   justify-content: center;
@@ -207,14 +193,13 @@ header {
   flex-wrap: wrap;
   max-width: 1200px;
 }
-
 .feature-card {
   width: 280px;
   margin: 10px;
   text-align: center;
 }
 
-/* CTA Section */
+/* CTA SECTION */
 .cta {
   max-width: 800px;
   margin: 40px auto;
@@ -224,7 +209,7 @@ header {
   padding: 30px;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   margin-top: 40px;
   padding: 20px 0;
@@ -232,7 +217,7 @@ footer {
   background: rgba(255,255,255,0.05);
 }
 
-/* Buttons (General) */
+/* GENERIC BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 15px;
@@ -253,12 +238,11 @@ footer {
   box-shadow: 0px 6px 14px rgba(249, 123, 123, 0.6);
 }
 
-/* Exercise List & Modules */
+/* EXERCISE LIST & MODULES */
 .exercise-list {
   text-align: center;
   padding: 20px;
 }
-
 .course-module {
   margin-bottom: 30px;
   color: #eee;
@@ -268,7 +252,7 @@ footer {
   margin-top: 5px;
 }
 
-/* Collapsible Timeline for each module */
+/* COLLAPSIBLE TIMELINE */
 .module-timeline {
   margin: 20px 0;
   background: rgba(255,255,255,0.05);
@@ -279,14 +263,14 @@ footer {
   transition: max-height 0.6s ease;
 }
 .module-timeline.show {
-  max-height: 1000px; /* large enough to display all content */
+  max-height: 1000px; 
 }
 .timeline-step {
   margin: 8px 0;
   color: #ccc;
 }
 
-/* Sub-Navigation / Breadcrumb for Modules & IDE */
+/* BREADCRUMB */
 .breadcrumb {
   margin-bottom: 20px;
   font-size: 0.9rem;
@@ -300,13 +284,13 @@ footer {
 }
 .breadcrumb a:hover {
   color: #ffce67;
-  text-shadow: 0 0 5px rgba(255,206,103,0.6);
+  text-shadow: 0 0 3px rgba(255,206,103,0.6);
 }
 .breadcrumb span {
   margin: 0 5px;
 }
 
-/* Card Hover & Floating Effects */
+/* CARD HOVER & FLOATING EFFECTS */
 .card-hover {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -329,17 +313,15 @@ footer {
   animation: floating 3s ease-in-out infinite;
 }
 
-/* Resource/Portfolio/Resume Pages */
+/* RESOURCE/PORTFOLIO/RESUME */
 .portfolio-section,
 .resource-section {
   margin: 0 auto;
   color: #ddd;
 }
-
 .portfolio-page {
   text-align: center;
 }
-
 .portfolio-highlights {
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +334,7 @@ footer {
   text-align: left;
 }
 
-/* Icons for GitHub & LinkedIn (sample) */
+/* ICONS (GitHub/LinkedIn, etc.) */
 .icon-btn {
   display: inline-block;
   width: 48px;
@@ -376,16 +358,16 @@ footer {
   filter: invert(100%);
 }
 
-/* IDE Page - bigger, simpler mobile layout */
+/* IDE PAGE - bigger + mobile style */
 #code-editor {
-  height: 500px;  
+  height: 500px;
   margin-bottom: 10px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
-  background: #1e1e1e; /* ensure a dark background for Monaco area */
+  background: #1e1e1e;
 }
 
-/* Radial Progress for the Progress Page */
+/* RADIAL PROGRESS */
 .progress-radial {
   position: relative;
   width: 120px;
@@ -406,7 +388,7 @@ footer {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #1e2128; 
+  background: #1e2128;
 }
 .progress-radial span {
   position: relative;
@@ -415,7 +397,7 @@ footer {
   font-weight: 600;
 }
 
-/* Resume Page, etc. */
+/* RESUME */
 .resume-section {
   text-align: left;
   color: #ddd;
@@ -428,15 +410,20 @@ footer {
 }
 .job h4, .education h4 {
   font-size: 1.1rem;
-  color: #fbe5c8;
+  color: #ffce67;
   margin-bottom: 8px;
 }
 
-/* Timed Quizzes & Leaderboard */
+/* QUIZ PAGE TIMING & LEADERBOARD */
 .quiz-timer {
   font-size: 1.2rem;
   color: #f97b7b;
   margin-bottom: 10px;
+}
+.quiz-container {
+  margin-top: 20px;
+  text-align: left;
+  color: #ddd;
 }
 .leaderboard {
   margin-top: 20px;
@@ -446,7 +433,7 @@ footer {
 }
 .leaderboard h3 {
   color: #ffce67;
-  text-shadow: 0 0 5px rgba(255,206,103,0.6);
+  text-shadow: 0 0 3px rgba(255,206,103,0.6);
 }
 .leaderboard-entry {
   display: flex;
@@ -455,8 +442,40 @@ footer {
   color: #ccc;
 }
 
-/* Responsive Adjustments */
+/* MEDIA QUERIES FOR MOBILE */
 @media (max-width: 768px) {
+
+  /* NO auto-hide for mobile to avoid quick vanish */
+  body {
+    overflow-x: hidden;
+  }
+  /* Overwrite any auto-hide logic if you have in JS, or you can remove it entirely there. */
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 160px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .nav-menu li {
+    margin: 8px 0;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    text-shadow: none; /* reduce text shadow on mobile for clarity */
+  }
+  header {
+    padding: 10px 0;
+  }
+
   .features {
     flex-direction: column;
   }
@@ -474,14 +493,17 @@ footer {
     margin-left: 0;
   }
   .page-content {
-    margin-top: 80px;
+    margin-top: 70px; 
   }
-  /* Simpler layout for the IDE on mobile */
+
+  /* HEADINGS smaller or less shadow for better readability */
+  h1, h2, h3 {
+    text-shadow: none; 
+  }
+
+  /* IDE smaller on mobile */
   #code-editor {
     height: 300px;
-  }
-  .monaco-editor, .monaco-scrollable-element {
-    font-size: 13px !important;
   }
 }
 
@@ -492,14 +514,20 @@ footer {
   .logo-icon {
     font-size: 1rem;
   }
+
   .index-hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
+    text-shadow: none;
   }
   .index-hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .btn {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 8px 20px;
+  }
+  /* Possibly remove floating effect on mobile to avoid jumpiness */
+  .floating-card {
+    animation: none;
   }
 }
