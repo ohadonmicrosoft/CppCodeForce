@@ -21,21 +21,21 @@ body {
   text-align: center;
   overflow-x: hidden;
   transition: background 0.3s ease-in-out;
-  font-size: 1.1rem;  /* Slightly bigger base font */
+  font-size: 1.1rem;  
   line-height: 1.6;
 }
 
-/* Dark Glassmorphism */
+/* Dark Glassmorphism with a slight glow behind edges */
 .glass {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.05), 0px 3px 10px rgba(0,0,0,0.5);
   padding: 20px;
 }
 
-/* Header & Nav - Dark Style */
+/* Header & Nav - with glow on hover */
 header {
   position: fixed;
   width: 100%;
@@ -58,24 +58,21 @@ header {
   padding: 0 20px;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
+/* Neon-like Title Glow for the logo */
 .logo-text {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
-  color: #ffce67; /* Light gold */
+  color: #ffce67;
+  text-shadow: 0 0 5px rgba(255,206,103,0.7);
   letter-spacing: 1px;
 }
 
 .logo-icon {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.3rem;
-  color: #f97b7b; /* Salmon pink */
+  color: #f97b7b;
+  text-shadow: 0 0 5px rgba(249,123,123,0.7);
 }
 
 .nav-menu {
@@ -93,11 +90,17 @@ header {
   font-weight: 500;
   color: #ddd;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-link:hover {
   color: #ffce67;
+  text-shadow: 0 0 5px rgba(255,206,103,0.6);
+}
+
+/* Glowing hover effect for nav links or other buttonlike items */
+.nav-link:active {
+  color: #f97b7b;
 }
 
 /* Hamburger Menu */
@@ -117,9 +120,9 @@ header {
 
 @media (max-width: 768px) {
   .nav-menu {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 60px;
     right: 0;
@@ -127,11 +130,9 @@ header {
     border-radius: 0 0 8px 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.6);
   }
-
   .nav-menu.active {
     display: flex;
   }
-
   .menu-toggle {
     display: flex;
   }
@@ -139,7 +140,7 @@ header {
 
 /* Page Content Wrapper */
 .page-content {
-  margin-top: 90px; /* offset for header */
+  margin-top: 90px;
   padding: 40px 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -147,7 +148,7 @@ header {
   text-align: left;
 }
 
-/* Index Page Hero Section - Dark Style */
+/* Index Page Hero - with strong glow text effect */
 .index-hero {
   margin-top: 120px;
   padding: 60px 30px;
@@ -160,13 +161,15 @@ header {
   font-size: 2.8rem;
   font-weight: 700;
   color: #fff;
-  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 5px rgba(255,255,255,0.6);
   margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
 }
 
 .index-hero h1:hover {
   color: #ffce67;
   letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255,206,103,0.8);
 }
 
 .index-hero p {
@@ -188,7 +191,6 @@ header {
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 4px 10px rgba(249, 123, 123, 0.4);
 }
-
 .index-hero .btn:hover {
   background: #f45e5e;
   transform: translateY(-3px);
@@ -245,7 +247,6 @@ footer {
   border: none;
   cursor: pointer;
 }
-
 .btn:hover {
   background: #f45e5e;
   transform: translateY(-3px);
@@ -267,13 +268,21 @@ footer {
   margin-top: 5px;
 }
 
-.module-lessons h3 {
-  color: #fbe5c8;
-  margin-top: 20px;
+/* Collapsible Timeline for each module */
+.module-timeline {
+  margin: 20px 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
 }
-
-.module-lessons p {
-  margin-bottom: 8px;
+.module-timeline.show {
+  max-height: 1000px; /* large enough to display all content */
+}
+.timeline-step {
+  margin: 8px 0;
   color: #ccc;
 }
 
@@ -287,10 +296,11 @@ footer {
   color: #f45e5e;
   text-decoration: none;
   margin-right: 5px;
+  transition: text-shadow 0.3s;
 }
 .breadcrumb a:hover {
   color: #ffce67;
-  text-decoration: underline;
+  text-shadow: 0 0 5px rgba(255,206,103,0.6);
 }
 .breadcrumb span {
   margin: 0 5px;
@@ -326,6 +336,10 @@ footer {
   color: #ddd;
 }
 
+.portfolio-page {
+  text-align: center;
+}
+
 .portfolio-highlights {
   display: flex;
   flex-wrap: wrap;
@@ -338,53 +352,33 @@ footer {
   text-align: left;
 }
 
-/* ---------- ICON ENHANCEMENTS ---------- */
-/* For the resume icon specifically */
-.resume-icon {
+/* Icons for GitHub & LinkedIn (sample) */
+.icon-btn {
+  display: inline-block;
   width: 48px;
   height: 48px;
   margin: 0 6px;
   border-radius: 50%;
   background: rgba(255,255,255,0.1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  line-height: 48px;
   transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-.resume-icon img {
-  width: 24px; /* bigger than before */
-  height: 24px;
-}
-.resume-icon:hover {
+.icon-btn:hover {
   background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 10px rgba(249,123,123,0.6);
+  box-shadow: 0 0 15px rgba(255,255,255,0.4), 0 0 10px rgba(249,123,123,0.4);
 }
-
-/* For GitHub/LinkedIn icons in the portfolio page */
-.portfolio-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-.portfolio-icon:hover {
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 10px rgba(255,255,255,0.4);
-}
-.portfolio-icon img {
-  width: 28px; /* bigger than before */
+.icon-btn img {
+  width: 28px;
   height: 28px;
+  vertical-align: middle;
   filter: invert(100%);
 }
 
-/* IDE Page - Improved Window */
+/* IDE Page - bigger, simpler mobile layout */
 #code-editor {
-  height: 500px;  /* bigger height for easier typing */
+  height: 500px;  
   margin-bottom: 10px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
@@ -412,7 +406,7 @@ footer {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #1e2128; /* center fill matches the dark background */
+  background: #1e2128; 
 }
 .progress-radial span {
   position: relative;
@@ -438,6 +432,29 @@ footer {
   margin-bottom: 8px;
 }
 
+/* Timed Quizzes & Leaderboard */
+.quiz-timer {
+  font-size: 1.2rem;
+  color: #f97b7b;
+  margin-bottom: 10px;
+}
+.leaderboard {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 10px;
+}
+.leaderboard h3 {
+  color: #ffce67;
+  text-shadow: 0 0 5px rgba(255,206,103,0.6);
+}
+.leaderboard-entry {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  color: #ccc;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .features {
@@ -458,6 +475,13 @@ footer {
   }
   .page-content {
     margin-top: 80px;
+  }
+  /* Simpler layout for the IDE on mobile */
+  #code-editor {
+    height: 300px;
+  }
+  .monaco-editor, .monaco-scrollable-element {
+    font-size: 13px !important;
   }
 }
 

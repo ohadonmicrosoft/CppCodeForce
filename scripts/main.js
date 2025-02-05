@@ -25,23 +25,17 @@ let lastScrollTop = window.scrollY;
 
 if (header) {
   window.addEventListener("scroll", () => {
-    // Clear any existing timer
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
-    }
+    if (scrollTimeout) clearTimeout(scrollTimeout);
 
-    // If scrolling down, hide instantly
     let currentScrollTop = window.scrollY;
     if (currentScrollTop > lastScrollTop) {
-      header.style.top = "-80px"; // Hide header quickly
+      header.style.top = "-80px"; 
     } else {
-      header.style.top = "0";     // Show header
+      header.style.top = "0"; 
     }
     lastScrollTop = currentScrollTop;
 
-    // After user stops scrolling for 1 second, re-check
     scrollTimeout = setTimeout(() => {
-      // Optionally bring header back
       header.style.top = "0";
     }, 1000);
   });

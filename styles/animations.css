@@ -1,5 +1,5 @@
 /* =============================
-   🚀 Global Animations
+   🚀 Global Animations & Keyframes
    ============================= */
 
    .fade-in {
@@ -19,31 +19,17 @@
     }
   }
   
-  .scale-up {
+  /* Slide-Up for 'Wow Factor' */
+  .slide-up {
     opacity: 0;
-    transform: scale(0.7);
-    animation: scaleUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateY(50px);
+    animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   
-  @keyframes scaleUp {
+  @keyframes slideUp {
     from {
       opacity: 0;
-      transform: scale(0.7);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  .header-slide-in {
-    animation: headerSlideIn 0.8s ease-in-out;
-  }
-  
-  @keyframes headerSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
+      transform: translateY(50px);
     }
     to {
       opacity: 1;
@@ -51,6 +37,7 @@
     }
   }
   
+  /* Hover pulses for bigger wow */
   .btn-glow {
     position: relative;
     animation: pulseGlow 1.5s infinite;
@@ -65,6 +52,22 @@
     }
     100% {
       box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.3);
+    }
+  }
+  
+  /* Header Slide In (unchanged) */
+  .header-slide-in {
+    animation: headerSlideIn 0.8s ease-in-out;
+  }
+  
+  @keyframes headerSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   

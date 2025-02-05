@@ -31,8 +31,7 @@
     </div>
   </header>
 
-  <main class="page-content fade-in">
-    <!-- Breadcrumb / Sub-nav -->
+  <main class="page-content fade-in module-page">
     <div class="breadcrumb">
       <a href="index.html">Home</a> <span>></span>
       <a href="exercises.html">Exercises</a> <span>></span>
@@ -42,18 +41,34 @@
     <section class="glass module-lessons">
       <h2 style="color:#fff; margin-bottom:10px;">Module 1: Foundations & Modern C++</h2>
       <p style="margin-bottom:20px;">
-        This module covers essential modern C++ techniques:
-        <strong>RAII, smart pointers, lambdas, and more.</strong> Master these
-        features to write safer, more expressive code. 
+        This module covers essential modern C++ techniques: <strong>RAII, smart pointers, lambdas,</strong> and more.
+        Master these features to write safer, more expressive code.
       </p>
 
+      <!-- Collapsible timeline container -->
+      <button class="btn" style="margin-bottom:10px;" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline">
+        <div class="timeline-step">Step 1: Basic RAII overview</div>
+        <div class="timeline-step">Step 2: Smart pointers in practice</div>
+        <div class="timeline-step">Step 3: Moving & transferring ownership</div>
+        <div class="timeline-step">Step 4: Lambdas & captures</div>
+        <div class="timeline-step">Step 5: Combining lambdas with STL</div>
+      </div>
+
       <hr style="border-color:rgba(255,255,255,0.2); margin:20px 0;"/>
+
+      <!-- Insert an example diagram or image -->
+      <div style="text-align:center; margin:10px 0;">
+        <img src="assets/images/raii_diagram.png" alt="RAII Diagram" style="max-width:400px; border-radius:8px;"/>
+        <p style="font-size:0.9rem; color:#aaa;">
+          <em>Figure: RAII Diagram (placeholder). Replace with your real image.</em>
+        </p>
+      </div>
 
       <h3>Lesson 1: RAII & Constructors</h3>
       <p>
         <strong>Concept:</strong> Resource Acquisition Is Initialization (RAII) ensures resource ownership
-        is bound to object lifetimes. If an object goes out of scope, its destructor frees the resource.
-        This pattern greatly reduces memory leaks and fosters exception safety.
+        is bound to object lifetimes.
       </p>
       <ul style="margin-left:20px;">
         <li>Create a <code>FileWrapper</code> class that opens a file in the constructor and closes it in the destructor.</li>
@@ -65,14 +80,12 @@
 
       <h3>Lesson 2: Smart Pointers & Move Semantics</h3>
       <p>
-        Modern C++ introduces <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code>
-        for managing dynamic allocations. <em>Move semantics</em> eliminates expensive copies, letting you “move” data
-        efficiently.
+        Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code> 
+        for dynamic allocations. <em>Move semantics</em> eliminates expensive copies.
       </p>
       <ul style="margin-left:20px;">
-        <li>Rewrite a raw pointer approach to use <code>std::unique_ptr</code> (ownership pattern).</li>
-        <li>Demonstrate using <code>std::move</code> to transfer ownership of an object to another scope.</li>
-        <li>Explore a scenario where <code>std::shared_ptr</code> is useful (reference counting) vs. <code>std::unique_ptr</code> (exclusive ownership).</li>
+        <li>Rewrite a raw pointer approach to use <code>std::unique_ptr</code>.</li>
+        <li>Demonstrate using <code>std::move</code> to transfer ownership cheaply.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L2')">Open IDE for Lesson 2</button>
 
@@ -80,13 +93,12 @@
 
       <h3>Lesson 3: Lambdas & STL Algorithms</h3>
       <p>
-        Lambdas enable concise inline function objects. Pair them with powerful STL algorithms 
-        (<code>std::transform</code>, <code>std::remove_if</code>, etc.) to write higher-level, cleaner code.
+        Lambdas combined with <code>std::transform</code>, <code>std::remove_if</code>, etc. can make code 
+        more concise and expressive.
       </p>
       <ul style="margin-left:20px;">
-        <li>Use <code>std::remove_if</code> with a lambda to remove all negative numbers from a <code>std::vector<int></code>.</li>
-        <li>Demonstrate capturing external variables by value vs. by reference in a lambda.</li>
-        <li>Use <code>std::transform</code> to apply a function to each element in a list, doubling the values.</li>
+        <li>Use <code>std::remove_if</code> with a lambda to remove all negative numbers from a vector.</li>
+        <li>Explore captures by value vs. by reference in a lambda.</li>
       </ul>
       <button class="btn" onclick="openIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
@@ -98,6 +110,11 @@
 
   <script src="scripts/main.js"></script>
   <script>
+    // Toggle the module timeline
+    function toggleTimeline() {
+      const timeline = document.getElementById('moduleTimeline');
+      timeline.classList.toggle('show');
+    }
     function openIDE(lessonID) {
       window.location.href = `ide.html?lessonID=${lessonID}`;
     }

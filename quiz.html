@@ -32,19 +32,29 @@
   </header>
 
   <main class="page-content fade-in">
-    <section>
-      <h2 class="section-title">Interview Quiz</h2>
-      <p id="quiz-intro">Lesson-based quiz questions will appear here.</p>
+    <section class="glass" style="max-width:800px; margin:0 auto;">
+      <h2 class="section-title" style="color:#fff;">Interview Quiz</h2>
+      <p id="quiz-intro" style="color:#ccc;">Lesson-based quiz with a timer and local leaderboard!</p>
 
-      <div id="quiz-container" class="glass quiz-container"></div>
+      <!-- Timer and quiz container -->
+      <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
+      <div id="quiz-container" class="quiz-container"></div>
 
-      <button id="submit-quiz" class="btn" style="margin-top:20px;">Submit Quiz</button>
-      <div id="quiz-result" style="margin-top:20px; font-weight:bold;"></div>
+      <button id="start-quiz" class="btn" style="margin-top:20px;">Start Quiz</button>
+      <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
+
+      <div id="quiz-result" style="margin-top:20px; font-weight:bold; color:#f97b7b;"></div>
+
+      <!-- Leaderboard -->
+      <div class="leaderboard" id="leaderboard" style="display:none;">
+        <h3>Local Leaderboard</h3>
+        <div id="leaderboard-entries"></div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
   </footer>
 
   <script src="scripts/main.js"></script>
