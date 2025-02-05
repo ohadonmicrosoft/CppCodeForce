@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WeCode | Quiz</title>
+  <title>Ohad’s WeCode | Quiz</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-quiz fade-in">
 <header>
   <div class="nav-container">
+    <div class="brand-area">
+      <span class="brand-title">Ohad’s WeCode</span>
+    </div>
+    
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -34,17 +38,12 @@
     </p>
     <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
 
-    <!-- Container for quiz questions -->
     <div id="quiz-container" class="quiz-container"></div>
 
-    <!-- Quiz Buttons -->
     <button id="start-quiz" class="btn">Start Quiz</button>
     <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
 
-    <!-- Quiz Result -->
     <div id="quiz-result" style="margin-top:20px; font-weight:600;"></div>
-
-    <!-- Local Leaderboard -->
     <div class="leaderboard" id="leaderboard" style="display:none; margin-top:20px;">
       <h3>Local Leaderboard</h3>
       <div id="leaderboard-entries"></div>
@@ -53,7 +52,8 @@
 </main>
 
 <footer></footer>
-<p>© 2025 WeCode. All rights reserved.</p>
+<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
+
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script src="scripts/quiz.js"></script>

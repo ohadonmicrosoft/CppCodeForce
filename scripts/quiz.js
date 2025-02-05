@@ -1,9 +1,6 @@
 /*************************************************************
  * quiz.js
- * - Renders questions from questionBank
- * - Tracks time, local scoreboard
  *************************************************************/
-
 let quizStarted = false;
 let quizStartTime = 0;
 let quizInterval = null;
@@ -18,8 +15,8 @@ const questionBank = [
   },
   {
     text: "Binary Search requires the list to be...",
-    options: ["Non-empty", "Sorted", "Unique", "Doubly Linked"],
-    correctIndex: 1
+    options: ["Non-empty","Sorted","Unique","Doubly Linked"],
+    correctIndex:1
   }
 ];
 
@@ -40,11 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     quizContainer.innerHTML = "";
     questionBank.forEach((q, index) => {
       const questionBlock = document.createElement("div");
-      questionBlock.classList.add("question-block");
       questionBlock.style.marginBottom = "20px";
 
       const questionText = document.createElement("h4");
-      questionText.textContent = `Q${index + 1}: ${q.text}`;
+      questionText.textContent = `Q${index+1}: ${q.text}`;
       questionBlock.appendChild(questionText);
 
       q.options.forEach((option, optIndex) => {
@@ -77,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTimer() {
     const elapsedMs = Date.now() - quizStartTime;
     const seconds = Math.floor(elapsedMs / 1000) % 60;
-    const minutes = Math.floor(elapsedMs / (1000 * 60));
+    const minutes = Math.floor(elapsedMs / (1000*60));
     quizTimer.textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
   }
 
@@ -115,16 +111,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function showLeaderboard() {
     if (!leaderboardDiv || !leaderboardEntries) return;
     leaderboardDiv.style.display = "block";
-    scoreboard.sort((a, b) => b.score - a.score);
+    scoreboard.sort((a,b) => b.score - a.score);
     leaderboardEntries.innerHTML = "";
     scoreboard.forEach((entry, idx) => {
       const row = document.createElement("div");
-      row.classList.add("leaderboard-entry");
       row.style.display = "flex";
       row.style.justifyContent = "space-between";
       row.style.margin = "6px 0";
 
-      row.innerHTML = `<span>${idx + 1}. ${entry.name}</span>
+      row.innerHTML = `<span>${idx+1}. ${entry.name}</span>
                        <span>Score: ${entry.score} | Time: ${entry.time}</span>`;
       leaderboardEntries.appendChild(row);
     });

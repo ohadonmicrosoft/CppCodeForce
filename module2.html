@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeCode | Module 2</title>
-  <!-- Main Styles -->
+  <title>Ohad’s WeCode | Module 2</title>
   <link rel="stylesheet" href="styles/style.css">
-  <!-- Animations -->
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
 <header>
   <div class="nav-container">
+    <div class="brand-area">
+      <span class="brand-title">Ohad’s WeCode</span>
+    </div>
+
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </div>
+
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -29,19 +32,16 @@
 </header>
 
 <main class="page-content">
-  <!-- Breadcrumbs -->
   <div class="breadcrumb">
     <a href="index.html">Home</a> <span>&gt;</span>
     <a href="exercises.html">Exercises</a> <span>&gt;</span>
     <span>Module 2</span>
   </div>
 
-  <!-- Main Module Content -->
-  <section class="glass module-lessons tilt-card">
+  <section class="glass module-lessons">
     <h1 class="fancy-title">Module 2: Data Structures &amp; Algorithms</h1>
     <p>Explore arrays, linked lists, sorting, searching, BFS/DFS, and more fundamental algorithms.</p>
 
-    <!-- Collapsible Timeline Button -->
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
     <div class="module-timeline" id="moduleTimeline">
       <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
@@ -49,7 +49,6 @@
     </div>
     <hr>
 
-    <!-- Lessons -->
     <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
     <p>Implement basic operations (insert, delete, traverse) and analyze time complexities.</p>
     <button class="btn" onclick="openExternalIDE('M2L1')">Open IDE for Lesson 1</button>
@@ -62,19 +61,15 @@
 </main>
 
 <footer></footer>
-<p>© 2025 WeCode. All rights reserved.</p>
-
-<!-- Scroll-to-Top Button -->
+<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
-<!-- Scripts -->
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){
   const timeline = document.getElementById("moduleTimeline");
   if(timeline) timeline.classList.toggle("show");
 }
-
 function openExternalIDE(lessonID) {
   const url = getWandboxLink(lessonID);
   window.open(url, "_blank");

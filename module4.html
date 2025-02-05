@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeCode | Module 4</title>
+  <title>Ohad’s WeCode | Module 4</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
 <header>
   <div class="nav-container">
+    <div class="brand-area">
+      <span class="brand-title">Ohad’s WeCode</span>
+    </div>
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -27,14 +30,13 @@
 </header>
 
 <main class="page-content">
-  <!-- Breadcrumb -->
   <div class="breadcrumb">
     <a href="index.html">Home</a> <span>&gt;</span>
     <a href="exercises.html">Exercises</a> <span>&gt;</span>
     <span>Module 4</span>
   </div>
 
-  <section class="glass module-lessons tilt-card">
+  <section class="glass module-lessons">
     <h1 class="fancy-title">Module 4: Concurrency &amp; Multithreading</h1>
     <p>Delve into threads, mutexes, lock-free data structures, and concurrency patterns in modern C++.</p>
 
@@ -57,7 +59,7 @@
 </main>
 
 <footer></footer>
-<p>© 2025 WeCode. All rights reserved.</p>
+<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
 <script src="scripts/main.js"></script>
@@ -67,7 +69,8 @@ function toggleTimeline(){
   if(timeline) timeline.classList.toggle("show");
 }
 function openExternalIDE(lessonID) {
-  window.open(getWandboxLink(lessonID), "_blank");
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
 }
 </script>
 </body>

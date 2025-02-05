@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeCode | Module 3</title>
+  <title>Ohad’s WeCode | Module 3</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
 <header>
   <div class="nav-container">
+    <div class="brand-area">
+      <span class="brand-title">Ohad’s WeCode</span>
+    </div>
     <div class="menu-toggle" id="menuToggle">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -35,7 +38,7 @@
   </div>
 
   <!-- Glass Morphism / Tilt -->
-  <section class="glass module-lessons tilt-card">
+  <section class="glass module-lessons">
     <h1 class="fancy-title">Module 3: Real-Time &amp; Embedded Systems</h1>
     <p>Focus on RTOS fundamentals, concurrency in embedded, interrupts, and hardware debugging.</p>
 
@@ -58,7 +61,7 @@
 </main>
 
 <footer></footer>
-<p>© 2025 WeCode. All rights reserved.</p>
+<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 
 <script src="scripts/main.js"></script>
@@ -68,7 +71,8 @@ function toggleTimeline(){
   if(timeline) timeline.classList.toggle("show");
 }
 function openExternalIDE(lessonID) {
-  window.open(getWandboxLink(lessonID), "_blank");
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
 }
 </script>
 </body>

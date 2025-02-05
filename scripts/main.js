@@ -1,5 +1,5 @@
 /*************************************************************
- * main.js - Manages hamburger menu, scroll-to-top, and IDE links
+ * main.js - Updated for "Sunset" style 
  *************************************************************/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,7 +26,7 @@ if (menuToggle && navMenu) {
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
   });
-  // Close menu if clicking outside
+  // close menu if clicking outside
   document.addEventListener("click", (e) => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
       navMenu.classList.remove("active");

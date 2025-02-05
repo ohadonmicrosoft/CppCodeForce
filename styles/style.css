@@ -1,12 +1,8 @@
 /*************************************************************
- * style.css - High-End Version
- * 
- * Unified color theme, glass morphism, tilt effects,
- * subtle glow hovers, modern fonts.
+ * style.css - Warm Sunset Edition
  *************************************************************/
 
-/* =============== 1) RESET & BASE =============== */
-
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -16,34 +12,33 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Google Fonts: Poppins for headings, Nunito for body */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;700&display=swap');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Playfair+Display:wght@600;700&display=swap');
 
 /* Theme Variables */
 :root {
-  --bg-gradient: linear-gradient(135deg, #1d1f31 0%, #2a2f5b 100%);
-  --font-heading: 'Poppins', sans-serif;
+  --bg-gradient: linear-gradient(135deg, #FFAE8F 0%, #FFDAA2 100%);
+  --font-heading: 'Playfair Display', serif;
   --font-body: 'Nunito', sans-serif;
 
-  --text-color: #ECECEC;
-  --heading-color: #FFFFFF;
+  --text-color: #2C2C2C; /* Dark gray for text */
+  --heading-color: #1F1F1F; /* Slightly darker for headings */
 
   /* Glass & Accents */
-  --glass-bg: rgba(255,255,255,0.07);
-  --glass-border: rgba(255,255,255,0.2);
-  --glass-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  --glass-bg: rgba(255,255,255,0.2);
+  --glass-border: rgba(255,255,255,0.3);
+  --glass-shadow: 0 4px 20px rgba(0,0,0,0.2);
 
-  --accent-color: #7FA6FF;
-  --accent-hover: #5F8BFF;
-  --btn-shadow: 0 8px 20px rgba(127,166,255,0.2);
+  --accent-color: #FF6B6B;   /* Warm red/pink accent */
+  --accent-hover: #FF4B4B;   /* Darker red/pink for hover */
+  --btn-shadow: 0 6px 16px rgba(255,107,107,0.3);
 
-  --border-radius: 16px;
+  --border-radius: 12px;
   --transition-speed: 0.3s;
   
-  /* Sizing */
+  /* Base Sizing */
   --base-font-size: 1rem;
   --line-height: 1.6;
-  
   --section-spacing: 40px;
 }
 
@@ -75,27 +70,40 @@ a:hover {
   color: var(--accent-hover);
 }
 
-/* =============== 2) LAYOUT & GLOBAL COMPONENTS =============== */
-
-/* HEADER */
+/* Header */
 header {
   position: fixed;
-  top: 0;
+  top: 0; 
   left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.5);
   backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  padding: 8px 0;
+  padding: 6px 0;
 }
+
+/* Brand Area */
+.brand-area {
+  position: absolute;
+  top: 10px; 
+  left: 60px;
+}
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+/* Nav Container & Hamburger */
 .nav-container {
   position: relative;
-  min-height: 40px;
+  min-height: 50px;
 }
 .menu-toggle {
   position: absolute;
-  top: 10px;
+  top: 10px; 
   left: 10px;
   display: flex;
   flex-direction: column;
@@ -103,24 +111,24 @@ header {
   z-index: 1100;
 }
 .bar {
-  width: 25px;
+  width: 25px; 
   height: 3px;
   margin: 3px;
-  background: var(--text-color);
+  background: var(--heading-color);
   transition: background var(--transition-speed);
 }
 
-/* NAV MENU */
+/* Nav Menu */
 .nav-menu {
   display: none;
   position: absolute;
-  top: 50px;
-  left: 10px;
-  background: rgba(0,0,0,0.65);
-  border-radius: 12px;
+  top: 50px; 
+  right: 20px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
   padding: 10px;
-  width: 180px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .nav-menu.active {
   display: block;
@@ -130,63 +138,48 @@ header {
 }
 .nav-link {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--heading-color);
   transition: color var(--transition-speed);
 }
 .nav-link:hover {
   color: var(--accent-color);
 }
 
-/* MAIN CONTENT */
+/* Page Content */
 .page-content {
   margin-top: 80px;
   padding: 20px;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   margin-top: var(--section-spacing);
   text-align: center;
-  background: rgba(0,0,0,0.25);
-  padding: 10px 0;
 }
 
-/* BREADCRUMB */
-.breadcrumb {
-  margin-bottom: 20px;
-  text-align: left;
-}
-.breadcrumb a {
-  color: var(--accent-color);
-}
-
-/* =============== 3) GLASS & HOVER EFFECTS =============== */
-
+/* Glass Card */
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius);
   box-shadow: var(--glass-shadow);
-  padding: 20px;
   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
 }
 .card-hover:hover {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 15px rgba(127,166,255,0.2);
-  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 8px rgba(255,107,107,0.15);
+  transform: scale(1.02);
 }
 
-/* =============== 4) HERO, CARDS, BUTTONS, ETC. =============== */
-
-/* HERO SECTION */
+/* Hero Section */
 .hero-section {
   margin-top: 100px;
   text-align: center;
-  border-radius: 26px;
+  border-radius: var(--border-radius);
   padding: 50px 20px;
 }
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 0.5em;
 }
 .hero-subtitle {
@@ -195,22 +188,7 @@ footer {
   line-height: var(--line-height);
 }
 
-/* FEATURES SECTION */
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  margin: var(--section-spacing) auto;
-}
-.feature-card {
-  width: 280px;
-  text-align: left;
-  padding: 16px;
-  border-radius: var(--border-radius);
-}
-
-/* CTA */
+/* CTA Section */
 .cta {
   max-width: 600px;
   margin: 60px auto 0;
@@ -222,15 +200,15 @@ footer {
   line-height: var(--line-height);
 }
 
-/* BUTTONS */
+/* Buttons */
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
   background: var(--accent-color);
-  border-radius: 30px;
+  border-radius: 24px;
   border: none;
   cursor: pointer;
   position: relative;
@@ -243,10 +221,10 @@ footer {
   transform: translateY(-2px);
 }
 .btn-glow {
-  box-shadow: 0 0 20px rgba(127,166,255,0.5);
+  box-shadow: 0 0 14px rgba(255,107,107,0.4);
 }
 
-/* SCROLL-TO-TOP BUTTON */
+/* Scroll-to-top */
 .scroll-to-top-btn {
   display: none;
   position: fixed;
@@ -259,7 +237,7 @@ footer {
   color: #fff;
   font-size: 20px;
   border: none;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--btn-shadow);
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -270,30 +248,16 @@ footer {
   transform: translateY(-2px);
 }
 
-/* ICON BUTTONS (GitHub, LinkedIn, etc.) */
-.icon-btn {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  margin: 0 6px;
-  text-align: center;
-  line-height: 50px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: all 0.3s;
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 20px;
+  text-align: left;
 }
-.icon-btn:hover {
-  background: rgba(255,255,255,0.25);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.icon-btn img {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
+.breadcrumb a {
+  color: var(--accent-color);
 }
 
-/* PROGRESS RADIAL (progress.html) */
+/* Progress Radial */
 .progress-radial {
   position: relative;
   width: 120px;
@@ -301,7 +265,7 @@ footer {
   border-radius: 50%;
   background: conic-gradient(
     var(--accent-color) calc(var(--percent) * 1%),
-    rgba(255,255,255,0.15) 0
+    rgba(255,255,255,0.3) 0
   );
   margin: 20px auto;
   display: flex;
@@ -312,40 +276,62 @@ footer {
 .progress-radial::before {
   content: "";
   position: absolute;
-  width: 90px; 
+  width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.5);
 }
 .progress-radial span {
   position: relative;
-  color: #fff;
+  color: var(--heading-color);
   font-weight: 700;
   font-size: 1rem;
 }
 
-/* Responsive Tweaks */
+/* Icon Buttons */
+.icon-btn {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  margin: 0 6px;
+  text-align: center;
+  line-height: 46px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+.icon-btn:hover {
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.icon-btn img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .hero-section {
-    margin-top: 80px;
-    padding: 40px 20px;
+  .brand-area { 
+    left: 50px;
+    top: 6px;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .features {
     flex-direction: column;
     align-items: center;
   }
 }
-
 @media (max-width: 480px) {
   .btn {
     font-size: 0.9rem;
-    padding: 10px 22px;
+    padding: 10px 20px;
   }
   .scroll-to-top-btn {
-    bottom: 15px;
+    bottom: 15px; 
     right: 15px;
   }
 }
