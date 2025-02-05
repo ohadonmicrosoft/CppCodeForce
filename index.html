@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeForge++ | Home</title>
+  <!-- Link your CSS files -->
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
-<!-- Default to dark-theme. Toggle will switch to light-theme if user clicks -->
-<body class="dark-theme">
+<body class="dark-theme"> <!-- Start in dark theme -->
 
+  <!-- Header with hamburger + toggle button -->
   <header class="glass header-slide-in compact-header">
     <div class="nav-container">
       <h1 class="logo">
@@ -34,44 +35,24 @@
         </ul>
       </nav>
 
-      <!-- Theme Toggle Button -->
+      <!-- Theme Toggle Button EXACT placement -->
       <button id="theme-toggle" class="btn" style="margin-left:20px;">Switch Theme</button>
     </div>
   </header>
 
   <section class="index-hero glass fade-in">
     <h1 class="hero-title">Elevate Your C++ Skills</h1>
-    <p class="slide-up">
-      A comprehensive, interview-focused platform with advanced modules,
-      an embedded IDE, real-time progress tracking, and more.
-    </p>
+    <p>A robust platform with advanced modules, progress tracking, and more.</p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
   </section>
 
-  <section class="features slide-up">
-    <div class="feature-card glass card-hover floating-card">
-      <h2>Robust Syllabus</h2>
-      <p>Learn advanced C++: concurrency, embedded, memory management, and more.</p>
-    </div>
-    <div class="feature-card glass card-hover floating-card">
-      <h2>In-Browser IDE</h2>
-      <p>Write, compile, and test code right here—no external tools needed.</p>
-    </div>
-    <div class="feature-card glass card-hover floating-card">
-      <h2>Progress & Quizzes</h2>
-      <p>Track achievements, timed quizzes, local leaderboard, and instant feedback.</p>
-    </div>
-  </section>
-
-  <section class="cta glass fade-in">
-    <h2>Prepare for Your Next Interview</h2>
-    <a href="exercises.html" class="btn">Explore Modules</a>
-  </section>
+  <!-- Possibly more sections... -->
 
   <footer>
-    <p>© 2025 CodeForge++. Developer & Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 CodeForge++. All rights reserved.</p>
   </footer>
 
+  <!-- Script for hamburger + theme toggle. Make sure it's LAST, so JS can find the elements -->
   <script src="scripts/main.js"></script>
 </body>
 </html>
