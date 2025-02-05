@@ -30,3 +30,29 @@
 *.exe
 *.out
 *.app
+
+collect_files.py
+collect.md
+
+# Ignore build artifacts
+/build/
+/dist/
+/out/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+/.vscode/
+/.idea/
+/*.suo
+/*.user
+/*.userosscache
+/*.sln.docstates
+
+# Ignore node_modules
+/node_modules/
+
+# Ignore log files
+*.log
