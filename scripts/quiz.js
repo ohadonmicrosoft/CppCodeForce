@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let userName= prompt("Enter your name for the scoreboard:","Anonymous");
     if(!userName) userName="Anonymous";
     scoreboard.push({name:userName, score, time:finalTime});
-    localStorage.setItem('quizScoreboard',JSON.stringify(scoreboard));
+    localStorage.setItem('quizScoreboard', JSON.stringify(scoreboard));
     showLeaderboard();
   }
 

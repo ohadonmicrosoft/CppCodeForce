@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeForge++ | Portfolio</title>
+  <title>WeCode | Portfolio</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="warm-theme portfolio-page">
   <div class="bg-wave"></div>
-
   <header>
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
-        <span class="logo-text">CodeForge++</span>
+      <div class="logo-group">
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -25,17 +24,18 @@
           <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
     </div>
   </header>
 
   <main class="page-content fade-in portfolio-section">
     <h1 style="text-align:center;">Meet the Developer</h1>
-    <p style="max-width:800px; margin:0 auto 30px; text-align:justify;">
+    <p style="max-width:800px; margin:0 auto 30px;">
       Hello, I’m an RT Embedded Engineer specializing in C/C++ on Linux. This platform
       is my advanced learning and portfolio demonstration—bridging real‑time embedded topics with modern C++ for a 
       professional, interview‑focused skill set.
@@ -69,24 +69,25 @@
     <div style="margin-top:40px; text-align:center;">
       <p style="margin-bottom:10px;">Check out my detailed CV/Resume:</p>
       <a href="resume.html" class="icon-btn" title="View Resume">
-        <img src="https://img.icons8.com/external-soft-juicy-fish/60/ffffff/external-resume-resume-soft-juicy-fish.png" alt="Resume Icon">
+        <!-- אייקון רזומה יותר מגניב -->
+        <img src="assets/icons/resume2.svg" alt="Resume Icon" style="filter:none;">
       </a>
     </div>
     <div style="margin-top:30px; text-align:center;">
       <p style="margin-bottom:10px;">Connect with me on GitHub &amp; LinkedIn:</p>
       <a href="https://github.com/ohadonmicrosoft" target="_blank" class="icon-btn" title="GitHub">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub" style="filter: invert(100%);">
       </a>
       <a href="https://www.linkedin.com/in/ohad-alon" target="_blank" class="icon-btn" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(100%);">
       </a>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
-
+  
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
 </body>

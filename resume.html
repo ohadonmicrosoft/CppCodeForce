@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CodeForge++ | Resume</title>
+  <title>WeCode | Resume</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
 <body class="warm-theme">
   <div class="bg-wave"></div>
 
-  <header class="glass header-slide-in compact-header">
+  <header class="glass compact-header">
     <div class="nav-container">
-      <div class="logo-group" style="display:flex; align-items:center;">
-        <span class="logo-text">CodeForge++</span>
+      <div class="logo-group">
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -26,16 +26,16 @@
           <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
     </div>
   </header>
 
-  <main class="page-content fade-in">
-    <!-- Resume Container -->
+  <main class="page-content fade-in" style="max-width:1000px; margin:auto;">
     <section class="resume-section glass">
       <h2 class="section-title">Resume - Ohad Alon</h2>
       <div class="contact-info">
@@ -45,12 +45,10 @@
       </div>
 
       <h3>Profile</h3>
-      <p style="text-align:justify;">
+      <p>
         Accomplished Senior Embedded Software Developer with extensive experience designing real-time systems,
         optimizing embedded software architectures, and delivering reliable, innovative solutions for complex projects.
-        Demonstrates expertise in developing cybersecurity protocols, integrating AI technologies, and mentoring diverse
-        teams to achieve organizational goals. Renowned for solving intricate technical challenges and creating robust
-        systems that exceed stakeholder expectations.
+        Demonstrates expertise in cybersecurity protocols, AI integration, and mentoring diverse teams to meet goals.
       </p>
 
       <hr />
@@ -70,8 +68,8 @@
       <article class="job glass">
         <h4>Software Developer - Brodmann17 <span>(01/2021 – 02/2022)</span></h4>
         <ul>
-          <li>Led development of innovative AI solutions, improving object detection accuracy in automotive applications.</li>
-          <li>Optimized algorithms for better real-time performance under demanding conditions.</li>
+          <li>Led development of AI solutions, improving object detection accuracy in automotive applications.</li>
+          <li>Optimized algorithms for real-time performance under demanding conditions.</li>
           <li>Successfully integrated AI capabilities into client platforms, enhancing reliability.</li>
           <li>Coordinated teams to meet strict deadlines, achieving consistent project success.</li>
         </ul>
@@ -91,7 +89,7 @@
         <h4>Software Developer - Experis Israel <span>(04/2016 – 10/2016)</span></h4>
         <ul>
           <li>Developed efficient embedded software for multiple projects within strict deadlines.</li>
-          <li>Specialized in low-level C programming and real-time debugging tools (GDB, Logic Analyzers).</li>
+          <li>Specialized in low-level C programming and real-time debugging tools.</li>
         </ul>
       </article>
 
@@ -99,7 +97,7 @@
 
       <h3>Education</h3>
       <article class="education glass">
-        <h4>Bachelor’s Degree in Electrical and Electronics Engineering - Ruppin Academic Center <span>(2010–2014)</span></h4>
+        <h4>Bachelor’s in Electrical and Electronics Engineering - Ruppin Academic Center <span>(2010–2014)</span></h4>
         <ul>
           <li>Designed an embedded system for data acquisition, focusing on energy-efficient techniques.</li>
           <li>Excelled in embedded systems design, signal processing, and low-level software engineering.</li>
@@ -119,8 +117,8 @@
       <article class="project glass">
         <h4>AI-Based Automotive Object Detection</h4>
         <ul>
-          <li>Integrated AI-driven object detection solutions into client systems.</li>
-          <li>Resolved deployment challenges and improved accuracy in real-world scenarios.</li>
+          <li>Integrated AI-driven solutions into client systems.</li>
+          <li>Improved object detection accuracy and performance in real-world scenarios.</li>
         </ul>
       </article>
 
@@ -129,22 +127,21 @@
       <h3>Skills</h3>
       <ul>
         <li><strong>Embedded Systems:</strong> Real-Time OS, Hardware-Software Integration</li>
-        <li><strong>Programming Languages:</strong> C, C++</li>
-        <li><strong>Cybersecurity:</strong> Cryptographic Protocols (TLS), Secure System Design</li>
+        <li><strong>Languages:</strong> C, C++</li>
+        <li><strong>Cybersecurity:</strong> Cryptographic Protocols (TLS), Secure Design</li>
         <li><strong>AI Development:</strong> TensorFlow, Object Detection, Optimization</li>
         <li><strong>Debug Tools:</strong> GDB, Logic Analyzers, Real-Time Debugging</li>
         <li><strong>Soft Skills:</strong> Problem-Solving, Team Collaboration, Technical Leadership</li>
-        <li><strong>Languages:</strong> Hebrew (Native), English (Professional Proficiency)</li>
+        <li><strong>Languages:</strong> Hebrew (Native), English (Professional)</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
   <script src="scripts/main.js"></script>
 </body>
 </html>

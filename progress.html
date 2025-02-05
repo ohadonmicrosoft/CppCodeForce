@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeForge++ | Progress</title>
+  <title>WeCode | Progress</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
@@ -12,7 +12,7 @@
   <header>
     <div class="nav-container">
       <div class="logo-group">
-        <span class="logo-text">CodeForge++</span>
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -24,10 +24,11 @@
           <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
     </div>
   </header>
@@ -35,9 +36,9 @@
   <main class="page-content fade-in">
     <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
       <h1>Your Learning Journey</h1>
-      <p style="text-align:justify;">
+      <p>
         Track your completed lessons. The radial ring indicates your overall progress
-        across all 21 lessons from modules 1–7.
+        across all lessons from modules 1–7.
       </p>
       <div class="progress-radial" id="radialProgress" style="--percent:0;">
         <span id="progress-label">0%</span>
@@ -47,7 +48,7 @@
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>

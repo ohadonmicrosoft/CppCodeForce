@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CodeForge++ | Home</title>
+  <title>WeCode | Home</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
@@ -13,7 +13,7 @@
   <header>
     <div class="nav-container">
       <div class="logo-group">
-        <span class="logo-text">CodeForge++</span>
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -25,8 +25,13 @@
           <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
-      <!-- Theme Toggle רק בעמוד הבית -->
-      <button id="theme-toggle" class="btn">Switch Theme</button>
+
+      <!-- אייקון החלפת תמה (Sun/Moon) -->
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <!-- אייקון Sun ברירת מחדל; נחליף לקונטרסט גבוה -->
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
+
       <div class="menu-toggle" id="menuToggle">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -38,7 +43,7 @@
   <section class="index-hero fade-in">
     <h1 class="hero-title fancy-title">Elevate Your C++ Skills</h1>
     <p class="slide-up hero-subtitle">
-      A comprehensive, interview‑focused platform with advanced modules, real‑time progress tracking, embedded quizzes,
+      A comprehensive, interview‑focused platform with advanced modules, real‑time progress tracking, quizzes,
       and external IDE links for hands-on practice.
     </p>
     <a href="exercises.html" class="btn btn-glow">Get Started</a>
@@ -47,15 +52,15 @@
   <section class="features slide-up">
     <div class="feature-card glass card-hover floating-card">
       <h2>Robust Syllabus</h2>
-      <p>Learn advanced C++ topics—concurrency, embedded systems, memory management, and more.</p>
+      <p>Learn advanced C++—concurrency, embedded systems, memory management, and more.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
       <h2>External IDE</h2>
-      <p>Write and run code in your browser via Wandbox—no setup required on your side!</p>
+      <p>Write &amp; run code in an online environment—no local setup or servers required.</p>
     </div>
     <div class="feature-card glass card-hover floating-card">
       <h2>Progress &amp; Quizzes</h2>
-      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback on solutions.</p>
+      <p>Track achievements, timed quizzes, local leaderboards, and get instant feedback.</p>
     </div>
   </section>
 
@@ -65,11 +70,10 @@
   </section>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
   <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CodeForge++ | Quiz</title>
+  <title>WeCode | Quiz</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css" />
   <link rel="stylesheet" href="styles/animations.css" />
 </head>
@@ -13,7 +13,7 @@
   <header>
     <div class="nav-container">
       <div class="logo-group">
-        <span class="logo-text">CodeForge++</span>
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -25,10 +25,11 @@
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
     </div>
   </header>
@@ -36,28 +37,11 @@
   <main class="page-content fade-in">
     <section class="glass" style="max-width:800px; margin:0 auto;">
       <h1>Interview Quiz</h1>
-      <p id="quiz-intro" style="text-align:justify;">
+      <p id="quiz-intro">
         Test your knowledge with a lesson-based quiz, featuring a timer and a local leaderboard.
-        Answer carefully and track your final score. Good luck!
+        Answer carefully and track your final score.
       </p>
       <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
       <div id="quiz-container" class="quiz-container"></div>
       <button id="start-quiz" class="btn">Start Quiz</button>
-      <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
-      <div id="quiz-result" style="margin-top:20px; font-weight:600;"></div>
-      <div class="leaderboard" id="leaderboard" style="display:none;">
-        <h3>Local Leaderboard</h3>
-        <div id="leaderboard-entries"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
-  </footer>
-
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-  <script src="scripts/main.js"></script>
-  <script src="scripts/quiz.js"></script>
-</body>
-</html>
+      <button id="submit-quiz" class="btn" sty

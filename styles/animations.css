@@ -1,89 +1,67 @@
-/* animations.css */
-
-/* Fade-in Animation */
+/* Fade-in */
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s forwards;
 }
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { opacity:0; }
+  100% { opacity:1; }
 }
 
-/* Slide-up Animation */
+/* Slide-up */
 .slide-up {
   transform: translateY(20px);
-  opacity: 0;
+  opacity:0;
   animation: slideUp 0.6s forwards;
 }
 @keyframes slideUp {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  0% { transform: translateY(20px); opacity:0; }
+  100% { transform: translateY(0); opacity:1; }
 }
 
-/* Pulse Effect for Buttons (Active) */
+/* Pulse on .btn active */
 @keyframes pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.03); }
-  100% { transform: scale(1); }
+  0% { transform:scale(1); }
+  50% { transform:scale(1.03); }
+  100%{ transform:scale(1); }
 }
 .btn:active {
   animation: pulse 0.3s ease;
 }
 
-/* Ripple Effect for Button Clicks (delicate) */
+/* Ripple effect */
 @keyframes ripple {
-  from {
-    transform: scale(0);
-    opacity: 0.7;
-  }
-  to {
-    transform: scale(2);
-    opacity: 0;
-  }
+  from { transform: scale(0); opacity:0.7; }
+  to { transform: scale(2); opacity:0; }
 }
 .btn:active::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  content:"";
+  position:absolute; top:0; left:0;
+  width:100%; height:100%; border-radius:inherit;
   background: rgba(255,255,255,0.3);
-  border-radius: inherit;
-  animation: ripple 0.6s linear;
-  pointer-events: none;
+  animation:ripple 0.6s linear; pointer-events:none;
 }
 
 /* Card Hover Glow */
 .card-hover:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15),0 0 10px rgba(241,142,142,0.2);
 }
 
-/* Floating Card Animation */
+/* Floating card animation */
 @keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
+  0% { transform:translateY(0); }
+  50%{ transform:translateY(-6px); }
+  100%{ transform:translateY(0); }
+}
+.floating-card {
+  animation: float 4s ease-in-out infinite;
 }
 
-/* הרחבת אנימציית כניסה לכותרות */
+/* Fancy Title reveal */
 .fancy-title {
-  animation: fancyFade 1.2s ease forwards;
+  animation:fancyFade 1.2s ease forwards;
 }
 @keyframes fancyFade {
-  0% {
-    letter-spacing: -0.5rem;
-    opacity: 0;
-  }
-  100% {
-    letter-spacing: 1px;
-    opacity: 1;
-  }
+  0% { letter-spacing:-0.5rem; opacity:0; }
+  100%{ letter-spacing:0.5px; opacity:1; }
 }

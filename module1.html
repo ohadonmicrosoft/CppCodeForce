@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeForge++ | Module 1</title>
+  <title>WeCode | Module 1</title>
   <link rel="stylesheet" href="styles/enhanced_styles.css">
   <link rel="stylesheet" href="styles/animations.css">
 </head>
@@ -13,7 +13,7 @@
   <header>
     <div class="nav-container">
       <div class="logo-group">
-        <span class="logo-text">CodeForge++</span>
+        <span class="logo-text">WeCode</span>
         <span class="logo-icon">{</span><span class="logo-icon">&lt;/&gt;</span><span class="logo-icon">}</span>
       </div>
       <nav>
@@ -26,10 +26,13 @@
           <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         </ul>
       </nav>
+
+      <button id="theme-toggle" class="btn theme-btn" title="Switch Theme">
+        <img src="assets/icons/sun.svg" alt="Theme Icon" class="theme-icon">
+      </button>
+
       <div class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
     </div>
   </header>
@@ -43,7 +46,7 @@
 
     <section class="glass module-lessons">
       <h1>Module 1: Foundations &amp; Modern C++</h1>
-      <p style="text-align:justify;">
+      <p>
         This module covers essential modern C++ techniques—including <strong>RAII, smart pointers, and lambdas</strong>.
       </p>
       <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
@@ -56,11 +59,11 @@
 
       <div style="text-align:center; margin:20px 0;">
         <img src="assets/images/module1_diagram.png" alt="RAII Diagram" style="max-width:400px; border-radius:8px;">
-        <p style="font-size:0.9rem; color:#555;"><em>Figure: RAII Diagram</em></p>
+        <p style="font-size:0.9rem; color:#333;"><em>Figure: RAII Diagram</em></p>
       </div>
 
       <h2>Lesson 1: RAII &amp; Constructors</h2>
-      <p style="text-align:justify;">
+      <p>
         Learn how resource acquisition is tied to initialization in modern C++.
         Implement a <code>FileWrapper</code> class that opens a file in its constructor and closes it in the destructor,
         handling errors gracefully.
@@ -70,7 +73,7 @@
       <hr>
 
       <h2>Lesson 2: Smart Pointers &amp; Move Semantics</h2>
-      <p style="text-align:justify;">
+      <p>
         Discover how to use <code>std::unique_ptr</code> and <code>std::shared_ptr</code> along with move semantics
         to manage resources effectively. Transfer ownership with <code>std::move</code> and avoid memory leaks.
       </p>
@@ -79,20 +82,19 @@
       <hr>
 
       <h2>Lesson 3: Lambdas &amp; STL Algorithms</h2>
-      <p style="text-align:justify;">
+      <p>
         Use lambdas in combination with STL algorithms (e.g., <code>std::remove_if</code>) for concise yet powerful code.
-        Explore different capture methods and their real-world scenarios.
+        Explore different capture methods and real-world examples.
       </p>
       <button class="btn" onclick="openExternalIDE('M1L3')">Open IDE for Lesson 3</button>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 CodeForge++. Developer &amp; Owner: Ohad Alon. All rights reserved.</p>
+    <p>© 2025 WeCode. All rights reserved.</p>
   </footer>
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline() {

@@ -9,8 +9,7 @@ const allLessonIDs = [
   "M5L1","M5L2",
   "M6L1","M6L2",
   "M7L1","M7L2"
-  // סה"כ 14 כאן, אבל לרוב מוסיפים עוד אם צריך להגיע ל-21.
-  // אם בפועל יש 21, מלא פה את כולם.
+  // add more if needed to match 21 exactly
 ];
 
 let completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
@@ -20,14 +19,14 @@ function updateProgressDisplay(){
   const progressLabel = document.getElementById('progress-label');
   const progressText = document.getElementById('progress-text');
   if(!radialProgress) return;
-  
+
   let completedCount = completedLessons.length;
-  if(completedCount>TOTAL_LESSONS) completedCount=TOTAL_LESSONS;
+  if(completedCount > TOTAL_LESSONS) completedCount = TOTAL_LESSONS;
+  let pct = (completedCount / TOTAL_LESSONS)*100;
   
-  let pct = (completedCount/TOTAL_LESSONS)*100;
   radialProgress.style.setProperty('--percent', pct.toFixed(2));
-  if(progressLabel) progressLabel.innerText= `${Math.round(pct)}%`;
-  if(progressText) progressText.innerText= `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
+  if(progressLabel) progressLabel.innerText = `${Math.round(pct)}%`;
+  if(progressText) progressText.innerText = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
 }
 
 function markLessonCompleted(lessonID){
