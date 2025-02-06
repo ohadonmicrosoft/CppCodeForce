@@ -97,7 +97,7 @@ h3 {
   text-align: center;
 }
 
-/* ============ 4) HEADER: brand left, nav right ============ */
+/* ============ 4) HEADER: Brand aligned left, nav aligned right ============ */
 header {
   position: fixed;
   top: 0; 
@@ -111,7 +111,7 @@ header {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* brand at left, nav at right */
+  justify-content: space-between; /* Brand at left, nav at right */
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 10px 20px;
@@ -120,17 +120,19 @@ header {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   color: var(--heading-color);
+  text-align: left;
 }
-/* Nav menu on the right */
+/* Nav menu aligned to right */
 .nav-menu {
   display: flex;
   justify-content: flex-end;
   gap: 30px;
+  text-align: right;
 }
 .nav-link {
   text-decoration: none;
   font-family: var(--font-body);
-  font-size: 1rem; /* Not too large to cause overlap */
+  font-size: 1rem;
   font-weight: 700;
   color: var(--heading-color);
   transition: color var(--transition-speed), text-shadow var(--transition-speed);
@@ -140,10 +142,7 @@ header {
   text-shadow: 0 0 4px var(--accent-color);
 }
 
-/* 1) Add a style for the new .theme-btn to position it on the right 
-   (just after the nav menu).
-   We can also set a margin-left to separate it from the nav. 
-*/
+/* Style for the new .theme-btn (Dark Mode toggle) positioned on the right */
 .theme-btn {
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -155,7 +154,7 @@ header {
   padding: 6px 16px;
   cursor: pointer;
   transition: background var(--transition-speed), transform var(--transition-speed);
-  margin-left: 20px; /* spacing from nav menu */
+  margin-left: 20px;
 }
 
 .theme-btn:hover {
@@ -163,10 +162,7 @@ header {
   transform: translateY(-2px);
 }
 
-/* 2) Dark Mode overrides (only if we want a .dark-mode approach):
-   If you already have a .dark-mode block, just ensure it's up to date. 
-   For example:
-*/
+/* 2) Dark Mode overrides (if using a .dark-mode approach) */
 .dark-mode {
   --bg-gradient: linear-gradient(135deg, #222 0%, #333 100%);
   --text-color: #DDDDDD;
@@ -175,14 +171,14 @@ header {
   --card-border: rgba(255,255,255,0.2);
   --card-border-hover: #FF7F7F;
   --neon-color: rgba(255,127,127,0.6);
-  /* etc. as needed */
 }
 
 /* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
 .page-content {
-  margin-top: 80px; /* Enough to clear fixed header */
+  margin-top: 120px; /* הגדלנו את המרווח כדי שהכותרות לא ייכסו על ידי ההדר */
   max-width: var(--max-content-width);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
 }
 
@@ -198,7 +194,6 @@ header {
               box-shadow var(--transition-speed), 
               border var(--transition-speed);
 }
-/* Neon pseudo-element on hover */
 .card::before {
   content: "";
   position: absolute;
@@ -217,7 +212,7 @@ header {
   border: var(--card-border-size) solid var(--card-border-hover);
 }
 
-/* If we want smaller text inside bullet-lists or references: */
+/* Smaller text for ticket or reference elements */
 .ticket-text {
   font-size: 0.95rem;
   line-height: 1.4;
@@ -244,7 +239,7 @@ header {
   box-shadow: 0 6px 16px rgba(255,127,127,0.4);
 }
 
-/* Icon buttons (GitHub, LinkedIn, etc.) with neon on hover */
+/* Icon buttons with neon on hover */
 .icon-btn {
   display: inline-block;
   width: 48px;
@@ -311,7 +306,8 @@ header {
   margin-top: 40px;
 }
 .page-home .feature-card {
-  width: 280px; text-align: center;
+  width: 280px;
+  text-align: center;
 }
 .page-home .cta {
   max-width: 700px;
@@ -328,16 +324,15 @@ header {
   margin-bottom: 30px;
 }
 .page-exercises .modules-grid {
-  position: relative; 
-  width: 100%; 
+  position: relative;
+  width: 100%;
   height: 700px; /* Enough space for notes, can adjust in media queries */
-  overflow: hidden; 
+  overflow: hidden;
   margin-bottom: 40px;
 }
-/* We'll place .course-module with JS collision logic */
 .page-exercises .course-module {
   position: absolute;
-  width: 220px; 
+  width: 220px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -351,7 +346,7 @@ header {
 }
 .page-resources .resources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   margin-top: 30px;
   justify-items: center;
@@ -367,7 +362,8 @@ header {
 
 /* PROGRESS (.page-progress) */
 .page-progress h1 {
-  margin-top: 20px; margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .page-progress .progress-radial {
   margin: 0 auto;
@@ -379,11 +375,11 @@ header {
   margin-top: 30px;
 }
 .page-progress .stats-card {
-  width: 220px; 
-  text-align:center;
+  width: 220px;
+  text-align: center;
 }
 .page-progress .progress-bar-container {
-  max-width: 500px; 
+  max-width: 500px;
   margin: 30px auto;
   background: rgba(255,255,255,0.6);
   border-radius: 14px;
@@ -399,21 +395,31 @@ header {
 
 /* PORTFOLIO (.page-portfolio) */
 .page-portfolio h1 {
-  margin-top: 20px; margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .page-portfolio p {
-  max-width: 700px; margin: 0 auto 30px; text-align:center; font-size:1rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: center;
+  font-size: 1rem;
 }
 .page-portfolio .cards-row {
-  display: flex; gap:24px; flex-wrap:wrap; justify-content:center; margin-top:30px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
 }
 .page-portfolio .resume-btn {
-  margin-top:20px; text-align:center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* RESUME (.page-resume) */
 .page-resume h1 {
-  margin-top:20px; margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .page-resume .ticket-text {
   font-size: 0.95rem;
@@ -422,101 +428,141 @@ header {
 
 /* QUIZ PAGE (.page-quiz) */
 .page-quiz h1 {
-  margin-top:20px; margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.page-quiz .quiz-container { margin:20px 0; }
+.page-quiz .quiz-container {
+  margin: 20px 0;
+}
 .page-quiz .quiz-area {
-  max-width:700px; margin:0 auto;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* DIAGRAMS (.page-diagrams) */
 .page-diagrams h1 {
-  margin-top:20px; margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .page-diagrams #konvaContainer {
-  width:800px; height:600px; margin:0 auto; background:#fff; 
-  border:2px dashed #ccc;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px dashed #ccc;
 }
 
 /* INTERVIEW SIMULATOR (.page-simulator) */
 .page-simulator h1 {
-  margin-top:20px; margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .page-simulator #interview-area {
-  text-align:center;
-  max-width:800px; margin:0 auto;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* MODULE PAGE (.page-module) */
 .page-module h1 {
-  margin-top:20px; margin-bottom:16px;
+  margin-top: 20px;
+  margin-bottom: 16px;
 }
 .page-module .module-timeline {
-  max-height:0; overflow:hidden; transition:max-height 0.7s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease;
 }
 .page-module .module-timeline.show {
-  max-height:300px;
+  max-height: 300px;
 }
 .page-module .timeline-step {
-  margin:6px 0;
+  margin: 6px 0;
 }
 
 /* FOOTER */
 footer {
-  margin-top:60px; 
-  padding:20px 0; 
-  text-align:center; 
-  font-size:0.9rem; 
+  margin-top: 60px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
   color: var(--heading-color);
 }
 
 /* SCROLL-TO-TOP BUTTON */
 .scroll-to-top-btn {
-  display:none; 
-  position:fixed; 
-  bottom:30px; 
-  right:30px;
-  width:48px; 
-  height:48px;
-  border-radius:50%; 
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: var(--accent-color);
-  color:#fff; 
-  font-size:20px;
-  border:none; 
-  cursor:pointer;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
   box-shadow: var(--btn-shadow);
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
 .scroll-to-top-btn:hover {
   transform: translateY(-3px);
 }
 
-/* MEDIA QUERIES */
+/* ============ 8) MEDIA QUERIES ============ */
+
+/* Mobile styles for viewports 768px and below */
 @media (max-width: 768px) {
   .nav-container {
-    flex-wrap:wrap;
+    flex-wrap: wrap;
   }
   .nav-menu {
-    margin-top:10px;
+    margin-top: 10px;
+    display: none; /* Hide by default */
+    flex-direction: column;
+    position: absolute;
+    background: white;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
+  .nav-menu.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: #333;
+    margin: 6px 0;
   }
   .page-content {
-    margin-top:110px; /* bigger top margin so h1 not hidden by header */
+    margin-top: 120px; /* שמירה על מרווח גדול גם במובייל */
   }
-  h1 { font-size:2rem; }
-  h2 { font-size:1.6rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
   .page-exercises .modules-grid {
-    height:900px; /* more vertical space for sticky notes on tablets */
+    height: 900px; /* יותר מקום אנכי למודולים */
   }
 }
+
+/* Mobile adjustments for viewports 480px and below */
 @media (max-width: 480px) {
   .btn {
-    font-size:0.9rem;
-    padding:8px 20px;
+    font-size: 0.9rem;
+    padding: 8px 20px;
   }
   .scroll-to-top-btn {
-    bottom:20px; 
-    right:20px;
+    bottom: 20px;
+    right: 20px;
   }
-  h1 { font-size:1.6rem; }
-  h2 { font-size:1.4rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.4rem; }
 }

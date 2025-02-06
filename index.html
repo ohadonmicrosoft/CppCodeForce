@@ -11,7 +11,15 @@
 <header>
   <div class="nav-container">
     <div class="brand-area">Ohad’s WeCode</div>
-    <ul class="nav-menu">
+    
+    <!-- Mobile Menu Toggle (Hamburger) -->
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
       <li><a href="exercises.html" class="nav-link">Exercises</a></li>
       <li><a href="progress.html" class="nav-link">Progress</a></li>
       <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -20,15 +28,15 @@
       <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
       <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
 
-      <button id="darkModeToggle" class="theme-btn">Dark Mode</button>
+      <!-- 🔥 FIX: Dark Mode Toggle inside the Navbar -->
+      <button id="darkModeToggle" class="theme-btn">🌙 Dark Mode</button>
     </ul>
   </div>
 </header>
 
 <main class="page-content">
-  <!-- Dark Mode Toggle here only, controlling localStorage -->
-  <button id="darkModeToggle" class="btn" style="margin-bottom:20px;">Dark Mode</button>
-
+  <!-- 🔥 FIX: Dark Mode Toggle is now only inside the navbar -->
+  
   <section class="hero-section card slide-up">
     <h1 class="hero-title">Welcome to WeCode</h1>
     <p class="hero-subtitle">

@@ -1,8 +1,8 @@
 /*************************************************************
  * main.js
  * - Scroll-to-top button
- * - Dark/Light Mode toggle (only on main page)
- * - getWandboxLink for module lesson links
+ * - Dark/Light Mode toggle (inside navbar only)
+ * - Mobile menu toggle (hamburger)
  *************************************************************/
 
 // SCROLL TO TOP
@@ -19,47 +19,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------
-  // DARK/LIGHT MODE TOGGLE
+  // DARK MODE TOGGLE (Navbar Only)
   // ---------------------------
-  // If 'darkMode' not set in localStorage, default to "false" (white theme)
   if (localStorage.getItem('darkMode') === null) {
     localStorage.setItem('darkMode', 'false');
   }
 
-  // Check if we have a toggle button on this page (only on index/home)
   const darkToggleBtn = document.getElementById("darkModeToggle");
   if (darkToggleBtn) {
-    // Initialize button text based on current stored mode
     const storedDark = localStorage.getItem('darkMode') === 'true';
-    darkToggleBtn.textContent = storedDark ? "Light Mode" : "Dark Mode";
+    darkToggleBtn.textContent = storedDark ? "☀ Light Mode" : "🌙 Dark Mode";
 
-    // On click, invert the mode
     darkToggleBtn.addEventListener("click", () => {
       const isDark = localStorage.getItem('darkMode') === 'true';
-      // Switch
       localStorage.setItem('darkMode', (!isDark).toString());
       applyDarkMode(!isDark);
-
-      // Update button text
-      darkToggleBtn.textContent = !isDark ? "Light Mode" : "Dark Mode";
+      darkToggleBtn.textContent = !isDark ? "🌙 Dark Mode" : "☀ Light Mode";
     });
   }
 
-  // On load, apply stored darkMode to entire site
-  const isDark = localStorage.getItem('darkMode') === 'true';
-  applyDarkMode(isDark);
-});
+  // Apply stored dark mode on load
+  applyDarkMode(localStorage.getItem('darkMode') === 'true');
 
-/** applyDarkMode(enable) toggles .dark-mode class on <html>. 
- *  If enable=true => dark mode, else white (light) mode 
- */
-function applyDarkMode(enable) {
-  if (enable) {
-    document.documentElement.classList.add('dark-mode');
-  } else {
-    document.documentElement.classList.remove('dark-mode');
+  function applyDarkMode(enable) {
+    if (enable) {
+      document.documentElement.classList.add('dark-mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+    }
   }
-}
+
+  // ---------------------------
+  // MOBILE NAV TOGGLE (Hamburger Menu)
+  // ---------------------------
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  }
+});
 
 /*************************************************************
  * getWandboxLink(lessonID)
