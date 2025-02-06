@@ -563,6 +563,14 @@ footer {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   .page-exercises .modules-grid { height: auto; }
+  
+  /* DARK MODE OVERRIDE FOR MOBILE NAVIGATION */
+  .dark-mode .nav-menu {
+    background: #333;
+  }
+  .dark-mode .nav-menu .nav-link {
+    color: #fff;
+  }
 }
 @media (max-width: 480px) {
   .btn { font-size: 0.9rem; padding: 8px 20px; }
@@ -570,3 +578,5 @@ footer {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.4rem; }
 }
+
+/* ============ Rest of the CSS remains unchanged ============ */
