@@ -5,78 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Exercises</title>
   <link rel="stylesheet" href="styles/style.css">
+  <!-- Interact.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 </head>
 <body class="page-exercises fade-in">
-<header>
-  <div class="nav-container">
-    <div class="brand-area">Ohad’s WeCode</div>
-    <ul class="nav-menu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-    </ul>
-  </div>
-</header>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">Ohad’s WeCode</div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+        <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+      </ul>
+    </div>
+  </header>
 
-<main class="page-content">
-  <h1>Advanced C++ Interview Syllabus</h1>
-  <p class="subtitle">
-    Explore interactive modules scattered like sticky notes! No overlap, each a quick link to topics.
-  </p>
+  <main class="page-content">
+    <h1>Advanced C++ Interview Syllabus</h1>
+    <p class="subtitle">
+      Explore interactive modules scattered like sticky notes! No overlap, each a quick link to topics.
+    </p>
 
-  <div class="modules-grid" id="modulesGrid">
-    <!-- We'll have 7 modules, each a .card .course-module. 
-         The script places them with no overlap. -->
-    <div class="course-module card">
-      <h2>Module 1</h2>
-      <p>Foundations &amp; Modern C++</p>
-      <a href="module1.html" class="btn">Open</a>
+    <div class="modules-grid" id="modulesGrid">
+      <!-- 7 modules – כל אחד מכיל מחלקות "course-module" ו-"card" -->
+      <div class="course-module card">
+        <h2>Module 1</h2>
+        <p>Foundations &amp; Modern C++</p>
+        <a href="module1.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 2</h2>
+        <p>Data Structures &amp; Algorithms</p>
+        <a href="module2.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 3</h2>
+        <p>Real-Time &amp; Embedded</p>
+        <a href="module3.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 4</h2>
+        <p>Concurrency &amp; Multithreading</p>
+        <a href="module4.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 5</h2>
+        <p>Memory &amp; Debugging</p>
+        <a href="module5.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 6</h2>
+        <p>Templates &amp; Metaprogramming</p>
+        <a href="module6.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 7</h2>
+        <p>System Design &amp; Advanced</p>
+        <a href="module7.html" class="btn">Open</a>
+      </div>
     </div>
-    <div class="course-module card">
-      <h2>Module 2</h2>
-      <p>Data Structures &amp; Algorithms</p>
-      <a href="module2.html" class="btn">Open</a>
-    </div>
-    <div class="course-module card">
-      <h2>Module 3</h2>
-      <p>Real-Time &amp; Embedded</p>
-      <a href="module3.html" class="btn">Open</a>
-    </div>
-    <div class="course-module card">
-      <h2>Module 4</h2>
-      <p>Concurrency &amp; Multithreading</p>
-      <a href="module4.html" class="btn">Open</a>
-    </div>
-    <div class="course-module card">
-      <h2>Module 5</h2>
-      <p>Memory &amp; Debugging</p>
-      <a href="module5.html" class="btn">Open</a>
-    </div>
-    <div class="course-module card">
-      <h2>Module 6</h2>
-      <p>Templates &amp; Metaprogramming</p>
-      <a href="module6.html" class="btn">Open</a>
-    </div>
-    <div class="course-module card">
-      <h2>Module 7</h2>
-      <p>System Design &amp; Advanced</p>
-      <a href="module7.html" class="btn">Open</a>
-    </div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-<script src="scripts/main.js"></script>
-<!-- Our collision-free sticky logic -->
-<script src="scripts/stickyLayout.js"></script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
+  <!-- קובץ JS ראשי -->
+  <script src="scripts/main.js"></script>
+  
+  <!-- קוד ה-"stickyLayout" המשולב עם אינטראקטיביות -->
+  <script>
+    // מריצים את הקוד לאחר טעינת כל הדף (כולל תמונות, גופנים וכו')
+    window.addEventListener("load", () => {
+      const container = document.getElementById("modulesGrid");
+      if (!container) return;
+
+      const containerRect = container.getBoundingClientRect();
+      // בוחרים את כל המודולים (הקלפים)
+      const notes = Array.from(container.querySelectorAll(".course-module.card"));
+      const placed = [];
+      const margin = 10; // מרווח מינימלי בין הקלפים
+
+      // מיקום אקראי בתוך הקונטיינר עם בדיקת התנגשויות
+      notes.forEach(note => {
+        const noteWidth = 220;
+        const noteHeight = note.offsetHeight || 120;
+        let placedOk = false;
+        for (let tries = 0; tries < 100; tries++) {
+          const x = randomInt(margin, containerRect.width - noteWidth - margin);
+          const y = randomInt(margin, containerRect.height - noteHeight - margin);
+          if (!collidesAny(x, y, noteWidth, noteHeight, placed, margin)) {
+            note.style.position = "absolute";
+            note.style.left = x + "px";
+            note.style.top = y + "px";
+            placed.push({ x, y, w: noteWidth, h: noteHeight });
+            placedOk = true;
+            break;
+          }
+        }
+        if (!placedOk) {
+          note.style.position = "absolute";
+          note.style.left = margin + "px";
+          note.style.top = margin + "px";
+        }
+        // אתחול ערכי data-x ו- data-y לשמירת המיקום עבור גרירה
+        note.setAttribute('data-x', 0);
+        note.setAttribute('data-y', 0);
+      });
+
+      // אתחול גרירת האלמנטים באמצעות Interact.js
+      interact('.course-module.card').draggable({
+        inertia: true,
+        modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true
+          })
+        ],
+        autoScroll: true,
+        listeners: {
+          move: dragMoveListener
+        }
+      });
+    });
+
+    // פונקציות עזר:
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function collidesAny(x, y, width, height, placedArr, margin) {
+      for (let p of placedArr) {
+        if (isOverlap(x, y, width, height, p.x, p.y, p.w, p.h, margin)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function isOverlap(x1, y1, w1, h1, x2, y2, w2, h2, margin) {
+      return !(
+        x1 + w1 + margin <= x2 ||
+        x1 >= x2 + w2 + margin ||
+        y1 + h1 + margin <= y2 ||
+        y1 >= y2 + h2 + margin
+      );
+    }
+
+    function dragMoveListener(event) {
+      let target = event.target;
+      // קבלת המיקום הנוכחי מה- data attributes
+      let x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+      let y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+      // עדכון המיקום באמצעות CSS transform
+      target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+
+      // שמירת המיקום החדש ב- data attributes
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+    }
+  </script>
 </body>
 </html>
