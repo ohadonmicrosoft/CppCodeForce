@@ -568,55 +568,60 @@ footer {
 }
 
 /* ----- NEW: Circular Spinning 3D Ticket Well for Exercises Modules ----- */
-/* This block overrides the original exercises modules layout with a circular spinning "well" */
-
-.page-exercises .modules-grid {
-  position: relative !important;
-  width: 500px !important;
-  height: 500px !important;
-  margin: 40px auto !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  display: block !important; /* override previous flex rules */
-  perspective: 1000px !important;
-  animation: spin 20s linear infinite; /* Removed !important here */
+/* Wrapper for the spin animation */
+.modules-wrapper {
+  width: 500px;
+  height: 500px;
+  margin: 40px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  perspective: 1000px;
+  animation: spin 20s linear infinite;
 }
 
-/* Position each ticket around the circle */
-.page-exercises .modules-grid .course-module {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: 200px !important; /* ticket width */
-  transform-origin: center center !important;
-}
-
-/* Arrange the tickets around the circle using nth-child selectors */
-.page-exercises .modules-grid .course-module:nth-child(1) {
-  transform: rotate(0deg) translate(200px) rotate(0deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(2) {
-  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(3) {
-  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(4) {
-  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(5) {
-  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(6) {
-  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg) !important;
-}
-.page-exercises .modules-grid .course-module:nth-child(7) {
-  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg) !important;
-}
-
-/* Keyframes for the spin animation (removed !important) */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Reset the modules-grid inside the wrapper to occupy full space */
+.modules-wrapper .modules-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Position each module ticket around the circle */
+.modules-wrapper .modules-grid .course-module {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px; /* ticket width */
+  transform-origin: center center;
+}
+
+/* Arrange tickets around the circle */
+.modules-wrapper .modules-grid .course-module:nth-child(1) {
+  transform: rotate(0deg) translate(200px) rotate(0deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(2) {
+  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(3) {
+  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(4) {
+  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(5) {
+  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(6) {
+  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg);
+}
+.modules-wrapper .modules-grid .course-module:nth-child(7) {
+  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
+}
+
 /* ----- END NEW: Circular Spinning 3D Ticket Well ----- */
