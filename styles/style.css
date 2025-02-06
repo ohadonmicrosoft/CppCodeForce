@@ -1,15 +1,14 @@
 /*************************************************************
- * style.css - High-End, Advanced Artistic Design
+ * style.css - Warm, Rounded, High-End Design
  * 
  * Table of Contents:
  * 1) Base Reset & Global
- * 2) Fonts & Theme Variables
+ * 2) Font Imports & Theme Variables
  * 3) Body & Layout
- * 4) Background Blobs & Shapes
- * 5) Navigation
- * 6) Common Classes (cards, buttons, icons)
- * 7) Advanced Animations
- * 8) Page-Specific Layouts (.page-home, .page-exercises, etc.)
+ * 4) Navigation
+ * 5) Common Classes (cards, buttons, icons, etc.)
+ * 6) Animations & Transitions
+ * 7) Page-Specific Styles
  *************************************************************/
 
 /* =============== 1) BASE RESET & GLOBAL =============== */
@@ -25,41 +24,40 @@ ul, li {
   list-style: none;
 }
 
-/* =============== 2) FONTS & THEME VARIABLES =============== */
-
+/* =============== 2) FONT IMPORTS & THEME VARIABLES =============== */
 /* 
-   HEADLINE FONT: "Bungee Shade" or "Shrikhand" - a big, stylized outline-like font
-   BODY FONT: "Nunito" or "Quicksand" or "Poppins" - your choice for friendly body text
+   HEADLINE FONT: "Baloo 2" (rounded, bold, fillable)
+   BODY FONT: "Nunito" (friendly, professional)
 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Nunito:wght@400;600&display=swap');
-
-/* Light/warm color scheme with dynamic accent */
+/* Light warm palette: peach/orange/pink combo */
 :root {
-  --bg-gradient: linear-gradient(to bottom right, #FDEFF4, #FEF9E9);
-  --blob1-color: #FFE1E8; 
-  --blob2-color: #FFD8CC; 
-  --blob3-color: #FFC7E8;
+  --bg-gradient: linear-gradient(120deg, #FFECD2 0%, #FFF9E6 50%, #FFFDF6 100%);
 
-  --font-heading: 'Bungee Shade', cursive;  /* Outline-ish, bold artistic font */
+  /* Baloo for headings, Nunito for body */
+  --font-heading: 'Baloo 2', cursive;
   --font-body: 'Nunito', sans-serif;
 
-  --text-color: #3B3B3B; 
-  --heading-color: #1E1E1E;
+  /* Colors */
+  --text-color: #444444;
+  --heading-color: #2B2B2B;
 
-  --accent-color: #FF7994;  /* Pinkish accent */
-  --accent-hover: #FF5679;  /* Darker pink for hover */
-  --btn-shadow: 0 4px 16px rgba(255,121,148, 0.4);
+  /* Accents: warm peach/orange */
+  --accent-color: #FF9E6D;   /* main accent (warm orange) */
+  --accent-hover: #FF814D;   /* darker for hover */
 
-  /* Cards, Shadows */
-  --card-bg: rgba(255,255,255,0.7);
+  /* Card & Shadow */
+  --card-bg: rgba(255,255,255,0.8);
   --card-border: rgba(255,255,255,0.9);
-  --card-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  --neon-glow: 0 0 8px rgba(255,121,148, 0.7);
+  --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
 
+  /* Buttons & Glow */
+  --btn-shadow: 0 4px 16px rgba(255,126,78, 0.3);
+
+  /* Sizing & Transitions */
   --border-radius: 14px;
   --transition-speed: 0.4s;
-
   --base-font-size: 16px;
   --line-height: 1.6;
   --max-content-width: 1140px;
@@ -72,70 +70,30 @@ body {
   line-height: var(--line-height);
   background: var(--bg-gradient);
   color: var(--text-color);
+  min-height: 100vh;
   overflow-x: hidden;
-  position: relative; /* for blob layering */
+  position: relative;
 }
 
-/* 
-   Main container can be used if you want .container 
-   but we rely mostly on page-specific classes 
-*/
-.container {
+/* main content area offset to account for fixed header */
+.page-content {
+  margin-top: 80px;
   max-width: var(--max-content-width);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
 }
 
-/* =============== 4) BACKGROUND BLOBS & SHAPES =============== */
-
-/* We create some blobs behind the entire site using pseudo-elements. 
-   This gives a layered pastel effect. 
-*/
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.6;
-}
-
-/* Big pastel circle bottom-left */
-body::before {
-  width: 500px;
-  height: 500px;
-  background: var(--blob1-color);
-  left: -200px;
-  bottom: -200px;
-}
-
-/* Another circle top-right */
-body::after {
-  width: 400px;
-  height: 400px;
-  background: var(--blob2-color);
-  right: -100px;
-  top: -100px;
-}
-
-/* You can add a third/fourth blob if you like: 
-   using a .blob3 in the HTML or 
-   add more pseudo elements with smaller filters
-*/
-
-/* =============== 5) NAVIGATION =============== */
-
+/* =============== 4) NAVIGATION =============== */
 header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 .nav-container {
   display: flex;
   align-items: center;
@@ -145,17 +103,16 @@ header {
   padding: 10px 20px;
 }
 
-/* Brand logo (Ohad’s WeCode) in heading font or a simpler font */
 .brand-area {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   color: var(--heading-color);
-  letter-spacing: 1px;
 }
 
+/* Simple horizontal nav */
 .nav-menu {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 .nav-menu li {
   display: inline-block;
@@ -163,16 +120,16 @@ header {
 .nav-link {
   color: var(--heading-color);
   font-weight: 700;
-  transition: color var(--transition-speed);
   font-size: 1rem;
+  transition: color var(--transition-speed);
 }
 .nav-link:hover {
   color: var(--accent-color);
 }
 
-/* =============== 6) COMMON CLASSES (Cards, Buttons, Icons) =============== */
+/* =============== 5) COMMON CLASSES (cards, buttons, icons, etc.) =============== */
 
-/* CARD with advanced 3D rotation or neon glow on hover */
+/* Card style: glassy with subtle shadow */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -180,63 +137,43 @@ header {
   box-shadow: var(--card-shadow);
   padding: 20px;
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  perspective: 1000px; /* for 3D hover if desired */
 }
-
 .card:hover {
-  transform: translateY(-4px) rotateX(1deg) rotateY(2deg);
-  box-shadow: var(--neon-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-/* BUTTONS: dual-gradient, shimmer effect on hover */
+/* Button style: warm orange with slight gradient */
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  position: relative;
+  padding: 12px 26px;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
   border: none;
   border-radius: 30px;
-  background: linear-gradient(135deg, var(--accent-color), #FF92A6);
-  cursor: pointer;
+  background: var(--accent-color);
   box-shadow: var(--btn-shadow);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
-
 .btn:hover {
-  background: linear-gradient(135deg, var(--accent-hover), #FF5C7E);
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255,121,148,0.45);
-}
-
-/* Extra shimmer effect */
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 0; height: 100%;
-  background: rgba(255,255,255,0.3);
-  opacity: 0;
-  transform: skewX(-20deg);
-  transition: width 0.5s, opacity 0.5s;
-  border-radius: 30px;
-}
-.btn:hover::after {
-  width: 120%;
-  opacity: 0.3;
+  box-shadow: 0 6px 16px rgba(255,126,78,0.4);
 }
 
 /* Footer */
 footer {
   margin-top: 40px;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
   font-size: 0.9rem;
   color: var(--heading-color);
-  opacity: 0.8;
 }
 
-/* Scroll to top */
+/* Scroll-to-top button */
 .scroll-to-top-btn {
   display: none;
   position: fixed;
@@ -255,15 +192,15 @@ footer {
   transform: translateY(-3px);
 }
 
-/* =============== 7) ADVANCED ANIMATIONS =============== */
+/* =============== 6) ANIMATIONS & TRANSITIONS =============== */
 
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% { opacity:0; }
+  100% { opacity:1; }
 }
 
 .slide-up {
@@ -276,93 +213,124 @@ footer {
   100% {opacity:1; transform: translateY(0);}
 }
 
-/* Could add more keyframes for cards:
-   e.g. .card-pop, .card-stagger, etc.
- */
+/* =============== 7) PAGE-SPECIFIC STYLES =============== */
 
-/* =============== 8) PAGE-SPECIFIC LAYOUTS =============== */
-
-/* Offsetting main content after fixed header */
-.page-content {
-  margin-top: 80px;
-  max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-}
-
-/* HOME PAGE */
-.page-home .hero-section {
-  margin-top: 60px;
+/* HEADINGS: big, rounded with Baloo */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
   text-align: center;
+  margin-bottom: 0.5em;
+}
+h1 { font-size: 2.6rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.4rem; }
+
+/* =========== HOME PAGE (.page-home) =========== */
+.page-home .hero-section {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .page-home .hero-title {
-  font-family: var(--font-heading);
-  font-size: 3rem;
   margin-bottom: 0.6em;
-  color: var(--heading-color);
 }
 .page-home .hero-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-color);
   margin-bottom: 1.2em;
+  font-size: 1.1rem;
+  max-width: 600px;
+  color: var(--text-color);
 }
 .page-home .features {
   display: flex;
-  gap: 20px;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
   margin-top: 40px;
 }
 .page-home .feature-card {
   width: 280px;
+  text-align: center;
 }
-
-/* EXERCISES PAGE */
-.page-exercises h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 2.2rem;
-}
-.page-exercises .course-module {
-  width: 280px;
-  margin: 16px auto;
+.page-home .cta {
+  max-width: 700px;
+  margin: 60px auto 0;
   text-align: center;
 }
 
-/* RESOURCES PAGE */
+/* =========== EXERCISES PAGE (.page-exercises) =========== */
+.page-exercises h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.page-exercises .course-module {
+  width: 260px;
+  margin: 12px auto;
+  text-align: center;
+}
+/* We can do a grid for the modules:
+   For example, 3 columns on bigger screens, 1 column on mobile 
+*/
+.page-exercises .modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* =========== RESOURCES PAGE (.page-resources) =========== */
 .page-resources h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 2.2rem;
+}
+.page-resources .resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+  justify-items: center;
+}
+.page-resources .resource-card {
+  width: 220px;
+  text-align: center;
 }
 
-/* PROGRESS PAGE */
+/* =========== PROGRESS PAGE (.page-progress) =========== */
 .page-progress h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 2.2rem;
 }
 .page-progress .progress-radial {
   margin: 0 auto;
 }
 
-/* PORTFOLIO PAGE */
+/* =========== PORTFOLIO PAGE (.page-portfolio) =========== */
 .page-portfolio h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 2.2rem;
 }
 .page-portfolio p {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto 30px;
   text-align: center;
 }
-
-/* RESUME PAGE */
-.page-resume h2 {
+.page-portfolio .cards-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 30px;
-  font-size: 2rem;
+}
+.page-portfolio .resume-icon {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* =========== RESUME PAGE (.page-resume) =========== */
+.page-resume h2 {
+  margin-top: 20px;
 }
 .page-resume .resume-section {
   max-width: 900px;
@@ -371,27 +339,22 @@ footer {
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
   padding: 30px;
-  position: relative;
   border: 1px solid var(--card-border);
 }
 
-/* QUIZ PAGE */
+/* =========== QUIZ PAGE (.page-quiz) =========== */
 .page-quiz h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 2.2rem;
 }
-.page-quiz .quiz-timer {
-  margin-top: 10px;
-  font-weight: 700;
-  color: var(--heading-color);
+.page-quiz .quiz-container {
+  margin: 20px 0;
 }
 
-/* MODULE PAGES */
+/* =========== MODULE PAGES (.page-module) =========== */
 .page-module h1 {
   margin-top: 20px;
-  margin-bottom: 1em;
-  font-size: 2.2rem;
+  margin-bottom: 16px;
 }
 .page-module .module-timeline {
   max-height: 0;
@@ -402,18 +365,13 @@ footer {
   max-height: 300px;
 }
 .page-module .timeline-step {
-  margin: 5px 0;
+  margin: 6px 0;
 }
 
-/* MEDIA QUERIES for Mobile */
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
-  /* Nav container reflow if you want a typical responsive nav 
-     or you can keep it in a row. 
-     We'll do a simple wrap approach here:
-  */
   .nav-container {
     flex-wrap: wrap;
-    height: auto;
   }
   .nav-menu {
     margin-top: 10px;
@@ -421,17 +379,19 @@ footer {
   .page-content {
     margin-top: 100px;
   }
-}
-
-@media (max-width: 480px) {
   .page-home .hero-title {
     font-size: 2rem;
   }
+}
+@media (max-width: 480px) {
   .btn {
     font-size: 0.9rem;
     padding: 10px 20px;
   }
   .scroll-to-top-btn {
     bottom: 20px; right: 20px;
+  }
+  .page-home .hero-title {
+    font-size: 1.8rem;
   }
 }
