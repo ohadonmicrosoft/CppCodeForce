@@ -567,55 +567,54 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-/* ----- NEW: 3D Ticket Look for Exercises Modules ----- */
-/* This block overrides the original sticky notes layout for the Exercises page */
+/* ----- NEW: Circular Spinning Layout for Exercises Modules (3D Ticket Well) ----- */
+/* Arrange modules in a circular layout and spin the container */
 .page-exercises .modules-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  padding: 20px !important;
-  perspective: 1000px !important;
-  height: auto !important; /* Override fixed height */
-  margin-bottom: 40px !important;
-}
-.page-exercises .course-module {
   position: relative !important;
-  width: 280px !important;
-  background: var(--card-bg) !important;
-  border: var(--card-border-size) solid var(--card-border) !important;
-  border-radius: var(--border-radius) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
-  padding: 24px !important;
-  transition: transform 0.4s, box-shadow 0.4s !important;
-  transform-style: preserve-3d !important;
-  transform: rotateY(0deg) !important;
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
+  width: 500px !important;
+  height: 500px !important;
+  margin: 40px auto !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  display: block !important; /* remove previous flex rules */
+  perspective: 1000px !important;
+  animation: spin 20s linear infinite !important;
 }
-.page-exercises .course-module:hover {
-  transform: rotateY(5deg) translateY(-10px) !important;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
-}
-.page-exercises .course-module::before {
-  content: "" !important;
+.page-exercises .modules-grid .course-module {
   position: absolute !important;
   top: 50% !important;
-  left: -10px !important;
-  width: 20px !important;
-  height: 2px !important;
-  background: var(--accent-color) !important;
-  transform: translateY(-50%) !important;
-  box-shadow: 0 0 8px var(--accent-color) !important;
-  border-radius: 1px !important;
+  left: 50% !important;
+  width: 200px !important; /* ticket width */
+  transform-origin: center center !important;
+  /* We'll position each ticket using nth-child below */
 }
-.page-exercises .course-module h2 {
-  margin-top: 0 !important;
-  margin-bottom: 10px !important;
+
+/* Position each module around a circle (7 modules, about 51.43deg apart) */
+.page-exercises .modules-grid .course-module:nth-child(1) {
+  transform: rotate(0deg) translate(200px) rotate(0deg) !important;
 }
-.page-exercises .course-module p {
-  margin-bottom: 15px !important;
+.page-exercises .modules-grid .course-module:nth-child(2) {
+  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg) !important;
 }
-/* ----- END NEW 3D Ticket Look ----- */
+.page-exercises .modules-grid .course-module:nth-child(3) {
+  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg) !important;
+}
+.page-exercises .modules-grid .course-module:nth-child(4) {
+  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg) !important;
+}
+.page-exercises .modules-grid .course-module:nth-child(5) {
+  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg) !important;
+}
+.page-exercises .modules-grid .course-module:nth-child(6) {
+  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg) !important;
+}
+.page-exercises .modules-grid .course-module:nth-child(7) {
+  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg) !important;
+}
+
+/* Keyframes for container spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg) !important; }
+  to { transform: rotate(360deg) !important; }
+}
+/* ----- END NEW: Circular Spinning Layout ----- */
