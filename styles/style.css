@@ -1,10 +1,18 @@
 /*************************************************************
- * style.css - Light Greenish BG, Reddish Card Borders,
- *             Fredoka One headings, thicker lines, bigger nav,
- *             scattered sticky notes (exercises), progress bar.
+ * style.css - Pastel Peach/Pink Theme
+ * 
+ * Requirements Met:
+ * 1) Brand on the left, nav on the right.
+ * 2) Slightly smaller headings to avoid overlap with header.
+ * 3) Sticky notes on exercises with no overlap or off-screen cutting.
+ * 4) Thicker 3px border on cards, with red glow accent (#FF7F7F).
+ * 5) Use “Fredoka One” (rounded, fillable) for headings and
+ *    “ADLaM Display” for nav/body text.
+ * 6) Single theme for all pages: home, exercises, resources, progress, portfolio,
+ *    resume, quiz, diagrams, and interview simulator.
  *************************************************************/
 
-/* ============ 1) BASE & FONTS ============ */
+/* ============ 1) RESET & FONT IMPORTS ============ */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=ADLaM+Display:wght@400;600&display=swap');
 
 * {
@@ -17,55 +25,52 @@ html {
 }
 
 /* ============ 2) THEME VARIABLES ============ */
-/* Light greenish background, more 'mint' or 'pistachio' */
+/* Light pastel peach/pink gradient for background */
 :root {
-  --bg-gradient: linear-gradient(120deg, #E3F8D0 0%, #F0FFE0 50%, #ECFFDA 100%);
+  --bg-gradient: linear-gradient(135deg, #FFE3E3 0%, #FFF5EC 50%, #FFFDFD 100%);
 
-  /* HEADINGS: Fredoka One (rounded bubble) 
-     BODY/NAV: ADLaM Display (as before) */
-  --font-heading: 'Fredoka One', cursive;
-  --font-body: 'ADLaM Display', sans-serif;
+  /* HEADINGS & BODY FONTS */
+  --font-heading: 'Fredoka One', cursive;   /* Rounded, bold, fillable letters */
+  --font-body: 'ADLaM Display', sans-serif; /* Stylish modern text for nav/body */
 
-  /* Colors & Accents */
-  --text-color: #3C3C3C;
-  --heading-color: #2C2C2C;
+  /* Text & heading colors */
+  --text-color: #3B3B3B;
+  --heading-color: #2A2A2A;
 
-  /* Reddish accent for card borders */
-  --accent-color: #FF6565;
-  --accent-hover: #FF4949;
+  /* Reddish accent, for card hover & button backgrounds */
+  --accent-color: #FF7F7F;
+  --accent-hover: #FF5B5B;
 
-  /* Neon behind cards (reddish) */
-  --neon-color: rgba(255,101,101, 0.35);
+  /* Neon glow behind cards */
+  --neon-color: rgba(255,127,127, 0.35);
 
-  /* Card & Shadows */
+  /* Card background & border */
   --card-bg: rgba(255,255,255,0.85);
   --card-border: rgba(255,255,255,1.0);
-  --card-border-hover: #FF6565; /* on hover, it becomes redder */
+  --card-border-hover: #FF7F7F;
   --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  --card-border-size: 3px; /* Thicker border */
 
-  /* Buttons & Shadows */
-  --btn-shadow: 0 4px 16px rgba(255,101,101,0.3);
+  /* Buttons & shadows */
+  --btn-shadow: 0 4px 16px rgba(255,127,127,0.3);
 
-  /* Sizing & Transitions */
+  /* Sizing & transitions */
   --border-radius: 14px;
   --transition-speed: 0.4s;
-  --base-font-size: 17px;
-  --line-height: 1.6;
+  --base-font-size: 16px;
+  --line-height: 1.5;
   --max-content-width: 1140px;
-
-  /* Thicker card boundary by default */
-  --card-border-size: 3px;
 }
 
-/* ============ 3) GLOBAL BODY & HEADINGS ============ */
+/* ============ 3) BODY & HEADING DEFAULTS ============ */
 body {
   font-family: var(--font-body);
   font-size: var(--base-font-size);
   line-height: var(--line-height);
-  color: var(--text-color);
   background: var(--bg-gradient);
+  color: var(--text-color);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* no horizontal scroll */
 }
 
 h1, h2, h3, h4, h5 {
@@ -74,56 +79,58 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   margin-bottom: 0.5em;
 }
-/* Slightly bigger headings */
-h1 { font-size: 3rem; }
-h2 { font-size: 2.4rem; }
-h3 { font-size: 1.8rem; }
-
-/* Larger subtitle class if needed */
-.subtitle {
-  font-size: 1.25rem; /* bigger than before */
-  margin-bottom: 1em;
-  text-align: center;
-  color: var(--text-color);
+/* Slightly smaller than default so header doesn't overlap big titles */
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.4rem;
 }
 
-/* ============ 4) NAVIGATION ============ */
+/* Subtitles a bit larger than body, but not huge. */
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+/* ============ 4) HEADER: brand left, nav right ============ */
 header {
   position: fixed;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%;
   z-index: 999;
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* brand at left, nav at right */
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 10px 20px;
 }
-
 .brand-area {
   font-family: var(--font-heading);
-  font-size: 2.2rem; /* bigger brand text */
+  font-size: 1.8rem;
   color: var(--heading-color);
 }
-
+/* Nav menu on the right */
 .nav-menu {
   display: flex;
+  justify-content: flex-end;
   gap: 30px;
-}
-.nav-menu li {
-  display: inline-block;
 }
 .nav-link {
   text-decoration: none;
   font-family: var(--font-body);
-  font-size: 1.2rem; /* bigger nav */
+  font-size: 1rem; /* Not too large to cause overlap */
   font-weight: 700;
   color: var(--heading-color);
   transition: color var(--transition-speed), text-shadow var(--transition-speed);
@@ -131,85 +138,6 @@ header {
 .nav-link:hover {
   color: var(--accent-color);
   text-shadow: 0 0 4px var(--accent-color);
-}
-
-/* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
-.page-content {
-  margin-top: 100px;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Card with thicker boundary */
-.card {
-  background: var(--card-bg);
-  border: var(--card-border-size) solid var(--card-border);
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: 24px;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border var(--transition-speed);
-  position: relative;
-}
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 50px var(--neon-color);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.card:hover::before {
-  opacity: 1;
-}
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  border: var(--card-border-size) solid var(--card-border-hover);
-}
-
-/* Buttons: Reddish accent, bigger */
-.btn {
-  display: inline-block;
-  position: relative;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent-color);
-  border: none;
-  border-radius: 30px;
-  box-shadow: var(--btn-shadow);
-  cursor: pointer;
-  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.btn:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255,101,101,0.4);
-}
-
-/* Icons: bigger, red glow on hover */
-.icon-btn {
-  display: inline-block;
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  margin: 0 8px;
-  text-align: center;
-  line-height: 52px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.icon-btn img {
-  width: 26px; 
-  height: 26px;
-  vertical-align: middle;
-}
-.icon-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 16px var(--neon-color);
 }
 
 /* 1) Add a style for the new .theme-btn to position it on the right 
@@ -250,15 +178,103 @@ header {
   /* etc. as needed */
 }
 
+/* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
+.page-content {
+  margin-top: 80px; /* Enough to clear fixed header */
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 20px;
+}
 
-/* ============ 6) ANIMATIONS & TRANSITIONS ============ */
+/* Cards with thick border & neon glow */
+.card {
+  background: var(--card-bg);
+  border: var(--card-border-size) solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+  position: relative;
+  transition: transform var(--transition-speed), 
+              box-shadow var(--transition-speed), 
+              border var(--transition-speed);
+}
+/* Neon pseudo-element on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 50px var(--neon-color);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: var(--card-border-size) solid var(--card-border-hover);
+}
+
+/* If we want smaller text inside bullet-lists or references: */
+.ticket-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Buttons: warm red accent, shadow, etc. */
+.btn {
+  display: inline-block;
+  position: relative;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 30px;
+  box-shadow: var(--btn-shadow);
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255,127,127,0.4);
+}
+
+/* Icon buttons (GitHub, LinkedIn, etc.) with neon on hover */
+.icon-btn {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  margin: 0 6px;
+  text-align: center;
+  line-height: 48px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.icon-btn img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px var(--neon-color);
+}
+
+/* ============ 6) ANIMATIONS ============ */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 @keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:1; }
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 
 .slide-up {
@@ -271,22 +287,21 @@ header {
   100% {opacity:1; transform: translateY(0);}
 }
 
-/* ============ 7) PAGE-SPECIFIC STYLES ============ */
+/* ============ 7) PAGE-SPECIFIC ============ */
 
-/* HOME PAGE */
+/* HOME PAGE (.page-home) */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
 }
 .page-home .hero-title {
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin-bottom: 1em;
 }
 .page-home .hero-subtitle {
   max-width: 700px;
-  margin: 0 auto 1.4em;
-  font-size: 1.15rem;
-  color: var(--text-color);
+  margin: 0 auto 1.2em;
+  font-size: 1.05rem;
 }
 .page-home .features {
   display: flex;
@@ -296,8 +311,7 @@ header {
   margin-top: 40px;
 }
 .page-home .feature-card {
-  width: 280px;
-  text-align: center;
+  width: 280px; text-align: center;
 }
 .page-home .cta {
   max-width: 700px;
@@ -305,43 +319,32 @@ header {
   text-align: center;
 }
 
-/* EXERCISES PAGE - truly scattered "sticky notes" absolute positioning */
+/* EXERCISES (.page-exercises) - scattered sticky notes with no overlap */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.page-exercises p.subtitle {
+.page-exercises .subtitle {
   margin-bottom: 30px;
 }
-/* We'll hide .modules-grid overflow so they can be scattered inside it */
 .page-exercises .modules-grid {
-  position: relative;
-  width: 100%;
-  height: 600px; /* a fixed height for the "scattered" approach */
-  overflow: hidden;
+  position: relative; 
+  width: 100%; 
+  height: 700px; /* Enough space for notes, can adjust in media queries */
+  overflow: hidden; 
   margin-bottom: 40px;
 }
-/* Each .course-module is absolutely placed in random positions 
-   This is a big trade-off with responsiveness though. We'll do some nth-child. 
-*/
+/* We'll place .course-module with JS collision logic */
 .page-exercises .course-module {
   position: absolute;
-  width: 220px; /* or so */
+  width: 220px; 
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-/* Example random positions. Adjust as you wish */
-.page-exercises .course-module:nth-child(1) { top: 50px; left: 80px; transform: rotate(-2deg); }
-.page-exercises .course-module:nth-child(2) { top: 200px; left: 300px; transform: rotate(4deg); }
-.page-exercises .course-module:nth-child(3) { top: 120px; left: 600px; transform: rotate(-3deg); }
-.page-exercises .course-module:nth-child(4) { top: 330px; left: 200px; transform: rotate(5deg); }
-.page-exercises .course-module:nth-child(5) { top: 400px; left: 600px; transform: rotate(-4deg); }
-.page-exercises .course-module:nth-child(6) { top: 250px; left: 900px; transform: rotate(3deg); }
-.page-exercises .course-module:nth-child(7) { top: 70px;  left: 900px; transform: rotate(-1deg); }
 
-/* RESOURCES PAGE */
+/* RESOURCES (.page-resources) */
 .page-resources h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -358,16 +361,14 @@ header {
   text-align: center;
 }
 .page-resources .resource-card h2 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 0.6em;
 }
 
-/* PROGRESS PAGE */
+/* PROGRESS (.page-progress) */
 .page-progress h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 20px; margin-bottom: 20px;
 }
-/* radial progress + progress bar etc. */
 .page-progress .progress-radial {
   margin: 0 auto;
 }
@@ -378,12 +379,11 @@ header {
   margin-top: 30px;
 }
 .page-progress .stats-card {
-  width: 220px;
-  text-align: center;
+  width: 220px; 
+  text-align:center;
 }
-/* Example "progress bar" container */
 .page-progress .progress-bar-container {
-  max-width: 500px;
+  max-width: 500px; 
   margin: 30px auto;
   background: rgba(255,255,255,0.6);
   border-radius: 14px;
@@ -397,84 +397,95 @@ header {
   transition: width 1s ease;
 }
 
-/* PORTFOLIO PAGE */
+/* PORTFOLIO (.page-portfolio) */
 .page-portfolio h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 20px; margin-bottom: 20px;
 }
 .page-portfolio p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  text-align: center;
-  font-size: 1rem;
+  max-width: 700px; margin: 0 auto 30px; text-align:center; font-size:1rem;
 }
 .page-portfolio .cards-row {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 30px;
+  display: flex; gap:24px; flex-wrap:wrap; justify-content:center; margin-top:30px;
 }
 .page-portfolio .resume-btn {
-  margin-top: 20px;
-  text-align: center;
+  margin-top:20px; text-align:center;
 }
 
-/* QUIZ PAGE */
+/* RESUME (.page-resume) */
+.page-resume h1 {
+  margin-top:20px; margin-bottom:20px;
+}
+.page-resume .ticket-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* QUIZ PAGE (.page-quiz) */
 .page-quiz h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top:20px; margin-bottom:20px;
 }
-.page-quiz .quiz-container {
-  margin: 20px 0;
-}
+.page-quiz .quiz-container { margin:20px 0; }
 .page-quiz .quiz-area {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width:700px; margin:0 auto;
 }
 
-/* MODULE PAGES */
+/* DIAGRAMS (.page-diagrams) */
+.page-diagrams h1 {
+  margin-top:20px; margin-bottom:20px;
+}
+.page-diagrams #konvaContainer {
+  width:800px; height:600px; margin:0 auto; background:#fff; 
+  border:2px dashed #ccc;
+}
+
+/* INTERVIEW SIMULATOR (.page-simulator) */
+.page-simulator h1 {
+  margin-top:20px; margin-bottom:20px;
+}
+.page-simulator #interview-area {
+  text-align:center;
+  max-width:800px; margin:0 auto;
+}
+
+/* MODULE PAGE (.page-module) */
 .page-module h1 {
-  margin-top: 20px;
-  margin-bottom: 16px;
+  margin-top:20px; margin-bottom:16px;
 }
 .page-module .module-timeline {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.7s ease;
+  max-height:0; overflow:hidden; transition:max-height 0.7s ease;
 }
 .page-module .module-timeline.show {
-  max-height: 300px;
+  max-height:300px;
 }
 .page-module .timeline-step {
-  margin: 6px 0;
+  margin:6px 0;
 }
 
 /* FOOTER */
 footer {
-  margin-top: 60px;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
+  margin-top:60px; 
+  padding:20px 0; 
+  text-align:center; 
+  font-size:0.9rem; 
   color: var(--heading-color);
 }
 
-/* SCROLL-TO-TOP BTN */
+/* SCROLL-TO-TOP BUTTON */
 .scroll-to-top-btn {
-  display: none;
-  position: fixed;
-  bottom: 30px; 
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  display:none; 
+  position:fixed; 
+  bottom:30px; 
+  right:30px;
+  width:48px; 
+  height:48px;
+  border-radius:50%; 
   background: var(--accent-color);
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
+  color:#fff; 
+  font-size:20px;
+  border:none; 
+  cursor:pointer;
   box-shadow: var(--btn-shadow);
-  transition: transform 0.3s;
+  transition:transform 0.3s;
 }
 .scroll-to-top-btn:hover {
   transform: translateY(-3px);
@@ -483,33 +494,29 @@ footer {
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
   .nav-container {
-    flex-wrap: wrap;
+    flex-wrap:wrap;
   }
   .nav-menu {
-    margin-top: 10px;
+    margin-top:10px;
   }
   .page-content {
-    margin-top: 120px;
+    margin-top:110px; /* bigger top margin so h1 not hidden by header */
   }
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 2rem; }
+  h1 { font-size:2rem; }
+  h2 { font-size:1.6rem; }
   .page-exercises .modules-grid {
-    height: 900px; /* bigger for smaller screens if you want more scattering space */
+    height:900px; /* more vertical space for sticky notes on tablets */
   }
 }
 @media (max-width: 480px) {
   .btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+    font-size:0.9rem;
+    padding:8px 20px;
   }
   .scroll-to-top-btn {
-    bottom: 20px; 
-    right: 20px;
+    bottom:20px; 
+    right:20px;
   }
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.4rem; }
-
-  /* If you want to disable absolute scattering for the smallest screens, 
-     you can override or re-position them differently. 
-   */
+  h1 { font-size:1.6rem; }
+  h2 { font-size:1.4rem; }
 }
