@@ -567,8 +567,8 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-/* ----- NEW: Circular Spinning Layout for Exercises Modules (3D Ticket Well) ----- */
-/* Arrange modules in a circular layout and spin the container */
+/* ----- NEW: Circular Spinning 3D Ticket Well for Exercises Modules ----- */
+/* This block overrides the original exercises modules layout with a circular spinning "well" */
 .page-exercises .modules-grid {
   position: relative !important;
   width: 500px !important;
@@ -576,7 +576,7 @@ footer {
   margin: 40px auto !important;
   border-radius: 50% !important;
   overflow: hidden !important;
-  display: block !important; /* remove previous flex rules */
+  display: block !important; /* override previous flex rules */
   perspective: 1000px !important;
   animation: spin 20s linear infinite !important;
 }
@@ -586,10 +586,8 @@ footer {
   left: 50% !important;
   width: 200px !important; /* ticket width */
   transform-origin: center center !important;
-  /* We'll position each ticket using nth-child below */
+  /* Position tickets radially – adjust the translate distance as needed */
 }
-
-/* Position each module around a circle (7 modules, about 51.43deg apart) */
 .page-exercises .modules-grid .course-module:nth-child(1) {
   transform: rotate(0deg) translate(200px) rotate(0deg) !important;
 }
@@ -611,10 +609,8 @@ footer {
 .page-exercises .modules-grid .course-module:nth-child(7) {
   transform: rotate(308.58deg) translate(200px) rotate(-308.58deg) !important;
 }
-
-/* Keyframes for container spin animation */
 @keyframes spin {
   from { transform: rotate(0deg) !important; }
   to { transform: rotate(360deg) !important; }
 }
-/* ----- END NEW: Circular Spinning Layout ----- */
+/* ----- END NEW: Circular Spinning 3D Ticket Well ----- */
