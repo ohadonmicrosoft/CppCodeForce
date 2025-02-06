@@ -1,31 +1,32 @@
-/*************************************************************
- * embedded-ide.js
- * - Loads Monaco Editor using require.js.
- * - Creates a code editor instance in the #ideContainer.
- * - Defines a function to compile and run C++ code via the Wandbox API.
- * - Attaches the runCode function to the Run Code button.
- *************************************************************/
-(function () {
+// scripts/embedded-ide.js
+
+// Ensure the DOM is fully loaded before initializing Monaco Editor.
+document.addEventListener("DOMContentLoaded", function() {
     // Configure Monaco Editor loader with the CDN path.
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs' }});
   
     // Initialize Monaco Editor once it's loaded.
     require(['vs/editor/editor.main'], function() {
-      window.editor = monaco.editor.create(document.getElementById('ideContainer'), {
-        value: [
-          '#include <iostream>',
-          '',
-          'int main() {',
-          '    std::cout << "Hello, WeCode!" << std::endl;',
-          '    return 0;',
-          '}'
-        ].join('\n'),
-        language: 'cpp',
-        theme: 'vs-light'
-      });
+      const container = document.getElementById('ideContainer');
+      if (container) {
+        window.editor = monaco.editor.create(container, {
+          value: [
+            '#include <iostream>',
+            '',
+            'int main() {',
+            '    std::cout << "Hello, WeCode!" << std::endl;',
+            '    return 0;',
+            '}'
+          ].join('\n'),
+          language: 'cpp',
+          theme: 'vs-light'
+        });
+      } else {
+        console.error("IDE container not found.");
+      }
     });
   
-    // Function: compile and run code via Wandbox API.
+    // Function to compile and run code via the Wandbox API.
     async function runCode() {
       const code = window.editor.getValue();
       const outputDiv = document.getElementById('output');
@@ -59,12 +60,10 @@
       }
     }
   
-    // Attach runCode function to the Run Code button after DOM load.
-    document.addEventListener("DOMContentLoaded", function() {
-      const runBtn = document.getElementById('runCodeBtn');
-      if (runBtn) {
-        runBtn.addEventListener('click', runCode);
-      }
-    });
-  })();
+    // Attach the runCode function to the Run Code button.
+    const runBtn = document.getElementById('runCodeBtn');
+    if (runBtn) {
+      runBtn.addEventListener('click', runCode);
+    }
+  });
   
