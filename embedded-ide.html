@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/style.css">
   <!-- Load Monaco Editor via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs/loader.js"></script>
-  <!-- Prettier for code formatting (simulate formatting for demonstration) -->
+  <!-- Prettier for code formatting (for demonstration) -->
   <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
   <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
 </head>
@@ -38,21 +38,17 @@
     <p class="subtitle">
       Write, run, and debug your C++ code directly in your browser!
     </p>
-
     <!-- Monaco Editor Container -->
     <div id="ideContainer"></div>
-
     <!-- IDE Controls -->
     <div class="ide-controls">
       <button id="runCodeBtn" class="btn" aria-label="Run Code">Run Code</button>
       <button id="formatCodeBtn" class="btn" aria-label="Format Code">Format Code</button>
       <button id="viewDocBtn" class="btn" aria-label="View Documentation">View Documentation</button>
     </div>
-
     <!-- Output Console -->
     <h2>Output</h2>
     <div id="output">Your program output will appear here...</div>
-    
     <!-- Documentation Modal -->
     <div id="docModal" class="modal" aria-hidden="true">
       <div class="modal-content">
@@ -69,4 +65,32 @@
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
 
-  <script src="scripts/main.js"></sc
+  <script src="scripts/main.js"></script>
+  <script src="scripts/embedded-ide.js"></script>
+  <script>
+    // Documentation modal functionality
+    (function() {
+      const docModal = document.getElementById('docModal');
+      const viewDocBtn = document.getElementById('viewDocBtn');
+      const closeDocBtn = document.getElementById('closeDocBtn');
+      
+      viewDocBtn.addEventListener('click', () => {
+        docModal.style.display = 'block';
+        docModal.setAttribute('aria-hidden', 'false');
+      });
+      
+      closeDocBtn.addEventListener('click', () => {
+        docModal.style.display = 'none';
+        docModal.setAttribute('aria-hidden', 'true');
+      });
+      
+      window.addEventListener('click', (event) => {
+        if (event.target === docModal) {
+          docModal.style.display = 'none';
+          docModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

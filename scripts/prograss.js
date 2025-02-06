@@ -14,28 +14,19 @@
     "M6L1", "M6L2",
     "M7L1", "M7L2"
   ];
-
   let completedLessons = JSON.parse(localStorage.getItem("wecodeCompletedLessons")) || [];
-
   function updateProgressDisplay() {
     const radialProgress = document.getElementById("radialProgress");
     const progressLabel = document.getElementById("progress-label");
     const progressText = document.getElementById("progress-text");
     if (!radialProgress) return;
     let completedCount = completedLessons.length;
-    if (completedCount > TOTAL_LESSONS) {
-      completedCount = TOTAL_LESSONS;
-    }
+    if (completedCount > TOTAL_LESSONS) completedCount = TOTAL_LESSONS;
     const pct = (completedCount / TOTAL_LESSONS) * 100;
     radialProgress.style.setProperty("--percent", pct.toFixed(2));
-    if (progressLabel) {
-      progressLabel.textContent = `${Math.round(pct)}%`;
-    }
-    if (progressText) {
-      progressText.textContent = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
-    }
+    if (progressLabel) progressLabel.textContent = `${Math.round(pct)}%`;
+    if (progressText) progressText.textContent = `Completed ${completedCount} / ${TOTAL_LESSONS} Lessons`;
   }
-
   function markLessonCompleted(lessonID) {
     if (!allLessonIDs.includes(lessonID)) return;
     if (!completedLessons.includes(lessonID)) {
@@ -44,7 +35,6 @@
       updateProgressDisplay();
     }
   }
-
   document.addEventListener("DOMContentLoaded", updateProgressDisplay);
   window.markLessonCompleted = markLessonCompleted;
 })();

@@ -4,12 +4,18 @@
  * Requirements Met:
  * 1) Brand on the left, nav on the right.
  * 2) Slightly smaller headings to avoid overlap with header.
- * 3) Sticky notes on exercises with no overlap or off-screen cutting.
+ * 3) Sticky notes on exercises with no overlap or off‑screen cutting.
  * 4) Thicker 3px border on cards, with red glow accent (#FF7F7F).
  * 5) Use “Fredoka One” (rounded, fillable) for headings and
  *    “ADLaM Display” for nav/body text.
  * 6) Single theme for all pages: home, exercises, resources, progress, portfolio,
  *    resume, quiz, diagrams, and interview simulator.
+ * 
+ * Advanced Improvements Added:
+ * - Code formatting hints (comments, consistent indenting)
+ * - Responsive and accessible design enhancements with ARIA labels
+ * - Microinteractions (hover, fade‑in, slide‑up)
+ * - Live preview & documentation modal for the IDE page
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
@@ -25,36 +31,21 @@ html {
 }
 
 /* ============ 2) THEME VARIABLES ============ */
-/* Light pastel peach/pink gradient for background */
 :root {
   --bg-gradient: linear-gradient(135deg, #FFE3E3 0%, #FFF5EC 50%, #FFFDFD 100%);
-
-  /* HEADINGS & BODY FONTS */
-  --font-heading: 'Fredoka One', cursive;   /* Rounded, bold, fillable letters */
-  --font-body: 'ADLaM Display', sans-serif; /* Stylish modern text for nav/body */
-
-  /* Text & heading colors */
+  --font-heading: 'Fredoka One', cursive;
+  --font-body: 'ADLaM Display', sans-serif;
   --text-color: #3B3B3B;
   --heading-color: #2A2A2A;
-
-  /* Reddish accent, for card hover & button backgrounds */
   --accent-color: #FF7F7F;
   --accent-hover: #FF5B5B;
-
-  /* Neon glow behind cards */
   --neon-color: rgba(255,127,127, 0.35);
-
-  /* Card background & border */
   --card-bg: rgba(255,255,255,0.85);
   --card-border: rgba(255,255,255,1.0);
   --card-border-hover: #FF7F7F;
   --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  --card-border-size: 3px; /* Thicker border */
-
-  /* Buttons & shadows */
+  --card-border-size: 3px;
   --btn-shadow: 0 4px 16px rgba(255,127,127,0.3);
-
-  /* Sizing & transitions */
   --border-radius: 14px;
   --transition-speed: 0.4s;
   --base-font-size: 16px;
@@ -70,7 +61,7 @@ body {
   background: var(--bg-gradient);
   color: var(--text-color);
   min-height: 100vh;
-  overflow-x: hidden; /* no horizontal scroll */
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5 {
@@ -79,29 +70,20 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   margin-bottom: 0.5em;
 }
-/* Slightly smaller than default so header doesn't overlap big titles */
-h1 {
-  font-size: 2.4rem;
-}
-h2 {
-  font-size: 1.8rem;
-}
-h3 {
-  font-size: 1.4rem;
-}
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
 
-/* Subtitles a bit larger than body, but not huge. */
 .subtitle {
   font-size: 1.1rem;
   margin-bottom: 1em;
   text-align: center;
 }
 
-/* ============ 4) HEADER: Brand aligned left, nav aligned right ============ */
+/* ============ 4) HEADER ============ */
 header {
   position: fixed;
-  top: 0; 
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   z-index: 999;
   background: rgba(255,255,255,0.7);
@@ -111,7 +93,7 @@ header {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Brand at left, nav at right */
+  justify-content: space-between;
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 10px 20px;
@@ -122,7 +104,6 @@ header {
   color: var(--heading-color);
   text-align: left;
 }
-/* Nav menu aligned to right */
 .nav-menu {
   display: flex;
   justify-content: flex-end;
@@ -141,8 +122,6 @@ header {
   color: var(--accent-color);
   text-shadow: 0 0 4px var(--accent-color);
 }
-
-/* Style for the new .theme-btn (Dark Mode toggle) positioned on the right */
 .theme-btn {
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -156,13 +135,12 @@ header {
   transition: background var(--transition-speed), transform var(--transition-speed);
   margin-left: 20px;
 }
-
 .theme-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
 }
 
-/* 2) Dark Mode overrides (if using a .dark-mode approach) */
+/* Dark Mode Overrides */
 .dark-mode {
   --bg-gradient: linear-gradient(135deg, #222 0%, #333 100%);
   --text-color: #DDDDDD;
@@ -175,14 +153,12 @@ header {
 
 /* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
 .page-content {
-  margin-top: 120px; /* Increased margin so that header doesn't overlap content */
+  margin-top: 120px;
   max-width: var(--max-content-width);
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
 }
-
-/* Cards with thick border & neon glow */
 .card {
   background: var(--card-bg);
   border: var(--card-border-size) solid var(--card-border);
@@ -190,9 +166,7 @@ header {
   box-shadow: var(--card-shadow);
   padding: 24px;
   position: relative;
-  transition: transform var(--transition-speed), 
-              box-shadow var(--transition-speed), 
-              border var(--transition-speed);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border var(--transition-speed);
 }
 .card::before {
   content: "";
@@ -211,14 +185,10 @@ header {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   border: var(--card-border-size) solid var(--card-border-hover);
 }
-
-/* Smaller text for ticket or reference elements */
 .ticket-text {
   font-size: 0.95rem;
   line-height: 1.4;
 }
-
-/* Buttons: warm red accent, shadow, etc. */
 .btn {
   display: inline-block;
   position: relative;
@@ -238,8 +208,6 @@ header {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(255,127,127,0.4);
 }
-
-/* Icon buttons with neon on hover */
 .icon-btn {
   display: inline-block;
   width: 48px;
@@ -271,7 +239,6 @@ header {
   0% { opacity:0; }
   100% { opacity:1; }
 }
-
 .slide-up {
   opacity: 0;
   transform: translateY(40px);
@@ -283,8 +250,7 @@ header {
 }
 
 /* ============ 7) PAGE-SPECIFIC ============ */
-
-/* HOME PAGE (.page-home) */
+/* HOME PAGE */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
@@ -315,7 +281,7 @@ header {
   text-align: center;
 }
 
-/* EXERCISES (.page-exercises) - Updated Grid Layout */
+/* EXERCISES */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -323,7 +289,6 @@ header {
 .page-exercises .subtitle {
   margin-bottom: 30px;
 }
-/* New Modules Grid Layout */
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -332,14 +297,13 @@ header {
   padding: 0 10px;
 }
 .page-exercises .course-module {
-  /* Retain card styles */
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* RESOURCES (.page-resources) */
+/* RESOURCES */
 .page-resources h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -360,7 +324,7 @@ header {
   margin-bottom: 0.6em;
 }
 
-/* PROGRESS (.page-progress) */
+/* PROGRESS */
 .page-progress h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -393,7 +357,7 @@ header {
   transition: width 1s ease;
 }
 
-/* PORTFOLIO (.page-portfolio) */
+/* PORTFOLIO */
 .page-portfolio h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -416,7 +380,7 @@ header {
   text-align: center;
 }
 
-/* RESUME (.page-resume) */
+/* RESUME */
 .page-resume h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -426,7 +390,7 @@ header {
   line-height: 1.4;
 }
 
-/* QUIZ PAGE (.page-quiz) */
+/* QUIZ */
 .page-quiz h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -439,7 +403,7 @@ header {
   margin: 0 auto;
 }
 
-/* DIAGRAMS (.page-diagrams) */
+/* DIAGRAMS */
 .page-diagrams h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -452,7 +416,7 @@ header {
   border: 2px dashed #ccc;
 }
 
-/* INTERVIEW SIMULATOR (.page-simulator) */
+/* INTERVIEW SIMULATOR */
 .page-simulator h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -463,7 +427,7 @@ header {
   margin: 0 auto;
 }
 
-/* MODULE PAGE (.page-module) */
+/* MODULE PAGE */
 .page-module h1 {
   margin-top: 20px;
   margin-bottom: 16px;
@@ -481,16 +445,12 @@ header {
 }
 
 /* ============ NEW: Embedded Advanced IDE Page Styles ============ */
-
-/* Monaco Editor Container */
 #ideContainer {
   width: 100%;
   height: 500px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
 }
-
-/* Output Console */
 #output {
   width: 100%;
   height: 200px;
@@ -500,13 +460,10 @@ header {
   white-space: pre-wrap;
   overflow: auto;
 }
-
-/* IDE Controls */
 .ide-controls {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .ide-controls button {
   padding: 10px 20px;
   font-size: 1rem;
@@ -517,9 +474,41 @@ header {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .ide-controls button:hover {
   background: var(--accent-hover);
+}
+
+/* Documentation Modal (for Live Preview & Documentation) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+  padding-top: 60px;
+}
+.modal-content {
+  background: var(--card-bg);
+  margin: auto;
+  padding: 20px;
+  border: 2px solid var(--accent-color);
+  width: 80%;
+  max-width: 600px;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+.close-btn {
+  color: var(--heading-color);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* FOOTER */
@@ -553,15 +542,11 @@ footer {
 }
 
 /* ============ 8) MEDIA QUERIES ============ */
-
-/* Mobile styles for viewports 768px and below */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-wrap: wrap;
-  }
+  .nav-container { flex-wrap: wrap; }
   .nav-menu {
     margin-top: 10px;
-    display: none; /* Hide by default */
+    display: none;
     flex-direction: column;
     position: absolute;
     background: white;
@@ -571,13 +556,8 @@ footer {
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     padding: 10px;
   }
-  .nav-menu.show {
-    display: flex;
-  }
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-  }
+  .nav-menu.show { display: flex; }
+  .menu-toggle { display: block; cursor: pointer; }
   .menu-toggle span {
     display: block;
     width: 30px;
@@ -585,26 +565,14 @@ footer {
     background: #333;
     margin: 6px 0;
   }
-  .page-content {
-    margin-top: 120px; /* Maintain large margin on mobile */
-  }
+  .page-content { margin-top: 120px; }
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
-  .page-exercises .modules-grid {
-    height: auto; /* Let grid container adjust height */
-  }
+  .page-exercises .modules-grid { height: auto; }
 }
-
-/* Mobile adjustments for viewports 480px and below */
 @media (max-width: 480px) {
-  .btn {
-    font-size: 0.9rem;
-    padding: 8px 20px;
-  }
-  .scroll-to-top-btn {
-    bottom: 20px;
-    right: 20px;
-  }
+  .btn { font-size: 0.9rem; padding: 8px 20px; }
+  .scroll-to-top-btn { bottom: 20px; right: 20px; }
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.4rem; }
 }

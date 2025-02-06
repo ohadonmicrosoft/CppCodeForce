@@ -1,8 +1,7 @@
 /*************************************************************
  * quiz.js
- * - Renders quiz questions from questionBank.
+ * - Renders quiz questions.
  * - Tracks quiz state, timer, and local leaderboard.
- * - Dynamically creates the quiz interface.
  *************************************************************/
 (function () {
   let quizStarted = false;
@@ -30,9 +29,11 @@
       const questionBlock = document.createElement("div");
       questionBlock.classList.add("question-block");
       questionBlock.style.marginBottom = "20px";
+
       const questionText = document.createElement("h4");
       questionText.textContent = `Q${index + 1}: ${q.text}`;
       questionBlock.appendChild(questionText);
+
       q.options.forEach((option, optIndex) => {
         const label = document.createElement("label");
         label.style.display = "block";
@@ -65,7 +66,6 @@
     const minutes = Math.floor(elapsedMs / 60000);
     document.getElementById("quiz-timer").textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
   }
-
   function pad(num) {
     return num < 10 ? "0" + num : num;
   }
@@ -78,10 +78,7 @@
       const radios = document.getElementsByName(`question-${index}`);
       let selected = null;
       for (let r of radios) {
-        if (r.checked) {
-          selected = parseInt(r.value);
-          break;
-        }
+        if (r.checked) { selected = parseInt(r.value); break; }
       }
       if (selected === q.correctIndex) score++;
     });
@@ -95,4 +92,25 @@
   }
 
   function showLeaderboard() {
-    cons
+    const leaderboardDiv = document.getElementById("leaderboard");
+    const leaderboardEntries = document.getElementById("leaderboard-entries");
+    if (!leaderboardDiv || !leaderboardEntries) return;
+    leaderboardDiv.style.display = "block";
+    scoreboard.sort((a, b) => b.score - a.score);
+    leaderboardEntries.innerHTML = "";
+    scoreboard.forEach((entry, idx) => {
+      const row = document.createElement("div");
+      row.style.display = "flex";
+      row.style.justifyContent = "space-between";
+      row.style.margin = "6px 0";
+      row.innerHTML = `<span>${idx + 1}. ${entry.name}</span>
+                       <span>Score: ${entry.score} | Time: ${entry.time}</span>`;
+      leaderboardEntries.appendChild(row);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("start-quiz").addEventListener("click", startQuiz);
+    document.getElementById("submit-quiz").addEventListener("click", submitQuiz);
+  });
+})();

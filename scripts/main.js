@@ -6,6 +6,7 @@
  *  - Mobile menu toggle (hamburger)
  *************************************************************/
 (function () {
+  // Initialize Scroll-To-Top button
   function initScrollToTop() {
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
     if (!scrollToTopBtn) return;
@@ -16,7 +17,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-
+  // Dark/Light Mode toggle
   function initDarkModeToggle() {
     if (localStorage.getItem('darkMode') === null) {
       localStorage.setItem('darkMode', 'false');
@@ -33,15 +34,11 @@
     });
     applyDarkMode(storedDark);
   }
-
   function applyDarkMode(enable) {
-    if (enable) {
-      document.documentElement.classList.add('dark-mode');
-    } else {
-      document.documentElement.classList.remove('dark-mode');
-    }
+    if (enable) document.documentElement.classList.add('dark-mode');
+    else document.documentElement.classList.remove('dark-mode');
   }
-
+  // Mobile Menu Toggle
   function initMobileMenuToggle() {
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
@@ -51,7 +48,6 @@
       });
     }
   }
-
   document.addEventListener("DOMContentLoaded", () => {
     initScrollToTop();
     initDarkModeToggle();
