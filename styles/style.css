@@ -1,11 +1,10 @@
 /*************************************************************
- * style.css - Pastel Peach/Pink Theme (Enhanced Edition)
+ * style.css - Pastel Peach/Pink Theme (Clean Version)
  * 
  * Features:
  * - Responsive design using CSS Grid and Flexbox.
- * - Robust CSS animations with a single consolidated fade‑in.
+ * - Consolidated, robust styles for typography, layout, and components.
  * - CSS variables for easy theming (including dark mode overrides).
- * - Enhanced typography and layout.
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
@@ -79,12 +78,7 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
-  animation: contentFadeIn 1.2s ease-out forwards;
-}
-
-@keyframes contentFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  /* Removed entrance animations */
 }
 
 /* Headings */
@@ -113,12 +107,7 @@ header {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  animation: headerSlideDown 0.8s ease-out forwards;
-}
-
-@keyframes headerSlideDown {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
+  /* Removed header entrance animation */
 }
 
 .nav-container {
@@ -142,12 +131,7 @@ header {
   justify-content: flex-end;
   gap: 30px;
   text-align: right;
-  animation: navFadeIn 0.8s ease-out forwards;
-}
-
-@keyframes navFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  /* Removed nav entrance animation */
 }
 
 .nav-link {
@@ -293,18 +277,7 @@ header {
   box-shadow: 0 0 16px var(--neon-color);
 }
 
-/* ============ 6) ANIMATIONS ============ */
-/* Consolidated Fade‑in Animation (applied only once on load) */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
+/* ============ 6) OTHER ANIMATIONS ============ */
 /* Slide-up animation */
 .slide-up {
   opacity: 0;
@@ -317,7 +290,7 @@ header {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Additional Floating Animation */
+/* Floating Animation */
 .float {
   animation: floatAnim 4s ease-in-out infinite;
 }
@@ -338,12 +311,7 @@ header {
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
-  animation: heroSlide 1s ease-out forwards;
-}
-
-@keyframes heroSlide {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  /* Removed hero entrance animation */
 }
 
 .page-home .hero-title {
