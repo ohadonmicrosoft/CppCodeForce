@@ -30,27 +30,26 @@
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> <span>&gt;</span>
-    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
     <span>Module 4</span>
   </div>
 
-  <section class="glass module-lessons">
-    <h1 class="fancy-title">Module 4: Concurrency &amp; Multithreading</h1>
+  <section class="card fade-in">
+    <h1>Module 4: Concurrency &amp; Multithreading</h1>
     <p>Delve into threads, mutexes, lock-free data structures, and concurrency patterns in modern C++.</p>
-
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Thread Basics</div>
       <div class="timeline-step">Step 2: Mutexes &amp; Synchronization</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: Thread Basics</h2>
     <p>Learn how to create and manage threads, consider thread lifecycle, and handle basic parallel tasks in C++.</p>
     <button class="btn" onclick="openExternalIDE('M4L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: Mutexes &amp; Synchronization</h2>
     <p>Use mutexes and locks to protect shared resources from race conditions, discuss deadlock prevention and design patterns.</p>
@@ -58,10 +57,11 @@
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){

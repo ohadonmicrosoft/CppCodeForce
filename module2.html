@@ -3,24 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ohad’s WeCode | Module 2</title>
+  <title>WeCode | Module 2</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
+
 <header>
   <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
-    </div>
-
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-
-    <ul class="nav-menu" id="navMenu">
+    <div class="brand-area">Ohad’s WeCode</div>
+    <ul class="nav-menu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="exercises.html" class="nav-link">Exercises</a></li>
       <li><a href="progress.html" class="nav-link">Progress</a></li>
@@ -32,44 +23,55 @@
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> <span>&gt;</span>
-    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
     <span>Module 2</span>
   </div>
 
-  <section class="glass module-lessons">
-    <h1 class="fancy-title">Module 2: Data Structures &amp; Algorithms</h1>
-    <p>Explore arrays, linked lists, sorting, searching, BFS/DFS, and more fundamental algorithms.</p>
-
+  <section class="card fade-in">
+    <h1>Module 2: Data Structures &amp; Algorithms</h1>
+    <p>
+      Explore arrays, linked lists, sorting, searching, BFS/DFS, and more 
+      fundamental algorithms. This module includes timelines, tasks, and 
+      code practice to solidify your knowledge.
+    </p>
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
       <div class="timeline-step">Step 2: Trees &amp; Graphs</div>
+      <div class="timeline-step">Step 3: Sorting &amp; Searching</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: Arrays &amp; Linked Lists</h2>
     <p>Implement basic operations (insert, delete, traverse) and analyze time complexities.</p>
     <button class="btn" onclick="openExternalIDE('M2L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: Trees &amp; Graphs</h2>
     <p>Explore tree traversals (in-order, pre-order, post-order) and BFS/DFS on graphs.</p>
     <button class="btn" onclick="openExternalIDE('M2L2')">Open IDE for Lesson 2</button>
+    <hr style="margin:20px 0;"/>
+
+    <h2>Lesson 3: Sorting &amp; Searching</h2>
+    <p>Dive deeper into sorting algorithms (merge, quicksort) and searching approaches (binary search, BFS for graphs).</p>
+    <button class="btn" onclick="openExternalIDE('M2L3')">Open IDE for Lesson 3</button>
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){
   const timeline = document.getElementById("moduleTimeline");
   if(timeline) timeline.classList.toggle("show");
 }
+
 function openExternalIDE(lessonID) {
   const url = getWandboxLink(lessonID);
   window.open(url, "_blank");

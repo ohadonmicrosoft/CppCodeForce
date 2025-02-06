@@ -30,33 +30,32 @@
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> <span>&gt;</span>
-    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
     <span>Module 1</span>
   </div>
 
-  <section class="glass module-lessons">
-    <h1 class="fancy-title">Module 1: Foundations &amp; Modern C++</h1>
+  <section class="card fade-in">
+    <h1>Module 1: Foundations &amp; Modern C++</h1>
     <p>This module covers essential modern C++ techniques—including RAII, smart pointers, and lambdas.</p>
-
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: RAII Overview</div>
       <div class="timeline-step">Step 2: Smart Pointers &amp; Move Semantics</div>
       <div class="timeline-step">Step 3: Lambdas &amp; STL Algorithms</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: RAII &amp; Constructors</h2>
     <p>Create a <code>FileWrapper</code> class that opens a file in its constructor and closes it in the destructor, handling errors gracefully.</p>
     <button class="btn" onclick="openExternalIDE('M1L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: Smart Pointers &amp; Move Semantics</h2>
     <p>Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and move semantics to manage resources effectively, avoiding leaks.</p>
     <button class="btn" onclick="openExternalIDE('M1L2')">Open IDE for Lesson 2</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 3: Lambdas &amp; STL Algorithms</h2>
     <p>Leverage lambdas for concise code with STL (e.g., <code>std::remove_if</code>) and explore different capture modes.</p>
@@ -64,13 +63,14 @@
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
-function toggleTimeline() {
+function toggleTimeline(){
   const timeline = document.getElementById("moduleTimeline");
   if(timeline) timeline.classList.toggle("show");
 }

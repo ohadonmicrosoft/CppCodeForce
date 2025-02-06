@@ -30,28 +30,26 @@
 </header>
 
 <main class="page-content">
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> <span>&gt;</span>
-    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
     <span>Module 5</span>
   </div>
 
-  <section class="glass module-lessons">
-    <h1 class="fancy-title">Module 5: Memory Management &amp; Debugging</h1>
+  <section class="card fade-in">
+    <h1>Module 5: Memory Management &amp; Debugging</h1>
     <p>Efficient memory handling, pointers (manual &amp; smart), and debugging tools in C++.</p>
-
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Manual Memory Allocation</div>
       <div class="timeline-step">Step 2: Smart Pointers &amp; Debugging Tools</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: Manual Memory Allocation</h2>
     <p>Use <code>new</code> and <code>delete</code> responsibly, avoid memory leaks and dangling pointers.</p>
     <button class="btn" onclick="openExternalIDE('M5L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: Smart Pointers &amp; Debugging Tools</h2>
     <p>Leverage <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, Valgrind, and GDB for robust code.</p>
@@ -59,10 +57,11 @@
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){
@@ -70,7 +69,8 @@ function toggleTimeline(){
   if(timeline) timeline.classList.toggle("show");
 }
 function openExternalIDE(lessonID) {
-  window.open(getWandboxLink(lessonID), "_blank");
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
 }
 </script>
 </body>

@@ -30,27 +30,26 @@
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> <span>&gt;</span>
-    <a href="exercises.html">Exercises</a> <span>&gt;</span>
+  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
     <span>Module 6</span>
   </div>
 
-  <section class="glass module-lessons">
-    <h1 class="fancy-title">Module 6: Templates &amp; Metaprogramming</h1>
+  <section class="card fade-in">
+    <h1>Module 6: Templates &amp; Metaprogramming</h1>
     <p>Advanced template programming, SFINAE, type traits, and compile-time computations in C++.</p>
-
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Template Fundamentals</div>
       <div class="timeline-step">Step 2: SFINAE &amp; Type Traits</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: Template Fundamentals</h2>
     <p>Function/class templates, instantiation rules, partial specialization. Master the basics of generics in C++.</p>
     <button class="btn" onclick="openExternalIDE('M6L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: SFINAE &amp; Type Traits</h2>
     <p>Use “Substitution Failure Is Not An Error” and <code>std::enable_if</code> to create compile-time branches, explore type traits.</p>
@@ -58,10 +57,11 @@
   </section>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){
@@ -69,7 +69,8 @@ function toggleTimeline(){
   if(timeline) timeline.classList.toggle("show");
 }
 function openExternalIDE(lessonID) {
-  window.open(getWandboxLink(lessonID), "_blank");
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
 }
 </script>
 </body>
