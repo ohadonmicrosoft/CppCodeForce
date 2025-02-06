@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ohad’s WeCode | Diagrams</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- Konva.js for interactive shapes -->
+  <script src="https://cdn.jsdelivr.net/npm/konva@8.0.3/konva.min.js"></script>
+</head>
+<body class="page-diagrams fade-in">
+<header>
+  <div class="nav-container">
+    <div class="brand-area">Ohad’s WeCode</div>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+      <li><a href="progress.html" class="nav-link">Progress</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="page-content">
+  <h1>Interactive Visual Diagrams</h1>
+  <p class="subtitle">
+    Experiment with BFS or concurrency timelines. Drag nodes, visualize relationships!
+  </p>
+
+  <div id="konvaContainer"></div>
+</main>
+
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
+
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<script src="scripts/main.js"></script>
+<script src="scripts/diagram.js"></script>
+</body>
+</html>

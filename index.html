@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="page-home fade-in">
+
 <header>
   <div class="nav-container">
     <div class="brand-area">Ohad’s WeCode</div>
@@ -16,16 +17,23 @@
       <li><a href="resources.html" class="nav-link">Resources</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+
+      <button id="darkModeToggle" class="theme-btn">Dark Mode</button>
     </ul>
   </div>
 </header>
 
 <main class="page-content">
+  <!-- Dark Mode Toggle here only, controlling localStorage -->
+  <button id="darkModeToggle" class="btn" style="margin-bottom:20px;">Dark Mode</button>
+
   <section class="hero-section card slide-up">
     <h1 class="hero-title">Welcome to WeCode</h1>
     <p class="hero-subtitle">
       Elevate Your C++ Skills with advanced modules, real-time progress,
-      integrated quizzes, and a top-tier UI experience.
+      integrated quizzes, interactive diagrams, and a top-tier UI experience.
     </p>
     <a href="exercises.html" class="btn">Get Started</a>
   </section>
@@ -57,7 +65,9 @@
 <footer>
   © 2025 Ohad’s WeCode. All rights reserved.
 </footer>
+
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
 <script src="scripts/main.js"></script>
 </body>
 </html>

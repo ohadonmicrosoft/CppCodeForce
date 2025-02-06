@@ -1,37 +1,64 @@
 /*************************************************************
- * main.js - Updated for "Sunset" style 
+ * main.js
+ * - Scroll-to-top button
+ * - Dark/Light Mode toggle (only on main page)
+ * - getWandboxLink for module lesson links
  *************************************************************/
 
+// SCROLL TO TOP
 document.addEventListener("DOMContentLoaded", () => {
-  // Scroll to top button logic
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   if (scrollToTopBtn) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollToTopBtn.style.display = "flex";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
+      if (window.scrollY > 300) scrollToTopBtn.style.display = "flex";
+      else scrollToTopBtn.style.display = "none";
     });
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+
+  // ---------------------------
+  // DARK/LIGHT MODE TOGGLE
+  // ---------------------------
+  // If 'darkMode' not set in localStorage, default to "false" (white theme)
+  if (localStorage.getItem('darkMode') === null) {
+    localStorage.setItem('darkMode', 'false');
+  }
+
+  // Check if we have a toggle button on this page (only on index/home)
+  const darkToggleBtn = document.getElementById("darkModeToggle");
+  if (darkToggleBtn) {
+    // Initialize button text based on current stored mode
+    const storedDark = localStorage.getItem('darkMode') === 'true';
+    darkToggleBtn.textContent = storedDark ? "Light Mode" : "Dark Mode";
+
+    // On click, invert the mode
+    darkToggleBtn.addEventListener("click", () => {
+      const isDark = localStorage.getItem('darkMode') === 'true';
+      // Switch
+      localStorage.setItem('darkMode', (!isDark).toString());
+      applyDarkMode(!isDark);
+
+      // Update button text
+      darkToggleBtn.textContent = !isDark ? "Light Mode" : "Dark Mode";
+    });
+  }
+
+  // On load, apply stored darkMode to entire site
+  const isDark = localStorage.getItem('darkMode') === 'true';
+  applyDarkMode(isDark);
 });
 
-// Hamburger menu
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-if (menuToggle && navMenu) {
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-  // close menu if clicking outside
-  document.addEventListener("click", (e) => {
-    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-      navMenu.classList.remove("active");
-    }
-  });
+/** applyDarkMode(enable) toggles .dark-mode class on <html>. 
+ *  If enable=true => dark mode, else white (light) mode 
+ */
+function applyDarkMode(enable) {
+  if (enable) {
+    document.documentElement.classList.add('dark-mode');
+  } else {
+    document.documentElement.classList.remove('dark-mode');
+  }
 }
 
 /*************************************************************

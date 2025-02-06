@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="page-module fade-in">
-
 <header>
   <div class="nav-container">
     <div class="brand-area">Ohad’s WeCode</div>
@@ -18,24 +17,20 @@
       <li><a href="resources.html" class="nav-link">Resources</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
     </ul>
   </div>
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
-    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
-    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
-    <span>Module 2</span>
-  </div>
-
   <section class="card fade-in">
     <h1>Module 2: Data Structures &amp; Algorithms</h1>
     <p>
-      Explore arrays, linked lists, sorting, searching, BFS/DFS, and more 
-      fundamental algorithms. This module includes timelines, tasks, and 
-      code practice to solidify your knowledge.
+      Explore arrays, linked lists, sorting, searching, BFS/DFS, etc. 
+      Each lesson features tasks & code practice.
     </p>
+
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
     <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Arrays &amp; Linked Lists</div>
@@ -50,12 +45,12 @@
     <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: Trees &amp; Graphs</h2>
-    <p>Explore tree traversals (in-order, pre-order, post-order) and BFS/DFS on graphs.</p>
+    <p>Explore tree traversals and BFS/DFS on graphs. Watch out for complexities!</p>
     <button class="btn" onclick="openExternalIDE('M2L2')">Open IDE for Lesson 2</button>
     <hr style="margin:20px 0;"/>
 
     <h2>Lesson 3: Sorting &amp; Searching</h2>
-    <p>Dive deeper into sorting algorithms (merge, quicksort) and searching approaches (binary search, BFS for graphs).</p>
+    <p>Dive deeper into mergesort, quicksort, and searching approaches (binary, BFS, etc.).</p>
     <button class="btn" onclick="openExternalIDE('M2L3')">Open IDE for Lesson 3</button>
   </section>
 </main>
@@ -71,7 +66,6 @@ function toggleTimeline(){
   const timeline = document.getElementById("moduleTimeline");
   if(timeline) timeline.classList.toggle("show");
 }
-
 function openExternalIDE(lessonID) {
   const url = getWandboxLink(lessonID);
   window.open(url, "_blank");

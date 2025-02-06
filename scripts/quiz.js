@@ -1,22 +1,24 @@
 /*************************************************************
  * quiz.js
+ * Renders quiz questions from questionBank,
+ * tracks local scoreboard.
  *************************************************************/
+
 let quizStarted = false;
 let quizStartTime = 0;
 let quizInterval = null;
 let scoreboard = JSON.parse(localStorage.getItem("wecodeQuizScoreboard")) || [];
 
-// Example question bank
 const questionBank = [
   {
     text: "Which sorting algorithm has worst-case O(n^2)?",
-    options: ["QuickSort", "MergeSort", "HeapSort", "BubbleSort"],
+    options: ["QuickSort","MergeSort","HeapSort","BubbleSort"],
     correctIndex: 3
   },
   {
     text: "Binary Search requires the list to be...",
     options: ["Non-empty","Sorted","Unique","Doubly Linked"],
-    correctIndex:1
+    correctIndex: 1
   }
 ];
 
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     quizContainer.innerHTML = "";
     questionBank.forEach((q, index) => {
       const questionBlock = document.createElement("div");
+      questionBlock.classList.add("question-block");
       questionBlock.style.marginBottom = "20px";
 
       const questionText = document.createElement("h4");
@@ -73,12 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTimer() {
     const elapsedMs = Date.now() - quizStartTime;
     const seconds = Math.floor(elapsedMs / 1000) % 60;
-    const minutes = Math.floor(elapsedMs / (1000*60));
+    const minutes = Math.floor(elapsedMs / 60000);
     quizTimer.textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
   }
-
   function pad(num) {
-    return (num < 10) ? `0${num}` : num;
+    return num < 10 ? "0"+num : num;
   }
 
   function submitQuiz() {
@@ -99,8 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     quizResult.textContent = `You scored ${score} out of ${questionBank.length}.`;
-    const finalTime = quizTimer.textContent.replace("Time: ", "");
-    let userName = prompt("Enter your name for the scoreboard:", "Anonymous");
+    const finalTime = quizTimer.textContent.replace("Time: ","");
+    let userName = prompt("Enter your name for the scoreboard:","Anonymous");
     if (!userName) userName = "Anonymous";
 
     scoreboard.push({ name: userName, score, time: finalTime });
@@ -125,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Event Listeners
   startBtn.addEventListener("click", startQuiz);
   submitBtn.addEventListener("click", submitQuiz);
 });

@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="page-exercises fade-in">
-
 <header>
   <div class="nav-container">
     <div class="brand-area">Ohad’s WeCode</div>
@@ -17,6 +16,8 @@
       <li><a href="resources.html" class="nav-link">Resources</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
     </ul>
   </div>
 </header>
@@ -24,51 +25,46 @@
 <main class="page-content">
   <h1>Advanced C++ Interview Syllabus</h1>
   <p class="subtitle">
-    Explore interactive modules below for real-world tasks, timelines, and integrated code practice.
+    Explore interactive modules scattered like sticky notes! No overlap, each a quick link to topics.
   </p>
 
-  <div class="modules-grid fade-in">
-    <!-- Each module is a "sticky note" card with random rotation from style.css -->
+  <div class="modules-grid" id="modulesGrid">
+    <!-- We'll have 7 modules, each a .card .course-module. 
+         The script places them with no overlap. -->
     <div class="course-module card">
       <h2>Module 1</h2>
       <p>Foundations &amp; Modern C++</p>
-      <a href="module1.html" class="btn">Go</a>
+      <a href="module1.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 2</h2>
       <p>Data Structures &amp; Algorithms</p>
-      <a href="module2.html" class="btn">Go</a>
+      <a href="module2.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 3</h2>
       <p>Real-Time &amp; Embedded</p>
-      <a href="module3.html" class="btn">Go</a>
+      <a href="module3.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 4</h2>
       <p>Concurrency &amp; Multithreading</p>
-      <a href="module4.html" class="btn">Go</a>
+      <a href="module4.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 5</h2>
       <p>Memory &amp; Debugging</p>
-      <a href="module5.html" class="btn">Go</a>
+      <a href="module5.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 6</h2>
       <p>Templates &amp; Metaprogramming</p>
-      <a href="module6.html" class="btn">Go</a>
+      <a href="module6.html" class="btn">Open</a>
     </div>
-
     <div class="course-module card">
       <h2>Module 7</h2>
       <p>System Design &amp; Advanced</p>
-      <a href="module7.html" class="btn">Go</a>
+      <a href="module7.html" class="btn">Open</a>
     </div>
   </div>
 </main>
@@ -76,7 +72,10 @@
 <footer>
   © 2025 Ohad’s WeCode. All rights reserved.
 </footer>
+
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
+<!-- Our collision-free sticky logic -->
+<script src="scripts/stickyLayout.js"></script>
 </body>
 </html>

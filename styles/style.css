@@ -212,6 +212,45 @@ header {
   box-shadow: 0 0 16px var(--neon-color);
 }
 
+/* 1) Add a style for the new .theme-btn to position it on the right 
+   (just after the nav menu).
+   We can also set a margin-left to separate it from the nav. 
+*/
+.theme-btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 24px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  margin-left: 20px; /* spacing from nav menu */
+}
+
+.theme-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* 2) Dark Mode overrides (only if we want a .dark-mode approach):
+   If you already have a .dark-mode block, just ensure it's up to date. 
+   For example:
+*/
+.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #222 0%, #333 100%);
+  --text-color: #DDDDDD;
+  --heading-color: #FFFFFF;
+  --card-bg: rgba(60,60,60,0.8);
+  --card-border: rgba(255,255,255,0.2);
+  --card-border-hover: #FF7F7F;
+  --neon-color: rgba(255,127,127,0.6);
+  /* etc. as needed */
+}
+
+
 /* ============ 6) ANIMATIONS & TRANSITIONS ============ */
 .fade-in {
   opacity: 0;

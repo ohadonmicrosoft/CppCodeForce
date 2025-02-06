@@ -25,32 +25,27 @@
       <li><a href="resources.html" class="nav-link">Resources</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
     </ul>
   </div>
 </header>
 
 <main class="page-content">
-  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
-    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
-    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
-    <span>Module 7</span>
-  </div>
-
-  <section class="glass module-lessons">
+  <section class="card fade-in">
     <h1 class="fancy-title">Module 7: System Design &amp; Advanced Topics</h1>
     <p>Design patterns, high-level architecture, and advanced scenarios relevant to C++ interviews.</p>
-
     <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline">
+    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
       <div class="timeline-step">Step 1: Common Design Patterns</div>
       <div class="timeline-step">Step 2: High-Level Architecture &amp; Interview Scenarios</div>
     </div>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 1: Design Patterns</h2>
     <p>Singleton, Factory, Observer, and more. Explore modern C++ implementations for each pattern.</p>
     <button class="btn" onclick="openExternalIDE('M7L1')">Open IDE for Lesson 1</button>
-    <hr>
+    <hr style="margin:20px 0;"/>
 
     <h2>Lesson 2: System Architecture &amp; Interview Scenarios</h2>
     <p>Discuss scalable designs, trade-offs, and typical high-level architecture questions in interviews.</p>
@@ -58,10 +53,11 @@
   </section>
 </main>
 
-<footer></footer>
-<p>© 2025 WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
 <script>
 function toggleTimeline(){
@@ -69,7 +65,8 @@ function toggleTimeline(){
   if(timeline) timeline.classList.toggle("show");
 }
 function openExternalIDE(lessonID) {
-  window.open(getWandboxLink(lessonID), "_blank");
+  const url = getWandboxLink(lessonID);
+  window.open(url, "_blank");
 }
 </script>
 </body>

@@ -16,6 +16,8 @@
       <li><a href="resources.html" class="nav-link">Resources</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
     </ul>
   </div>
 </header>
@@ -51,7 +53,6 @@
     </div>
   </div>
 
-  <!-- Example animated progress bar container -->
   <div class="progress-bar-container card fade-in" style="margin-top:30px;">
     <h3 style="margin-bottom:10px;">Overall Completion</h3>
     <div class="progress-bar-fill" id="progressBarFill"></div>
@@ -62,16 +63,17 @@
   © 2025 Ohad’s WeCode. All rights reserved.
 </footer>
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
 <script src="scripts/main.js"></script>
 <script src="scripts/progress.js"></script>
 <script>
-  /* Example: Animate the progress bar to 50% after page load */
+  /* Example: Animate the progress bar to 40% after load */
   document.addEventListener('DOMContentLoaded', () => {
     const barFill = document.getElementById('progressBarFill');
     if (barFill) {
       setTimeout(() => {
-        barFill.style.width = '50%';
-      }, 500); // half second delay
+        barFill.style.width = '40%';
+      }, 500);
     }
   });
 </script>

@@ -1,14 +1,15 @@
 /*************************************************************
  * progress.js
- * - Tracks completed lessons in localStorage
- * - Updates radial progress in #radialProgress
+ * Tracks lessons in localStorage "wecodeCompletedLessons".
+ * Updates radial progress in #radialProgress,
+ * plus any progress bar fill if you want.
  *************************************************************/
 
 const TOTAL_LESSONS = 21;
 const allLessonIDs = [
   "M1L1","M1L2","M1L3",
-  "M2L1","M2L2",
-  "M3L1","M3L2",
+  "M2L1","M2L2","M2L3",
+  "M3L1","M3L2", 
   "M4L1","M4L2",
   "M5L1","M5L2",
   "M6L1","M6L2",
