@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
     
-    // Determine the number of tickets in the carousel
+    // Number of tickets in the carousel
     const numTickets = carousel ? carousel.children.length : 0;
     if (numTickets === 0) return;
     
