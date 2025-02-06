@@ -6,11 +6,10 @@
   <title>Ohad’s WeCode | Home</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="page-home fade-in">
+<body class="page-home">
   <header>
     <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
-      <!-- Mobile Menu Toggle (Hamburger) -->
       <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -22,8 +21,6 @@
         <li><a href="resources.html" class="nav-link">Resources</a></li>
         <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-        <!-- Removed Diagrams and Interview Simulator -->
-        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
         <li>
           <button id="darkModeToggle" class="theme-btn" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
         </li>
@@ -32,15 +29,16 @@
   </header>
 
   <main class="page-content">
-    <section class="hero-section card slide-up">
+    <section class="hero-section card">
+      <!-- Removed fade‑in class from hero title -->
       <h1 class="hero-title">Welcome to WeCode</h1>
       <p class="hero-subtitle">
-        Elevate Your C++ Skills with advanced modules, real-time progress,
-        integrated quizzes, interactive diagrams, and a top‑tier UI experience.
+        Elevate Your C++ Skills with advanced modules, real‑time progress,
+        integrated quizzes, and an interactive IDE.
       </p>
       <a href="exercises.html" class="btn">Get Started</a>
     </section>
-    <section class="features fade-in">
+    <section class="features">
       <div class="feature-card card">
         <h2>Robust Syllabus</h2>
         <p>Master concurrency, embedded, memory, and more—targeted for real interviews.</p>
@@ -51,10 +49,10 @@
       </div>
       <div class="feature-card card">
         <h2>Progress &amp; Quizzes</h2>
-        <p>Track achievements, run timed quizzes, and see your local leaderboard!</p>
+        <p>Track your achievements, run timed quizzes, and see your local leaderboard!</p>
       </div>
     </section>
-    <section class="cta card fade-in">
+    <section class="cta card">
       <h2>Prepare for Your Next Interview</h2>
       <p class="cta-desc">
         Join Ohad’s WeCode and gain the competitive edge you need for modern C++ interviews.

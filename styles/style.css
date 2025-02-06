@@ -1,10 +1,11 @@
 /*************************************************************
- * style.css - Pastel Peach/Pink Theme (Clean Version)
+ * style.css - Pastel Peach/Pink Theme (Enhanced for Mobile)
  * 
  * Features:
  * - Responsive design using CSS Grid and Flexbox.
- * - Consolidated, robust styles for typography, layout, and components.
- * - CSS variables for easy theming (including dark mode overrides).
+ * - Clean, consolidated styles with no experimental fade‑in.
+ * - Mobile-first enhancements for header, navigation, and page layout.
+ * - CSS variables for theming and dark mode.
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
@@ -31,7 +32,7 @@ html {
   --font-heading: 'Fredoka One', cursive;
   --font-body: 'ADLaM Display', sans-serif;
   
-  /* Base Typography */
+  /* Typography */
   --base-font-size: 16px;
   --line-height: 1.5;
   
@@ -44,7 +45,7 @@ html {
   
   /* Card Styles */
   --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: rgba(255, 255, 255, 1);
+  --card-border: #ffffff;
   --card-border-hover: #FF7F7F;
   --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   --card-border-size: 3px;
@@ -78,7 +79,7 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
-  /* Removed entrance animations */
+  /* Removed experimental entrance animations */
 }
 
 /* Headings */
@@ -104,10 +105,10 @@ header {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* Removed header entrance animation */
+  /* Removed header entrance animations */
 }
 
 .nav-container {
@@ -131,7 +132,7 @@ header {
   justify-content: flex-end;
   gap: 30px;
   text-align: right;
-  /* Removed nav entrance animation */
+  /* Removed nav entrance animations */
 }
 
 .nav-link {
@@ -278,7 +279,7 @@ header {
 }
 
 /* ============ 6) OTHER ANIMATIONS ============ */
-/* Slide-up animation */
+/* Slide-up Animation */
 .slide-up {
   opacity: 0;
   transform: translateY(40px);
@@ -311,12 +312,14 @@ header {
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
-  /* Removed hero entrance animation */
+  /* Removed any fade or slide animations for stability */
 }
 
 .page-home .hero-title {
   font-size: clamp(2rem, 3vw + 1rem, 2.4rem);
   margin-bottom: 1em;
+  /* Ensure the title remains static on hover */
+  transition: none;
 }
 
 .page-home .hero-subtitle {
