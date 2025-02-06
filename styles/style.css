@@ -1,16 +1,11 @@
 /*************************************************************
- * style.css - Warmer, More Saturated, with Luckiest Guy Font
- * 
- * Changes:
- *  - Using "Luckiest Guy" for brand & headings
- *  - More "reddish" accent
- *  - Bolder border & glow on card hover
- *  - Larger subtitles
- *  - Sticky note style for exercises
+ * style.css - Light Greenish BG, Reddish Card Borders,
+ *             Fredoka One headings, thicker lines, bigger nav,
+ *             scattered sticky notes (exercises), progress bar.
  *************************************************************/
 
-/* =============== 1) BASE & FONTS =============== */
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=ADLaM+Display&display=swap');
+/* ============ 1) BASE & FONTS ============ */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=ADLaM+Display:wght@400;600&display=swap');
 
 * {
   margin: 0;
@@ -21,44 +16,48 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =============== 2) THEME VARIABLES =============== */
-/* More saturated background with a peach & light pink mix */
+/* ============ 2) THEME VARIABLES ============ */
+/* Light greenish background, more 'mint' or 'pistachio' */
 :root {
-  --bg-gradient: linear-gradient(120deg, #FFE4BF 0%, #FFD2D2 50%, #FFF2DD 100%);
+  --bg-gradient: linear-gradient(120deg, #E3F8D0 0%, #F0FFE0 50%, #ECFFDA 100%);
 
-  /* HEADINGS: Luckiest Guy, BODY: ADLaM Display */
-  --font-heading: 'Luckiest Guy', cursive;
+  /* HEADINGS: Fredoka One (rounded bubble) 
+     BODY/NAV: ADLaM Display (as before) */
+  --font-heading: 'Fredoka One', cursive;
   --font-body: 'ADLaM Display', sans-serif;
 
   /* Colors & Accents */
   --text-color: #3C3C3C;
-  --heading-color: #1F1F1F;
-  --accent-color: #FF7F7F;   /* warmer, reddish accent */
-  --accent-hover: #FF5B5B;
+  --heading-color: #2C2C2C;
 
-  /* Neon behind cards */
-  --neon-color: rgba(255,127,127, 0.35);
+  /* Reddish accent for card borders */
+  --accent-color: #FF6565;
+  --accent-hover: #FF4949;
+
+  /* Neon behind cards (reddish) */
+  --neon-color: rgba(255,101,101, 0.35);
 
   /* Card & Shadows */
   --card-bg: rgba(255,255,255,0.85);
   --card-border: rgba(255,255,255,1.0);
+  --card-border-hover: #FF6565; /* on hover, it becomes redder */
   --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
 
   /* Buttons & Shadows */
-  --btn-shadow: 0 4px 16px rgba(255,127,127,0.3);
-
-  /* Bolder border on hover */
-  --card-border-hover: #FF7F7F;
+  --btn-shadow: 0 4px 16px rgba(255,101,101,0.3);
 
   /* Sizing & Transitions */
   --border-radius: 14px;
   --transition-speed: 0.4s;
-  --base-font-size: 17px;  /* slightly bigger default */
+  --base-font-size: 17px;
   --line-height: 1.6;
   --max-content-width: 1140px;
+
+  /* Thicker card boundary by default */
+  --card-border-size: 3px;
 }
 
-/* =============== 3) GLOBAL BODY & HEADINGS =============== */
+/* ============ 3) GLOBAL BODY & HEADINGS ============ */
 body {
   font-family: var(--font-body);
   font-size: var(--base-font-size);
@@ -75,21 +74,20 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   margin-bottom: 0.5em;
 }
-
-/* Larger headings by default */
+/* Slightly bigger headings */
 h1 { font-size: 3rem; }
 h2 { font-size: 2.4rem; }
 h3 { font-size: 1.8rem; }
 
-/* Larger subtitles or "secondary headings" */
+/* Larger subtitle class if needed */
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem; /* bigger than before */
   margin-bottom: 1em;
   text-align: center;
   color: var(--text-color);
 }
 
-/* =============== 4) NAVIGATION =============== */
+/* ============ 4) NAVIGATION ============ */
 header {
   position: fixed;
   top: 0; left: 0;
@@ -111,7 +109,7 @@ header {
 
 .brand-area {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem; /* bigger brand text */
   color: var(--heading-color);
 }
 
@@ -125,7 +123,7 @@ header {
 .nav-link {
   text-decoration: none;
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* bigger nav */
   font-weight: 700;
   color: var(--heading-color);
   transition: color var(--transition-speed), text-shadow var(--transition-speed);
@@ -135,19 +133,18 @@ header {
   text-shadow: 0 0 4px var(--accent-color);
 }
 
-/* =============== 5) PAGE CONTENT & COMMON CLASSES =============== */
+/* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
 .page-content {
   margin-top: 100px;
   max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Card: with bolder border on hover + neon glow */
+/* Card with thicker boundary */
 .card {
   background: var(--card-bg);
-  border: 2px solid var(--card-border);
+  border: var(--card-border-size) solid var(--card-border);
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
   padding: 24px;
@@ -169,10 +166,10 @@ header {
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  border: 2px solid var(--card-border-hover);
+  border: var(--card-border-size) solid var(--card-border-hover);
 }
 
-/* Buttons: more reddish accent, bigger, etc. */
+/* Buttons: Reddish accent, bigger */
 .btn {
   display: inline-block;
   position: relative;
@@ -190,10 +187,10 @@ header {
 .btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255,127,127,0.4);
+  box-shadow: 0 6px 16px rgba(255,101,101,0.4);
 }
 
-/* Icon Buttons (GitHub/LinkedIn) with bigger glow on hover */
+/* Icons: bigger, red glow on hover */
 .icon-btn {
   display: inline-block;
   width: 52px; height: 52px;
@@ -215,7 +212,7 @@ header {
   box-shadow: 0 0 16px var(--neon-color);
 }
 
-/* =============== 6) ANIMATIONS & TRANSITIONS =============== */
+/* ============ 6) ANIMATIONS & TRANSITIONS ============ */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -235,16 +232,16 @@ header {
   100% {opacity:1; transform: translateY(0);}
 }
 
-/* =============== 7) PAGE-SPECIFIC STYLES =============== */
+/* ============ 7) PAGE-SPECIFIC STYLES ============ */
 
-/* HOME PAGE (.page-home) */
+/* HOME PAGE */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
 }
 .page-home .hero-title {
-  margin-bottom: 1em;
   font-size: 3rem;
+  margin-bottom: 1em;
 }
 .page-home .hero-subtitle {
   max-width: 700px;
@@ -269,48 +266,50 @@ header {
   text-align: center;
 }
 
-/* EXERCISES PAGE (.page-exercises) 
-   "Sticky Note" style with random rotation 
-*/
+/* EXERCISES PAGE - truly scattered "sticky notes" absolute positioning */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.page-exercises .modules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-  position: relative;
+.page-exercises p.subtitle {
+  margin-bottom: 30px;
 }
+/* We'll hide .modules-grid overflow so they can be scattered inside it */
+.page-exercises .modules-grid {
+  position: relative;
+  width: 100%;
+  height: 600px; /* a fixed height for the "scattered" approach */
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+/* Each .course-module is absolutely placed in random positions 
+   This is a big trade-off with responsiveness though. We'll do some nth-child. 
+*/
 .page-exercises .course-module {
+  position: absolute;
+  width: 220px; /* or so */
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-/* "Sticky Note" effect: random small rotation on nth-child */
-.page-exercises .course-module:nth-child(1) { transform: rotate(-3deg); }
-.page-exercises .course-module:nth-child(2) { transform: rotate(3deg); }
-.page-exercises .course-module:nth-child(3) { transform: rotate(-2deg); }
-.page-exercises .course-module:nth-child(4) { transform: rotate(4deg); }
-.page-exercises .course-module:nth-child(5) { transform: rotate(-5deg); }
-.page-exercises .course-module:nth-child(6) { transform: rotate(2deg); }
-.page-exercises .course-module:nth-child(7) { transform: rotate(-1deg); }
+/* Example random positions. Adjust as you wish */
+.page-exercises .course-module:nth-child(1) { top: 50px; left: 80px; transform: rotate(-2deg); }
+.page-exercises .course-module:nth-child(2) { top: 200px; left: 300px; transform: rotate(4deg); }
+.page-exercises .course-module:nth-child(3) { top: 120px; left: 600px; transform: rotate(-3deg); }
+.page-exercises .course-module:nth-child(4) { top: 330px; left: 200px; transform: rotate(5deg); }
+.page-exercises .course-module:nth-child(5) { top: 400px; left: 600px; transform: rotate(-4deg); }
+.page-exercises .course-module:nth-child(6) { top: 250px; left: 900px; transform: rotate(3deg); }
+.page-exercises .course-module:nth-child(7) { top: 70px;  left: 900px; transform: rotate(-1deg); }
 
-/* Adjust card size */
-.page-exercises .course-module.card {
-  width: auto; /* let the grid define the width */
-}
-
-/* RESOURCES PAGE (.page-resources) */
+/* RESOURCES PAGE */
 .page-resources h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .page-resources .resources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 24px;
   margin-top: 30px;
   justify-items: center;
@@ -320,15 +319,16 @@ header {
   text-align: center;
 }
 .page-resources .resource-card h2 {
-  font-size: 1.4rem; /* bigger subtitle inside card */
+  font-size: 1.4rem;
   margin-bottom: 0.6em;
 }
 
-/* PROGRESS PAGE (.page-progress) */
+/* PROGRESS PAGE */
 .page-progress h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+/* radial progress + progress bar etc. */
 .page-progress .progress-radial {
   margin: 0 auto;
 }
@@ -342,8 +342,23 @@ header {
   width: 220px;
   text-align: center;
 }
+/* Example "progress bar" container */
+.page-progress .progress-bar-container {
+  max-width: 500px;
+  margin: 30px auto;
+  background: rgba(255,255,255,0.6);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--accent-color);
+}
+.page-progress .progress-bar-fill {
+  width: 0%;
+  background: var(--accent-color);
+  height: 20px;
+  transition: width 1s ease;
+}
 
-/* PORTFOLIO PAGE (.page-portfolio) */
+/* PORTFOLIO PAGE */
 .page-portfolio h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -366,7 +381,7 @@ header {
   text-align: center;
 }
 
-/* QUIZ PAGE (.page-quiz) */
+/* QUIZ PAGE */
 .page-quiz h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -379,7 +394,7 @@ header {
   margin: 0 auto;
 }
 
-/* MODULE PAGES (.page-module) */
+/* MODULE PAGES */
 .page-module h1 {
   margin-top: 20px;
   margin-bottom: 16px;
@@ -439,6 +454,9 @@ footer {
   }
   h1 { font-size: 2.4rem; }
   h2 { font-size: 2rem; }
+  .page-exercises .modules-grid {
+    height: 900px; /* bigger for smaller screens if you want more scattering space */
+  }
 }
 @media (max-width: 480px) {
   .btn {
@@ -446,8 +464,13 @@ footer {
     padding: 10px 20px;
   }
   .scroll-to-top-btn {
-    bottom: 20px; right: 20px;
+    bottom: 20px; 
+    right: 20px;
   }
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.4rem; }
+
+  /* If you want to disable absolute scattering for the smallest screens, 
+     you can override or re-position them differently. 
+   */
 }
