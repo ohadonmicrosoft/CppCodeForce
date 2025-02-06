@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Exercises</title>
   <link rel="stylesheet" href="styles/style.css">
-  <!-- Interact.js removed as it's no longer needed for dragging -->
+  <!-- No need for Interact.js -->
 </head>
 <body class="page-exercises fade-in">
   <header>
@@ -26,12 +26,12 @@
   <main class="page-content">
     <h1>Advanced C++ Interview Syllabus</h1>
     <p class="subtitle">
-      Explore interactive modules presented as 3D tickets! Each ticket is a quick link to a topic.
+      Explore interactive modules presented as 3D tickets! Use the navigation buttons to move between modules.
     </p>
 
-    <!-- NEW: Wrapper for the spinning carousel -->
-    <div class="modules-wrapper">
-      <div class="modules-grid" id="modulesGrid">
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
         <!-- Module Tickets -->
         <div class="course-module card">
           <h2>Module 1</h2>
@@ -69,6 +69,9 @@
           <a href="module7.html" class="btn">Open</a>
         </div>
       </div>
+      <!-- Navigation Buttons -->
+      <button class="nav-button prev-button" id="prevBtn">&larr; Prev</button>
+      <button class="nav-button next-button" id="nextBtn">Next &rarr;</button>
     </div>
   </main>
 
@@ -78,5 +81,6 @@
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
+  <script src="scripts/carousel.js"></script>
 </body>
 </html>

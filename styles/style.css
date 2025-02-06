@@ -567,74 +567,92 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-/* ----- NEW: Circular Spinning 3D Ticket Carousel (Ticket Well) for Exercises Modules ----- */
-/* Wrap the modules-grid in a container that spins in discrete steps */
+//* ----- NEW: 3D Spinning Ticket Carousel with Navigation ----- */
 
-.modules-wrapper {
+/* Carousel container to hold the spinning carousel and navigation */
+.carousel-container {
   position: relative;
   width: 500px;
   height: 500px;
   margin: 40px auto;
-  border-radius: 50%;
-  overflow: hidden;
   perspective: 1000px;
-  /* Spin in 7 discrete steps (for 7 tickets) over 28s (i.e., 4s per step) */
-  animation: spinCarousel 28s steps(7) infinite;
 }
 
-@keyframes spinCarousel {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Reset the modules-grid inside the wrapper */
-.modules-wrapper .modules-grid {
+/* The carousel that holds all the module tickets arranged in a circle */
+.carousel {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  /* Remove any previous flex or absolute rules from the original layout */
-  display: block;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
 }
 
-/* Position each module ticket around the circle */
-.modules-wrapper .modules-grid .course-module {
+/* Style each ticket (override any previous absolute/flex rules for modules) */
+.carousel .course-module {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px; /* ticket width; adjust as needed */
+  width: 200px; /* Ticket width (adjust as needed) */
   transform-origin: center center;
-  /* Optional: add a 3D effect to the ticket itself */
+  /* Additional 3D ticket styling (can be merged with your .card styles) */
+  background: var(--card-bg);
+  border: var(--card-border-size) solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 24px;
   transition: transform 0.4s, box-shadow 0.4s;
+  text-align: center;
+  /* Ensure internal elements (h2, p, etc.) inherit properly */
 }
-
-/* Arrange tickets evenly around the circle (7 tickets, 360/7 ≈ 51.43° apart) */
-.modules-wrapper .modules-grid .course-module:nth-child(1) {
-  transform: rotate(0deg) translate(200px) rotate(0deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(2) {
-  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(3) {
-  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(4) {
-  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(5) {
-  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(6) {
-  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg);
-}
-.modules-wrapper .modules-grid .course-module:nth-child(7) {
-  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
-}
-
-/* Optional: Hover effect for individual tickets (this effect is independent of carousel spin) */
-.modules-wrapper .modules-grid .course-module:hover {
+.carousel .course-module:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
-/* ----- END NEW: Circular Spinning 3D Ticket Carousel ----- */
+
+/* Arrange the tickets evenly around the circle (7 tickets → 360/7 ≈ 51.43° apart) */
+.carousel .course-module:nth-child(1) {
+  transform: rotate(0deg) translate(200px) rotate(0deg);
+}
+.carousel .course-module:nth-child(2) {
+  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg);
+}
+.carousel .course-module:nth-child(3) {
+  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg);
+}
+.carousel .course-module:nth-child(4) {
+  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg);
+}
+.carousel .course-module:nth-child(5) {
+  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg);
+}
+.carousel .course-module:nth-child(6) {
+  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg);
+}
+.carousel .course-module:nth-child(7) {
+  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
+}
+
+/* Navigation buttons for the carousel */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background 0.3s;
+}
+.nav-button:hover {
+  background: var(--accent-hover);
+}
+.prev-button {
+  left: -80px; /* adjust as needed */
+}
+.next-button {
+  right: -80px; /* adjust as needed */
+}
