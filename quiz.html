@@ -15,11 +15,40 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-      <ul class="nav-menu">
+      <!-- FIX APPLIED: Added id="navMenu" -->
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="exercises.html" class="nav-link">Exercises</a></li>
         <li><a href="progress.html" class="nav-link">Progress</a></li>
         <li><a href="resources.html" class="nav-link">Resources</a></li>
         <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         <!-- Removed Diagrams and Interview Simulator -->
-        <li><a href="embedded-ide.html" class="nav-link">IDE
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="page-content">
+    <h1>Quiz</h1>
+    <div id="quiz-container" class="quiz-container">
+      <!-- Quiz questions will be dynamically inserted here -->
+    </div>
+    <div id="quiz-timer">Time: 00:00</div>
+    <button id="start-quiz" class="btn">Start Quiz</button>
+    <button id="submit-quiz" class="btn" style="display:none;">Submit Quiz</button>
+    <div id="quiz-result"></div>
+    <div id="leaderboard" style="display:none;">
+      <h3>Leaderboard</h3>
+      <div id="leaderboard-entries"></div>
+    </div>
+  </main>
+  
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/quiz.js"></script>
+</body>
+</html>
