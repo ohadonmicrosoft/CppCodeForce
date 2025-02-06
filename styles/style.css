@@ -568,9 +568,9 @@ footer {
 }
 
 
-/* ----- NEW: 3D Ticket Carousel with Navigation ----- */
+/* ----- NEW: 3D Ticket Carousel with Manual Navigation ----- */
 
-/* Carousel Container: centers the carousel on the page with fixed dimensions */
+/* Carousel Container: centers the carousel on the page */
 .carousel-container {
   position: relative;
   width: 500px;
@@ -579,7 +579,7 @@ footer {
   perspective: 1000px;
 }
 
-/* The Carousel: this element will be rotated via JavaScript */
+/* Carousel: this element will be rotated via JavaScript */
 .carousel {
   position: absolute;
   width: 100%;
@@ -588,18 +588,18 @@ footer {
   transition: transform 1s ease;
 }
 
-/* Style each module ticket within the carousel */
+/* Style each ticket within the carousel */
 .carousel .course-module {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px; /* Ticket width */
+  width: 200px; /* Adjust ticket width as needed */
   transform-origin: center center;
   /* Merge with your card styles */
   background: var(--card-bg);
   border: var(--card-border-size) solid var(--card-border);
   border-radius: var(--border-radius);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   padding: 24px;
   transition: transform 0.4s, box-shadow 0.4s;
   text-align: center;
@@ -609,7 +609,7 @@ footer {
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
-/* Arrange the tickets evenly around a circle (for 7 tickets, approximately 360/7 ≈ 51.43° apart) */
+/* Arrange the tickets evenly around a circle (for 7 tickets, ~360/7 ≈ 51.43° apart) */
 .carousel .course-module:nth-child(1) {
   transform: rotate(0deg) translate(200px) rotate(0deg);
 }
@@ -656,4 +656,3 @@ footer {
 .next-button {
   right: -80px; /* Adjust as needed */
 }
-/* ----- END NEW: 3D Ticket Carousel with Navigation ----- */
