@@ -35,21 +35,26 @@
   </header>
   
   <main class="page-content">
-    <h1>Embedded Advanced Code Editor</h1>
-    <p class="subtitle">
-      Write, run, and debug your C++ code directly in your browser!
-    </p>
-    <!-- Monaco Editor Container -->
-    <div id="ideContainer"></div>
-    <!-- IDE Controls -->
-    <div class="ide-controls">
-      <button id="runCodeBtn" class="btn" aria-label="Run Code">Run Code</button>
-      <button id="formatCodeBtn" class="btn" aria-label="Format Code">Format Code</button>
-      <button id="viewDocBtn" class="btn" aria-label="View Documentation">View Documentation</button>
-    </div>
-    <!-- Output Console -->
-    <h2>Output</h2>
-    <div id="output">Your program output will appear here...</div>
+    <!-- Lesson Information Section -->
+    <section class="card fade-in">
+      <h1 id="lessonTitle">Embedded Advanced Code Editor</h1>
+      <p id="lessonDescription">Your exercise description will appear here.</p>
+    </section>
+    
+    <!-- IDE Section -->
+    <section class="card fade-in">
+      <div id="ideContainer"></div>
+      <!-- IDE Controls -->
+      <div class="ide-controls">
+        <button id="runCodeBtn" class="btn" aria-label="Run Code">Run Code</button>
+        <button id="formatCodeBtn" class="btn" aria-label="Format Code">Format Code</button>
+        <button id="viewDocBtn" class="btn" aria-label="View Documentation">View Documentation</button>
+      </div>
+      <!-- Output Console -->
+      <h2>Output</h2>
+      <div id="output">Your program output will appear here...</div>
+    </section>
+    
     <!-- Documentation Modal -->
     <div id="docModal" class="modal" aria-hidden="true">
       <div class="modal-content">

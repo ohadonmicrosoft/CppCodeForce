@@ -1,0 +1,159 @@
+{
+    "modules": {
+      "M1": {
+        "title": "Foundations & Modern C++",
+        "description": "Covering the basics of modern C++, including RAII, smart pointers, lambdas, and STL usage.",
+        "lessons": {
+          "L1": {
+            "title": "RAII & Constructors",
+            "description": "Implement a FileWrapper class that opens a file in its constructor and closes it in its destructor. Ensure error handling is in place when opening the file.",
+            "initialCode": "#include <iostream>\n#include <fstream>\n\nclass FileWrapper {\npublic:\n    FileWrapper(const std::string &filename) {\n        file.open(filename);\n        if (!file.is_open()) {\n            std::cerr << \"Error opening file\" << std::endl;\n        }\n    }\n    ~FileWrapper() {\n        if (file.is_open()) {\n            file.close();\n        }\n    }\nprivate:\n    std::fstream file;\n};\n\nint main() {\n    FileWrapper fw(\"example.txt\");\n    // Write your code here\n    return 0;\n}\n",
+            "hints": [ "Remember to include proper error checking when opening a file.", "Use RAII to automatically release resources." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/io/basic_fstream", "https://isocpp.org/wiki/faq/ctors#raii" ]
+          },
+          "L2": {
+            "title": "Smart Pointers & Move Semantics",
+            "description": "Learn to use std::unique_ptr and std::shared_ptr for dynamic memory management. Demonstrate move semantics by transferring ownership of a unique pointer.",
+            "initialCode": "#include <iostream>\n#include <memory>\n\nint main() {\n    std::unique_ptr<int> ptr1 = std::make_unique<int>(42);\n    std::shared_ptr<int> ptr2 = std::make_shared<int>(100);\n\n    // Demonstrate move semantics\n    std::unique_ptr<int> ptr3 = std::move(ptr1);\n    if (!ptr1) {\n        std::cout << \"ptr1 is now empty after move.\" << std::endl;\n    }\n    return 0;\n}\n",
+            "hints": [ "Remember that std::move transfers ownership.", "Check if a unique_ptr is null after moving." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/memory/unique_ptr", "https://en.cppreference.com/w/cpp/memory/shared_ptr" ]
+          },
+          "L3": {
+            "title": "Lambdas & STL Algorithms",
+            "description": "Use lambda expressions in combination with STL algorithms such as std::remove_if and std::for_each to process a container.",
+            "initialCode": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint main() {\n    std::vector<int> numbers = {1, 2, 3, 4, 5, 6};\n\n    // Remove even numbers using a lambda\n    numbers.erase(std::remove_if(numbers.begin(), numbers.end(), [](int n){ return n % 2 == 0; }), numbers.end());\n\n    // Print remaining numbers\n    std::for_each(numbers.begin(), numbers.end(), [](int n){ std::cout << n << \" \"; });\n    std::cout << std::endl;\n\n    return 0;\n}\n",
+            "hints": [ "Lambda functions provide inline function definitions.", "std::remove_if does not actually remove elements; you need to erase them afterward." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/algorithm/remove", "https://en.cppreference.com/w/cpp/utility/functional/lambda" ]
+          }
+        }
+      },
+      "M2": {
+        "title": "Data Structures & Algorithms",
+        "description": "Explore fundamental data structures such as arrays, linked lists, trees, and graphs, as well as classical sorting and searching algorithms.",
+        "lessons": {
+          "L1": {
+            "title": "Arrays & Linked Lists",
+            "description": "Implement basic operations such as insertion, deletion, and traversal on arrays and linked lists. Analyze the time complexities of each operation.",
+            "initialCode": "#include <iostream>\n\n// Example: Working with a simple static array\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    // Write your code to manipulate the array or implement a linked list\n    return 0;\n}\n",
+            "hints": [ "Remember that arrays have a fixed size.", "Linked lists allow dynamic insertion and deletion but require pointer management." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/container/array", "https://en.cppreference.com/w/cpp/container/list" ]
+          },
+          "L2": {
+            "title": "Trees & Graphs",
+            "description": "Implement basic tree traversals (inorder, preorder, postorder) and explore graph search algorithms such as BFS and DFS.",
+            "initialCode": "#include <iostream>\n// Write your tree/graph implementation here\nint main() {\n    // Initialize and traverse your data structure\n    return 0;\n}\n",
+            "hints": [ "Consider recursive implementations for tree traversals.", "Use a queue for BFS and a stack or recursion for DFS." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/container/vector", "https://en.wikipedia.org/wiki/Graph_traversal" ]
+          },
+          "L3": {
+            "title": "Sorting & Searching",
+            "description": "Implement and compare classic sorting algorithms like mergesort and quicksort, and implement binary search on sorted arrays.",
+            "initialCode": "#include <iostream>\n#include <vector>\n\n// Example: Binary search implementation\nint main() {\n    std::vector<int> sortedArray = {1, 3, 5, 7, 9};\n    // Write your binary search implementation here\n    return 0;\n}\n",
+            "hints": [ "Binary search works only on sorted arrays.", "Divide and conquer is a common strategy for sorting." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/algorithm/sort", "https://en.cppreference.com/w/cpp/algorithm/binary_search" ]
+          }
+        }
+      },
+      "M3": {
+        "title": "Real-Time & Embedded Systems",
+        "description": "Focus on real-time operating systems, interrupts, and concurrency in embedded systems. Learn how to design for deterministic behavior.",
+        "lessons": {
+          "L1": {
+            "title": "RTOS Basics",
+            "description": "Understand how tasks are scheduled in a real-time operating system (RTOS) and the importance of deterministic task management.",
+            "initialCode": "#include <iostream>\n// Pseudo-code for RTOS task scheduling\nint main() {\n    // Initialize RTOS and create tasks\n    return 0;\n}\n",
+            "hints": [ "RTOS scheduling is different from general-purpose OS scheduling.", "Focus on task priorities and timing constraints." ],
+            "resources": [ "https://www.freertos.org/", "https://en.wikipedia.org/wiki/Real-time_operating_system" ]
+          },
+          "L2": {
+            "title": "Interrupts & Embedded Concurrency",
+            "description": "Design basic interrupt handlers for microcontrollers and manage concurrent processes in an embedded environment.",
+            "initialCode": "#include <iostream>\n// Example: Pseudo-code for interrupt handling in an embedded system\nint main() {\n    // Setup interrupt handlers\n    return 0;\n}\n",
+            "hints": [ "Interrupts must be handled quickly and efficiently.", "Be aware of shared resource access and synchronization." ],
+            "resources": [ "https://en.wikipedia.org/wiki/Interrupt", "https://www.embedded.com/introduction-to-interrupts/" ]
+          }
+        }
+      },
+      "M4": {
+        "title": "Concurrency & Multithreading",
+        "description": "Dive into creating and managing threads, using mutexes for synchronization, and designing lock‑free data structures in C++.",
+        "lessons": {
+          "L1": {
+            "title": "Thread Basics",
+            "description": "Learn how to create, run, and join threads in C++. Understand the basics of thread lifecycle management.",
+            "initialCode": "#include <iostream>\n#include <thread>\n\nvoid hello() {\n    std::cout << \"Hello from thread!\" << std::endl;\n}\n\nint main() {\n    std::thread t(hello);\n    t.join();\n    return 0;\n}\n",
+            "hints": [ "Always join or detach your threads to avoid undefined behavior.", "Threads run concurrently with the main thread." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/thread", "https://www.ibm.com/developerworks/library/l-multithread/index.html" ]
+          },
+          "L2": {
+            "title": "Mutexes & Synchronization",
+            "description": "Use mutexes to protect shared data and avoid race conditions. Learn about lock guards and deadlock prevention techniques.",
+            "initialCode": "#include <iostream>\n#include <thread>\n#include <mutex>\n\nstd::mutex mtx;\n\nvoid printMessage(const std::string &msg) {\n    std::lock_guard<std::mutex> lock(mtx);\n    std::cout << msg << std::endl;\n}\n\nint main() {\n    std::thread t1(printMessage, \"Thread 1\");\n    std::thread t2(printMessage, \"Thread 2\");\n    t1.join();\n    t2.join();\n    return 0;\n}\n",
+            "hints": [ "Use std::lock_guard to automatically lock and unlock a mutex.", "Avoid holding locks for long periods to reduce contention." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/thread/mutex", "https://www.ibm.com/developerworks/library/l-multithread/index.html" ]
+          }
+        }
+      },
+      "M5": {
+        "title": "Memory Management & Debugging",
+        "description": "Focus on manual memory management using new/delete and modern memory management using smart pointers. Learn debugging techniques with tools like GDB and Valgrind.",
+        "lessons": {
+          "L1": {
+            "title": "Manual Memory Allocation",
+            "description": "Practice using new and delete to manage dynamic memory. Learn how to avoid common pitfalls such as memory leaks and dangling pointers.",
+            "initialCode": "#include <iostream>\n\nint main() {\n    int *ptr = new int(10);\n    // Use the pointer here\n    delete ptr;\n    return 0;\n}\n",
+            "hints": [ "Always delete memory allocated with new to avoid leaks.", "Be cautious with pointer arithmetic and ownership." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/memory/new", "https://isocpp.org/wiki/faq/dtors#smart-ptr" ]
+          },
+          "L2": {
+            "title": "Smart Pointers & Debugging Tools",
+            "description": "Utilize std::unique_ptr and std::shared_ptr to automate memory management and learn how to use debugging tools like GDB and Valgrind for troubleshooting.",
+            "initialCode": "#include <iostream>\n#include <memory>\n\nint main() {\n    std::unique_ptr<int> smartPtr = std::make_unique<int>(20);\n    // Use smartPtr as needed\n    return 0;\n}\n",
+            "hints": [ "Smart pointers help avoid common memory management errors.", "Familiarize yourself with debugging tools to inspect runtime behavior." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/memory/unique_ptr", "https://valgrind.org/" ]
+          }
+        }
+      },
+      "M6": {
+        "title": "Templates & Metaprogramming",
+        "description": "Learn advanced techniques in C++ such as templates, SFINAE, and compile-time type checking using type traits.",
+        "lessons": {
+          "L1": {
+            "title": "Template Fundamentals",
+            "description": "Implement function and class templates, and understand instantiation rules and partial specialization in C++.",
+            "initialCode": "#include <iostream>\n\n// Example: Generic function template\ntemplate <typename T>\nT add(T a, T b) {\n    return a + b;\n}\n\nint main() {\n    std::cout << add(2, 3) << std::endl;\n    return 0;\n}\n",
+            "hints": [ "Templates allow generic programming.", "Test your template with different types to see how instantiation works." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/language/template", "https://www.modernescpp.com/index.php/templates" ]
+          },
+          "L2": {
+            "title": "SFINAE & Type Traits",
+            "description": "Explore Substitution Failure Is Not An Error (SFINAE) and how to use std::enable_if and type traits for compile-time checks.",
+            "initialCode": "#include <iostream>\n#include <type_traits>\n\n// Example using std::enable_if\ntemplate <typename T>\ntypename std::enable_if<std::is_integral<T>::value, T>::type\nincrement(T value) {\n    return value + 1;\n}\n\nint main() {\n    std::cout << increment(5) << std::endl;\n    return 0;\n}\n",
+            "hints": [ "SFINAE helps you write functions that work only with certain types.", "Use type traits to enforce constraints at compile-time." ],
+            "resources": [ "https://en.cppreference.com/w/cpp/types/enable_if", "https://en.cppreference.com/w/cpp/types/type_traits" ]
+          }
+        }
+      },
+      "M7": {
+        "title": "System Design & Advanced Topics",
+        "description": "Discuss advanced topics in system design, including design patterns, high-level architecture, and real-world interview scenarios.",
+        "lessons": {
+          "L1": {
+            "title": "Design Patterns",
+            "description": "Implement common design patterns like Singleton, Factory, and Observer using modern C++ techniques.",
+            "initialCode": "#include <iostream>\n\nclass Singleton {\npublic:\n    static Singleton& getInstance() {\n        static Singleton instance;\n        return instance;\n    }\nprivate:\n    Singleton() {}\n    Singleton(const Singleton&) = delete;\n    void operator=(const Singleton&) = delete;\n};\n\nint main() {\n    Singleton &s = Singleton::getInstance();\n    // Use the singleton instance\n    return 0;\n}\n",
+            "hints": [ "Design patterns solve common software design problems.", "Ensure your Singleton implementation prevents multiple instantiations." ],
+            "resources": [ "https://refactoring.guru/design-patterns/singleton", "https://en.wikipedia.org/wiki/Design_Patterns" ]
+          },
+          "L2": {
+            "title": "System Architecture & Interview Scenarios",
+            "description": "Discuss scalable system designs, architectural trade-offs, and common interview questions related to high-level design.",
+            "initialCode": "#include <iostream>\n\n// Pseudo-code for system design discussion\nint main() {\n    // Outline your system design\n    return 0;\n}\n",
+            "hints": [ "System design interviews focus on scalability, reliability, and maintainability.", "Prepare to discuss trade-offs in your design choices." ],
+            "resources": [ "https://www.educative.io/courses/grokking-the-system-design-interview", "https://www.scaledagileframework.com/" ]
+          }
+        }
+      }
+    }
+  }
+  

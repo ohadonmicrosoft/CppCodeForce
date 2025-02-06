@@ -1,6 +1,11 @@
 // scripts/embedded-ide.js
 
 document.addEventListener("DOMContentLoaded", function() {
+  // Parse URL parameters to get module and lesson IDs
+  const urlParams = new URLSearchParams(window.location.search);
+  const moduleID = urlParams.get("module");
+  const lessonID = urlParams.get("lesson");
+
   // Configure the Monaco Editor loader with the CDN path.
   require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs' }});
 
@@ -9,22 +14,48 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById('ideContainer');
     if (container) {
       window.editor = monaco.editor.create(container, {
-        value: [
-          '#include <iostream>',
-          '',
-          'int main() {',
-          '    std::cout << "Hello, WeCode!" << std::endl;',
-          '    return 0;',
-          '}'
-        ].join('\n'),
+        value: "// Your code will load here based on the selected exercise\n",
         language: 'cpp',
         theme: 'vs-light'
       });
       console.log("Monaco Editor created successfully");
+      // After editor is initialized, load exercise data if provided
+      if (moduleID && lessonID) {
+        loadExerciseData();
+      }
     } else {
       console.error("IDE container not found.");
     }
   });
+
+  // Function to load exercise data from exercises.json
+  async function loadExerciseData() {
+    try {
+      const response = await fetch("exercises.json");
+      if (!response.ok) {
+        throw new Error("Failed to load exercise data");
+      }
+      const data = await response.json();
+      const lessonData = data.modules[moduleID]?.lessons[lessonID];
+      if (!lessonData) {
+        console.error("Exercise data not found for", moduleID, lessonID);
+        return;
+      }
+
+      // Update lesson title and description
+      const lessonTitleEl = document.getElementById("lessonTitle");
+      const lessonDescEl = document.getElementById("lessonDescription");
+      if (lessonTitleEl) lessonTitleEl.textContent = lessonData.title;
+      if (lessonDescEl) lessonDescEl.textContent = lessonData.description;
+
+      // Update Monaco Editor content with initial code from lesson data
+      if (window.editor) {
+        window.editor.setValue(lessonData.initialCode);
+      }
+    } catch (error) {
+      console.error("Error loading exercise data:", error);
+    }
+  }
 
   // Function to run code via the Wandbox API.
   async function runCode() {
@@ -76,8 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const code = window.editor.getValue();
     try {
       // For C++ formatting, Prettier does not have a dedicated parser.
-      // If you have a custom C++ formatter or use a different parser, update accordingly.
-      // Here, we use the Babel parser as a demonstration.
+      // Using Babel parser as demonstration.
       const formatted = prettier.format(code, {
         parser: "babel",
         plugins: prettierPlugins
@@ -104,6 +134,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Attach our event listeners after DOM content is loaded.
   attachIDEButtons();
 });
