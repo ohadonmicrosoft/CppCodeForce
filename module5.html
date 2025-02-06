@@ -8,73 +8,66 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-<header>
-  <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <span class="brand-title">Ohad’s WeCode</span>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <!-- Removed Diagrams and Interview Simulator -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+      </ul>
     </div>
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+  </header>
+
+  <main class="page-content">
+    <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
+      <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
+      <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
+      <span>Module 5</span>
     </div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-      <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
-    </ul>
-  </div>
-</header>
 
-<main class="page-content">
-  <div class="breadcrumb" style="margin-bottom:20px; text-align:left;">
-    <a href="index.html" style="color: var(--accent-color);">Home</a> &gt;
-    <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
-    <span>Module 5</span>
-  </div>
+    <section class="card fade-in">
+      <h1>Module 5: Memory Management &amp; Debugging</h1>
+      <p>Efficient memory handling, pointers (manual &amp; smart), and debugging tools in C++.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
+        <div class="timeline-step">Step 1: Manual Memory Allocation</div>
+        <div class="timeline-step">Step 2: Smart Pointers &amp; Debugging Tools</div>
+      </div>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 1: Manual Memory Allocation</h2>
+      <p>Use <code>new</code> and <code>delete</code> responsibly, avoid memory leaks and dangling pointers.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 1</button>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 2: Smart Pointers &amp; Debugging Tools</h2>
+      <p>Leverage <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, Valgrind, and GDB for robust code.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 2</button>
+    </section>
+  </main>
 
-  <section class="card fade-in">
-    <h1>Module 5: Memory Management &amp; Debugging</h1>
-    <p>Efficient memory handling, pointers (manual &amp; smart), and debugging tools in C++.</p>
-    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
-      <div class="timeline-step">Step 1: Manual Memory Allocation</div>
-      <div class="timeline-step">Step 2: Smart Pointers &amp; Debugging Tools</div>
-    </div>
-    <hr style="margin:20px 0;"/>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-    <h2>Lesson 1: Manual Memory Allocation</h2>
-    <p>Use <code>new</code> and <code>delete</code> responsibly, avoid memory leaks and dangling pointers.</p>
-    <button class="btn" onclick="openExternalIDE('M5L1')">Open IDE for Lesson 1</button>
-    <hr style="margin:20px 0;"/>
-
-    <h2>Lesson 2: Smart Pointers &amp; Debugging Tools</h2>
-    <p>Leverage <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, Valgrind, and GDB for robust code.</p>
-    <button class="btn" onclick="openExternalIDE('M5L2')">Open IDE for Lesson 2</button>
-  </section>
-</main>
-
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
-
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-<script src="scripts/main.js"></script>
-<script>
-function toggleTimeline(){
-  const timeline = document.getElementById("moduleTimeline");
-  if(timeline) timeline.classList.toggle("show");
-}
-function openExternalIDE(lessonID) {
-  const url = getWandboxLink(lessonID);
-  window.open(url, "_blank");
-}
-</script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <script src="scripts/main.js"></script>
+  <script>
+    function toggleTimeline(){
+      const timeline = document.getElementById("moduleTimeline");
+      if(timeline) timeline.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>

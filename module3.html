@@ -8,67 +8,60 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-<header>
-  <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <span class="brand-title">Ohad’s WeCode</span>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <!-- Removed Diagrams and Interview Simulator -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+      </ul>
     </div>
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-      <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
-    </ul>
-  </div>
-</header>
+  </header>
 
-<main class="page-content">
-  <section class="card fade-in">
-    <h1>Module 3: Real-Time &amp; Embedded Systems</h1>
-    <p>Focus on RTOS fundamentals, concurrency in embedded, interrupts, and hardware debugging.</p>
-    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
-      <div class="timeline-step">Step 1: Intro to RTOS</div>
-      <div class="timeline-step">Step 2: Interrupts &amp; Concurrency</div>
-    </div>
-    <hr style="margin:20px 0;"/>
+  <main class="page-content">
+    <section class="card fade-in">
+      <h1>Module 3: Real-Time &amp; Embedded Systems</h1>
+      <p>Focus on RTOS fundamentals, concurrency in embedded, interrupts, and hardware debugging.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
+        <div class="timeline-step">Step 1: Intro to RTOS</div>
+        <div class="timeline-step">Step 2: Interrupts &amp; Concurrency</div>
+      </div>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 1: RTOS Basics</h2>
+      <p>Understand how tasks are scheduled in real-time operating systems, managing priorities deterministically.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 1</button>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 2: Interrupts &amp; Embedded Concurrency</h2>
+      <p>Design basic interrupt handlers, handle concurrency on microcontrollers, and avoid pitfalls.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 2</button>
+    </section>
+  </main>
 
-    <h2>Lesson 1: RTOS Basics</h2>
-    <p>Understand how tasks are scheduled in real-time operating systems, managing priorities deterministically.</p>
-    <button class="btn" onclick="openExternalIDE('M3L1')">Open IDE for Lesson 1</button>
-    <hr style="margin:20px 0;"/>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-    <h2>Lesson 2: Interrupts &amp; Embedded Concurrency</h2>
-    <p>Design basic interrupt handlers, handle concurrency on microcontrollers, and avoid pitfalls.</p>
-    <button class="btn" onclick="openExternalIDE('M3L2')">Open IDE for Lesson 2</button>
-  </section>
-</main>
-
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
-
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-<script src="scripts/main.js"></script>
-<script>
-function toggleTimeline(){
-  const timeline = document.getElementById("moduleTimeline");
-  if(timeline) timeline.classList.toggle("show");
-}
-function openExternalIDE(lessonID) {
-  const url = getWandboxLink(lessonID);
-  window.open(url, "_blank");
-}
-</script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <script src="scripts/main.js"></script>
+  <script>
+    function toggleTimeline(){
+      const timeline = document.getElementById("moduleTimeline");
+      if(timeline) timeline.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>

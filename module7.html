@@ -8,67 +8,60 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-<header>
-  <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <span class="brand-title">Ohad’s WeCode</span>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <!-- Removed Diagrams and Interview Simulator -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+      </ul>
     </div>
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-      <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
-    </ul>
-  </div>
-</header>
+  </header>
 
-<main class="page-content">
-  <section class="card fade-in">
-    <h1 class="fancy-title">Module 7: System Design &amp; Advanced Topics</h1>
-    <p>Design patterns, high-level architecture, and advanced scenarios relevant to C++ interviews.</p>
-    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
-      <div class="timeline-step">Step 1: Common Design Patterns</div>
-      <div class="timeline-step">Step 2: High-Level Architecture &amp; Interview Scenarios</div>
-    </div>
-    <hr style="margin:20px 0;"/>
+  <main class="page-content">
+    <section class="card fade-in">
+      <h1 class="fancy-title">Module 7: System Design &amp; Advanced Topics</h1>
+      <p>Design patterns, high-level architecture, and advanced scenarios relevant to C++ interviews.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
+        <div class="timeline-step">Step 1: Common Design Patterns</div>
+        <div class="timeline-step">Step 2: High-Level Architecture &amp; Interview Scenarios</div>
+      </div>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 1: Design Patterns</h2>
+      <p>Singleton, Factory, Observer, and more. Explore modern C++ implementations for each pattern.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 1</button>
+      <hr style="margin:20px 0;"/>
+      <h2>Lesson 2: System Architecture &amp; Interview Scenarios</h2>
+      <p>Discuss scalable designs, trade-offs, and typical high-level architecture questions in interviews.</p>
+      <button class="btn" onclick="window.location.href='embedded-ide.html'">Open IDE for Lesson 2</button>
+    </section>
+  </main>
 
-    <h2>Lesson 1: Design Patterns</h2>
-    <p>Singleton, Factory, Observer, and more. Explore modern C++ implementations for each pattern.</p>
-    <button class="btn" onclick="openExternalIDE('M7L1')">Open IDE for Lesson 1</button>
-    <hr style="margin:20px 0;"/>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-    <h2>Lesson 2: System Architecture &amp; Interview Scenarios</h2>
-    <p>Discuss scalable designs, trade-offs, and typical high-level architecture questions in interviews.</p>
-    <button class="btn" onclick="openExternalIDE('M7L2')">Open IDE for Lesson 2</button>
-  </section>
-</main>
-
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
-
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-<script src="scripts/main.js"></script>
-<script>
-function toggleTimeline(){
-  const timeline = document.getElementById("moduleTimeline");
-  if(timeline) timeline.classList.toggle("show");
-}
-function openExternalIDE(lessonID) {
-  const url = getWandboxLink(lessonID);
-  window.open(url, "_blank");
-}
-</script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <script src="scripts/main.js"></script>
+  <script>
+    function toggleTimeline(){
+      const timeline = document.getElementById("moduleTimeline");
+      if(timeline) timeline.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
