@@ -1,5 +1,5 @@
 /*************************************************************
- * style.css - Pastel Peach/Pink Theme
+ * style.css - Pastel Peach/Pink Theme (Enhanced Edition)
  * 
  * Requirements Met:
  * 1) Brand on the left, nav on the right.
@@ -10,15 +10,21 @@
  * 6) Single theme for all pages: home, exercises, resources, progress, portfolio, resume, quiz, diagrams, and interview simulator.
  * 
  * Advanced Improvements Added:
- * - Code formatting hints (consistent comments and indenting)
- * - Responsive and accessible design enhancements with ARIA labels
- * - Microinteractions (hover, fade‑in, slide‑up) and smooth scroll‑to‑top animations
- * - Live preview & documentation modal for the IDE page
+ * - Consistent code formatting and indenting.
+ * - Responsive and accessible design enhancements with ARIA labels.
+ * - Modern microinteractions (hover, fade‑in, slide‑up) with advanced easing.
+ * - Smooth scroll‑to‑top animations.
+ * - Live preview & documentation modal for the IDE page.
+ * - Use of CSS clamp(), Grid, Flexbox, and backdrop-filter for a premium, responsive design.
+ * - Additional subtle graphical enhancements (dynamic shadows, refined transitions, and interactive focus effects).
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=ADLaM+Display:wght@400;600&display=swap');
-* {
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,31 +35,55 @@ html {
 
 /* ============ 2) THEME VARIABLES ============ */
 :root {
+  /* Background & Gradients */
   --bg-gradient: linear-gradient(135deg, #FFE3E3 0%, #FFF5EC 50%, #FFFDFD 100%);
+  
+  /* Fonts */
   --font-heading: 'Fredoka One', cursive;
   --font-body: 'ADLaM Display', sans-serif;
+  
+  /* Base Typography */
+  --base-font-size: 16px;
+  --line-height: 1.5;
+  
+  /* Colors */
   --text-color: #3B3B3B;
   --heading-color: #2A2B2A;
   --accent-color: #FF7F7F;
   --accent-hover: #FF5B5B;
-  --neon-color: rgba(255,127,127, 0.35);
-  --card-bg: rgba(255,255,255,0.85);
-  --card-border: rgba(255,255,255,1.0);
+  --neon-color: rgba(255, 127, 127, 0.35);
+  
+  /* Card Styles */
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(255, 255, 255, 1);
   --card-border-hover: #FF7F7F;
-  --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   --card-border-size: 3px;
-  --btn-shadow: 0 4px 16px rgba(255,127,127,0.3);
+  
+  /* Button Styles */
+  --btn-shadow: 0 4px 16px rgba(255, 127, 127, 0.3);
   --border-radius: 14px;
   --transition-speed: 0.4s;
-  --base-font-size: 16px;
-  --line-height: 1.5;
+  
+  /* Layout */
   --max-content-width: 1140px;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #222 0%, #333 100%);
+  --text-color: #DDDDDD;
+  --heading-color: #FFFFFF;
+  --card-bg: rgba(60, 60, 60, 0.8);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --card-border-hover: #FF7F7F;
+  --neon-color: rgba(255, 127, 127, 0.6);
 }
 
 /* ============ 3) BODY & HEADING DEFAULTS ============ */
 body {
   font-family: var(--font-body);
-  font-size: var(--base-font-size);
+  font-size: clamp(1rem, 1vw + 1rem, 1.1rem);
   line-height: var(--line-height);
   background: var(--bg-gradient);
   color: var(--text-color);
@@ -66,11 +96,11 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   margin-bottom: 0.5em;
 }
-h1 { font-size: 2.4rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.4rem; }
+h1 { font-size: clamp(2rem, 3vw + 1rem, 2.4rem); }
+h2 { font-size: clamp(1.5rem, 2.5vw + 1rem, 1.8rem); }
+h3 { font-size: clamp(1.2rem, 2vw + 0.8rem, 1.4rem); }
 .subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw + 0.8rem, 1.1rem);
   margin-bottom: 1em;
   text-align: center;
 }
@@ -78,12 +108,13 @@ h3 { font-size: 1.4rem; }
 /* ============ 4) HEADER ============ */
 header {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .nav-container {
   display: flex;
@@ -95,7 +126,7 @@ header {
 }
 .brand-area {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 2vw + 1rem, 1.8rem);
   color: var(--heading-color);
   text-align: left;
 }
@@ -108,10 +139,10 @@ header {
 .nav-link {
   text-decoration: none;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1vw + 0.8rem, 1rem);
   font-weight: 700;
   color: var(--heading-color);
-  transition: color var(--transition-speed), text-shadow var(--transition-speed);
+  transition: color var(--transition-speed) ease, text-shadow var(--transition-speed) ease;
 }
 .nav-link:hover {
   color: var(--accent-color);
@@ -119,7 +150,7 @@ header {
 }
 .theme-btn {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw + 0.8rem, 0.9rem);
   font-weight: 600;
   color: #fff;
   background: var(--accent-color);
@@ -127,23 +158,12 @@ header {
   border-radius: 24px;
   padding: 6px 16px;
   cursor: pointer;
-  transition: background var(--transition-speed), transform var(--transition-speed);
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
   margin-left: 20px;
 }
 .theme-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-}
-
-/* Dark Mode Overrides */
-.dark-mode {
-  --bg-gradient: linear-gradient(135deg, #222 0%, #333 100%);
-  --text-color: #DDDDDD;
-  --heading-color: #FFFFFF;
-  --card-bg: rgba(60,60,60,0.8);
-  --card-border: rgba(255,255,255,0.2);
-  --card-border-hover: #FF7F7F;
-  --neon-color: rgba(255,127,127,0.6);
 }
 
 /* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
@@ -161,34 +181,37 @@ header {
   box-shadow: var(--card-shadow);
   padding: 24px;
   position: relative;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border var(--transition-speed);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border var(--transition-speed) ease;
 }
 .card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: var(--border-radius);
   box-shadow: 0 0 50px var(--neon-color);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.4s ease;
 }
 .card:hover::before {
   opacity: 1;
 }
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   border: var(--card-border-size) solid var(--card-border-hover);
 }
 .ticket-text {
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1vw + 0.8rem, 0.95rem);
   line-height: 1.4;
 }
 .btn {
   display: inline-block;
   position: relative;
   padding: 12px 28px;
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1vw + 0.8rem, 0.95rem);
   font-weight: 600;
   color: #fff;
   background: var(--accent-color);
@@ -196,24 +219,24 @@ header {
   border-radius: 30px;
   box-shadow: var(--btn-shadow);
   cursor: pointer;
-  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 .btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255,127,127,0.4);
+  box-shadow: 0 6px 16px rgba(255, 127, 127, 0.4);
 }
 .icon-btn {
   display: inline-block;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   margin: 0 6px;
   text-align: center;
   line-height: 48px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .icon-btn img {
   width: 24px;
@@ -244,20 +267,20 @@ header {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ============ 7) PAGE-SPECIFIC ============ */
+/* ============ 7) PAGE-SPECIFIC STYLES ============ */
 /* HOME PAGE */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
 }
 .page-home .hero-title {
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 3vw + 1rem, 2.4rem);
   margin-bottom: 1em;
 }
 .page-home .hero-subtitle {
   max-width: 700px;
   margin: 0 auto 1.2em;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 1.5vw + 0.8rem, 1.05rem);
 }
 .page-home .features {
   display: flex;
@@ -315,7 +338,7 @@ header {
   text-align: center;
 }
 .page-resources .resource-card h2 {
-  font-size: 1.3rem;
+  font-size: clamp(1.2rem, 2vw, 1.3rem);
   margin-bottom: 0.6em;
 }
 
@@ -340,7 +363,7 @@ header {
 .page-progress .progress-bar-container {
   max-width: 500px;
   margin: 30px auto;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 14px;
   overflow: hidden;
   border: 2px solid var(--accent-color);
@@ -381,7 +404,7 @@ header {
   margin-bottom: 20px;
 }
 .page-resume .ticket-text {
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1vw + 0.8rem, 0.95rem);
   line-height: 1.4;
 }
 
@@ -467,7 +490,7 @@ header {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 .ide-controls button:hover {
   background: var(--accent-hover);
@@ -482,7 +505,7 @@ header {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   padding-top: 60px;
 }
 .modal-content {
@@ -529,7 +552,7 @@ footer {
   border: none;
   cursor: pointer;
   box-shadow: var(--btn-shadow);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 .scroll-to-top-btn:hover {
   transform: translateY(-3px);
@@ -537,7 +560,9 @@ footer {
 
 /* ============ 8) MEDIA QUERIES ============ */
 @media (max-width: 768px) {
-  .nav-container { flex-wrap: wrap; }
+  .nav-container {
+    flex-wrap: wrap;
+  }
   .nav-menu {
     margin-top: 10px;
     display: none;
@@ -547,11 +572,16 @@ footer {
     width: 100%;
     top: 60px;
     left: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
   }
-  .nav-menu.show { display: flex; }
-  .menu-toggle { display: block; cursor: pointer; }
+  .nav-menu.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
   .menu-toggle span {
     display: block;
     width: 30px;
@@ -559,10 +589,18 @@ footer {
     background: #333;
     margin: 6px 0;
   }
-  .page-content { margin-top: 120px; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  .page-exercises .modules-grid { height: auto; }
+  .page-content {
+    margin-top: 120px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .page-exercises .modules-grid {
+    height: auto;
+  }
   
   /* DARK MODE OVERRIDE FOR MOBILE NAVIGATION */
   .dark-mode .nav-menu {
@@ -573,10 +611,20 @@ footer {
   }
 }
 @media (max-width: 480px) {
-  .btn { font-size: 0.9rem; padding: 8px 20px; }
-  .scroll-to-top-btn { bottom: 20px; right: 20px; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.4rem; }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+  .scroll-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
 }
 
 /* ============ Rest of the CSS remains unchanged ============ */
