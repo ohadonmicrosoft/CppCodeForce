@@ -5,22 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Exercises</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-exercises fade-in">
+
 <header>
   <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
-    </div>
-
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-
-    <ul class="nav-menu" id="navMenu">
+    <div class="brand-area">Ohad’s WeCode</div>
+    <ul class="nav-menu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="progress.html" class="nav-link">Progress</a></li>
       <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -31,62 +22,63 @@
 </header>
 
 <main class="page-content">
-  <h1 class="fancy-title">Advanced C++ Interview Syllabus</h1>
-  <p style="max-width:800px; margin:0 auto 30px; text-align:center;">
-    Explore the modules below for hands-on lessons, interactive timelines,
-    real-world tasks, and integrated code practice.
+  <h1>Advanced C++ Interview Syllabus</h1>
+  <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
+    Explore interactive modules below for real-world tasks, timelines, and integrated code practice.
   </p>
 
-  <!-- Module List -->
-  <section style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+  <!-- A grid of module "cards" for a more interesting layout -->
+  <div class="modules-grid">
+    <!-- Module 1 -->
+    <div class="course-module card">
       <h2>Module 1: Foundations &amp; Modern C++</h2>
-      <p>RAII, smart pointers, lambdas, and best practices.</p>
+      <p>RAII, smart pointers, lambdas, best practices.</p>
       <a href="module1.html" class="btn">Go to Module 1</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 2 -->
+    <div class="course-module card">
       <h2>Module 2: Data Structures &amp; Algorithms</h2>
-      <p>Arrays, linked lists, trees, sorting, searching, BFS/DFS, etc.</p>
+      <p>Arrays, linked lists, BFS/DFS, sorting & searching.</p>
       <a href="module2.html" class="btn">Go to Module 2</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 3 -->
+    <div class="course-module card">
       <h2>Module 3: Real-Time &amp; Embedded</h2>
-      <p>RTOS fundamentals, interrupts, debugging, concurrency in embedded.</p>
+      <p>RTOS fundamentals, concurrency, debugging, interrupts.</p>
       <a href="module3.html" class="btn">Go to Module 3</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 4 -->
+    <div class="course-module card">
       <h2>Module 4: Concurrency &amp; Multithreading</h2>
-      <p>Threads, mutexes, lock-free, concurrency patterns in modern C++.</p>
+      <p>Threads, mutexes, lock-free, concurrency patterns.</p>
       <a href="module4.html" class="btn">Go to Module 4</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 5 -->
+    <div class="course-module card">
       <h2>Module 5: Memory &amp; Debugging</h2>
-      <p>Manual vs. smart pointers, custom allocators, debugging tools.</p>
+      <p>Manual &amp; smart pointers, custom allocators, debug tools.</p>
       <a href="module5.html" class="btn">Go to Module 5</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 6 -->
+    <div class="course-module card">
       <h2>Module 6: Templates &amp; Metaprogramming</h2>
-      <p>SFINAE, type traits, compile-time programming techniques.</p>
+      <p>SFINAE, type traits, compile-time programming.</p>
       <a href="module6.html" class="btn">Go to Module 6</a>
     </div>
-
-    <div class="course-module glass card-hover" style="width:300px; text-align:center;">
+    <!-- Module 7 -->
+    <div class="course-module card">
       <h2>Module 7: System Design &amp; Advanced</h2>
-      <p>Design patterns, high-level architecture, scalable interview scenarios.</p>
+      <p>Design patterns, high-level architecture, interview scenarios.</p>
       <a href="module7.html" class="btn">Go to Module 7</a>
     </div>
-  </section>
+  </div>
+
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
 <script src="scripts/main.js"></script>
 </body>
 </html>

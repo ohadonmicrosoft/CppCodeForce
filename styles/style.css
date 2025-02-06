@@ -1,17 +1,17 @@
 /*************************************************************
- * style.css - Warm, Rounded, High-End Design
+ * style.css - High-End "Modern Love Grunge + ADLaM Display"
  * 
- * Table of Contents:
- * 1) Base Reset & Global
- * 2) Font Imports & Theme Variables
- * 3) Body & Layout
- * 4) Navigation
- * 5) Common Classes (cards, buttons, icons, etc.)
- * 6) Animations & Transitions
- * 7) Page-Specific Styles
+ * Includes:
+ * - Warmer, yellowish color scheme
+ * - Neon glows behind cards
+ * - Larger nav text, no underline
+ * - Layout improvements for each page
  *************************************************************/
 
-/* =============== 1) BASE RESET & GLOBAL =============== */
+/* =============== 1) BASE & FONT IMPORTS =============== */
+@import url('https://fonts.googleapis.com/css2?family=Modern+Love+Grunge&family=ADLaM+Display&display=swap');
+
+/* Reset & Global */
 * {
   margin: 0;
   padding: 0;
@@ -20,40 +20,34 @@
 html {
   scroll-behavior: smooth;
 }
-ul, li {
-  list-style: none;
-}
 
-/* =============== 2) FONT IMPORTS & THEME VARIABLES =============== */
-/* 
-   HEADLINE FONT: "Baloo 2" (rounded, bold, fillable)
-   BODY FONT: "Nunito" (friendly, professional)
-*/
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600&display=swap');
-
-/* Light warm palette: peach/orange/pink combo */
+/* Theme Variables */
 :root {
-  --bg-gradient: linear-gradient(120deg, #FFECD2 0%, #FFF9E6 50%, #FFFDF6 100%);
+  /* Warmer background, more yellowish / peachy */
+  --bg-gradient: linear-gradient(120deg, #FFF4C2 0%, #FFEDB5 50%, #FFFCE0 100%);
 
-  /* Baloo for headings, Nunito for body */
-  --font-heading: 'Baloo 2', cursive;
-  --font-body: 'Nunito', sans-serif;
+  /* FONTS */
+  --font-heading: 'Modern Love Grunge', cursive;  /* Bold, edgy for titles */
+  --font-body: 'ADLaM Display', sans-serif;       /* Stylish, modern for nav/text */
 
-  /* Colors */
-  --text-color: #444444;
-  --heading-color: #2B2B2B;
+  /* Colors & Accents */
+  --text-color: #3C3C3C;
+  --heading-color: #1F1F1F;
 
-  /* Accents: warm peach/orange */
-  --accent-color: #FF9E6D;   /* main accent (warm orange) */
-  --accent-hover: #FF814D;   /* darker for hover */
+  /* Warmer accent, less pink, more orange-y */
+  --accent-color: #FFC368;   /* a warm orange */
+  --accent-hover: #FFAB3E;   /* darker orange for hover */
 
-  /* Card & Shadow */
+  /* Neon glows behind cards */
+  --neon-color: rgba(255,195,104, 0.35);
+
+  /* Card & Shadows */
   --card-bg: rgba(255,255,255,0.8);
   --card-border: rgba(255,255,255,0.9);
   --card-shadow: 0 4px 14px rgba(0,0,0,0.1);
 
-  /* Buttons & Glow */
-  --btn-shadow: 0 4px 16px rgba(255,126,78, 0.3);
+  /* Buttons & Shadows */
+  --btn-shadow: 0 4px 16px rgba(255,195,104, 0.3);
 
   /* Sizing & Transitions */
   --border-radius: 14px;
@@ -63,37 +57,46 @@ ul, li {
   --max-content-width: 1140px;
 }
 
-/* =============== 3) BODY & LAYOUT =============== */
+/* =============== 2) BODY & GLOBAL =============== */
 body {
   font-family: var(--font-body);
   font-size: var(--base-font-size);
   line-height: var(--line-height);
-  background: var(--bg-gradient);
   color: var(--text-color);
+  background: var(--bg-gradient);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
 }
 
-/* main content area offset to account for fixed header */
-.page-content {
-  margin-top: 80px;
-  max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
+/* Headings: "Modern Love Grunge" */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+/* Make headings bigger & bolder */
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.6rem; }
+
+p {
+  font-family: var(--font-body);
 }
 
-/* =============== 4) NAVIGATION =============== */
+/* =============== 3) NAVIGATION =============== */
 header {
   position: fixed;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -103,57 +106,82 @@ header {
   padding: 10px 20px;
 }
 
+/* Brand area (Ohad’s WeCode) */
 .brand-area {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem; /* bigger brand */
   color: var(--heading-color);
 }
 
-/* Simple horizontal nav */
+/* Horizontal nav with bigger text, no underlines */
 .nav-menu {
   display: flex;
-  gap: 24px;
+  gap: 30px;
 }
 .nav-menu li {
   display: inline-block;
 }
 .nav-link {
-  color: var(--heading-color);
+  text-decoration: none; /* no underline */
+  font-family: var(--font-body);
+  font-size: 1.1rem; /* bigger nav text */
   font-weight: 700;
-  font-size: 1rem;
-  transition: color var(--transition-speed);
+  color: var(--heading-color);
+  transition: color var(--transition-speed), text-shadow var(--transition-speed);
 }
 .nav-link:hover {
   color: var(--accent-color);
+  text-shadow: 0 0 4px var(--accent-color);
 }
 
-/* =============== 5) COMMON CLASSES (cards, buttons, icons, etc.) =============== */
+/* =============== 4) LAYOUT / PAGE-CONTENT =============== */
+.page-content {
+  margin-top: 90px; /* space for fixed header */
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
 
-/* Card style: glassy with subtle shadow */
+/* =============== 5) CARDS, BUTTONS, ICONS =============== */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
-  padding: 20px;
+  padding: 24px;
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  position: relative;
+}
+/* Neon behind card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 50px var(--neon-color);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.card:hover::before {
+  opacity: 1;
 }
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* Button style: warm orange with slight gradient */
+/* Buttons: bigger, warm accent, slight neon glow on hover */
 .btn {
   display: inline-block;
   position: relative;
-  padding: 12px 26px;
+  padding: 14px 32px;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
+  background: var(--accent-color);
   border: none;
   border-radius: 30px;
-  background: var(--accent-color);
   box-shadow: var(--btn-shadow);
   cursor: pointer;
   transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
@@ -161,39 +189,31 @@ header {
 .btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255,126,78,0.4);
+  box-shadow: 0 6px 16px rgba(255,195,104,0.4);
 }
 
-/* Footer */
-footer {
-  margin-top: 40px;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--heading-color);
-}
-
-/* Scroll-to-top button */
-.scroll-to-top-btn {
-  display: none;
-  position: fixed;
-  bottom: 30px; right: 30px;
-  width: 48px; height: 48px;
+/* Icon buttons (GitHub, LinkedIn, etc.) with neon hover */
+.icon-btn {
+  display: inline-block;
+  width: 50px; height: 50px;
   border-radius: 50%;
-  background: var(--accent-color);
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--btn-shadow);
-  transition: transform 0.3s;
+  background: rgba(255,255,255,0.3);
+  margin: 0 6px;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.scroll-to-top-btn:hover {
+.icon-btn img {
+  width: 24px; height: 24px;
+  vertical-align: middle;
+}
+.icon-btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 0 14px var(--neon-color);
 }
 
-/* =============== 6) ANIMATIONS & TRANSITIONS =============== */
-
+/* =============== 6) ANIMATIONS =============== */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -213,35 +233,21 @@ footer {
   100% {opacity:1; transform: translateY(0);}
 }
 
-/* =============== 7) PAGE-SPECIFIC STYLES =============== */
+/* =============== 7) PAGE-SPECIFIC SECTIONS =============== */
 
-/* HEADINGS: big, rounded with Baloo */
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-heading);
-  color: var(--heading-color);
-  text-align: center;
-  margin-bottom: 0.5em;
-}
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.4rem; }
-
-/* =========== HOME PAGE (.page-home) =========== */
+/* HOME PAGE (.page-home) */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .page-home .hero-title {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
+  font-size: 2.8rem;
 }
 .page-home .hero-subtitle {
-  margin-bottom: 1.2em;
-  font-size: 1.1rem;
-  max-width: 600px;
-  color: var(--text-color);
+  max-width: 700px;
+  margin: 0 auto 1.4em;
+  font-size: 1.15rem;
 }
 .page-home .features {
   display: flex;
@@ -260,27 +266,26 @@ h3 { font-size: 1.4rem; }
   text-align: center;
 }
 
-/* =========== EXERCISES PAGE (.page-exercises) =========== */
+/* EXERCISES PAGE (.page-exercises) */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.page-exercises .course-module {
-  width: 260px;
-  margin: 12px auto;
-  text-align: center;
-}
-/* We can do a grid for the modules:
-   For example, 3 columns on bigger screens, 1 column on mobile 
-*/
+/* Big interactive layout using cards for modules. Let's do a grid. */
 .page-exercises .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 30px;
   margin-top: 30px;
 }
+.page-exercises .course-module {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-/* =========== RESOURCES PAGE (.page-resources) =========== */
+/* RESOURCES PAGE (.page-resources) */
 .page-resources h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -297,16 +302,27 @@ h3 { font-size: 1.4rem; }
   text-align: center;
 }
 
-/* =========== PROGRESS PAGE (.page-progress) =========== */
+/* PROGRESS PAGE (.page-progress) */
 .page-progress h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+/* Add some more interest: a new "stats" card row, for example */
 .page-progress .progress-radial {
   margin: 0 auto;
 }
+.page-progress .progress-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.page-progress .stats-card {
+  width: 220px;
+  text-align: center;
+}
 
-/* =========== PORTFOLIO PAGE (.page-portfolio) =========== */
+/* PORTFOLIO PAGE (.page-portfolio) */
 .page-portfolio h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -323,26 +339,12 @@ h3 { font-size: 1.4rem; }
   justify-content: center;
   margin-top: 30px;
 }
-.page-portfolio .resume-icon {
+.page-portfolio .resume-btn {
   margin-top: 20px;
   text-align: center;
 }
 
-/* =========== RESUME PAGE (.page-resume) =========== */
-.page-resume h2 {
-  margin-top: 20px;
-}
-.page-resume .resume-section {
-  max-width: 900px;
-  margin: 40px auto;
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: 30px;
-  border: 1px solid var(--card-border);
-}
-
-/* =========== QUIZ PAGE (.page-quiz) =========== */
+/* QUIZ PAGE (.page-quiz) */
 .page-quiz h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -350,8 +352,13 @@ h3 { font-size: 1.4rem; }
 .page-quiz .quiz-container {
   margin: 20px 0;
 }
+/* Extra styling for quiz area, maybe a card around the question container */
+.page-quiz .quiz-area {
+  max-width: 700px;
+  margin: 0 auto;
+}
 
-/* =========== MODULE PAGES (.page-module) =========== */
+/* MODULE PAGES (.page-module) */
 .page-module h1 {
   margin-top: 20px;
   margin-bottom: 16px;
@@ -368,6 +375,36 @@ h3 { font-size: 1.4rem; }
   margin: 6px 0;
 }
 
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--heading-color);
+}
+
+/* SCROLL-TO-TOP BTN */
+.scroll-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 30px; 
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: transform 0.3s;
+}
+.scroll-to-top-btn:hover {
+  transform: translateY(-3px);
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
   .nav-container {
@@ -377,10 +414,10 @@ h3 { font-size: 1.4rem; }
     margin-top: 10px;
   }
   .page-content {
-    margin-top: 100px;
+    margin-top: 110px;
   }
   .page-home .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 @media (max-width: 480px) {
@@ -389,7 +426,8 @@ h3 { font-size: 1.4rem; }
     padding: 10px 20px;
   }
   .scroll-to-top-btn {
-    bottom: 20px; right: 20px;
+    bottom: 20px; 
+    right: 20px;
   }
   .page-home .hero-title {
     font-size: 1.8rem;

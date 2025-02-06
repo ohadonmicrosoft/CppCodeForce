@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Progress</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-progress fade-in">
+
 <header>
   <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
-    </div>
-
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-
-    <ul class="nav-menu" id="navMenu">
+    <div class="brand-area">Ohad’s WeCode</div>
+    <ul class="nav-menu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="exercises.html" class="nav-link">Exercises</a></li>
       <li><a href="resources.html" class="nav-link">Resources</a></li>
@@ -31,24 +22,43 @@
 </header>
 
 <main class="page-content">
-  <section class="glass" style="max-width:600px; margin:0 auto; text-align:center;">
-    <h1 class="fancy-title" style="margin-bottom:0.8em;">Your Learning Journey</h1>
-    <p style="max-width:500px; margin:0 auto 30px;">
-      Track your completed lessons. The radial ring below fills up as you progress
-      through each module’s lessons.
+  <h1>Your Learning Journey</h1>
+  <!-- The radial progress indicator inside a card for neon glow -->
+  <section class="card fade-in" style="text-align:center; max-width:500px; margin:0 auto;">
+    <p style="margin-bottom: 20px;">
+      Track your completed lessons. The radial ring below fills up as you
+      progress through each module’s lessons.
     </p>
     <div class="progress-radial" id="radialProgress" style="--percent:0;">
       <span id="progress-label">0%</span>
     </div>
     <p id="progress-text" style="margin-top:10px;">Completed 0 / 21 Lessons</p>
   </section>
+
+  <!-- Additional stats row for interest -->
+  <div class="progress-stats fade-in">
+    <div class="stats-card card">
+      <h3>Quizzes Completed</h3>
+      <p id="quizzes-count">0</p>
+    </div>
+    <div class="stats-card card">
+      <h3>Total Modules Unlocked</h3>
+      <p id="modules-unlocked">2</p>
+    </div>
+    <div class="stats-card card">
+      <h3>Achievements</h3>
+      <p id="achievements-count">Beginner</p>
+    </div>
+  </div>
 </main>
 
-<footer></footer>
-<p style="text-align:center;">© 2025 Ohad’s WeCode. All rights reserved.</p>
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+<footer>
+  © 2025 Ohad’s WeCode. All rights reserved.
+</footer>
 
+<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
 <script src="scripts/main.js"></script>
+<!-- The progress logic you had (progress.js) -->
 <script src="scripts/progress.js"></script>
 </body>
 </html>
