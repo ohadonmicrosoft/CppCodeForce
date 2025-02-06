@@ -567,8 +567,9 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-/* ----- NEW: Circular Spinning 3D Ticket Well for Exercises Modules ----- */
-/* Wrapper for the spin animation */
+/* ----- NEW: Circular Spinning 3D Ticket Carousel for Exercises Modules ----- */
+/* This new block overrides the original sticky notes layout for exercises */
+
 .modules-wrapper {
   width: 500px;
   height: 500px;
@@ -576,15 +577,16 @@ footer {
   border-radius: 50%;
   overflow: hidden;
   perspective: 1000px;
-  animation: spin 20s linear infinite;
+  /* Animate in discrete steps so the carousel "switches" tickets */
+  animation: spinCarousel 28s steps(7) infinite;
 }
 
-@keyframes spin {
+@keyframes spinCarousel {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* Reset the modules-grid inside the wrapper to occupy full space */
+/* Reset the modules-grid inside the wrapper */
 .modules-wrapper .modules-grid {
   position: relative;
   width: 100%;
@@ -601,7 +603,7 @@ footer {
   transform-origin: center center;
 }
 
-/* Arrange tickets around the circle */
+/* Arrange the tickets around the circle (assuming 7 modules, ~51.43° apart) */
 .modules-wrapper .modules-grid .course-module:nth-child(1) {
   transform: rotate(0deg) translate(200px) rotate(0deg);
 }
@@ -623,5 +625,4 @@ footer {
 .modules-wrapper .modules-grid .course-module:nth-child(7) {
   transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
 }
-
-/* ----- END NEW: Circular Spinning 3D Ticket Well ----- */
+/* ----- END NEW: Circular Spinning 3D Ticket Carousel ----- */
