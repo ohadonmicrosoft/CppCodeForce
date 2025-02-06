@@ -175,7 +175,7 @@ header {
 
 /* ============ 5) PAGE CONTENT, CARDS, BUTTONS, ICONS ============ */
 .page-content {
-  margin-top: 120px; /* הגדלנו את המרווח כדי שהכותרות לא ייכסו על ידי ההדר */
+  margin-top: 120px; /* Increased margin so that header doesn't overlap content */
   max-width: var(--max-content-width);
   margin-left: auto;
   margin-right: auto;
@@ -268,8 +268,8 @@ header {
   animation: fadeIn 1s forwards;
 }
 @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% { opacity:0; }
+  100% { opacity:1; }
 }
 
 .slide-up {
@@ -278,8 +278,8 @@ header {
   animation: slideUp 1s ease forwards;
 }
 @keyframes slideUp {
-  0% {opacity:0; transform: translateY(40px);}
-  100% {opacity:1; transform: translateY(0);}
+  0% { opacity:0; transform: translateY(40px); }
+  100% { opacity:1; transform: translateY(0); }
 }
 
 /* ============ 7) PAGE-SPECIFIC ============ */
@@ -315,7 +315,7 @@ header {
   text-align: center;
 }
 
-/* EXERCISES (.page-exercises) - scattered sticky notes with no overlap */
+/* EXERCISES (.page-exercises) - Original sticky notes layout */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -544,12 +544,12 @@ footer {
     margin: 6px 0;
   }
   .page-content {
-    margin-top: 120px; /* שמירה על מרווח גדול גם במובייל */
+    margin-top: 120px; /* Maintain large margin on mobile */
   }
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   .page-exercises .modules-grid {
-    height: 900px; /* יותר מקום אנכי למודולים */
+    height: auto; /* Let flex container adjust height */
   }
 }
 
@@ -566,3 +566,56 @@ footer {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.4rem; }
 }
+
+/* ----- NEW: 3D Ticket Look for Exercises Modules ----- */
+/* This block overrides the original sticky notes layout for the Exercises page */
+.page-exercises .modules-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  padding: 20px !important;
+  perspective: 1000px !important;
+  height: auto !important; /* Override fixed height */
+  margin-bottom: 40px !important;
+}
+.page-exercises .course-module {
+  position: relative !important;
+  width: 280px !important;
+  background: var(--card-bg) !important;
+  border: var(--card-border-size) solid var(--card-border) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+  padding: 24px !important;
+  transition: transform 0.4s, box-shadow 0.4s !important;
+  transform-style: preserve-3d !important;
+  transform: rotateY(0deg) !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+.page-exercises .course-module:hover {
+  transform: rotateY(5deg) translateY(-10px) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
+}
+.page-exercises .course-module::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: -10px !important;
+  width: 20px !important;
+  height: 2px !important;
+  background: var(--accent-color) !important;
+  transform: translateY(-50%) !important;
+  box-shadow: 0 0 8px var(--accent-color) !important;
+  border-radius: 1px !important;
+}
+.page-exercises .course-module h2 {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+.page-exercises .course-module p {
+  margin-bottom: 15px !important;
+}
+/* ----- END NEW 3D Ticket Look ----- */
