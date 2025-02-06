@@ -567,17 +567,18 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-/* ----- NEW: Circular Spinning 3D Ticket Carousel for Exercises Modules ----- */
-/* This new block overrides the original sticky notes layout for exercises */
+/* ----- NEW: Circular Spinning 3D Ticket Carousel (Ticket Well) for Exercises Modules ----- */
+/* Wrap the modules-grid in a container that spins in discrete steps */
 
 .modules-wrapper {
+  position: relative;
   width: 500px;
   height: 500px;
   margin: 40px auto;
   border-radius: 50%;
   overflow: hidden;
   perspective: 1000px;
-  /* Animate in discrete steps so the carousel "switches" tickets */
+  /* Spin in 7 discrete steps (for 7 tickets) over 28s (i.e., 4s per step) */
   animation: spinCarousel 28s steps(7) infinite;
 }
 
@@ -588,9 +589,12 @@ footer {
 
 /* Reset the modules-grid inside the wrapper */
 .modules-wrapper .modules-grid {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  /* Remove any previous flex or absolute rules from the original layout */
   display: block;
 }
 
@@ -599,11 +603,13 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px; /* ticket width */
+  width: 200px; /* ticket width; adjust as needed */
   transform-origin: center center;
+  /* Optional: add a 3D effect to the ticket itself */
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
-/* Arrange the tickets around the circle (assuming 7 modules, ~51.43° apart) */
+/* Arrange tickets evenly around the circle (7 tickets, 360/7 ≈ 51.43° apart) */
 .modules-wrapper .modules-grid .course-module:nth-child(1) {
   transform: rotate(0deg) translate(200px) rotate(0deg);
 }
@@ -624,5 +630,11 @@ footer {
 }
 .modules-wrapper .modules-grid .course-module:nth-child(7) {
   transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
+}
+
+/* Optional: Hover effect for individual tickets (this effect is independent of carousel spin) */
+.modules-wrapper .modules-grid .course-module:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 /* ----- END NEW: Circular Spinning 3D Ticket Carousel ----- */
