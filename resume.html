@@ -8,8 +8,13 @@
 </head>
 <body class="page-resume fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -19,7 +24,7 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
@@ -28,8 +33,6 @@
       An overview of my expertise in embedded systems, real-time programming, 
       and modern C++ development.
     </p>
-
-    <!-- Contact Info Card -->
     <section class="card fade-in" style="max-width:600px; margin:20px auto;">
       <h2>Contact Info</h2>
       <div class="ticket-text">
@@ -38,8 +41,6 @@
         <p><strong>Email:</strong> <a href="mailto:alonohad100@gmail.com">alonohad100@gmail.com</a></p>
       </div>
     </section>
-
-    <!-- Profile Card -->
     <section class="card fade-in" style="max-width:800px; margin:20px auto;">
       <h2>Profile</h2>
       <div class="ticket-text">
@@ -51,8 +52,6 @@
         </p>
       </div>
     </section>
-
-    <!-- Work Experience -->
     <section class="card fade-in" style="max-width:900px; margin:20px auto;">
       <h2>Work Experience</h2>
       <div class="ticket-text">
@@ -89,8 +88,6 @@
         </article>
       </div>
     </section>
-
-    <!-- Education -->
     <section class="card fade-in" style="max-width:900px; margin:20px auto;">
       <h2>Education</h2>
       <div class="ticket-text">
@@ -101,8 +98,6 @@
         </ul>
       </div>
     </section>
-
-    <!-- Key Projects & Skills -->
     <section class="card fade-in" style="max-width:900px; margin:20px auto;">
       <h2>Key Projects</h2>
       <div class="ticket-text">
@@ -122,7 +117,6 @@
         </article>
       </div>
     </section>
-
     <section class="card fade-in" style="max-width:900px; margin:20px auto;">
       <h2>Skills</h2>
       <div class="ticket-text">
@@ -137,12 +131,10 @@
       </div>
     </section>
   </main>
-
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
-
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
 </body>
 </html>

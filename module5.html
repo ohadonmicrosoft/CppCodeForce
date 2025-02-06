@@ -9,11 +9,11 @@
 </head>
 <body class="page-module fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">
         <span class="brand-title">Ohad’s WeCode</span>
       </div>
-      <div class="menu-toggle" id="menuToggle">
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -28,7 +28,7 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
@@ -37,7 +37,6 @@
       <a href="exercises.html" style="color: var(--accent-color);">Exercises</a> &gt;
       <span>Module 5</span>
     </div>
-
     <section class="card fade-in">
       <h1>Module 5: Memory Management &amp; Debugging</h1>
       <p>Efficient memory handling, pointers (manual &amp; smart), and debugging tools in C++.</p>
@@ -61,7 +60,7 @@
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
 
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
   <script>
     function toggleTimeline(){

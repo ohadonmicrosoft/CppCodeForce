@@ -8,8 +8,13 @@
 </head>
 <body class="page-progress fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -19,25 +24,20 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
     <h1>Your Learning Journey</h1>
-
-    <!-- Radial progress in a card -->
     <section class="card fade-in" style="text-align:center; max-width:500px; margin:0 auto;">
       <p style="margin-bottom: 20px;">
-        Track your completed lessons. The radial ring below fills up as you
-        progress through each module’s lessons.
+        Track your completed lessons. The radial ring below fills up as you progress through each module’s lessons.
       </p>
       <div class="progress-radial" id="radialProgress" style="--percent:0;">
         <span id="progress-label">0%</span>
       </div>
       <p id="progress-text" style="margin-top:10px;">Completed 0 / 21 Lessons</p>
     </section>
-
-    <!-- Additional stats row & progress bar -->
     <div class="progress-stats fade-in">
       <div class="stats-card card">
         <h3>Quizzes Completed</h3>
@@ -52,7 +52,6 @@
         <p id="achievements-count">Beginner</p>
       </div>
     </div>
-
     <div class="progress-bar-container card fade-in" style="margin-top:30px;">
       <h3 style="margin-bottom:10px;">Overall Completion</h3>
       <div class="progress-bar-fill" id="progressBarFill"></div>
@@ -62,11 +61,10 @@
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
   <script src="scripts/progress.js"></script>
   <script>
-    /* Example: Animate the progress bar to 40% after load */
     document.addEventListener('DOMContentLoaded', () => {
       const barFill = document.getElementById('progressBarFill');
       if (barFill) {

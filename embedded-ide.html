@@ -7,12 +7,19 @@
   <link rel="stylesheet" href="styles/style.css">
   <!-- Load Monaco Editor via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs/loader.js"></script>
+  <!-- Prettier for code formatting (simulate formatting for demonstration) -->
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
 </head>
 <body class="page-ide fade-in">
-  <!-- HEADER: using your original header with updated nav -->
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -23,10 +30,9 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main class="page-content">
     <h1>Embedded Advanced Code Editor</h1>
     <p class="subtitle">
@@ -36,27 +42,31 @@
     <!-- Monaco Editor Container -->
     <div id="ideContainer"></div>
 
-    <!-- Run Code Controls -->
+    <!-- IDE Controls -->
     <div class="ide-controls">
-      <button id="runCodeBtn" class="btn">Run Code</button>
+      <button id="runCodeBtn" class="btn" aria-label="Run Code">Run Code</button>
+      <button id="formatCodeBtn" class="btn" aria-label="Format Code">Format Code</button>
+      <button id="viewDocBtn" class="btn" aria-label="View Documentation">View Documentation</button>
     </div>
 
     <!-- Output Console -->
     <h2>Output</h2>
     <div id="output">Your program output will appear here...</div>
+    
+    <!-- Documentation Modal -->
+    <div id="docModal" class="modal" aria-hidden="true">
+      <div class="modal-content">
+        <span class="close-btn" id="closeDocBtn" aria-label="Close Documentation">&times;</span>
+        <h2>C++ Documentation</h2>
+        <p>For detailed C++ documentation, please visit <a href="https://en.cppreference.com/" target="_blank">cppreference.com</a>.</p>
+      </div>
+    </div>
   </main>
 
-  <!-- FOOTER: using your original footer -->
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
 
-  <!-- Scroll-to-top Button -->
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
 
-  <!-- Global JS -->
-  <script src="scripts/main.js"></script>
-  <!-- Embedded IDE JS -->
-  <script src="scripts/embedded-ide.js"></script>
-</body>
-</html>
+  <script src="scripts/main.js"></sc

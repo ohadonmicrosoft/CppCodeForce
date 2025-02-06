@@ -22,14 +22,12 @@
     const progressLabel = document.getElementById("progress-label");
     const progressText = document.getElementById("progress-text");
     if (!radialProgress) return;
-
     let completedCount = completedLessons.length;
     if (completedCount > TOTAL_LESSONS) {
       completedCount = TOTAL_LESSONS;
     }
     const pct = (completedCount / TOTAL_LESSONS) * 100;
     radialProgress.style.setProperty("--percent", pct.toFixed(2));
-
     if (progressLabel) {
       progressLabel.textContent = `${Math.round(pct)}%`;
     }
@@ -48,7 +46,5 @@
   }
 
   document.addEventListener("DOMContentLoaded", updateProgressDisplay);
-
-  // Expose markLessonCompleted globally if needed (optional)
   window.markLessonCompleted = markLessonCompleted;
 })();

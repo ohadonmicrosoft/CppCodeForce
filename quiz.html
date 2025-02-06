@@ -8,8 +8,13 @@
 </head>
 <body class="page-quiz fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="exercises.html" class="nav-link">Exercises</a></li>
@@ -19,23 +24,19 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
     <section class="card" style="max-width:800px; margin:0 auto;">
       <h1>Interview Quiz</h1>
       <p id="quiz-intro">
-        Test your C++ knowledge with a lesson-based quiz, featuring a timer and local
-        leaderboard!
+        Test your C++ knowledge with a lesson-based quiz, featuring a timer and local leaderboard!
       </p>
       <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
-
       <div id="quiz-container" class="quiz-container"></div>
-
       <button id="start-quiz" class="btn">Start Quiz</button>
       <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
-
       <div id="quiz-result" style="margin-top:20px; font-weight:600;"></div>
       <div class="leaderboard" id="leaderboard" style="display:none; margin-top:20px;">
         <h3>Local Leaderboard</h3>
@@ -47,7 +48,7 @@
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
   <script src="scripts/quiz.js"></script>
 </body>

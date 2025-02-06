@@ -8,10 +8,10 @@
 </head>
 <body class="page-home fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
       <!-- Mobile Menu Toggle (Hamburger) -->
-      <div class="menu-toggle" id="menuToggle">
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -24,9 +24,11 @@
         <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
-        <button id="darkModeToggle" class="theme-btn">🌙 Dark Mode</button>
+        <li>
+          <button id="darkModeToggle" class="theme-btn" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+        </li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
@@ -67,7 +69,7 @@
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
 
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -30,16 +30,13 @@
       const questionBlock = document.createElement("div");
       questionBlock.classList.add("question-block");
       questionBlock.style.marginBottom = "20px";
-
       const questionText = document.createElement("h4");
       questionText.textContent = `Q${index + 1}: ${q.text}`;
       questionBlock.appendChild(questionText);
-
       q.options.forEach((option, optIndex) => {
         const label = document.createElement("label");
         label.style.display = "block";
         label.style.marginLeft = "20px";
-
         const radio = document.createElement("input");
         radio.type = "radio";
         radio.name = `question-${index}`;
@@ -76,7 +73,6 @@
   function submitQuiz() {
     if (!quizStarted) return;
     clearInterval(quizInterval);
-
     let score = 0;
     questionBank.forEach((q, index) => {
       const radios = document.getElementsByName(`question-${index}`);
@@ -89,39 +85,14 @@
       }
       if (selected === q.correctIndex) score++;
     });
-
     const quizResult = document.getElementById("quiz-result");
     quizResult.textContent = `You scored ${score} out of ${questionBank.length}.`;
     const finalTime = document.getElementById("quiz-timer").textContent.replace("Time: ", "");
     let userName = prompt("Enter your name for the scoreboard:", "Anonymous") || "Anonymous";
-
     scoreboard.push({ name: userName, score, time: finalTime });
     localStorage.setItem("wecodeQuizScoreboard", JSON.stringify(scoreboard));
     showLeaderboard();
   }
 
   function showLeaderboard() {
-    const leaderboardDiv = document.getElementById("leaderboard");
-    const leaderboardEntries = document.getElementById("leaderboard-entries");
-    if (!leaderboardDiv || !leaderboardEntries) return;
-
-    leaderboardDiv.style.display = "block";
-    scoreboard.sort((a, b) => b.score - a.score);
-    leaderboardEntries.innerHTML = "";
-    scoreboard.forEach((entry, idx) => {
-      const row = document.createElement("div");
-      row.style.display = "flex";
-      row.style.justifyContent = "space-between";
-      row.style.margin = "6px 0";
-      row.innerHTML = `<span>${idx + 1}. ${entry.name}</span>
-                       <span>Score: ${entry.score} | Time: ${entry.time}</span>`;
-      leaderboardEntries.appendChild(row);
-    });
-  }
-
-  // Attach event listeners on DOMContentLoaded.
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("start-quiz").addEventListener("click", startQuiz);
-    document.getElementById("submit-quiz").addEventListener("click", submitQuiz);
-  });
-})();
+    cons

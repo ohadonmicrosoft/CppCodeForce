@@ -8,8 +8,13 @@
 </head>
 <body class="page-exercises fade-in">
   <header>
-    <div class="nav-container">
+    <nav class="nav-container" role="navigation" aria-label="Main Navigation">
       <div class="brand-area">Ohad’s WeCode</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="progress.html" class="nav-link">Progress</a></li>
@@ -19,7 +24,7 @@
         <!-- Removed Diagrams and Interview Simulator -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main class="page-content">
@@ -27,8 +32,7 @@
     <p class="subtitle">
       Explore interactive modules presented as cards! Click a module to open it.
     </p>
-
-    <!-- Grid Layout for Module Cards -->
+    <!-- Modules Grid Layout -->
     <div class="modules-grid">
       <div class="course-module card">
         <h2>Module 1</h2>
@@ -71,8 +75,7 @@
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
-
-  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">▲</button>
   <script src="scripts/main.js"></script>
 </body>
 </html>
