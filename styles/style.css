@@ -6,21 +6,18 @@
  * 2) Slightly smaller headings to avoid overlap with header.
  * 3) Sticky notes on exercises with no overlap or off‑screen cutting.
  * 4) Thicker 3px border on cards, with red glow accent (#FF7F7F).
- * 5) Use “Fredoka One” (rounded, fillable) for headings and
- *    “ADLaM Display” for nav/body text.
- * 6) Single theme for all pages: home, exercises, resources, progress, portfolio,
- *    resume, quiz, diagrams, and interview simulator.
+ * 5) Use “Fredoka One” (rounded, fillable) for headings and “ADLaM Display” for nav/body text.
+ * 6) Single theme for all pages: home, exercises, resources, progress, portfolio, resume, quiz, diagrams, and interview simulator.
  * 
  * Advanced Improvements Added:
- * - Code formatting hints (comments, consistent indenting)
+ * - Code formatting hints (consistent comments and indenting)
  * - Responsive and accessible design enhancements with ARIA labels
- * - Microinteractions (hover, fade‑in, slide‑up)
+ * - Microinteractions (hover, fade‑in, slide‑up) and smooth scroll‑to‑top animations
  * - Live preview & documentation modal for the IDE page
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=ADLaM+Display:wght@400;600&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +33,7 @@ html {
   --font-heading: 'Fredoka One', cursive;
   --font-body: 'ADLaM Display', sans-serif;
   --text-color: #3B3B3B;
-  --heading-color: #2A2A2A;
+  --heading-color: #2A2B2A;
   --accent-color: #FF7F7F;
   --accent-hover: #FF5B5B;
   --neon-color: rgba(255,127,127, 0.35);
@@ -63,7 +60,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   color: var(--heading-color);
@@ -73,7 +69,6 @@ h1, h2, h3, h4, h5 {
 h1 { font-size: 2.4rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.4rem; }
-
 .subtitle {
   font-size: 1.1rem;
   margin-bottom: 1em;
@@ -236,8 +231,8 @@ header {
   animation: fadeIn 1s forwards;
 }
 @keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:1; }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 .slide-up {
   opacity: 0;
@@ -245,8 +240,8 @@ header {
   animation: slideUp 1s ease forwards;
 }
 @keyframes slideUp {
-  0% { opacity:0; transform: translateY(40px); }
-  100% { opacity:1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ============ 7) PAGE-SPECIFIC ============ */
@@ -477,10 +472,9 @@ header {
 .ide-controls button:hover {
   background: var(--accent-hover);
 }
-
-/* Documentation Modal (for Live Preview & Documentation) */
+/* Documentation Modal */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;

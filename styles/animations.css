@@ -2,25 +2,25 @@
  * animations.css - Sunset Style
  *************************************************************/
 
-/* Fade-in for body load */
+/* Fade‑in for body load */
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s forwards;
 }
 @keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:1; }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* Hero slide-in from below */
+/* Hero slide‑in from below */
 .hero-slide-in {
   opacity: 0;
   transform: translateY(30px);
   animation: heroSlide 1s ease forwards;
 }
 @keyframes heroSlide {
-  0%   { opacity:0; transform:translateY(30px); }
-  100% { opacity:1; transform:translateY(0); }
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Fancy underline for headings */

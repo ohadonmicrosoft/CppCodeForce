@@ -29,11 +29,9 @@
       const questionBlock = document.createElement("div");
       questionBlock.classList.add("question-block");
       questionBlock.style.marginBottom = "20px";
-
       const questionText = document.createElement("h4");
       questionText.textContent = `Q${index + 1}: ${q.text}`;
       questionBlock.appendChild(questionText);
-
       q.options.forEach((option, optIndex) => {
         const label = document.createElement("label");
         label.style.display = "block";
@@ -66,6 +64,7 @@
     const minutes = Math.floor(elapsedMs / 60000);
     document.getElementById("quiz-timer").textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
   }
+  
   function pad(num) {
     return num < 10 ? "0" + num : num;
   }
@@ -78,7 +77,10 @@
       const radios = document.getElementsByName(`question-${index}`);
       let selected = null;
       for (let r of radios) {
-        if (r.checked) { selected = parseInt(r.value); break; }
+        if (r.checked) {
+          selected = parseInt(r.value);
+          break;
+        }
       }
       if (selected === q.correctIndex) score++;
     });

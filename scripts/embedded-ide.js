@@ -48,13 +48,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   
-  // Format Code using Prettier
   function formatCode() {
     const code = window.editor.getValue();
-    // Assuming using Prettier standalone and babel parser
     try {
       const formatted = prettier.format(code, {
-        parser: "babel", // C++ may require a different parser; adjust accordingly.
+        parser: "babel", // For C++ you may adjust this parser if needed.
         plugins: prettierPlugins
       });
       window.editor.setValue(formatted);
@@ -63,9 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   
-  // Documentation Modal is handled in the embedded IDE HTML inline script
-  
-  // Attach runCode and formatCode to buttons.
   document.addEventListener("DOMContentLoaded", function() {
     const runBtn = document.getElementById('runCodeBtn');
     if (runBtn) runBtn.addEventListener('click', runCode);
