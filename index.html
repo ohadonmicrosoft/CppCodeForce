@@ -7,75 +7,70 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="page-home fade-in">
-
-<header>
-  <div class="nav-container">
-    <div class="brand-area">Ohad’s WeCode</div>
-    
-    <!-- Mobile Menu Toggle (Hamburger) -->
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">Ohad’s WeCode</div>
+      <!-- Mobile Menu Toggle (Hamburger) -->
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+        <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+        <!-- Updated nav: Add IDE link -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+        <!-- Dark Mode Toggle remains -->
+        <button id="darkModeToggle" class="theme-btn">🌙 Dark Mode</button>
+      </ul>
     </div>
+  </header>
 
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+  <main class="page-content">
+    <section class="hero-section card slide-up">
+      <h1 class="hero-title">Welcome to WeCode</h1>
+      <p class="hero-subtitle">
+        Elevate Your C++ Skills with advanced modules, real-time progress,
+        integrated quizzes, interactive diagrams, and a top-tier UI experience.
+      </p>
+      <a href="exercises.html" class="btn">Get Started</a>
+    </section>
 
-      <!-- 🔥 FIX: Dark Mode Toggle inside the Navbar -->
-      <button id="darkModeToggle" class="theme-btn">🌙 Dark Mode</button>
-    </ul>
-  </div>
-</header>
+    <section class="features fade-in">
+      <div class="feature-card card">
+        <h2>Robust Syllabus</h2>
+        <p>Master concurrency, embedded, memory, and more—targeted for real interviews.</p>
+      </div>
+      <div class="feature-card card">
+        <h2>Hands-On IDE</h2>
+        <p>Practice code in your browser. No setup overhead—just pure learning.</p>
+      </div>
+      <div class="feature-card card">
+        <h2>Progress &amp; Quizzes</h2>
+        <p>Track achievements, run timed quizzes, and see your local leaderboard!</p>
+      </div>
+    </section>
 
-<main class="page-content">
-  <!-- 🔥 FIX: Dark Mode Toggle is now only inside the navbar -->
-  
-  <section class="hero-section card slide-up">
-    <h1 class="hero-title">Welcome to WeCode</h1>
-    <p class="hero-subtitle">
-      Elevate Your C++ Skills with advanced modules, real-time progress,
-      integrated quizzes, interactive diagrams, and a top-tier UI experience.
-    </p>
-    <a href="exercises.html" class="btn">Get Started</a>
-  </section>
+    <section class="cta card fade-in">
+      <h2>Prepare for Your Next Interview</h2>
+      <p class="cta-desc">
+        Join Ohad’s WeCode and gain the competitive edge you need for modern C++ interviews.
+      </p>
+      <a href="exercises.html" class="btn">Explore Modules</a>
+    </section>
+  </main>
 
-  <section class="features fade-in">
-    <div class="feature-card card">
-      <h2>Robust Syllabus</h2>
-      <p>Master concurrency, embedded, memory, and more—targeted for real interviews.</p>
-    </div>
-    <div class="feature-card card">
-      <h2>Hands-On IDE</h2>
-      <p>Practice code in your browser. No setup overhead—just pure learning.</p>
-    </div>
-    <div class="feature-card card">
-      <h2>Progress &amp; Quizzes</h2>
-      <p>Track achievements, run timed quizzes, and see your local leaderboard!</p>
-    </div>
-  </section>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-  <section class="cta card fade-in">
-    <h2>Prepare for Your Next Interview</h2>
-    <p class="cta-desc">
-      Join Ohad’s WeCode and gain the competitive edge you need for modern C++ interviews.
-    </p>
-    <a href="exercises.html" class="btn">Explore Modules</a>
-  </section>
-</main>
-
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
-
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-
-<script src="scripts/main.js"></script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ohad’s WeCode | Exercises</title>
   <link rel="stylesheet" href="styles/style.css">
-  <!-- Interact.js removed since dragging is no longer needed -->
 </head>
 <body class="page-exercises fade-in">
   <header>
@@ -19,6 +18,8 @@
         <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
         <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+        <!-- New IDE link added -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
     </div>
   </header>
@@ -26,53 +27,46 @@
   <main class="page-content">
     <h1>Advanced C++ Interview Syllabus</h1>
     <p class="subtitle">
-      Explore interactive modules presented as 3D tickets! Use the navigation buttons to switch between modules.
+      Explore interactive modules presented as cards! Click a module to open it.
     </p>
 
-    <!-- Carousel Container -->
-    <div class="carousel-container">
-      <!-- Carousel: This element will rotate based on button clicks -->
-      <div class="carousel" id="carousel">
-        <!-- Module Tickets -->
-        <div class="course-module card">
-          <h2>Module 1</h2>
-          <p>Foundations &amp; Modern C++</p>
-          <a href="module1.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 2</h2>
-          <p>Data Structures &amp; Algorithms</p>
-          <a href="module2.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 3</h2>
-          <p>Real-Time &amp; Embedded</p>
-          <a href="module3.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 4</h2>
-          <p>Concurrency &amp; Multithreading</p>
-          <a href="module4.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 5</h2>
-          <p>Memory &amp; Debugging</p>
-          <a href="module5.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 6</h2>
-          <p>Templates &amp; Metaprogramming</p>
-          <a href="module6.html" class="btn">Open</a>
-        </div>
-        <div class="course-module card">
-          <h2>Module 7</h2>
-          <p>System Design &amp; Advanced</p>
-          <a href="module7.html" class="btn">Open</a>
-        </div>
+    <!-- New Grid Layout for Module Cards -->
+    <div class="modules-grid">
+      <div class="course-module card">
+        <h2>Module 1</h2>
+        <p>Foundations &amp; Modern C++</p>
+        <a href="module1.html" class="btn">Open</a>
       </div>
-      <!-- Navigation Buttons -->
-      <button class="nav-button prev-button" id="prevBtn">&larr; Prev</button>
-      <button class="nav-button next-button" id="nextBtn">Next &rarr;</button>
+      <div class="course-module card">
+        <h2>Module 2</h2>
+        <p>Data Structures &amp; Algorithms</p>
+        <a href="module2.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 3</h2>
+        <p>Real-Time &amp; Embedded</p>
+        <a href="module3.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 4</h2>
+        <p>Concurrency &amp; Multithreading</p>
+        <a href="module4.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 5</h2>
+        <p>Memory &amp; Debugging</p>
+        <a href="module5.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 6</h2>
+        <p>Templates &amp; Metaprogramming</p>
+        <a href="module6.html" class="btn">Open</a>
+      </div>
+      <div class="course-module card">
+        <h2>Module 7</h2>
+        <p>System Design &amp; Advanced</p>
+        <a href="module7.html" class="btn">Open</a>
+      </div>
     </div>
   </main>
 
@@ -82,6 +76,5 @@
 
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
   <script src="scripts/main.js"></script>
-  <script src="scripts/carousel.js"></script>
 </body>
 </html>

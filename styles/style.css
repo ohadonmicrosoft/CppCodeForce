@@ -315,7 +315,7 @@ header {
   text-align: center;
 }
 
-/* EXERCISES (.page-exercises) - Original sticky notes layout */
+/* EXERCISES (.page-exercises) - Updated Grid Layout */
 .page-exercises h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -323,16 +323,16 @@ header {
 .page-exercises .subtitle {
   margin-bottom: 30px;
 }
-.page-exercises .modules-grid {
-  position: relative;
-  width: 100%;
-  height: 700px; /* Enough space for notes, can adjust in media queries */
-  overflow: hidden;
-  margin-bottom: 40px;
+/* New Modules Grid Layout */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin: 20px 0;
+  padding: 0 10px;
 }
 .page-exercises .course-module {
-  position: absolute;
-  width: 220px;
+  /* Retain card styles */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -480,6 +480,49 @@ header {
   margin: 6px 0;
 }
 
+/* ============ NEW: Embedded Advanced IDE Page Styles ============ */
+
+/* Monaco Editor Container */
+#ideContainer {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Output Console */
+#output {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  padding: 10px;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* IDE Controls */
+.ide-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ide-controls button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.ide-controls button:hover {
+  background: var(--accent-hover);
+}
+
+
 /* FOOTER */
 footer {
   margin-top: 60px;
@@ -549,7 +592,7 @@ footer {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   .page-exercises .modules-grid {
-    height: auto; /* Let flex container adjust height */
+    height: auto; /* Let grid container adjust height */
   }
 }
 
@@ -565,94 +608,4 @@ footer {
   }
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.4rem; }
-}
-
-
-/* ----- NEW: 3D Ticket Carousel with Manual Navigation ----- */
-
-/* Carousel Container: centers the carousel on the page */
-.carousel-container {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 40px auto;
-  perspective: 1000px;
-}
-
-/* Carousel: this element will be rotated via JavaScript */
-.carousel {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
-}
-
-/* Style each ticket within the carousel */
-.carousel .course-module {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px; /* Adjust ticket width as needed */
-  transform-origin: center center;
-  /* Merge with your card styles */
-  background: var(--card-bg);
-  border: var(--card-border-size) solid var(--card-border);
-  border-radius: var(--border-radius);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  padding: 24px;
-  transition: transform 0.4s, box-shadow 0.4s;
-  text-align: center;
-}
-.carousel .course-module:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-}
-
-/* Arrange the tickets evenly around a circle (for 7 tickets, ~360/7 ≈ 51.43° apart) */
-.carousel .course-module:nth-child(1) {
-  transform: rotate(0deg) translate(200px) rotate(0deg);
-}
-.carousel .course-module:nth-child(2) {
-  transform: rotate(51.43deg) translate(200px) rotate(-51.43deg);
-}
-.carousel .course-module:nth-child(3) {
-  transform: rotate(102.86deg) translate(200px) rotate(-102.86deg);
-}
-.carousel .course-module:nth-child(4) {
-  transform: rotate(154.29deg) translate(200px) rotate(-154.29deg);
-}
-.carousel .course-module:nth-child(5) {
-  transform: rotate(205.72deg) translate(200px) rotate(-205.72deg);
-}
-.carousel .course-module:nth-child(6) {
-  transform: rotate(257.15deg) translate(200px) rotate(-257.15deg);
-}
-.carousel .course-module:nth-child(7) {
-  transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
-}
-
-/* Navigation Buttons */
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 4px;
-  z-index: 10;
-  transition: background 0.3s;
-}
-.nav-button:hover {
-  background: var(--accent-hover);
-}
-.prev-button {
-  left: -80px; /* Adjust as needed */
-}
-.next-button {
-  right: -80px; /* Adjust as needed */
 }

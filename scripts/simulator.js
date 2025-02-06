@@ -1,9 +1,11 @@
 /*************************************************************
  * simulator.js
- * Timed Q&A approach for interview simulation
+ * - Implements a timed Q&A interview simulation.
+ * - Cycles through questions with a countdown timer.
+ * - Updates local leaderboard and displays a final message.
  *************************************************************/
-
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const questions = [
       { text: "Explain RAII in C++ and its importance." },
       { text: "How do you implement BFS on an adjacency list graph?" },
@@ -67,4 +69,4 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
   });
-  
+})();

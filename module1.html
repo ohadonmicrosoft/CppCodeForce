@@ -8,72 +8,74 @@
   <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body class="page-module fade-in">
-<header>
-  <div class="nav-container">
-    <div class="brand-area">
-      <span class="brand-title">Ohad’s WeCode</span>
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <span class="brand-title">Ohad’s WeCode</span>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="exercises.html" class="nav-link">Exercises</a></li>
+        <li><a href="progress.html" class="nav-link">Progress</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+        <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
+        <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
+        <!-- New IDE link -->
+        <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
+      </ul>
     </div>
-    <div class="menu-toggle" id="menuToggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="exercises.html" class="nav-link">Exercises</a></li>
-      <li><a href="progress.html" class="nav-link">Progress</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="quiz.html" class="nav-link">Quiz</a></li>
-      <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
-      <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-    </ul>
-  </div>
-</header>
+  </header>
 
-<main class="page-content">
-  <section class="card fade-in">
-    <h1>Module 1: Foundations &amp; Modern C++</h1>
-    <p>This module covers essential modern C++ techniques—including RAII, smart pointers, and lambdas.</p>
-    <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
-    <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
-      <div class="timeline-step">Step 1: RAII Overview</div>
-      <div class="timeline-step">Step 2: Smart Pointers &amp; Move Semantics</div>
-      <div class="timeline-step">Step 3: Lambdas &amp; STL Algorithms</div>
-    </div>
-    <hr style="margin:20px 0;"/>
+  <main class="page-content">
+    <section class="card fade-in">
+      <h1>Module 1: Foundations &amp; Modern C++</h1>
+      <p>This module covers essential modern C++ techniques—including RAII, smart pointers, and lambdas.</p>
+      <button class="btn" onclick="toggleTimeline()">Toggle Lesson Timeline</button>
+      <div class="module-timeline" id="moduleTimeline" style="margin-top:15px;">
+        <div class="timeline-step">Step 1: RAII Overview</div>
+        <div class="timeline-step">Step 2: Smart Pointers &amp; Move Semantics</div>
+        <div class="timeline-step">Step 3: Lambdas &amp; STL Algorithms</div>
+      </div>
+      <hr style="margin:20px 0;"/>
 
-    <h2>Lesson 1: RAII &amp; Constructors</h2>
-    <p>Create a <code>FileWrapper</code> class that opens a file in its constructor and closes it in the destructor, handling errors gracefully.</p>
-    <button class="btn" onclick="openExternalIDE('M1L1')">Open IDE for Lesson 1</button>
-    <hr style="margin:20px 0;"/>
+      <h2>Lesson 1: RAII &amp; Constructors</h2>
+      <p>Create a <code>FileWrapper</code> class that opens a file in its constructor and closes it in the destructor, handling errors gracefully.</p>
+      <button class="btn" onclick="openExternalIDE('M1L1')">Open IDE for Lesson 1</button>
+      <hr style="margin:20px 0;"/>
 
-    <h2>Lesson 2: Smart Pointers &amp; Move Semantics</h2>
-    <p>Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and move semantics to manage resources effectively, avoiding leaks.</p>
-    <button class="btn" onclick="openExternalIDE('M1L2')">Open IDE for Lesson 2</button>
-    <hr style="margin:20px 0;"/>
+      <h2>Lesson 2: Smart Pointers &amp; Move Semantics</h2>
+      <p>Use <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and move semantics to manage resources effectively, avoiding leaks.</p>
+      <button class="btn" onclick="openExternalIDE('M1L2')">Open IDE for Lesson 2</button>
+      <hr style="margin:20px 0;"/>
 
-    <h2>Lesson 3: Lambdas &amp; STL Algorithms</h2>
-    <p>Leverage lambdas for concise code with STL (e.g., <code>std::remove_if</code>) and explore different capture modes.</p>
-    <button class="btn" onclick="openExternalIDE('M1L3')">Open IDE for Lesson 3</button>
-  </section>
-</main>
+      <h2>Lesson 3: Lambdas &amp; STL Algorithms</h2>
+      <p>Leverage lambdas for concise code with STL (e.g., <code>std::remove_if</code>) and explore different capture modes.</p>
+      <button class="btn" onclick="openExternalIDE('M1L3')">Open IDE for Lesson 3</button>
+    </section>
+  </main>
 
-<footer>
-  © 2025 Ohad’s WeCode. All rights reserved.
-</footer>
+  <footer>
+    © 2025 Ohad’s WeCode. All rights reserved.
+  </footer>
 
-<button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
-<script src="scripts/main.js"></script>
-<script>
-function toggleTimeline(){
-  const timeline = document.getElementById("moduleTimeline");
-  if(timeline) timeline.classList.toggle("show");
-}
-function openExternalIDE(lessonID) {
-  const url = getWandboxLink(lessonID);
-  window.open(url, "_blank");
-}
-</script>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+  <script src="scripts/main.js"></script>
+  <script>
+    function toggleTimeline(){
+      const timeline = document.getElementById("moduleTimeline");
+      if(timeline) timeline.classList.toggle("show");
+    }
+    function openExternalIDE(lessonID) {
+      const url = getWandboxLink(lessonID);
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>

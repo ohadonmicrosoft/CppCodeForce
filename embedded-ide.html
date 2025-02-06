@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ohad’s WeCode | Quiz</title>
+  <title>Ohad’s WeCode | Embedded IDE</title>
   <link rel="stylesheet" href="styles/style.css">
+  <!-- Load Monaco Editor via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs/loader.js"></script>
 </head>
-<body class="page-quiz fade-in">
+<body class="page-ide fade-in">
+  <!-- HEADER: using your original header -->
   <header>
     <div class="nav-container">
       <div class="brand-area">Ohad’s WeCode</div>
@@ -16,41 +19,46 @@
         <li><a href="progress.html" class="nav-link">Progress</a></li>
         <li><a href="resources.html" class="nav-link">Resources</a></li>
         <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
         <li><a href="diagrams.html" class="nav-link">Diagrams</a></li>
         <li><a href="interview-simulator.html" class="nav-link">Simulator</a></li>
-        <!-- New IDE link added -->
+        <!-- Link to the IDE page itself -->
         <li><a href="embedded-ide.html" class="nav-link">IDE</a></li>
       </ul>
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="page-content">
-    <section class="card" style="max-width:800px; margin:0 auto;">
-      <h1>Interview Quiz</h1>
-      <p id="quiz-intro">
-        Test your C++ knowledge with a lesson-based quiz, featuring a timer and local
-        leaderboard!
-      </p>
-      <div class="quiz-timer" id="quiz-timer">Time: 00:00</div>
+    <h1>Embedded Advanced Code Editor</h1>
+    <p class="subtitle">
+      Write, run, and debug your C++ code directly in your browser!
+    </p>
 
-      <div id="quiz-container" class="quiz-container"></div>
+    <!-- Monaco Editor Container -->
+    <div id="ideContainer"></div>
 
-      <button id="start-quiz" class="btn">Start Quiz</button>
-      <button id="submit-quiz" class="btn" style="display:none; margin-left:10px;">Submit Quiz</button>
+    <!-- Run Code Controls -->
+    <div class="ide-controls">
+      <button id="runCodeBtn" class="btn">Run Code</button>
+    </div>
 
-      <div id="quiz-result" style="margin-top:20px; font-weight:600;"></div>
-      <div class="leaderboard" id="leaderboard" style="display:none; margin-top:20px;">
-        <h3>Local Leaderboard</h3>
-        <div id="leaderboard-entries"></div>
-      </div>
-    </section>
+    <!-- Output Console -->
+    <h2>Output</h2>
+    <div id="output">Your program output will appear here...</div>
   </main>
 
+  <!-- FOOTER: using your original footer -->
   <footer>
     © 2025 Ohad’s WeCode. All rights reserved.
   </footer>
+
+  <!-- Scroll-to-top Button (as in your original code) -->
   <button id="scrollToTopBtn" class="scroll-to-top-btn">▲</button>
+
+  <!-- Global JS (e.g., main.js for scroll-to-top, dark mode, etc.) -->
   <script src="scripts/main.js"></script>
-  <script src="scripts/quiz.js"></script>
+  <!-- Embedded IDE JS -->
+  <script src="scripts/embedded-ide.js"></script>
 </body>
 </html>
