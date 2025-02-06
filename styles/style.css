@@ -1,5 +1,5 @@
 /*************************************************************
- * style.css - Pastel Peach/Pink Theme (Enhanced Edition)
+ * style.css - Pastel Peach/Pink Theme (Enhanced Edition with Delicate Animations)
  * 
  * Requirements Met:
  * 1) Brand on the left, nav on the right.
@@ -16,7 +16,7 @@
  * - Smooth scroll‑to‑top animations.
  * - Live preview & documentation modal for the IDE page.
  * - Use of CSS clamp(), Grid, Flexbox, and backdrop-filter for a premium, responsive design.
- * - Additional subtle graphical enhancements (dynamic shadows, refined transitions, and interactive focus effects).
+ * - Additional delicate animations to bring the site alive.
  *************************************************************/
 
 /* ============ 1) RESET & FONT IMPORTS ============ */
@@ -89,7 +89,14 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
+  /* Subtle entrance animation for overall content */
+  animation: contentFadeIn 1.2s ease-out forwards;
 }
+@keyframes contentFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   color: var(--heading-color);
@@ -115,6 +122,12 @@ header {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Slide down animation when page loads */
+  animation: headerSlideDown 0.8s ease-out forwards;
+}
+@keyframes headerSlideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 .nav-container {
   display: flex;
@@ -135,6 +148,12 @@ header {
   justify-content: flex-end;
   gap: 30px;
   text-align: right;
+  /* New subtle fade-in for nav items */
+  animation: navFadeIn 0.8s ease-out forwards;
+}
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .nav-link {
   text-decoration: none;
@@ -182,6 +201,19 @@ header {
   padding: 24px;
   position: relative;
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border var(--transition-speed) ease;
+  /* Subtle pulse on hover to emphasize interactivity */
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: var(--card-border-size) solid var(--card-border-hover);
+  animation: cardPulse 1s ease-out forwards;
+}
+@keyframes cardPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 .card::before {
   content: "";
@@ -197,11 +229,6 @@ header {
 }
 .card:hover::before {
   opacity: 1;
-}
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  border: var(--card-border-size) solid var(--card-border-hover);
 }
 .ticket-text {
   font-size: clamp(0.9rem, 1vw + 0.8rem, 0.95rem);
@@ -225,6 +252,13 @@ header {
   background: var(--accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(255, 127, 127, 0.4);
+  /* New subtle bounce effect on hover */
+  animation: btnBounce 0.6s ease-out;
+}
+@keyframes btnBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
 }
 .icon-btn {
   display: inline-block;
@@ -267,11 +301,32 @@ header {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Additional Delicate Animations */
+/* A gentle floating effect for key sections */
+.float {
+  animation: floatAnim 4s ease-in-out infinite;
+}
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* A subtle glow effect on focus */
+.focus-glow:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
 /* ============ 7) PAGE-SPECIFIC STYLES ============ */
 /* HOME PAGE */
 .page-home .hero-section {
   margin-top: 40px;
   text-align: center;
+  animation: heroSlide 1s ease-out forwards;
+}
+@keyframes heroSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .page-home .hero-title {
   font-size: clamp(2rem, 3vw + 1rem, 2.4rem);
@@ -292,6 +347,10 @@ header {
 .page-home .feature-card {
   width: 280px;
   text-align: center;
+  transition: transform 0.5s ease;
+}
+.page-home .feature-card:hover {
+  transform: translateY(-3px);
 }
 .page-home .cta {
   max-width: 700px;
@@ -319,6 +378,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  /* Apply floating effect to course modules */
+  animation: floatAnim 4s ease-in-out infinite;
 }
 
 /* RESOURCES */
@@ -574,6 +635,12 @@ footer {
     left: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
+    /* Slide in animation for mobile menu */
+    animation: menuSlideIn 0.5s ease-out;
+  }
+  @keyframes menuSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   .nav-menu.show {
     display: flex;
