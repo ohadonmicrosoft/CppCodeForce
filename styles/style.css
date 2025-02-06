@@ -567,9 +567,10 @@ footer {
   h2 { font-size: 1.4rem; }
 }
 
-//* ----- NEW: 3D Spinning Ticket Carousel with Navigation ----- */
 
-/* Carousel container to hold the spinning carousel and navigation */
+/* ----- NEW: 3D Spinning Ticket Carousel with Navigation ----- */
+
+/* Container for the carousel; centers the carousel on the page */
 .carousel-container {
   position: relative;
   width: 500px;
@@ -578,7 +579,7 @@ footer {
   perspective: 1000px;
 }
 
-/* The carousel that holds all the module tickets arranged in a circle */
+/* The carousel itself that will rotate based on user input */
 .carousel {
   position: absolute;
   width: 100%;
@@ -587,14 +588,14 @@ footer {
   transition: transform 1s ease;
 }
 
-/* Style each ticket (override any previous absolute/flex rules for modules) */
+/* Style each ticket within the carousel */
 .carousel .course-module {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px; /* Ticket width (adjust as needed) */
+  width: 200px;  /* Adjust ticket width as needed */
   transform-origin: center center;
-  /* Additional 3D ticket styling (can be merged with your .card styles) */
+  /* Merge with existing card styles if needed */
   background: var(--card-bg);
   border: var(--card-border-size) solid var(--card-border);
   border-radius: var(--border-radius);
@@ -602,14 +603,15 @@ footer {
   padding: 24px;
   transition: transform 0.4s, box-shadow 0.4s;
   text-align: center;
-  /* Ensure internal elements (h2, p, etc.) inherit properly */
 }
+
+/* Optional hover effect for each ticket */
 .carousel .course-module:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
-/* Arrange the tickets evenly around the circle (7 tickets → 360/7 ≈ 51.43° apart) */
+/* Position the tickets around a circle (for 7 modules, 360/7 ≈ 51.43° apart) */
 .carousel .course-module:nth-child(1) {
   transform: rotate(0deg) translate(200px) rotate(0deg);
 }
@@ -632,7 +634,7 @@ footer {
   transform: rotate(308.58deg) translate(200px) rotate(-308.58deg);
 }
 
-/* Navigation buttons for the carousel */
+/* Navigation Buttons */
 .nav-button {
   position: absolute;
   top: 50%;
@@ -651,8 +653,8 @@ footer {
   background: var(--accent-hover);
 }
 .prev-button {
-  left: -80px; /* adjust as needed */
+  left: -80px; /* Adjust spacing as needed */
 }
 .next-button {
-  right: -80px; /* adjust as needed */
+  right: -80px; /* Adjust spacing as needed */
 }
